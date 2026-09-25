@@ -8,7 +8,7 @@ from dishka import Provider, Scope, ValidationSettings, provide
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
-from vld.core.config import CorsSettings, DatabaseSettings, RedisSettings
+from vld.core.config import DatabaseSettings, RedisSettings
 from vld.core.database import (
     SqlAlchemyUnitOfWork,
     UnitOfWork,
@@ -44,16 +44,6 @@ class CoreProvider(Provider):
 
         """
         return RedisSettings()  # pyright: ignore[reportCallIssue]
-
-    @provide(scope=Scope.APP)
-    def cors_settings(self) -> CorsSettings:
-        """Read the trusted browser origins.
-
-        Returns:
-            CorsSettings - Settings from `MIDDLEWARE_CORS_*`.
-
-        """
-        return CorsSettings()  # pyright: ignore[reportCallIssue]
 
     @provide(scope=Scope.APP)
     async def engine(self, settings: DatabaseSettings) -> AsyncIterator[AsyncEngine]:
