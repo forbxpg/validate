@@ -6,27 +6,17 @@ src = ["packages/*/src", "packages/*/tests", "apps/*/src", "apps/*/tests"]
 
 [lint]
 select = ["ALL"]
-# Preview rules and fixes too: new checks land there first.
 preview = true
-# Annotation-only imports move under `if TYPE_CHECKING`, fixed by the future import.
 future-annotations = true
 ignore = [
     "single-line-implicit-string-concatenation",
-    # The formatter places trailing commas itself; ruff advises against this rule with it.
     "missing-trailing-comma",
-    # pydocstyle pairs that exclude each other: keep no-blank-line-before-class and
-    # multi-line-summary-first-line.
     "incorrect-blank-line-before-class",
     "multi-line-summary-second-line",
-    # Conventions: the class docstring covers __init__; packages document themselves
-    # in __init__ only when they have something to say; no per-file copyright header.
     "undocumented-public-init",
     "undocumented-public-package",
     "missing-copyright-notice",
-    # FastAPI runs a sync handler in a thread pool, so `async` without `await` is
-    # how a route or dependency stays on the event loop.
     "unused-async",
-    # Registry data, GOST output and the interface are Russian text.
     "ambiguous-unicode-character-string",
     "ambiguous-unicode-character-docstring",
     "ambiguous-unicode-character-comment",
