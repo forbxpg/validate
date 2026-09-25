@@ -45,7 +45,7 @@ def _violates(exc: IntegrityError, sqlstate: str, constraint_name: str) -> bool:
     Returns:
         bool - Whether the code and name matched.
 
-    """
+    """  # ruff: ignore[line-too-long]
     if _attr_in_chain(exc.orig, "sqlstate") != sqlstate:
         return False
     constraint = _attr_in_chain(exc.orig, "constraint_name")

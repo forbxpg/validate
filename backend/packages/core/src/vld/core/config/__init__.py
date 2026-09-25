@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._admin import AdminSettings, get_admin_settings
 from ._base_url import normalized_base_url
 from ._broker import BrokerSettings
 from ._database import DatabaseSettings, get_database_settings
@@ -12,12 +13,14 @@ from ._security import MIN_JWT_SECRET_BYTES, SecuritySettings, get_security_sett
 
 __all__ = (
     "MIN_JWT_SECRET_BYTES",
+    "AdminSettings",
     "BrokerSettings",
     "DatabaseSettings",
     "FrontendSettings",
     "ObservabilitySettings",
     "RedisSettings",
     "SecuritySettings",
+    "get_admin_settings",
     "get_database_settings",
     "get_frontend_settings",
     "get_observability_settings",
