@@ -1,16 +1,14 @@
 [project]
 name = "vld-crossref"
 version = "0.1.0"
-description = "Crossref API client."
+description = "Crossref API client: errors and the retry policy."
 readme = "README.md"
-authors = [
-    { name = "forbxpg", email = "dwizard80@gmail.com" }
-]
 requires-python = ">=3.13"
 dependencies = [
     "vld-core",
 ]
-
+# Internal to the workspace: PyPI refuses an upload with this classifier.
+classifiers = ["Private :: Do Not Upload"]
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
