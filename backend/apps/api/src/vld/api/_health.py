@@ -105,7 +105,7 @@ async def _answers(name: str, check: Awaitable[object]) -> bool:
     try:
         async with asyncio.timeout(_CHECK_TIMEOUT_SECONDS):
             _ = await check
-    except Exception:  # ruff: ignore[blind-except]
+    except Exception:  # ruff: ignore[blind-except] -- a probe reports, it never fails
         _log.warning("readiness_check_failed", dependency=name, exc_info=True)
         return False
     return True
