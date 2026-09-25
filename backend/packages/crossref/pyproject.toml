@@ -1,0 +1,23 @@
+[project]
+name = "vld-crossref"
+version = "0.1.0"
+description = "Crossref API client."
+readme = "README.md"
+authors = [
+    { name = "forbxpg", email = "dwizard80@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "vld-core",
+]
+
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vld.crossref"
+
+[tool.uv.sources]
+vld-core = { workspace = true }

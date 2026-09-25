@@ -11,6 +11,7 @@ members = [
     "validate-backend",
     "vld-api",
     "vld-core",
+    "vld-crossref",
     "vld-migrator",
     "vld-web",
 ]
@@ -1143,6 +1144,17 @@ requires-dist = [
     { name = "sqlalchemy", extras = ["asyncio"], specifier = ">=2.1.0,<3.0.0" },
     { name = "structlog", specifier = ">=26.1.0,<27.0.0" },
 ]
+
+[[package]]
+name = "vld-crossref"
+version = "0.1.0"
+source = { editable = "packages/crossref" }
+dependencies = [
+    { name = "vld-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "vld-core", editable = "packages/core" }]
 
 [[package]]
 name = "vld-migrator"
