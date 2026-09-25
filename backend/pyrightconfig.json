@@ -33,6 +33,13 @@
       "reportUnknownMemberType": false,
       "reportUnusedCallResult": false
     },
+    {
+      "root": "apps/migrator/tests",
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
     { "root": "packages" },
     { "root": "apps" }
   ]

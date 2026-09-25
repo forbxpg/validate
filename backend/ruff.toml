@@ -42,6 +42,11 @@ runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.i
 # dishka always finalizes a generator provider, so a yield inside `async with` is safe.
 "**/di.py" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
 "**/di/**" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
+"apps/migrator/src/vld/migrator/ops.py" = ["hardcoded-sql-expression"]
+"apps/migrator/src/vld/migrator/_backup.py" = [
+    "subprocess-without-shell-equals-true",
+    "suspicious-subprocess-import",
+]
 # FastAPI resolves the annotations of routes and dependencies at runtime: a `Request`
 # moved under `if TYPE_CHECKING` turns into a query parameter and every call gets 422.
 "packages/web/src/vld/web/access/**" = [
