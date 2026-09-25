@@ -54,5 +54,5 @@ forbidden_modules = ["vld.web", "fastapi", "starlette", "fastapi_pagination"]
 [[tool.importlinter.contracts]]
 name = "Packages never import apps"
 type = "forbidden"
-source_modules = ["vld.core", "vld.web"]
-forbidden_modules = ["vld.api"]
+source_modules = ["vld.core", "vld.web", "vld.crossref"]
+forbidden_modules = ["vld.api", "vld.migrator"]
