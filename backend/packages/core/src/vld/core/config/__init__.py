@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._base import settings_config
 from ._cors import CorsSettings
 from ._database import DatabaseSettings
 from ._observability import ObservabilitySettings
@@ -12,4 +13,5 @@ __all__ = (
     "DatabaseSettings",
     "ObservabilitySettings",
     "RedisSettings",
+    "settings_config",
 )

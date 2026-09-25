@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import uuid
 
-from sqlalchemy import BigInteger, text
+from sqlalchemy import BigInteger, Identity, text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -35,6 +35,6 @@ class BigIntPkMixin:
 
     id: Mapped[int] = mapped_column(
         BigInteger,
+        Identity(),
         primary_key=True,
-        autoincrement=True,
     )
