@@ -20,7 +20,11 @@ class PostgresEnum:
     metadata: MetaData
 
     def __init__(
-        self, enum_cls: type[StrEnum], name: str, *, metadata: MetaData
+        self,
+        enum_cls: type[StrEnum],
+        name: str,
+        *,
+        metadata: MetaData,
     ) -> None:
         self.enum_cls = enum_cls
         self.name = name
