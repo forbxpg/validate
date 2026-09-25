@@ -45,7 +45,7 @@ runtime-evaluated-base-classes = [
     "pydantic.BaseModel",
     "pydantic_settings.BaseSettings",
 ]
-runtime-evaluated-decorators = ["dishka.provide"]
+runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.inject"]
 
 [lint.per-file-ignores]
 # dishka providers are methods by design, even when they do not use `self`, and
