@@ -1,51 +1,64 @@
-"""Decorators for Crossref async API client."""
+"""Decorators for the Crossref async API client."""
 
 from __future__ import annotations
 
 import asyncio
 import functools
-from typing import TYPE_CHECKING, ParamSpec, TypeVar
+from typing import TYPE_CHECKING
 
-from ._errors import CrossrefClientError
+from ._errors import (
+    CrossrefRateLimitError,
+    CrossrefRequestTimeoutError,
+    CrossrefServerError,
+)
 
 if TYPE_CHECKING:
     from collections.abc import Awaitable, Callable
-    from types import CoroutineType
 
-P = ParamSpec("P")
-T = TypeVar("T")
+TRANSIENT_ERRORS: tuple[type[Exception], ...] = (
+    CrossrefRateLimitError,
+    CrossrefRequestTimeoutError,
+    CrossrefServerError,
+)
+"""Errors that another call may not repeat: rate limit, timeout, 5xx."""
 
 
-def retry(
-    max_retries: int = 3,
-    delay: float = 1.0,
-    exceptions: tuple[type[Exception]] = (Exception,),
-) -> Callable[
-    [Callable[P, Awaitable[T]]],
-    Callable[P, CoroutineType[object, object, T]],
-]:
-    """Retry decorator.
+def retry[**P, T](
+    attempts: int = 3,
+    delay_seconds: float = 1.0,
+    errors: tuple[type[Exception], ...] = TRANSIENT_ERRORS,
+) -> Callable[[Callable[P, Awaitable[T]]], Callable[P, Awaitable[T]]]:
+    """Call an async function again when it fails with a transient error.
+
+    The last error is raised as it is, so its type still tells a timeout from a
+    rate limit; any other error is raised at once, without another call.
+
+    Args:
+        attempts: int - Calls in total, the first one included.
+        delay_seconds: float - Pause between two calls.
+        errors: tuple[type[Exception], ...] - Errors worth another call.
 
     Returns:
-        The returned value.
+        Callable[[Callable[P, Awaitable[T]]], Callable[P, Awaitable[T]]] - The
+            decorator.
+
+    Raises:
+        ValueError: If `attempts` is below 1.
 
     """
+    if attempts < 1:
+        msg = "attempts must be at least 1"
+        raise ValueError(msg)
 
-    def decorator(
-        func: Callable[P, Awaitable[T]],
-    ) -> Callable[P, CoroutineType[object, object, T]]:
+    def decorator(func: Callable[P, Awaitable[T]]) -> Callable[P, Awaitable[T]]:
         @functools.wraps(func)
         async def wrapper(*args: P.args, **kwargs: P.kwargs) -> T:
-            last_exception = None
-            for _ in range(max_retries):
+            for _ in range(attempts - 1):
                 try:
                     return await func(*args, **kwargs)
-                except exceptions as exc:
-                    last_exception = exc
-                    await asyncio.sleep(delay)
-
-            msg = f"Не удалось выполнить запрос после {max_retries} попыток"
-            raise CrossrefClientError(msg) from last_exception
+                except errors:
+                    await asyncio.sleep(delay_seconds)
+            return await func(*args, **kwargs)
 
         return wrapper
 
