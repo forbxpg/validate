@@ -6,6 +6,7 @@ from ._action import AuditAction
 from ._entry import AuditEntry
 from ._port import AuditLog
 from ._query import AuditPage, AuditQuery, AuditRecord
+from ._sqlalchemy import SqlAlchemyAuditLog, SqlAlchemyAuditQuery
 
 __all__ = (
     "AuditAction",
@@ -14,4 +15,6 @@ __all__ = (
     "AuditPage",
     "AuditQuery",
     "AuditRecord",
+    "SqlAlchemyAuditLog",
+    "SqlAlchemyAuditQuery",
 )
