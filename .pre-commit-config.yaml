@@ -1,0 +1,40 @@
+# Install once, from the repository root: uv run --project backend pre-commit install
+# Git hooks belong to the repository, so this file lives here, not in backend/.
+default_install_hook_types: [pre-commit, commit-msg]
+
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run --project backend ruff check --fix
+        language: system
+        files: ^backend/
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run --project backend ruff format
+        language: system
+        files: ^backend/
+        types_or: [python, pyi]
+      - id: basedpyright
+        name: basedpyright
+        entry: uv run --project backend basedpyright -p backend
+        language: system
+        files: ^backend/
+        types_or: [python, pyi]
+        pass_filenames: false
+      - id: lint-imports
+        name: import-linter
+        # lint-imports reads its contracts from pyproject.toml in the current directory.
+        entry: bash -c 'cd backend && uv run lint-imports'
+        language: system
+        files: ^backend/
+        types_or: [python]
+        pass_filenames: false
+
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.4.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
