@@ -1,0 +1,21 @@
+[project]
+name = "vld-migrator"
+version = "0.1.0"
+description = "Database migrator: one Alembic chain for every domain, run safely before a deploy."
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.20.0,<2.0.0",
+    "psycopg[binary]>=3.3.6,<4.0.0",
+    "vld-core",
+]
+classifiers = ["Private :: Do Not Upload"]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vld.migrator"
+
+[tool.uv.sources]
+vld-core = { workspace = true }
