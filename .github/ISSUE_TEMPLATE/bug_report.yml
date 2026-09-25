@@ -1,0 +1,38 @@
+name: Bug report
+description: Something does not work as documented. Security issues go to the security policy.
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Commit or date you saw it
+      description: The commit if you run it yourself, the date and time if on the public service.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Journal check (VAK, White List)
+        - Reference list (GOST, BibTeX)
+        - Account and sign-in
+        - Web interface
+        - Self-hosting and deployment
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The DOI, ISSN or journal title you used and what you clicked or sent.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behaviour
+      description: For a formatting bug, paste the entry you got and the one GOST expects.
+    validations:
+      required: true

@@ -1,0 +1,32 @@
+name: Registry data is wrong
+description: A journal is missing from the VAK list or the White List, or has the wrong specialities.
+labels: [data]
+body:
+  - type: dropdown
+    id: registry
+    attributes:
+      label: Registry
+      options: [VAK list, White List, Both]
+    validations:
+      required: true
+  - type: input
+    id: journal
+    attributes:
+      label: Journal title and ISSN
+      placeholder: Вестник …, 1234-5678
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What validate shows and what is correct
+      description: For example, the speciality codes it lists and the ones the registry lists.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source
+      description: A link to the registry page or PDF, with the page number if it is a PDF.
+    validations:
+      required: true
