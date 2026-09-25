@@ -3,7 +3,9 @@ name = "vld-core"
 version = "0.0.0"
 description = "Shared kernel for every domain: settings, database, logging."
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "sqlalchemy[asyncio]>=2.0.51",
+]
 # Internal to the workspace: PyPI refuses an upload with this classifier.
 classifiers = ["Private :: Do Not Upload"]
 
