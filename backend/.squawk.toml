@@ -1,0 +1,10 @@
+# Migration linter for the SQL that `vld-migrate export-sql` writes, one file per
+# revision.
+pg_version = "18.0"
+# Every revision runs in its own transaction (transaction_per_migration).
+assume_in_transaction = true
+excluded_rules = [
+    # vld-migrate sets lock_timeout and statement_timeout for the whole session.
+    "require-lock-timeout",
+    "require-statement-timeout",
+]

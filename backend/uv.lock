@@ -945,6 +945,20 @@ asyncio = [
 ]
 
 [[package]]
+name = "squawk-cli"
+version = "2.66.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/7c/6f/95c0be21154f5113a9b270244d8e1f50819519a2fd49daa8842d9f6ef79e/squawk_cli-2.66.0.tar.gz", hash = "sha256:e3d359ccabf48ec5d6d279629a67257741edd558ff498fc3c3f0d6c67f5ca4c9", size = 1489856, upload-time = "2026-09-23T14:08:03.198Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/53/3a/b632e94101b98ed4b588d6848c26dc6db9f3c60a824c59742859bff8eece/squawk_cli-2.66.0-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:ec63cdedcca9ec0d46cfee267efe27bc3724b23fd2e73fcceccc30c0ce6bfc44", size = 6030292, upload-time = "2026-09-23T14:08:00.818Z" },
+    { url = "https://files.pythonhosted.org/packages/69/5e/243c52639b66b1731d457d531cbf0f3c3c5796055fb6e222f648fb4f4978/squawk_cli-2.66.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:9d821fa72081f39983b1014de2b48cfb305b287cae0ab529b6fa3e033f613619", size = 5780861, upload-time = "2026-09-23T14:07:58.98Z" },
+    { url = "https://files.pythonhosted.org/packages/ff/25/fdf82809d3781a4aed7d9e9ad289044a6f414030f4ee3b50cbbc736b1679/squawk_cli-2.66.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9bce3ed62ed207290f2246e04d5df4b99ae00130a849378d674626b1d618f5c4", size = 7133475, upload-time = "2026-09-23T14:07:54.777Z" },
+    { url = "https://files.pythonhosted.org/packages/bf/aa/be4586e06b6100d96143efcb193a4fec78ef420487235f8a33b0665def66/squawk_cli-2.66.0-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:cd3c3509e1eb8d3491af68272c8f8200f652fecf4389dc550206317f0fc57b54", size = 8105956, upload-time = "2026-09-23T14:07:56.917Z" },
+    { url = "https://files.pythonhosted.org/packages/08/34/55e679f85743937080bcc0d4d81d44aa82cbb6d99d9802ca38b05c4dd551/squawk_cli-2.66.0-py3-none-win32.whl", hash = "sha256:58603c4f90a3ccd5198dc2bdc8f124a185906674eae97e1453635875d8c9198d", size = 5014712, upload-time = "2026-09-23T14:08:06.222Z" },
+    { url = "https://files.pythonhosted.org/packages/00/b3/eb4621a5c2dbc980496193a9431333fbdf3b63297aceafc6f1b484ffe4b7/squawk_cli-2.66.0-py3-none-win_amd64.whl", hash = "sha256:5c982c587c393380368196f3e62a5e394e704aa31a595b153bf8a522870623c0", size = 5648638, upload-time = "2026-09-23T14:08:04.51Z" },
+]
+
+[[package]]
 name = "starlette"
 version = "1.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1067,6 +1081,7 @@ dev = [
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "ruff" },
+    { name = "squawk-cli" },
 ]
 
 [package.metadata]
@@ -1080,6 +1095,7 @@ dev = [
     { name = "pytest", specifier = ">=9.1.1,<10.0.0" },
     { name = "pytest-asyncio", specifier = ">=1.4.0,<2.0.0" },
     { name = "ruff", specifier = ">=0.16.9,<0.17.0" },
+    { name = "squawk-cli", specifier = ">=2.66.0,<3.0.0" },
 ]
 
 [[package]]

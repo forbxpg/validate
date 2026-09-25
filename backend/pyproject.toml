@@ -17,6 +17,7 @@ dev = [
     "pytest>=9.1.1,<10.0.0",
     "pytest-asyncio>=1.4.0,<2.0.0",
     "ruff>=0.16.9,<0.17.0",
+    "squawk-cli>=2.66.0,<3.0.0",
 ]
 
 [tool.uv.workspace]
