@@ -20,3 +20,30 @@ dev = [
 
 [tool.uv.workspace]
 members = ["packages/*", "apps/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages", "apps"]
+# importlib: test modules are named by their path, so two packages may both have
+# tests/unit/test_models.py.
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--import-mode=importlib",
+    "-ra",
+    "-m",
+    "not integration",
+]
+markers = ["integration: needs PostgreSQL and Redis from the local stand (make up)"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+xfail_strict = true
+filterwarnings = ["error"]
+
+[tool.importlinter]
+root_package = "vld"
+
+[[tool.importlinter.contracts]]
+name = "Packages never import apps"
+type = "forbidden"
+source_modules = ["vld.core"]
+forbidden_modules = ["vld.api"]

@@ -1,0 +1,26 @@
+{
+  "include": ["packages", "apps"],
+  "exclude": ["**/.venv", "**/__pycache__", "**/.ruff_cache"],
+  "pythonVersion": "3.13",
+  "venvPath": ".",
+  "venv": ".venv",
+  "typeCheckingMode": "recommended",
+  "reportMissingTypeStubs": false,
+  "reportUnnecessaryTypeIgnoreComment": "warning",
+  "executionEnvironments": [
+    {
+      "root": "packages/core/tests",
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnusedCallResult": false
+    },
+    {
+      "root": "apps/api/tests",
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnusedCallResult": false
+    },
+    { "root": "packages" },
+    { "root": "apps" }
+  ]
+}
