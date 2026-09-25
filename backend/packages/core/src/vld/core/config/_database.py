@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import lru_cache
 from typing import ClassVar
 
 from pydantic import PostgresDsn
@@ -12,10 +13,10 @@ class DatabaseSettings(BaseSettings):
     """Database settings.
 
     Attributes:
-        dsn: PostgresDsn - Main DSN, through PgBouncer.
+        dsn: PostgresDsn - Main DSN, through the pool manager.
         direct_dsn: PostgresDsn | None - DSN directly to PostgreSQL, bypassing the pool.
         echo: bool - Log SQL.
-        pool_size: int - Size of the pool per process (over PgBouncer).
+        pool_size: int - Size of the pool per process (over the pool manager).
         max_overflow: int - How many connections over the pool are allowed.
         pool_pre_ping: bool - Ping the connection before issuing.
         disable_prepared_statements: bool - Emergency flag for PgBouncer < 1.21, which
@@ -43,3 +44,14 @@ class DatabaseSettings(BaseSettings):
 
         """
         return str(self.direct_dsn or self.dsn)
+
+
+@lru_cache
+def get_database_settings() -> DatabaseSettings:
+    """Get database settings.
+
+    Returns:
+        DatabaseSettings - Singleton on the process.
+
+    """
+    return DatabaseSettings()  # pyright: ignore[reportCallIssue]
