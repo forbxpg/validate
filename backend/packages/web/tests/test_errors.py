@@ -28,20 +28,16 @@ if TYPE_CHECKING:
 LEAKY_EXCEPTION_TEXT = "user 4f1c-victim@example.com already exists"
 
 
-class _BoomError(Exception):
-    pass
+class _BoomError(Exception): ...
 
 
-class _MappedError(_BoomError):
-    pass
+class _MappedError(_BoomError): ...
 
 
-class _UnmappedError(_BoomError):
-    pass
+class _UnmappedError(_BoomError): ...
 
 
-class _DelayedError(_BoomError):
-    pass
+class _DelayedError(_BoomError): ...
 
 
 TEST_ERRORS = ErrorRegistry(
@@ -49,7 +45,9 @@ TEST_ERRORS = ErrorRegistry(
     fallback_code="test.internal_error",
     mapping={
         _MappedError: ErrorSpec(
-            status=409, code="test.mapped", message="Already taken."
+            status=409,
+            code="test.mapped",
+            message="Already taken.",
         ),
         _DelayedError: ErrorSpec(
             status=503,
@@ -228,7 +226,6 @@ async def test_request_id_is_echoed_and_returned(client: AsyncClient) -> None:
 async def test_hostile_request_id_is_replaced(client: AsyncClient) -> None:
     """The id goes into logs, so spaces and length are refused."""
     response = await client.get("/mapped", headers={REQUEST_ID_HEADER_NAME: "a " * 200})
-
     assert response.json()["request_id"] != "a " * 200
     assert " " not in response.json()["request_id"]
 
@@ -236,7 +233,6 @@ async def test_hostile_request_id_is_replaced(client: AsyncClient) -> None:
 async def test_error_response_is_never_cached(client: AsyncClient) -> None:
     """The body carries the id of one particular request."""
     response = await client.get("/mapped")
-
     assert response.headers["Cache-Control"] == "no-store"
 
 
@@ -253,9 +249,7 @@ async def test_every_error_response_is_logged_with_its_request_id(
     assert any(entry.get("request_id") == "trace-abc" for entry in logs)
 
 
-async def test_request_id_reaches_logs_of_unrelated_code(
-    client: AsyncClient,
-) -> None:
+async def test_request_id_reaches_logs_of_unrelated_code(client: AsyncClient) -> None:
     """The id is bound to the context, not written into one record."""
     with capture_logs(processors=[merge_contextvars]) as logs:
         _ = await client.get("/noisy", headers={REQUEST_ID_HEADER_NAME: "trace-xyz"})
@@ -319,13 +313,10 @@ async def test_body_and_log_agree_even_without_the_middleware() -> None:
     register_error_handlers(app, TEST_ERRORS, CORE_ERRORS)
     _ = app.get("/mapped")(_mapped)
     transport = ASGITransport(app=app)
-
     with capture_logs(processors=[merge_contextvars]) as logs:
         async with AsyncClient(transport=transport, base_url="http://t") as ac:
             response = await ac.get("/mapped")
-
     responses = [e for e in logs if e["event"] == "http_error_response"]
-
     assert len(responses) == 1
     assert responses[0].get("request_id") == response.json()["request_id"]
 
@@ -336,7 +327,6 @@ async def test_bound_parameters_never_reach_the_log() -> None:
     with capture_logs(processors=[merge_contextvars]) as logs:
         async with AsyncClient(transport=transport, base_url="http://test") as ac:
             response = await ac.get("/db-failure")
-
     assert response.status_code == 500
     assert ACCOUNT_NUMBER not in response.text
     assert logs, "the error must be logged"
@@ -349,7 +339,6 @@ async def test_cause_of_a_database_failure_stays_visible() -> None:
     with capture_logs(processors=[merge_contextvars]) as logs:
         async with AsyncClient(transport=transport, base_url="http://test") as ac:
             _ = await ac.get("/db-failure")
-
     assert any(entry.get("db_error") == "ValueError" for entry in logs)
 
 
@@ -359,5 +348,4 @@ async def test_ordinary_failures_keep_their_traceback() -> None:
     with capture_logs(processors=[merge_contextvars]) as logs:
         async with AsyncClient(transport=transport, base_url="http://test") as ac:
             _ = await ac.get("/rogue")
-
     assert any(entry.get("exc_info") for entry in logs)

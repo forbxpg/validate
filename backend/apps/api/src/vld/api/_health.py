@@ -17,6 +17,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 if TYPE_CHECKING:
     from collections.abc import Awaitable
 
+
 _CHECK_TIMEOUT_SECONDS = 2
 
 _log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger(__name__)
@@ -104,7 +105,7 @@ async def _answers(name: str, check: Awaitable[object]) -> bool:
     try:
         async with asyncio.timeout(_CHECK_TIMEOUT_SECONDS):
             _ = await check
-    except Exception:  # ruff: ignore[blind-except] -- a probe reports, it never fails
+    except Exception:  # ruff: ignore[blind-except]
         _log.warning("readiness_check_failed", dependency=name, exc_info=True)
         return False
     return True
