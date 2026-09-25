@@ -1,0 +1,15 @@
+[project]
+name = "vld-core"
+version = "0.0.0"
+description = "Shared kernel for every domain: settings, database, logging."
+requires-python = ">=3.13"
+dependencies = []
+# Internal to the workspace: PyPI refuses an upload with this classifier.
+classifiers = ["Private :: Do Not Upload"]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vld.core"

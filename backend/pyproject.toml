@@ -1,0 +1,22 @@
+# Workspace root. It is not a package: members live in packages/ (domains and the
+# shared kernel) and apps/ (the processes that run them). Install everything with
+# `uv sync --all-packages`; plain `uv sync` installs the root only.
+[project]
+name = "vld-backend"
+version = "0.0.0"
+description = "validate backend: uv workspace root for the domain packages and the apps."
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.1,<2.0.0",
+    "import-linter>=2.15,<3.0",
+    "pre-commit>=4.6.2,<5.0.0",
+    "pytest>=9.1.1,<10.0.0",
+    "pytest-asyncio>=1.4.0,<2.0.0",
+    "ruff>=0.16.9,<0.17.0",
+]
+
+[tool.uv.workspace]
+members = ["packages/*", "apps/*"]
