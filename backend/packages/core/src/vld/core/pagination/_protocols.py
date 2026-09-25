@@ -1,4 +1,4 @@
-"""The form of the page and its parameters — without a single import of the pagination library."""  # ruff: ignore[line-too-long]
+"""Page and page parameters as protocols, so that core never imports the library."""
 
 from __future__ import annotations
 

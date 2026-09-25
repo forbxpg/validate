@@ -23,6 +23,9 @@ ignore = [
     "undocumented-public-init",
     "undocumented-public-package",
     "missing-copyright-notice",
+    # FastAPI runs a sync handler in a thread pool, so `async` without `await` is
+    # how a route or dependency stays on the event loop.
+    "unused-async",
     # Registry data, GOST output and the interface are Russian text.
     "ambiguous-unicode-character-string",
     "ambiguous-unicode-character-docstring",
@@ -37,16 +40,36 @@ required-imports = ["from __future__ import annotations"]
 known-first-party = ["vld"]
 
 [lint.flake8-type-checking]
-# pydantic reads annotations at runtime: their imports must stay importable.
+# pydantic and dishka read annotations at runtime: their imports must stay importable.
 runtime-evaluated-base-classes = [
     "pydantic.BaseModel",
     "pydantic_settings.BaseSettings",
 ]
+runtime-evaluated-decorators = ["dishka.provide"]
 
 [lint.per-file-ignores]
+# dishka providers are methods by design, even when they do not use `self`, and
+# dishka always finalizes a generator provider, so a yield inside `async with` is safe.
+"**/di.py" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
+"**/di/**" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
+# FastAPI resolves the annotations of routes and dependencies at runtime: a `Request`
+# moved under `if TYPE_CHECKING` turns into a query parameter and every call gets 422.
+"packages/web/src/vld/web/access/**" = [
+    "typing-only-first-party-import",
+    "typing-only-standard-library-import",
+    "typing-only-third-party-import",
+]
+"packages/*/src/vld/*/api/**" = [
+    "typing-only-first-party-import",
+    "typing-only-standard-library-import",
+    "typing-only-third-party-import",
+]
+# Tests need a one-line docstring, not Args/Returns sections.
 "**/tests/**" = [
     "ANN",
-    "D",
+    # pytest imports test modules by path (--import-mode=importlib).
+    "implicit-namespace-package",
+    "DOC",
     "assert",
     "import-private-name",
     "line-too-long",

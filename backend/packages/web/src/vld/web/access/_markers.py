@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, cast
 
 from fastapi import params
+from starlette.requests import Request
 
 from ._cookie import access_token
 from ._errors import AccessDeniedError, NotAuthenticatedError
@@ -14,7 +15,6 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Coroutine
 
     from dishka import AsyncContainer
-    from starlette.requests import Request
 
 
 class AccessMarker(params.Depends):

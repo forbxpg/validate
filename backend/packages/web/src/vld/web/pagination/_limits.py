@@ -1,4 +1,4 @@
-"""Границы страницы — одни на монолит."""
+"""Page bounds, one policy for the whole API."""
 
 from __future__ import annotations
 

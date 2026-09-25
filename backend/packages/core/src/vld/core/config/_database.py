@@ -1,6 +1,7 @@
+"""PostgreSQL connection settings."""
+
 from __future__ import annotations
 
-from functools import lru_cache
 from typing import ClassVar
 
 from pydantic import PostgresDsn
@@ -13,45 +14,22 @@ class DatabaseSettings(BaseSettings):
     """Database settings.
 
     Attributes:
-        dsn: PostgresDsn - Main DSN, through the pool manager.
-        direct_dsn: PostgresDsn | None - DSN directly to PostgreSQL, bypassing the pool.
-        echo: bool - Log SQL.
-        pool_size: int - Size of the pool per process (over the pool manager).
-        max_overflow: int - How many connections over the pool are allowed.
-        pool_pre_ping: bool - Ping the connection before issuing.
-        disable_prepared_statements: bool - Emergency flag for PgBouncer < 1.21, which
-            doesn't understand prepared statements in transaction-mode.
+        url: PostgresDsn - Connection URL, `postgresql+asyncpg://...`.
+        echo: bool - Log every SQL statement.
+        pool_size: int - Connections kept open per process.
+        max_overflow: int - Connections allowed above the pool size.
+        pool_timeout: int - Seconds to wait for a free connection.
+        pool_pre_ping: bool - Check a connection before handing it out.
+        pool_recycle: int - Seconds after which a connection is reopened.
 
     """
 
-    model_config: ClassVar[SettingsConfigDict] = settings_config("DB_")
+    model_config: ClassVar[SettingsConfigDict] = settings_config("DATABASE_")
 
-    dsn: PostgresDsn
-    direct_dsn: PostgresDsn | None = None
-
+    url: PostgresDsn
     echo: bool = False
     pool_size: int = 10
-    max_overflow: int = 10
+    max_overflow: int = 20
+    pool_timeout: int = 30
     pool_pre_ping: bool = True
-    disable_prepared_statements: bool = False
-
-    @property
-    def migration_dsn(self) -> str:
-        """DSN for Alembic.
-
-        Returns:
-            str - Direct DSN, if set, otherwise main.
-
-        """
-        return str(self.direct_dsn or self.dsn)
-
-
-@lru_cache
-def get_database_settings() -> DatabaseSettings:
-    """Get database settings.
-
-    Returns:
-        DatabaseSettings - Singleton on the process.
-
-    """
-    return DatabaseSettings()  # pyright: ignore[reportCallIssue]
+    pool_recycle: int = 1800

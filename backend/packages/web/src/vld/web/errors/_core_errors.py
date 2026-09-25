@@ -1,4 +1,4 @@
-"""Реестр ошибок, приезжающих из ``shoptest.core``."""
+"""Registry of the errors that come from `vld.core`."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from ._spec import ErrorRegistry, ErrorSpec
 
 
 class CoreErrorCode(StrEnum):
-    """Коды ошибок инфраструктурного слоя."""
+    """Error codes of the infrastructure layer."""
 
     ACCESS_DENIED = "core.access_denied"
     HTTP_ERROR = "core.http_error"

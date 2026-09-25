@@ -5,6 +5,7 @@ description = "HTTP API process: the FastAPI application and its composition roo
 requires-python = ">=3.13"
 dependencies = [
     "vld-core",
+    "vld-web",
 ]
 # Internal to the workspace: PyPI refuses an upload with this classifier.
 classifiers = ["Private :: Do Not Upload"]
@@ -18,3 +19,4 @@ module-name = "vld.api"
 
 [tool.uv.sources]
 vld-core = { workspace = true }
+vld-web = { workspace = true }

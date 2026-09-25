@@ -1,3 +1,5 @@
+"""Logging setup: level, JSON output and request context."""
+
 from __future__ import annotations
 
 import json
@@ -24,6 +26,7 @@ def _records(capsys: pytest.CaptureFixture[str]) -> list[dict[str, object]]:
 
 
 def test_info_records_reach_the_output(capsys: pytest.CaptureFixture[str]) -> None:
+    """An info record is written at the default level."""
     configure_logging(ObservabilitySettings(log_level="INFO", log_json=True))
     log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger("probe")
     log.info("http_error_response", status=401)
@@ -33,6 +36,7 @@ def test_info_records_reach_the_output(capsys: pytest.CaptureFixture[str]) -> No
 def test_the_configured_level_actually_filters(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
+    """`LOG_LEVEL` drops records below it."""
     configure_logging(ObservabilitySettings(log_level="WARNING", log_json=True))
     log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger("probe")
     log.info("below_threshold")
@@ -43,6 +47,7 @@ def test_the_configured_level_actually_filters(
 
 
 def test_json_format_is_machine_readable(capsys: pytest.CaptureFixture[str]) -> None:
+    """Every record is one JSON object with its fields."""
     configure_logging(ObservabilitySettings(log_level="INFO", log_json=True))
     log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger("probe")
     log.info("http_error_response", status=429)
@@ -54,6 +59,7 @@ def test_json_format_is_machine_readable(capsys: pytest.CaptureFixture[str]) -> 
 def test_request_id_from_contextvars_lands_in_the_record(
     capsys: pytest.CaptureFixture[str],
 ) -> None:
+    """A request id bound to the context reaches every record."""
     configure_logging(ObservabilitySettings(log_level="INFO", log_json=True))
     log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger("probe")
     structlog.contextvars.clear_contextvars()

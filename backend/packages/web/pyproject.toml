@@ -1,23 +1,21 @@
 [project]
 name = "vld-web"
 version = "0.1.0"
-description = "General presentation layer: error handling, request-id middleware, throttling, mounting domains."
+description = "Shared HTTP layer: access markers, error form, domain mounting, throttling, pages."
 readme = "README.md"
-authors = [
-    { name = "forbxpg", email = "dwizard80@gmail.com" }
-]
 requires-python = ">=3.13"
 dependencies = [
-    "dishka>=1.10.1",
-    "fastapi>=0.139.2",
-    "fastapi-pagination[sqlalchemy]>=0.14.0",
-    "structlog>=26.1.0",
-    "greenlet>=3.0.0",
+    "dishka>=1.10.1,<2.0.0",
+    "fastapi>=0.141.1,<0.142.0",
+    "fastapi-pagination>=0.16.0,<0.17.0",
+    "structlog>=26.1.0,<27.0.0",
     "vld-core",
 ]
+# Internal to the workspace: PyPI refuses an upload with this classifier.
+classifiers = ["Private :: Do Not Upload"]
 
 [build-system]
-requires = ["uv_build>=0.8.17,<0.9.0"]
+requires = ["uv_build>=0.12.5,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]

@@ -4,14 +4,13 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from starlette.requests import Request
+
 from ._bearer_token import bearer
 from ._errors import NotAuthenticatedError
 
 if TYPE_CHECKING:
-    from starlette.requests import Request
     from starlette.responses import Response
-
-    from vld.core.config import SecuritySettings
 
 
 ACCESS_COOKIE = "validate_access"
@@ -60,24 +59,26 @@ def access_token(request: Request) -> str:
 
 def set_session_cookies(
     response: Response,
-    settings: SecuritySettings,
     *,
     access: str,
+    access_max_age: int,
     refresh: str,
+    refresh_max_age: int,
 ) -> None:
     """Set both session cookies on the response.
 
     Args:
-        response: Response - Response, in which the cookies are set.
-        settings: SecuritySettings - Token lifetimes.
+        response: Response - Response the cookies are set on.
         access: str - Access token.
+        access_max_age: int - Access cookie lifetime in seconds.
         refresh: str - Refresh token.
+        refresh_max_age: int - Refresh cookie lifetime in seconds.
 
     """
     response.set_cookie(
         ACCESS_COOKIE,
         access,
-        max_age=settings.access_ttl_seconds,
+        max_age=access_max_age,
         path=COOKIE_PATH,
         httponly=True,
         secure=True,
@@ -86,7 +87,7 @@ def set_session_cookies(
     response.set_cookie(
         REFRESH_COOKIE,
         refresh,
-        max_age=settings.refresh_ttl_seconds,
+        max_age=refresh_max_age,
         path=COOKIE_PATH,
         httponly=True,
         secure=True,

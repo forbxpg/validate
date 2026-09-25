@@ -1,4 +1,4 @@
-"""Превращение исключений в единственную форму ответа об ошибке."""
+"""Turning exceptions into the single error response form."""
 
 from __future__ import annotations
 
@@ -105,7 +105,7 @@ def _make_handler(
 
     """
 
-    async def _handle(request: Request, exc: Exception) -> Response:  # ruff: ignore[unused-async]
+    async def _handle(request: Request, exc: Exception) -> Response:
         """Send the response according to the table, and the unmapped error as 500.
 
         Args:
@@ -135,7 +135,7 @@ def _make_handler(
     return _handle
 
 
-async def _handle_validation(request: Request, exc: Exception) -> Response:  # ruff: ignore[unused-async]
+async def _handle_validation(request: Request, exc: Exception) -> Response:
     """Bring the validation error to the same form as the domain errors.
 
     Args:
@@ -162,7 +162,7 @@ async def _handle_validation(request: Request, exc: Exception) -> Response:  # r
     return _render(request, VALIDATION_SPEC, exc, details)
 
 
-async def _handle_http(request: Request, exc: Exception) -> Response:  # ruff: ignore[unused-async]
+async def _handle_http(request: Request, exc: Exception) -> Response:
     """Bring the standard starlette responses (404, 405) to the same form.
 
     Args:
@@ -191,7 +191,7 @@ async def _handle_http(request: Request, exc: Exception) -> Response:  # ruff: i
     )
 
 
-async def _handle_unexpected(request: Request, exc: Exception) -> Response:  # ruff: ignore[unused-async]
+async def _handle_unexpected(request: Request, exc: Exception) -> Response:
     """The last line: everything that did not fit into any registry.
 
     Args:

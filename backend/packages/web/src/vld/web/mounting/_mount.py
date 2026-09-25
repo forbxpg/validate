@@ -1,4 +1,4 @@
-"""Монтаж дескрипторов доменов в приложение FastAPI."""
+"""Mounting domain descriptors into the FastAPI application."""
 
 from __future__ import annotations
 
@@ -24,16 +24,15 @@ if TYPE_CHECKING:
 
 
 def mount(app: FastAPI, *domains: DomainDescriptor, prefix: str = "") -> None:
-    """Mount the domains: routers and error registries from one descriptors.
+    """Mount the domains: their routers and error registries.
+
+    Every route must carry exactly one access marker, otherwise mounting fails with
+    `UnmarkedRouteError`: a route without a check cannot reach the application.
 
     Args:
         app: FastAPI - Application.
         domains: DomainDescriptor - Descriptors of the mounted domains.
         prefix: str - Common prefix, for example ``/api/v1``.
-
-    Raises:
-        UnmarkedRouteError - if at least one domain route
-                            is mounted without an access marker.
 
     """
     register_error_handlers(
@@ -68,9 +67,9 @@ def _require_marker(route: BaseRoute) -> None:
     markers = [dep for dep in route.dependencies if isinstance(dep, AccessMarker)]
     if len(markers) != 1:
         msg = (
-            f"маршрут {sorted(route.methods or set())} {route.path} несёт "
-            f"{len(markers)} маркеров доступа вместо одного: каждый маршрут "
-            f"обязан объявить public(), authenticated() либо roles(...)"
+            f"route {sorted(route.methods or set())} {route.path} carries "
+            f"{len(markers)} access markers instead of one: every route must "
+            f"declare public(), authenticated(), roles(...), staff(...) or admin()"
         )
         raise UnmarkedRouteError(msg)
     if not markers[0].anonymous:

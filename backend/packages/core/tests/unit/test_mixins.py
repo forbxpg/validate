@@ -1,3 +1,5 @@
+"""Mixins combine into mapped models without conflicts."""
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, ClassVar
@@ -17,6 +19,7 @@ if TYPE_CHECKING:
 
 
 def test_mixins_survive_mapper_configuration() -> None:
+    """Both the mutable and the append-only combination configure cleanly."""
     probe_metadata = make_metadata("mixin_probe")
 
     class Base(DeclarativeBase):

@@ -1,164 +1,137 @@
-"""Инфраструктурные DI-провайдеры, общие для всех деплой-приложений."""
+"""Infrastructure providers shared by every deployable app."""
 
 from __future__ import annotations
 
-from collections.abc import (
-    AsyncIterator,  # ruff: ignore[typing-only-standard-library-import]
-)
+from collections.abc import AsyncIterator
 
-from dishka import (
-    Provider,
-    Scope,
-    ValidationSettings,
-    provide,  # pyright: ignore[reportUnknownVariableType]
-)
-from sqlalchemy.ext.asyncio import (  # ruff: ignore[typing-only-third-party-import]
-    AsyncEngine,
-    AsyncSession,
-    async_sessionmaker,
-)
+from dishka import Provider, Scope, ValidationSettings, provide
+from redis.asyncio import Redis
+from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
-from vld.core.audit import (
-    AuditLog,
-    AuditQuery,
-    SqlAlchemyAuditLog,
-    SqlAlchemyAuditQuery,
-)
-from vld.core.config import (
-    DatabaseSettings,
-    RedisSettings,
-    SecuritySettings,
-    get_database_settings,
-    get_redis_settings,
-    get_security_settings,
-)
+from vld.core.config import CorsSettings, DatabaseSettings, RedisSettings
 from vld.core.database import (
     SqlAlchemyUnitOfWork,
     UnitOfWork,
     create_engine,
     create_session_factory,
-    dispose_engine,
 )
 
 CONTAINER_VALIDATION = ValidationSettings(implicit_override=True)
 
 
 class CoreProvider(Provider):
-    """Инфраструктурные зависимости, общие для всех доменов."""
+    """Settings, database and Redis for every domain."""
+
+    # Settings have required fields that pydantic reads from the environment;
+    # basedpyright only sees a constructor call with missing arguments.
 
     @provide(scope=Scope.APP)
-    def database_settings(self) -> DatabaseSettings:  # ruff: ignore[no-self-use]
-        """Database settings.
+    def database_settings(self) -> DatabaseSettings:
+        """Read the database settings.
 
         Returns:
-            DatabaseSettings - Settings.
+            DatabaseSettings - Settings from `DATABASE_*`.
 
         """
-        return get_database_settings()
+        return DatabaseSettings()  # pyright: ignore[reportCallIssue]
 
     @provide(scope=Scope.APP)
-    def redis_settings(self) -> RedisSettings:  # ruff: ignore[no-self-use]
-        """Redis settings.
+    def redis_settings(self) -> RedisSettings:
+        """Read the Redis settings.
 
         Returns:
-            RedisSettings - Settings.
+            RedisSettings - Settings from `REDIS_*`.
 
         """
-        return get_redis_settings()
+        return RedisSettings()  # pyright: ignore[reportCallIssue]
 
     @provide(scope=Scope.APP)
-    def security_settings(self) -> SecuritySettings:  # ruff: ignore[no-self-use]
-        """Security settings.
+    def cors_settings(self) -> CorsSettings:
+        """Read the trusted browser origins.
 
         Returns:
-            SecuritySettings - Settings.
+            CorsSettings - Settings from `MIDDLEWARE_CORS_*`.
 
         """
-        return get_security_settings()
+        return CorsSettings()  # pyright: ignore[reportCallIssue]
 
     @provide(scope=Scope.APP)
-    async def engine(self, settings: DatabaseSettings) -> AsyncIterator[AsyncEngine]:  # ruff: ignore[no-self-use]
-        """Application engine.
+    async def engine(self, settings: DatabaseSettings) -> AsyncIterator[AsyncEngine]:
+        """Open the application engine.
 
         Args:
             settings: DatabaseSettings - Database settings.
 
         Yields:
-            AsyncEngine - Engine, closed on shutdown.
+            AsyncEngine - Engine, disposed on shutdown.
 
         """
         engine = create_engine(settings)
         yield engine
-        await dispose_engine(engine)
+        await engine.dispose()
 
     @provide(scope=Scope.APP)
-    def session_factory(  # ruff: ignore[no-self-use]
-        self,
-        engine: AsyncEngine,
-    ) -> async_sessionmaker[AsyncSession]:
-        """Session factory.
+    def session_factory(self, engine: AsyncEngine) -> async_sessionmaker[AsyncSession]:
+        """Build the session factory.
 
         Args:
             engine: AsyncEngine - Engine.
 
         Returns:
-            async_sessionmaker[AsyncSession] - Factory.
+            async_sessionmaker[AsyncSession] - Session factory.
 
         """
         return create_session_factory(engine)
 
     @provide(scope=Scope.REQUEST)
-    def audit(self, session: AsyncSession) -> AuditLog:  # ruff: ignore[no-self-use]
-        """Audit log.
-
-        Args:
-            session: AsyncSession - SQLAlchemy session.
-
-        Returns:
-            AuditLog - Implementation over the session.
-
-        """
-        return SqlAlchemyAuditLog(session)
-
-    @provide(scope=Scope.REQUEST)
-    def audit_query(self, session: AsyncSession) -> AuditQuery:  # ruff: ignore[no-self-use]
-        """Audit query.
-
-        Args:
-            session: AsyncSession - SQLAlchemy session.
-
-        Returns:
-            AuditQuery - Implementation over the session.
-
-        """
-        return SqlAlchemyAuditQuery(session)
-
-    @provide(scope=Scope.REQUEST)
-    def uow(self, session: AsyncSession) -> UnitOfWork:  # ruff: ignore[no-self-use]
-        """Request transaction boundary.
-
-        Args:
-            session: AsyncSession - SQLAlchemy session.
-
-        Returns:
-            UnitOfWork - Implementation over the session.
-
-        """
-        return SqlAlchemyUnitOfWork(session)
-
-    @provide(scope=Scope.REQUEST)
-    async def session(  # ruff: ignore[no-self-use]
+    async def session(
         self,
         factory: async_sessionmaker[AsyncSession],
     ) -> AsyncIterator[AsyncSession]:
-        """Request session.
+        """Open the request session.
 
         Args:
             factory: async_sessionmaker[AsyncSession] - Session factory.
 
         Yields:
-            AsyncSession - Session, closed on request completion.
+            AsyncSession - Session, closed when the request ends.
 
         """
         async with factory() as session:
-            yield session  # ruff: ignore[yield-in-context-manager-in-async-generator]
+            yield session
+
+    @provide(scope=Scope.REQUEST)
+    def uow(self, session: AsyncSession) -> UnitOfWork:
+        """Bind the transaction boundary to the request session.
+
+        Args:
+            session: AsyncSession - Request session.
+
+        Returns:
+            UnitOfWork - Unit of work over the session.
+
+        """
+        return SqlAlchemyUnitOfWork(session)
+
+    @provide(scope=Scope.APP)
+    async def redis(self, settings: RedisSettings) -> AsyncIterator[Redis]:
+        """Open the Redis client.
+
+        Args:
+            settings: RedisSettings - Redis settings.
+
+        Yields:
+            Redis - Client, closed on shutdown.
+
+        """
+        password = settings.password.get_secret_value() if settings.password else None
+        client = Redis(
+            host=settings.host,
+            port=settings.port,
+            db=settings.db,
+            username=settings.username,
+            password=password,
+            decode_responses=True,
+        )
+        yield client
+        await client.aclose()

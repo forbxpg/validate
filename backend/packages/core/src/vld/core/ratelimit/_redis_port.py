@@ -1,53 +1,57 @@
-"""Port for the Redis client."""
+"""The part of the Redis client that the limiter uses."""
 
 from __future__ import annotations
 
-from collections.abc import Awaitable
-from typing import TYPE_CHECKING, Any, Protocol
+from typing import TYPE_CHECKING, Protocol
 
 if TYPE_CHECKING:
-    from collections.abc import Coroutine
+    from collections.abc import Awaitable, Sequence
 
 
-class RedisLike(Protocol):
-    """The minimum from the Redis client, needed by the limiter."""
+class RedisScript(Protocol):
+    """A Lua script registered on the server."""
 
-    def register_script(self, script: str) -> RedisLikeScriptRunner:
-        """Compiles the Lua script on the server side.
+    def __call__(
+        self,
+        keys: Sequence[str] | None = None,
+        args: Sequence[int] | None = None,
+    ) -> Awaitable[list[int]]:
+        """Run the script.
 
         Args:
-            script: str - The source code of the Lua script.
+            keys: Sequence[str] | None - Redis keys, `KEYS` in the script.
+            args: Sequence[int] | None - Script arguments, `ARGV` in the script.
 
         Returns:
-            _ScriptRunner - The callable compiled script.
+            Awaitable[list[int]] - What the script returns.
 
         """
         ...
 
-    def delete(self, *keys: str) -> Coroutine[Any, Any, int]:
-        """Deletes the keys.
+
+class RedisLike(Protocol):
+    """The minimum of `redis.asyncio.Redis` that the limiter needs."""
+
+    def register_script(self, script: str) -> RedisScript:
+        """Register a Lua script.
 
         Args:
-            keys: str - Keys to delete.
+            script: str - Source of the Lua script.
+
+        Returns:
+            RedisScript - The script, ready to be called.
+
+        """
+        ...
+
+    def delete(self, *names: str) -> Awaitable[int]:
+        """Delete keys.
+
+        Args:
+            names: str - Keys to delete.
 
         Returns:
             Awaitable[int] - How many keys were deleted.
 
         """
         ...
-
-
-class RedisLikeScriptRunner(Protocol):
-    """Compiled Redis Lua script."""
-
-    def __call__(self, keys: list[str], args: list[int]) -> Awaitable[Any]:  # pyright: ignore[reportReturnType, reportExplicitAny]
-        """Calls the script with keys and arguments.
-
-        Args:
-            keys: list[str] - Redis keys (`KEYS` in the script).
-            args: list[int] - Arguments of the script (`ARGV`).
-
-        Returns:
-            Awaitable[list[int]] - The result of the script: [count, ttl_ms].
-
-        """

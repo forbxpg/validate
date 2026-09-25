@@ -1,4 +1,4 @@
-"""Миксины для ORM-моделей доменов."""
+"""Mixins for the domains' ORM models."""
 
 from __future__ import annotations
 

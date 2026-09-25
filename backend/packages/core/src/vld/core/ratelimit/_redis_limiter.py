@@ -8,14 +8,14 @@ import structlog
 from redis.exceptions import RedisError
 
 if TYPE_CHECKING:
-    from ._redis_port import RedisLike, RedisLikeScriptRunner
+    from ._redis_port import RedisLike, RedisScript
 
 
 _log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger(__name__)
 
 
 class RateLimitExceededError(Exception):
-    """The request limit has been exceeded or the storage is unavailable.
+    """The request limit has been exceeded.
 
     Attributes:
         retry_after: int - How many seconds to wait before trying again.
@@ -49,12 +49,12 @@ class RateLimiter:
     """A counter of requests with a fixed window on top of Redis.
 
     Attributes:
-        _script: RedisLikeScriptRunner - Compiled Lua script.
-        _redis: RedisLike - Redis client, needed to reset the bucket.
+        _script: RedisScript - The registered Lua script.
+        _redis: RedisLike - Redis client, needed to reset a bucket.
 
     """
 
-    _script: RedisLikeScriptRunner
+    _script: RedisScript
     _redis: RedisLike
     _SECOND_MS: int = 1000
 

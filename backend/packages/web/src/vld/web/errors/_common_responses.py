@@ -1,4 +1,4 @@
-"""Статусы платформы, которые может отдать любой смонтированный роутер."""
+"""Statuses that any mounted router may return."""
 
 from __future__ import annotations
 

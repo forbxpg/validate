@@ -35,7 +35,7 @@ def _attr_in_chain(exc: BaseException | None, name: str) -> object | None:
 
 
 def _violates(exc: IntegrityError, sqlstate: str, constraint_name: str) -> bool:
-    """Compare the SQLSTATE of the rejection and the name of the constraint that raised it.
+    """Match the SQLSTATE and the constraint name of a rejection.
 
     Args:
         exc: IntegrityError - Exception raised on insertion or flush.
@@ -45,7 +45,7 @@ def _violates(exc: IntegrityError, sqlstate: str, constraint_name: str) -> bool:
     Returns:
         bool - Whether the code and name matched.
 
-    """  # ruff: ignore[line-too-long]
+    """
     if _attr_in_chain(exc.orig, "sqlstate") != sqlstate:
         return False
     constraint = _attr_in_chain(exc.orig, "constraint_name")

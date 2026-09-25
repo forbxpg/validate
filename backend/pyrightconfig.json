@@ -7,17 +7,30 @@
   "typeCheckingMode": "recommended",
   "reportMissingTypeStubs": false,
   "reportUnnecessaryTypeIgnoreComment": "warning",
+  // Fires on `from dishka import provide`: dishka types ProvideSource with a bare
+  // classmethod. Unknown values are still caught where used, by
+  // reportUnknownMemberType and reportUnknownArgumentType.
+  "reportUnknownVariableType": "none",
   "executionEnvironments": [
     {
       "root": "packages/core/tests",
       "reportAny": false,
       "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
+    {
+      "root": "packages/web/tests",
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
       "reportUnusedCallResult": false
     },
     {
       "root": "apps/api/tests",
       "reportAny": false,
       "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
       "reportUnusedCallResult": false
     },
     { "root": "packages" },

@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from web!")
+"""Shared HTTP layer: access, errors, mounting, throttling, pagination."""

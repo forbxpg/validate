@@ -38,7 +38,7 @@ class IdentityProvider(Protocol):
             Identity - Owner of the token, its role and admin flag.
 
         Raises:
-            Exception - Domain error of refusal.
+            Exception: A domain error when the token is refused.
 
         """
         ...

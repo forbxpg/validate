@@ -1,19 +1,19 @@
-"""Миксины временных меток."""
+"""Timestamp mixins."""
 
 from __future__ import annotations
 
-from datetime import datetime  # noqa: TC003 -- см. комментарий ниже
+from datetime import datetime  # ruff: ignore[typing-only-standard-library-import]
 
 from sqlalchemy import DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 
 class TimestampMixin:
-    """Метки создания и изменения — для изменяемых сущностей.
+    """Creation and update timestamps for mutable entities.
 
     Attributes:
-        created_at: datetime - Когда создано.
-        updated_at: datetime - Когда изменено в последний раз.
+        created_at: datetime - When the row was created.
+        updated_at: datetime - When the row was last changed.
 
     """
 
@@ -31,10 +31,10 @@ class TimestampMixin:
 
 
 class CreatedAtMixin:
-    """Только метка создания — для append-only, где строки не меняются.
+    """Creation timestamp only, for append-only rows that never change.
 
     Attributes:
-        created_at: datetime - Когда создано.
+        created_at: datetime - When the row was created.
 
     """
 

@@ -1,4 +1,4 @@
-"""Pagination utilities."""
+"""Pagination contracts that stay free of the HTTP layer."""
 
 from __future__ import annotations
 

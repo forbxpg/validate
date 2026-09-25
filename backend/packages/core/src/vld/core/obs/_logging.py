@@ -1,4 +1,4 @@
-"""Настройка логирования из ``ObservabilitySettings``."""
+"""Logging setup from `ObservabilitySettings`."""
 
 from __future__ import annotations
 
@@ -8,14 +8,8 @@ from typing import TYPE_CHECKING
 
 import structlog
 
-from ._redaction import SecretRedactingFilter
-
 if TYPE_CHECKING:
     from vld.core.config import ObservabilitySettings
-
-# The logger that uvicorn writes a string for each request. The name is a literal:
-# uvicorn sets it up with its `dictConfig`, and there are no constants for import.
-_ACCESS_LOGGER = "uvicorn.access"
 
 
 def configure_logging(settings: ObservabilitySettings) -> None:
@@ -32,18 +26,6 @@ def configure_logging(settings: ObservabilitySettings) -> None:
         level=level,
         force=True,
     )
-
-    redaction = SecretRedactingFilter()
-    for handler in logging.getLogger().handlers:
-        handler.addFilter(redaction)
-
-    access = logging.getLogger(_ACCESS_LOGGER)
-    access.filters = [
-        existing
-        for existing in access.filters
-        if not isinstance(existing, SecretRedactingFilter)
-    ]
-    access.addFilter(redaction)
 
     renderer: structlog.typing.Processor = (
         structlog.processors.JSONRenderer()

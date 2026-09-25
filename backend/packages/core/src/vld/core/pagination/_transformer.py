@@ -1,4 +1,4 @@
-"""The combination of the row mapper with the caller's projection — under the transformer of the pagination."""  # ruff: ignore[line-too-long]
+"""Row mapper and caller projection combined into a pagination transformer."""
 
 from __future__ import annotations
 

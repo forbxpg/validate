@@ -1,179 +1,146 @@
 # vld-web
 
-<hr>
-
-Shared HTTP layer. Everything that is related to FastAPI, but does not belong to any domain:
-who can call the route, how the error looks, how the domain is connected to the application,
-how the rate limit is applied and how the list page looks.
-
-
-<hr>
+Shared HTTP layer. Everything that belongs to FastAPI but to no domain: who may
+call a route, what an error looks like, how a domain is mounted, how rate limits
+apply and what a list page looks like.
 
 ## What's inside
 
 ```
 access/        access markers, session cookies, Origin check, identity
-errors/        single error form, error code registries, handlers, X-Request-Id
-mounting/      DomainDescriptor and mount(): connecting a domain with one object
-throttling/    rate limits by client address on top of core.ratelimit
-pagination/    HTTP page types: FeedPage (cursor) and TablePage (limit/offset)
+errors/        single error form, error registries, handlers, X-Request-Id
+mounting/      DomainDescriptor and mount(): a domain is connected by one object
+throttling/    rate limits by client address on top of vld.core.ratelimit
+pagination/    TablePage: limit/offset page with total
 ```
 
-<hr>
+## `access/` — who may call a route
 
-### `access/` — who can call the route
+Every route declares exactly one marker in `dependencies=[...]`:
 
-Each route declares exactly one marker in `dependencies=[...]`:
-
-| Marker | Who can call the route |
+| Marker | Who may call the route |
 |---|---|
-| `public()` | everyone, without a token |
-| `authenticated()` | any authenticated user |
-| `roles(Role.STUDENT, ...)` | any user with one of the roles |
-| `staff(Role.MODERATOR, ...)` | any user with one of the roles or with the admin flag |
-| `admin()` | only the admin, the role is not important |
-| `self_authenticated()` | a route that checks its own secret |
+| `public()` | anyone, no token |
+| `authenticated()` | any signed-in user |
+| `roles("student", ...)` | a user with one of the roles |
+| `staff("teacher", ...)` | a user with one of the roles, or with the admin flag |
+| `admin()` | only a user with the admin flag, whatever the role |
+| `self_authenticated()` | a route that checks its own credential |
 
-<b>Marker</b> — is a check. 
+A marker is the check itself:
 
 ```mermaid
 flowchart TD
-    A[Client] -->|HTTP запрос| B[FastAPI Route]
-    B -->|Getting token from cookie <br>validate_access, then from header <br>Authorization: Bearer| C[IdentityProvider]
-    C -->|Sets identity| D[request.state]
-    D -->|Identity(user_id, role, is_admin)| E[current_identity <br>or<br> optional_identity]
+    A[Client] -->|HTTP request| B[FastAPI route]
+    B -->|"token from the validate_access cookie,<br>then from Authorization: Bearer"| C[IdentityProvider]
+    C -->|sets the identity| D[request.state]
+    D -->|"Identity(user_id, role, is_admin)"| E["current_identity<br>or optional_identity"]
 ```
-* Token is first taken from cookie `validate_access`, then from header `Authorization: Bearer`.
-* Identity (`Identity`) is set in `request.state`, from where it is extracted by dependent components through `current_identity` or `optional_identity` for public routes.
 
-<hr>
+- The token is read from the `validate_access` cookie first, then from the
+  `Authorization: Bearer` header.
+- `IdentityProvider` is a port: the users domain implements it and provides it
+  through dishka.
+- The identity lands in `request.state`; a route reads it with `current_identity`,
+  a public route with `optional_identity`, which never refuses.
+- `require_same_origin` refuses a mutating request from an origin that is not in
+  `MIDDLEWARE_CORS_ALLOWED_ORIGINS`, and a request that carries session cookies
+  without any origin. An admin panel is one more entry in that list.
 
-### `errors/` — error form
+## `errors/` — the error form
 
-Any error from any domain looks the same (`ErrorResponse`):
+Any error from any domain has one shape (`ErrorResponse`):
 
 ```json
 {
-  "error": "auth.invalid_credentials", 
-  "message": "Invalid email or password.",
-  "details": null, 
-  "request_id": "uuid4"
+  "error": "users.invalid_credentials",
+  "message": "Неверная почта или пароль.",
+  "details": null,
+  "request_id": "3f2b9c..."
 }
 ```
 
-- `ErrorSpec(status, code, message)` — how one error looks outside.
-- `ErrorRegistry(base, mapping, fallback_code)` — table «class of exception of the domain → ErrorSpec». Each domain declares its own (`api/_errors.py`);
-  домена → ErrorSpec». Каждый домен объявляет свою (`api/_errors.py`);
-- `CORE_ERRORS` (limits: 429 with `Retry-After`) and `ACCESS_ERRORS` (401, 403).
-- `register_error_handlers` hangs handlers: domain registries, validation errors (422 with `details` by fields), `HTTPException` and everything unexpected (500 without details outward, with full traceback in the log).
-- `RequestIdMiddleware` assigns `X-Request-Id` to the request (or takes the incoming one, if it is good), puts it in the log context and in the response.
-  By this identifier, the request is searched in the logs and in GlitchTip.
-- `_exc_info.py` does not allow the text of the database driver error to be logged, if there are values of the request parameters in it (personal data).
+- `ErrorSpec(status, code, message)` — how one error looks from outside.
+- `ErrorRegistry(base, mapping, fallback_code)` — the table "domain exception →
+  ErrorSpec". Each domain declares its own in `api/_errors.py`.
+- `CORE_ERRORS` (rate limit: 429 with `Retry-After`) and `ACCESS_ERRORS` (401, 403).
+- `register_error_handlers` installs the handlers: domain registries, validation
+  errors (422 with `details` per field), `HTTPException`, and everything
+  unexpected (500 without details outside, full traceback in the log).
+- `RequestIdMiddleware` gives the request an `X-Request-Id` (or keeps a well-formed
+  incoming one), binds it to the log context and returns it in the response.
+- `safe_exc_info` keeps the text of a database driver error out of the log when it
+  carries the bound query parameters (personal data).
 
-### `mounting/` — connecting a domain
+Error messages are the text users read, so they stay in Russian.
 
-A domain gives out one object `DomainDescriptor`:
+## `mounting/` — connecting a domain
+
+A domain exposes one `DomainDescriptor`:
 
 ```python
-AUTH_DOMAIN = DomainDescriptor(
-    router=router,  # APIRouter of the domain with all sub-routers
-    errors=AUTH_ERRORS,  # error registry of the domain
-    providers=(...),  # DI providers of the domain
+USERS_DOMAIN = DomainDescriptor(
+    router=router,  # APIRouter of the domain with all its sub-routers
+    errors=USERS_ERRORS,  # error registry of the domain
+    providers=(...),  # dishka providers of the domain
     on_startup=startup,  # optional check at startup
 )
 ```
 
 `mount(app, *domains, prefix="/api/v1")`:
 
-
 ```mermaid
 flowchart LR
-    subgraph Domain 1
+    subgraph D1["Domain 1"]
         A1[router]
         B1[errors]
         C1[providers]
     end
-    subgraph Domain 2
-        A2[router]
-        B2[errors]
-        C2[providers]
-    end
-    subgraph Domain N
+    subgraph DN["Domain N"]
         AN[router]
         BN[errors]
         CN[providers]
     end
-    %% DomainDescriptors gather everything for each domain
-    A1 & B1 & C1 --> D1[DomainDescriptor]
-    A2 & B2 & C2 --> D2[DomainDescriptor]
-    AN & BN & CN --> DN[DomainDescriptor]
-
-    %% All DomainDescriptors sent to mount
-    D1 & D2 & DN --> MOUNT[mount(app, *domains, prefix="/api/v1")]
-
-    %% Steps inside mount, stacked for clarity
-    MOUNT --> S1[① Register error handlers<br>(errors from all domains,<br>CORE_ERRORS, ACCESS_ERRORS)]
-    S1 --> S2[② Validate all routes:<br>raise UnmarkedRouteError if<br>missing or multiple access markers]
-    S2 --> S3[③ Add router with prefix<br>and OpenAPI error statuses,<br>validate Origin]
-    S3 --> S4[④ Aggregate providers<br>into apps/api container]
-
-    S4 --> FAPI[Ready FastAPI app]
+    A1 & B1 & C1 --> X1[DomainDescriptor]
+    AN & BN & CN --> XN[DomainDescriptor]
+    X1 & XN --> M["mount(app, *domains, prefix)"]
+    M --> S1["1. register error handlers:<br>domain registries, CORE_ERRORS, ACCESS_ERRORS"]
+    S1 --> S2["2. check every route:<br>exactly one access marker, else UnmarkedRouteError"]
+    S2 --> S3["3. include the router with the prefix,<br>common error statuses and the Origin check"]
+    S3 --> F[FastAPI app]
 ```
-/* The diagram visualizes how the `mount` function integrates domains (and their routers, errors, providers) into the FastAPI application through three key steps, enforces access markers, and aggregates DI providers into the apps/api container. */
 
+`mount` does not touch providers: `apps/api` collects them from the descriptors
+into its container.
 
+## `throttling/` — rate limits by client address
 
-1. registers error handlers of all domains plus `CORE_ERRORS`
-   и `ACCESS_ERRORS`;
-2. goes through all routes and falls with `UnmarkedRouteError`, if the route
-   does not have an access marker or there is more than one. A route without a marker cannot
-   get into the application: it simply will not be assembled;
-3. connects the router with a common prefix, common error statuses in OpenAPI
-   и проверкой Origin.
+- `client_ip(request)` — the client address from `request.client`. It is the real
+  address because uvicorn runs with `--proxy-headers` and trusts
+  `X-Forwarded-For` only from the reverse proxy.
+- `throttle_by_ip(limiter, request, bucket, limit, window_ms)` — refuses with 429
+  over the limit and when Redis is down.
+- `throttle_by_ip_fail_open(...)` — the same, but lets the request through when
+  Redis is down. For public reads, where a Redis outage must not take the page
+  down.
+- `ThrottlingProvider` builds the `Limiter` on the Redis client from
+  `CoreProvider`.
 
-Providers from descriptors are aggregated into the `apps/api` container by itself.
+Each domain keeps its own thresholds in `api/_throttle.py`.
 
-<hr>
+## `pagination/` — pages in responses
 
-### `throttling/` — rate limits by client address
+`TablePage[T]`: `limit`/`offset` (limit up to 100, offset up to 1000) with
+`total`, for lists a person pages through: journals, specialities, staff tables.
+Built on `fastapi-pagination`.
 
-- `client_ip(request)` — адрес клиента из `request.client`. Реальный адрес
-  there is actually, because uvicorn is run with `--proxy-headers`
-  and only trusts `X-Forwarded-For` from the proxy (list in
-  `apps/api/Dockerfile`), and the host nginx overwrites this header.
-- `throttle_by_ip(limiter, request, bucket, limit, window_ms)` — отказ 429
-  rejection 429 if exceeded and when Redis is not available.
-- `throttle_by_ip_fail_open(...)` — то же, но при недоступном Redis
-  passes. It is taken where a failed Redis should not crash the route:
-  showcase, sections, posts, establishment of the card by the article, calendar `.ics`.
-- `ThrottlingProvider` gives out `Limiter` to Redis `counters_db`.
+## How it is connected
 
-The rate limit thresholds are kept by each domain itself, in `api/_throttle.py`.
+It connects nothing itself. Domains import markers, error registries, page types
+and `DomainDescriptor`; `apps/api` calls `mount()` and adds `ThrottlingProvider`.
 
-<hr>
-
-### `pagination/` — pages in responses
-
-| Type | Mechanism | Where |
-|---|---|---|
-| `FeedPage[T]` | cursor, without `total`, `size` up to 100 | feeds: own applications, orders, notifications, posts |
-| `TablePage[T]` | `limit`/`offset` (offset up to 1000) and `total` | tables of staff: queues, users, journal |
-
-Built on `fastapi-pagination`. The cursor is marked by the sorting order
-(`_cursor.py`): the cursor of one feed does not fit into another.
-
-## How is it connected
-
-It is not connected itself. Domains import markers, error registries,
-page types and `DomainDescriptor`; `apps/api` calls `mount()`
-and adds `ThrottlingProvider` through domain descriptors.
-
-<hr>
 ## Tests
 
-`packages/web/tests/`: markers and access cookie, optional identity,
-Origin check, error form and error registry `core`, rate limits by address,
-rate limiter provider, page types.
-
-<hr>
-
+`packages/web/tests/`: markers and session cookies, optional identity, the Origin
+check, the error form and the core error registry, throttling, the limiter
+provider, the table page.

@@ -25,10 +25,6 @@ class Limiter(Protocol):
             limit: int - How many attempts are allowed per window.
             window_ms: int - Length of the window in milliseconds.
 
-        Raises:
-            RateLimiterUnavailableError - if the storage is not available.
-            RateLimitExceededError - if the limit is exhausted.
-
         """
         ...
 
@@ -43,7 +39,7 @@ async def throttle_by_ip(
     limit: int,
     window_ms: int,
 ) -> None:
-    """Count the attempt from this address and reject it if the limit is exceeded.
+    """Count the attempt from this address; the limiter refuses one over the limit.
 
     Args:
         limiter: Limiter - Rate limiter.
@@ -51,10 +47,6 @@ async def throttle_by_ip(
         bucket: str - Bucket key, for example ``login``.
         limit: int - How many attempts are allowed per window.
         window_ms: int - Length of the window in milliseconds.
-
-    Raises:
-        RateLimiterUnavailableError - if the storage is not available.
-        RateLimitExceededError - if the limit from this address is exhausted.
 
     """
     await limiter.hit(f"{bucket}:ip:{client_ip(request)}", limit, window_ms)
@@ -67,17 +59,14 @@ async def throttle_by_ip_fail_open(
     limit: int,
     window_ms: int,
 ) -> None:
-    """Count the attempt, but do not drop public reading together with Redis.
+    """Count the attempt, but let public reads through while Redis is down.
 
     Args:
         limiter: Limiter - Rate limiter.
         request: Request - Request, from which the client address is taken.
-        bucket: str - Bucket key, for example ``commerce_showcase``.
+        bucket: str - Bucket key, for example ``journals``.
         limit: int - How many attempts are allowed per window.
         window_ms: int - Length of the window in milliseconds.
-
-    Raises:
-        RateLimitExceededError - if the limit from this address is exhausted.
 
     """
     try:

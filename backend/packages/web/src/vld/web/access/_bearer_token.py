@@ -2,12 +2,9 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from starlette.requests import Request
 
 from ._errors import NotAuthenticatedError
-
-if TYPE_CHECKING:
-    from starlette.requests import Request
 
 _BEARER = "Bearer "
 

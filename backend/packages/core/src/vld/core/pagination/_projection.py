@@ -11,8 +11,6 @@ if TYPE_CHECKING:
 DomainT_contra = TypeVar("DomainT_contra", contravariant=True)
 OutT_co = TypeVar("OutT_co", covariant=True)
 
-OutT = TypeVar("OutT")
-
 
 class Projection(Protocol[DomainT_contra, OutT_co]):
     """What the caller wants to see in the page."""
@@ -21,4 +19,15 @@ class Projection(Protocol[DomainT_contra, OutT_co]):
         self,
         items: Sequence[DomainT_contra],
         /,
-    ) -> Sequence[OutT_co] | Awaitable[Sequence[OutT_co]]: ...
+    ) -> Sequence[OutT_co] | Awaitable[Sequence[OutT_co]]:
+        """Project domain objects into what the page returns.
+
+        Args:
+            items: Sequence[DomainT_contra] - Domain objects of one page.
+
+        Returns:
+            Sequence[OutT_co] | Awaitable[Sequence[OutT_co]] - The projected items,
+                directly or after an await.
+
+        """
+        ...
