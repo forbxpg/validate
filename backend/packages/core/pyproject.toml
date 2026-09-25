@@ -4,7 +4,17 @@ version = "0.0.0"
 description = "Shared kernel for every domain: settings, database, logging."
 requires-python = ">=3.13"
 dependencies = [
+    "alembic>=1.18.5",
+    "argon2-cffi>=25.1.0",
+    "asyncpg>=0.31.0",
+    "dishka>=1.10.1",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.2",
+    "pyjwt>=2.13.0",
+    "redis>=8.0.1",
+    "sentry-sdk>=2.44.0",
     "sqlalchemy[asyncio]>=2.0.51",
+    "structlog>=26.1.0",
 ]
 # Internal to the workspace: PyPI refuses an upload with this classifier.
 classifiers = ["Private :: Do Not Upload"]

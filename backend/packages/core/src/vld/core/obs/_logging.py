@@ -36,6 +36,7 @@ def configure_logging(settings: ObservabilitySettings) -> None:
     redaction = SecretRedactingFilter()
     for handler in logging.getLogger().handlers:
         handler.addFilter(redaction)
+
     access = logging.getLogger(_ACCESS_LOGGER)
     access.filters = [
         existing
