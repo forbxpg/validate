@@ -1,0 +1,26 @@
+{
+  "ruff.nativeServer": "on",
+  "ruff.path": ["${workspaceFolder}/.venv/bin/ruff"],
+  "ruff.configurationPreference": "filesystemFirst",
+  "ruff.format.backend": "internal",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "cursorpyright.importStrategy": "fromEnvironment",
+  "cursorpyright.analysis.diagnosticMode": "workspace",
+  "basedpyright.importStrategy": "fromEnvironment",
+  "basedpyright.analysis.diagnosticMode": "workspace",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true
+  }
+}

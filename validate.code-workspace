@@ -1,0 +1,15 @@
+{
+  // The editor reads .vscode/ only from an opened folder: open this file
+  // (File → Open Workspace from File) so backend/.vscode applies to the backend.
+  "folders": [
+    { "name": "backend", "path": "backend" },
+    { "name": "frontend", "path": "frontend" },
+    { "name": "repo", "path": "." }
+  ],
+  "settings": {
+    "files.exclude": {
+      "backend": true,
+      "frontend": true
+    }
+  }
+}
