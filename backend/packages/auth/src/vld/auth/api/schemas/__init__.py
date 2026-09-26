@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ._account import MeResponse
+from ._administration import AdminUserResponse, ChangeRoleRequest, SetActiveRequest
 from ._error import AuthErrorCode, AuthErrorResponse
 from ._password import ChangePasswordRequest, NewPasswordRequest, PasswordResetRequest
 from ._profile import ProfileBody
@@ -20,9 +21,11 @@ from ._sessions import (
 )
 
 __all__ = (
+    "AdminUserResponse",
     "AuthErrorCode",
     "AuthErrorResponse",
     "ChangePasswordRequest",
+    "ChangeRoleRequest",
     "LoginRequest",
     "MeResponse",
     "NewPasswordRequest",
@@ -33,6 +36,7 @@ __all__ = (
     "RegisterResponse",
     "ResendVerificationRequest",
     "SessionRefreshedResponse",
+    "SetActiveRequest",
     "TokenPairResponse",
     "VerifyEmailRequest",
 )
