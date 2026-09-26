@@ -1,14 +1,14 @@
 # Contributing
 
-> The code is still being moved in from the private prototype. The commands below are
-> the ones the repository will keep once it lands; until then there is nothing to run.
-
 ## Layout
 
-- `backend/` — a [uv](https://docs.astral.sh/uv/) workspace: `packages/*` holds one
-  package per domain (users, journals, crossref, citations, articles, notifications),
-  `apps/*` the processes that run them (API, worker, CLI for registry imports).
+- `backend/` — a [uv](https://docs.astral.sh/uv/) workspace. `packages/*` are
+  libraries: `core` (settings, database, Redis, logs, audit), `web` (the shared HTTP
+  layer), the domains (`auth` so far) and `crossref`, a standalone client of the
+  Crossref API. `apps/*` are the processes: `api`, `worker` (outbox relay and
+  letters), `migrator` (`vld-migrate`).
 - `frontend/` — React and TypeScript, built with Vite.
+- `infrastructure/` — the local stand in Docker, run through the root `Makefile`.
 
 Domains see each other only through their `application/contracts`, and `domain` and
 `application` never import infrastructure. `import-linter` checks both; a violation
@@ -38,10 +38,6 @@ http://localhost:8010 and the worker, and syncs code changes into them. With
 optional services and how to connect GlitchTip: [infrastructure/README.md](infrastructure/README.md).
 `make api-host` runs the API on the host instead, for a debugger.
 
-Registry imports (VAK PDF, White List) will be CLI commands; their heavy
-dependencies (PDF parsing, a headless browser) live in the CLI app only, so the
-API image stays small.
-
 ## Checks
 
 All of these must pass; CI runs the same.
@@ -52,9 +48,9 @@ make test-integration   # against the running stand
 cd frontend && npm run lint && npx tsc -b && npm test && npm run build
 ```
 
-Tests live in `tests/unit` and `tests/integration`; the integration ones need
-PostgreSQL and Redis. `make test` starts the stand and runs the whole suite against a
-database of its own, never the one `make dev` uses.
+Tests live in `tests/unit` and `tests/integration`; the integration ones need the
+stand's PostgreSQL and Redis. Their fixtures create and drop `test_` databases of their
+own and Redis index 15 (`make test-integration` sets both), never what `make dev` uses.
 
 Conventions: English in code, docstrings and commits; Russian in the interface only.
 Google-style docstrings on every module, class and function, `from __future__ import
