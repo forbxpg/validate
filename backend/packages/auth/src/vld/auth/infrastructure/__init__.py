@@ -3,5 +3,6 @@
 from __future__ import annotations
 
 from ._clock import SystemClock
+from ._hasher import BcryptPasswordHasher
 
-__all__ = ("SystemClock",)
+__all__ = ("BcryptPasswordHasher", "SystemClock")
