@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from .account._describe_me import DescribeMe, MeView
 from .onboarding._register import RegisterCommand, RegisterUser
 from .onboarding._resend_verification import (
     ResendVerification,
@@ -29,6 +30,7 @@ from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 __all__ = (
     "ChangePassword",
     "ChangePasswordCommand",
+    "DescribeMe",
     "InvalidRefreshTokenError",
     "InvalidTokenError",
     "InvalidateSessions",
@@ -36,6 +38,7 @@ __all__ = (
     "LoginResult",
     "LoginWithPassword",
     "Logout",
+    "MeView",
     "RefreshTokens",
     "RegisterCommand",
     "RegisterUser",
