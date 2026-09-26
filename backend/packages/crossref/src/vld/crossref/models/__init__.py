@@ -12,14 +12,19 @@ from ._lenient import (
     lenient,
     parse_item,
 )
+from ._query import TEXT_MAX, QueryModel, QueryPart, Text
 
 __all__ = (
+    "TEXT_MAX",
     "CleanStrList",
     "CrossrefDate",
     "CrossrefModel",
     "CrossrefTimestamp",
     "PartialDate",
+    "QueryModel",
+    "QueryPart",
     "StrList",
+    "Text",
     "current_record",
     "degraded",
     "from_date_parts",

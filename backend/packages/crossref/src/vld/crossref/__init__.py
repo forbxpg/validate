@@ -32,6 +32,18 @@ from .pagination import (
 )
 from .throttle import LocalThrottle, RateLimits, Throttle
 from .transport import RetryPolicy
+from .works.query import (
+    FullTextApplication,
+    FunderDoiAssertedBy,
+    LicenseVersion,
+    Order,
+    WorkFacet,
+    WorkField,
+    WorksFilter,
+    WorksQuery,
+    WorksSort,
+    WorkType,
+)
 
 __all__ = (
     "CURSOR_LIFETIME",
@@ -48,13 +60,23 @@ __all__ = (
     "CrossrefUnavailableError",
     "Facet",
     "FacetValue",
+    "FullTextApplication",
+    "FunderDoiAssertedBy",
+    "LicenseVersion",
     "LocalThrottle",
+    "Order",
     "Page",
     "PartialDate",
     "RateLimits",
     "RetryPolicy",
     "Throttle",
     "ValidationProblem",
+    "WorkFacet",
+    "WorkField",
+    "WorkType",
+    "WorksFilter",
+    "WorksQuery",
+    "WorksSort",
     "check_page",
     "check_walk",
     "normalize_doi",

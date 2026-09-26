@@ -34,6 +34,8 @@ runtime-evaluated-base-classes = [
     "pydantic.BaseModel",
     "pydantic_settings.BaseSettings",
     "vld.crossref.models.CrossrefModel",
+    "vld.crossref.models.QueryModel",
+    "vld.crossref.models.QueryPart",
 ]
 runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.inject"]
 
