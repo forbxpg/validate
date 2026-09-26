@@ -9,7 +9,12 @@ from ._identity import AuthIdentityProvider
 from ._jwt import JwtTokenIssuer
 from ._refreshed import RedisRefreshedPairCache
 from ._revocation import RedisRevocationStore
-from .email import ConsoleEmailSender, ConsoleEmailSenderInProductionError
+from .email import (
+    ConsoleEmailSender,
+    ConsoleEmailSenderInProductionError,
+    EmailMisconfiguredError,
+    build_smtp_sender,
+)
 
 __all__ = (
     "AuthApiAdapter",
@@ -17,8 +22,10 @@ __all__ = (
     "BcryptPasswordHasher",
     "ConsoleEmailSender",
     "ConsoleEmailSenderInProductionError",
+    "EmailMisconfiguredError",
     "JwtTokenIssuer",
     "RedisRefreshedPairCache",
     "RedisRevocationStore",
     "SystemClock",
+    "build_smtp_sender",
 )
