@@ -17,6 +17,7 @@ from ._tables import (
     USERS,
     VERIFICATION_TOKENS,
 )
+from ._user import UserModel
 
 __all__ = (
     "EMAIL_LOWER_CASE_CONSTRAINT",
@@ -33,4 +34,5 @@ __all__ = (
     "USERS",
     "VERIFICATION_TOKENS",
     "AuthBase",
+    "UserModel",
 )

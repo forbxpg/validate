@@ -15,7 +15,7 @@ from .email import (
     EmailMisconfiguredError,
     build_smtp_sender,
 )
-from .models import METADATA, OUTBOX, QUALIFIED_OUTBOX, SCHEMA, AuthBase
+from .models import METADATA, OUTBOX, QUALIFIED_OUTBOX, SCHEMA, AuthBase, UserModel
 
 __all__ = (
     "METADATA",
@@ -33,5 +33,6 @@ __all__ = (
     "RedisRefreshedPairCache",
     "RedisRevocationStore",
     "SystemClock",
+    "UserModel",
     "build_smtp_sender",
 )
