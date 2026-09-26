@@ -5,6 +5,7 @@ from __future__ import annotations
 from ._bearer_token import bearer
 from ._cookie import (
     ACCESS_COOKIE,
+    COOKIE_PATH,
     REFRESH_COOKIE,
     access_token,
     clear_session_cookies,
@@ -35,6 +36,7 @@ from ._origin import require_same_origin
 __all__ = (
     "ACCESS_COOKIE",
     "ACCESS_ERRORS",
+    "COOKIE_PATH",
     "PROTECTED_ERROR_RESPONSES",
     "REFRESH_COOKIE",
     "AccessDeniedError",
