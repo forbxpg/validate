@@ -16,16 +16,20 @@ from .email import (
     build_smtp_sender,
 )
 from .models import (
+    CLAIMABLE_PREDICATE,
     METADATA,
     OUTBOX,
     QUALIFIED_OUTBOX,
     SCHEMA,
     AuthBase,
+    OutboxModel,
+    OutboxStatus,
     UserModel,
     VerificationTokenModel,
 )
 
 __all__ = (
+    "CLAIMABLE_PREDICATE",
     "METADATA",
     "OUTBOX",
     "QUALIFIED_OUTBOX",
@@ -38,6 +42,8 @@ __all__ = (
     "ConsoleEmailSenderInProductionError",
     "EmailMisconfiguredError",
     "JwtTokenIssuer",
+    "OutboxModel",
+    "OutboxStatus",
     "RedisRefreshedPairCache",
     "RedisRevocationStore",
     "SystemClock",

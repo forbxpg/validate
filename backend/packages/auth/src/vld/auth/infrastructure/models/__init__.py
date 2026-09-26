@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ._base import METADATA, AuthBase
+from ._outbox import CLAIMABLE_PREDICATE, OutboxModel, OutboxStatus
 from ._tables import (
     EMAIL_LOWER_CASE_CONSTRAINT,
     EMAIL_UNIQUE_CONSTRAINT,
@@ -21,6 +22,7 @@ from ._token import VerificationTokenModel
 from ._user import UserModel
 
 __all__ = (
+    "CLAIMABLE_PREDICATE",
     "EMAIL_LOWER_CASE_CONSTRAINT",
     "EMAIL_UNIQUE_CONSTRAINT",
     "METADATA",
@@ -35,6 +37,8 @@ __all__ = (
     "USERS",
     "VERIFICATION_TOKENS",
     "AuthBase",
+    "OutboxModel",
+    "OutboxStatus",
     "UserModel",
     "VerificationTokenModel",
 )
