@@ -1,0 +1,1729 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          7
+        ]
+      ],
+      "date-time": "2026-09-07T17:21:36Z",
+      "timestamp": 1788801696649,
+      "version": "build-2803163510"
+    },
+    "reference-count": 87,
+    "publisher": "eLife Sciences Publications, Ltd",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "am",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "National Natural Science Foundation of China",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "81972073"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "81972073"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "name": "Taishan Scholars Program of Shandong Province-Young Taishan Scholars",
+        "award": [
+          "tsqn201909197"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "tsqn201909197"
+            ]
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100013290",
+        "name": "National Key Research and Development Program of China Stem Cell and Translational Research",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "2019YFA0112100"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2019YFA0112100"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100013290",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "elifesciences.org"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "accepted": {
+      "date-parts": [
+        [
+          2023,
+          2,
+          16
+        ]
+      ]
+    },
+    "abstract": "<jats:p>\n                    Cerebral ischaemia‒reperfusion injury (IRI), during which neurons undergo oxygen-glucose deprivation/reoxygenation (OGD/R), is a notable pathological process in many neurological diseases. N1-methyladenosine (m\n                    <jats:sup>1</jats:sup>\n                    A) is an RNA modification that can affect gene expression and RNA stability. The m\n                    <jats:sup>1</jats:sup>\n                    A landscape and potential functions of m\n                    <jats:sup>1</jats:sup>\n                    A modification in neurons remain poorly understood. We explored RNA (mRNA, lncRNA, and circRNA) m\n                    <jats:sup>1</jats:sup>\n                    A modification in normal and OGD/R-treated mouse neurons and the effect of m\n                    <jats:sup>1</jats:sup>\n                    A on diverse RNAs. We investigated the m\n                    <jats:sup>1</jats:sup>\n                    A landscape in primary neurons, identified m\n                    <jats:sup>1</jats:sup>\n                    A-modified RNAs, and found that OGD/R increased the number of m\n                    <jats:sup>1</jats:sup>\n                    A RNAs. m\n                    <jats:sup>1</jats:sup>\n                    A modification might also affect the regulatory mechanisms of noncoding RNAs, e.g., lncRNA–RNA binding proteins (RBPs) interactions and circRNA translation. We showed that m\n                    <jats:sup>1</jats:sup>\n                    A modification mediates the circRNA/lncRNA‒miRNA–mRNA competing endogenous RNA (ceRNA) mechanism and that 3' untranslated region (3’UTR) modification of mRNAs can hinder miRNA–mRNA binding. Three modification patterns were identified, and genes with different patterns had intrinsic mechanisms with potential m\n                    <jats:sup>1</jats:sup>\n                    A-regulatory specificity. Systematic analysis of the m\n                    <jats:sup>1</jats:sup>\n                    A landscape in normal and OGD/R neurons lays a critical foundation for understanding RNA modification and provides new perspectives and a theoretical basis for treating and developing drugs for OGD/R pathology-related diseases.\n                  </jats:p>",
+    "DOI": "10.7554/elife.85324",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2023,
+          2,
+          16
+        ]
+      ],
+      "date-time": "2023-02-16T09:15:12Z",
+      "timestamp": 1676538912000
+    },
+    "update-policy": "https://doi.org/10.7554/elife.85324",
+    "source": "Crossref",
+    "is-referenced-by-count": 22,
+    "title": [
+      "The landscape of m1A modification and its posttranscriptional regulatory functions in primary neurons"
+    ],
+    "prefix": "10.7554",
+    "volume": "12",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-1288-9006",
+        "authenticated-orcid": true,
+        "given": "Chi",
+        "family": "Zhang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xianfu",
+        "family": "Yi",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Bioinformatics, School of Basic Medical Sciences, Tianjin Medical University",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mengfan",
+        "family": "Hou",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Qingyang",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xueying",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lu",
+        "family": "Lu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Enlin",
+        "family": "Qi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mingxin",
+        "family": "Wu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lin",
+        "family": "Qi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/00f1zfq44",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopedics, Hunan Key Laboratory of Tumor Models and Individualized Medicine, The Second Xiangya Hospital, Central South University",
+            "place": [
+              "Changsha, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Huan",
+        "family": "Jian",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhangyang",
+        "family": "Qi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yigang",
+        "family": "Lv",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xiaohong",
+        "family": "Kong",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8748-2636",
+        "authenticated-orcid": true,
+        "given": "Mingjun",
+        "family": "Bi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Shiqing",
+        "family": "Feng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0053-8970",
+        "authenticated-orcid": true,
+        "given": "Hengxing",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "id": [
+              {
+                "id": "https://ror.org/0207yh398",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Qilu Hospital of Shandong University, Shandong University Centre for Orthopaedics, Advanced Medical Research Institute, Cheeloo College of Medicine, Shandong University",
+            "place": [
+              "Jinan, China"
+            ]
+          },
+          {
+            "id": [
+              {
+                "id": "https://ror.org/02mh8wx89",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ],
+            "name": "Department of Orthopaedics, Tianjin Medical University General Hospital, International Science and Technology Cooperation Base of Spinal Cord Injury, Tianjin Key Laboratory of Spine and Spinal Cord",
+            "place": [
+              "Tianjin, China"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "4374",
+    "published-online": {
+      "date-parts": [
+        [
+          2023,
+          3,
+          7
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "bib1",
+        "doi-asserted-by": "publisher",
+        "first-page": "W39",
+        "DOI": "10.1093/nar/gkv416",
+        "article-title": "The MEME suite",
+        "volume": "43",
+        "author": "Bailey",
+        "year": "2015",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib2",
+        "doi-asserted-by": "publisher",
+        "first-page": "1546",
+        "DOI": "10.1016/j.cmet.2021.07.006",
+        "article-title": "Astrocyte-Neuron metabolic cooperation shapes brain activity",
+        "volume": "33",
+        "author": "Bonvento",
+        "year": "2021",
+        "journal-title": "Cell Metabolism"
+      },
+      {
+        "key": "bib3",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.celrep.2022.111317",
+        "article-title": "M1A and m6a modifications function cooperatively to facilitate rapid mrna degradation",
+        "volume": "40",
+        "author": "Boo",
+        "year": "2022",
+        "journal-title": "Cell Reports"
+      },
+      {
+        "key": "bib4",
+        "doi-asserted-by": "publisher",
+        "first-page": "1474",
+        "DOI": "10.15252/embj.201695810",
+        "article-title": "Brain metabolism in health, aging, and neurodegeneration",
+        "volume": "36",
+        "author": "Camandola",
+        "year": "2017",
+        "journal-title": "The EMBO Journal"
+      },
+      {
+        "key": "bib5",
+        "doi-asserted-by": "publisher",
+        "first-page": "D165",
+        "DOI": "10.1093/nar/gkab1113",
+        "article-title": "JASPAR 2022: the 9th release of the open-access database of transcription factor binding profiles",
+        "volume": "50",
+        "author": "Castro-Mondragon",
+        "year": "2022",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib6",
+        "doi-asserted-by": "publisher",
+        "first-page": "96",
+        "DOI": "10.1016/j.molcel.2019.07.016",
+        "article-title": "N6-methyladenosine modification controls circular RNA immunity",
+        "volume": "76",
+        "author": "Chen",
+        "year": "2019",
+        "journal-title": "Molecular Cell"
+      },
+      {
+        "key": "bib7",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1038/s41467-019-12651-2",
+        "article-title": "N6-methyladenosine modification of circnsun2 facilitates cytoplasmic export and stabilizes HMGA2 to promote colorectal liver metastasis",
+        "volume": "10",
+        "author": "Chen",
+        "year": "2019",
+        "journal-title": "Nature Communications"
+      },
+      {
+        "key": "bib8",
+        "doi-asserted-by": "publisher",
+        "first-page": "2533",
+        "DOI": "10.1093/nar/gky1250",
+        "article-title": "Transfer RNA demethylase ALKBH3 promotes cancer progression via induction of trna-derived small rnas",
+        "volume": "47",
+        "author": "Chen",
+        "year": "2019",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib9",
+        "doi-asserted-by": "publisher",
+        "first-page": "673",
+        "DOI": "10.1016/j.omtn.2020.09.032",
+        "article-title": "Overexpression of circrna circuck2 attenuates cell apoptosis in cerebral ischemia-reperfusion injury via mir-125b-5p/GDF11 signaling",
+        "volume": "22",
+        "author": "Chen",
+        "year": "2020",
+        "journal-title": "Molecular Therapy. Nucleic Acids"
+      },
+      {
+        "key": "bib10",
+        "doi-asserted-by": "publisher",
+        "first-page": "2873",
+        "DOI": "10.1016/j.ymthe.2021.04.025",
+        "article-title": "Microglial lnc-U90926 facilitates neutrophil infiltration in ischemic stroke via MDH2/CXCL2 axis",
+        "volume": "29",
+        "author": "Chen",
+        "year": "2021",
+        "journal-title": "Molecular Therapy"
+      },
+      {
+        "key": "bib11",
+        "doi-asserted-by": "publisher",
+        "first-page": "138",
+        "DOI": "10.1016/j.stem.2020.01.005",
+        "article-title": "Post-transcriptional regulation of homeostatic, stressed, and malignant stem cells",
+        "volume": "26",
+        "author": "Chua",
+        "year": "2020",
+        "journal-title": "Cell Stem Cell"
+      },
+      {
+        "key": "bib12",
+        "doi-asserted-by": "publisher",
+        "first-page": "2269",
+        "DOI": "10.1261/rna.035600.112",
+        "article-title": "Trmt61B is a methyltransferase responsible for 1-methyladenosine at position 58 of human mitochondrial trnas",
+        "volume": "18",
+        "author": "Chujo",
+        "year": "2012",
+        "journal-title": "RNA"
+      },
+      {
+        "key": "bib13",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s13287-019-1487-3",
+        "article-title": "LncRNA neat1 mediates mir-124-induced activation of wnt/β-catenin signaling in spinal cord neural progenitor cells",
+        "volume": "10",
+        "author": "Cui",
+        "year": "2019",
+        "journal-title": "Stem Cell Research & Therapy"
+      },
+      {
+        "key": "bib14",
+        "doi-asserted-by": "publisher",
+        "first-page": "6380",
+        "DOI": "10.1021/acs.analchem.8b01703",
+        "article-title": "Identification of YTH domain-containing proteins as the readers for N1-methyladenosine in RNA",
+        "volume": "90",
+        "author": "Dai",
+        "year": "2018",
+        "journal-title": "Analytical Chemistry"
+      },
+      {
+        "key": "bib15",
+        "doi-asserted-by": "publisher",
+        "first-page": "569",
+        "DOI": "10.2337/db17-1069",
+        "article-title": "SGK1/FOXO3 signaling in hypothalamic POMC neurons mediates glucocorticoid-increased adiposity",
+        "volume": "67",
+        "author": "Deng",
+        "year": "2018",
+        "journal-title": "Diabetes"
+      },
+      {
+        "key": "bib16",
+        "doi-asserted-by": "publisher",
+        "first-page": "949",
+        "DOI": "10.1152/physrev.00062.2017",
+        "article-title": "Brain glucose metabolism: integration of energetics with function",
+        "volume": "99",
+        "author": "Dienel",
+        "year": "2019",
+        "journal-title": "Physiological Reviews"
+      },
+      {
+        "key": "bib17",
+        "doi-asserted-by": "publisher",
+        "first-page": "441",
+        "DOI": "10.1038/nature16998",
+        "article-title": "The dynamic N (1) -methyladenosine methylome in eukaryotic messenger RNA",
+        "volume": "530",
+        "author": "Dominissini",
+        "year": "2016",
+        "journal-title": "Nature"
+      },
+      {
+        "key": "bib18",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1111/acel.13432",
+        "article-title": "Foxo3 deficiency in cortical astrocytes leads to impaired lipid metabolism and aggravated amyloid pathology",
+        "volume": "20",
+        "author": "Du",
+        "year": "2021",
+        "journal-title": "Aging Cell"
+      },
+      {
+        "key": "bib19",
+        "doi-asserted-by": "publisher",
+        "first-page": "198",
+        "DOI": "10.1016/0006-3002(61)90668-0",
+        "article-title": "The occurrence of 1-methyladenine in ribonucleic acid",
+        "volume": "46",
+        "author": "Dunn",
+        "year": "1961",
+        "journal-title": "Biochimica et Biophysica Acta"
+      },
+      {
+        "key": "bib20",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1111/gbb.12428",
+        "article-title": "The emerging role of mRNA methylation in normal and pathological behavior",
+        "volume": "17",
+        "author": "Engel",
+        "year": "2018",
+        "journal-title": "Genes, Brain, and Behavior"
+      },
+      {
+        "key": "bib21",
+        "doi-asserted-by": "publisher",
+        "first-page": "5592",
+        "DOI": "10.1038/s41380-020-00926-w",
+        "article-title": "Alzheimer’s genetic risk factor FERMT2 (kindlin-2) controls axonal growth and synaptic plasticity in an APP-dependent manner",
+        "volume": "26",
+        "author": "Eysert",
+        "year": "2021",
+        "journal-title": "Molecular Psychiatry"
+      },
+      {
+        "key": "bib22",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/1471-2105-11-367",
+        "article-title": "A flexible R package for nonnegative matrix factorization",
+        "volume": "11",
+        "author": "Gaujoux",
+        "year": "2010",
+        "journal-title": "BMC Bioinformatics"
+      },
+      {
+        "key": "bib23",
+        "doi-asserted-by": "publisher",
+        "first-page": "752",
+        "DOI": "10.1016/j.tins.2020.07.007",
+        "article-title": "Circular RNAs: the brain transcriptome comes full circle",
+        "volume": "43",
+        "author": "Gokool",
+        "year": "2020",
+        "journal-title": "Trends in Neurosciences"
+      },
+      {
+        "key": "bib24",
+        "doi-asserted-by": "publisher",
+        "first-page": "638",
+        "DOI": "10.15252/embr.201540500",
+        "article-title": "The antiobesity factor WDTC1 suppresses adipogenesis via the CRL4WDTC1 E3 ligase",
+        "volume": "17",
+        "author": "Groh",
+        "year": "2016",
+        "journal-title": "EMBO Reports"
+      },
+      {
+        "key": "bib25",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s13045-022-01231-5",
+        "article-title": "Functions, mechanisms, and therapeutic implications of METTL14 in human cancer",
+        "volume": "15",
+        "author": "Guan",
+        "year": "2022",
+        "journal-title": "Journal of Hematology & Oncology"
+      },
+      {
+        "key": "bib26",
+        "doi-asserted-by": "publisher",
+        "first-page": "6206",
+        "DOI": "10.1093/nar/gkq381",
+        "article-title": "Insights into the hyperthermostability and unusual region-specificity of archaeal Pyrococcus abyssi tRNA m1a57/58 methyltransferase",
+        "volume": "38",
+        "author": "Guelorget",
+        "year": "2010",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib27",
+        "doi-asserted-by": "publisher",
+        "first-page": "146",
+        "DOI": "10.1016/j.pharmthera.2017.03.005",
+        "article-title": "Effects and mechanisms of compound Chinese medicine and major ingredients on microcirculatory dysfunction and organ injury induced by ischemia/reperfusion",
+        "volume": "177",
+        "author": "Han",
+        "year": "2017",
+        "journal-title": "Pharmacology & Therapeutics"
+      },
+      {
+        "key": "bib28",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3791/562",
+        "article-title": "Preparation of dissociated mouse cortical neuron cultures",
+        "volume": "562",
+        "author": "Hilgenberg",
+        "year": "2007",
+        "journal-title": "Journal of Visualized Experiments"
+      },
+      {
+        "key": "bib29",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.arr.2020.101058",
+        "article-title": "Functional roles of circular rnas in alzheimer’s disease",
+        "volume": "60",
+        "author": "Huang",
+        "year": "2020",
+        "journal-title": "Ageing Research Reviews"
+      },
+      {
+        "key": "bib30",
+        "doi-asserted-by": "publisher",
+        "first-page": "D236",
+        "DOI": "10.1093/nar/gkaa823",
+        "article-title": "TransCirc: an interactive database for translatable circular RNAs based on multi-omics evidence",
+        "volume": "49",
+        "author": "Huang",
+        "year": "2021",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib31",
+        "doi-asserted-by": "publisher",
+        "first-page": "443",
+        "DOI": "10.1083/jcb.201206146",
+        "article-title": "Rbfox3-regulated alternative splicing of numb promotes neuronal differentiation during development",
+        "volume": "200",
+        "author": "Kim",
+        "year": "2013",
+        "journal-title": "The Journal of Cell Biology"
+      },
+      {
+        "key": "bib32",
+        "doi-asserted-by": "publisher",
+        "first-page": "676",
+        "DOI": "10.1016/j.neuron.2020.08.011",
+        "article-title": "APP family regulates neuronal excitability and synaptic plasticity but not neuronal survival",
+        "volume": "108",
+        "author": "Lee",
+        "year": "2020",
+        "journal-title": "Neuron"
+      },
+      {
+        "key": "bib33",
+        "doi-asserted-by": "publisher",
+        "first-page": "242",
+        "DOI": "10.1038/nature20568",
+        "article-title": "M6A modulates neuronal functions and sex determination in Drosophila",
+        "volume": "540",
+        "author": "Lence",
+        "year": "2016",
+        "journal-title": "Nature"
+      },
+      {
+        "key": "bib34",
+        "doi-asserted-by": "publisher",
+        "first-page": "311",
+        "DOI": "10.1038/nchembio.2040",
+        "article-title": "Transcriptome-wide mapping reveals reversible and dynamic N(1)-methyladenosine methylome",
+        "volume": "12",
+        "author": "Li",
+        "year": "2016",
+        "journal-title": "Nature Chemical Biology"
+      },
+      {
+        "key": "bib35",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s13059-021-02300-7",
+        "article-title": "RiboCIRC: a comprehensive database of translatable circrnas",
+        "volume": "22",
+        "author": "Li",
+        "year": "2021",
+        "journal-title": "Genome Biology"
+      },
+      {
+        "key": "bib36",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.expneurol.2019.113139",
+        "article-title": "Long non-coding RNA MEG3 promotes cerebral ischemia-reperfusion injury through increasing pyroptosis by targeting mir-485/AIM2 axis",
+        "volume": "325",
+        "author": "Liang",
+        "year": "2020",
+        "journal-title": "Experimental Neurology"
+      },
+      {
+        "key": "bib37",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.cell.2016.11.045",
+        "article-title": "ALKBH1-mediated trna demethylation regulates translation",
+        "volume": "167",
+        "author": "Liu",
+        "year": "2016",
+        "journal-title": "Cell"
+      },
+      {
+        "key": "bib38",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1111/cpr.13124",
+        "article-title": "Arid1a regulates neural stem/progenitor cell proliferation and differentiation during cortical development",
+        "volume": "54",
+        "author": "Liu",
+        "year": "2021",
+        "journal-title": "Cell Proliferation"
+      },
+      {
+        "key": "bib39",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-021-01398-4",
+        "article-title": "N6-methyladenosine-modified circigf2bp3 inhibits CD8+ T-cell responses to facilitate tumor immune evasion by promoting the deubiquitination of PD-L1 in non-small cell lung cancer",
+        "volume": "20",
+        "author": "Liu",
+        "year": "2021",
+        "journal-title": "Molecular Cancer"
+      },
+      {
+        "key": "bib40",
+        "doi-asserted-by": "publisher",
+        "first-page": "1334",
+        "DOI": "10.1021/acschembio.2c00178",
+        "article-title": "Development of mild chemical catalysis conditions for m(1)A-to-m(6)A rearrangement on RNA",
+        "volume": "17",
+        "author": "Liu",
+        "year": "2022",
+        "journal-title": "ACS Chemical Biology"
+      },
+      {
+        "key": "bib41",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s13059-018-1435-z",
+        "article-title": "Rna m6a methylation participates in regulation of postnatal development of the mouse cerebellum",
+        "volume": "19",
+        "author": "Ma",
+        "year": "2018",
+        "journal-title": "Genome Biology"
+      },
+      {
+        "key": "bib42",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.pneurobio.2020.101746",
+        "article-title": "Role of circular rnas in brain development and CNS diseases",
+        "volume": "186",
+        "author": "Mehta",
+        "year": "2020",
+        "journal-title": "Progress in Neurobiology"
+      },
+      {
+        "key": "bib43",
+        "doi-asserted-by": "publisher",
+        "first-page": "1635",
+        "DOI": "10.1016/j.cell.2012.05.003",
+        "article-title": "Comprehensive analysis of mRNA methylation reveals enrichment in 3’ UTRs and near stop codons",
+        "volume": "149",
+        "author": "Meyer",
+        "year": "2012",
+        "journal-title": "Cell"
+      },
+      {
+        "key": "bib44",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3390/ijms21249582",
+        "article-title": "Competing endogenous RNA networks as biomarkers in neurodegenerative diseases",
+        "volume": "21",
+        "author": "Moreno-García",
+        "year": "2020",
+        "journal-title": "International Journal of Molecular Sciences"
+      },
+      {
+        "key": "bib45",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3390/biom7010020",
+        "article-title": "M1A post-transcriptional modification in tRNAs",
+        "volume": "7",
+        "author": "Oerum",
+        "year": "2017",
+        "journal-title": "Biomolecules"
+      },
+      {
+        "key": "bib46",
+        "doi-asserted-by": "publisher",
+        "first-page": "1281",
+        "DOI": "10.1261/rna.5040605",
+        "article-title": "The bipartite structure of the trna m1a58 methyltransferase from S. cerevisiae is conserved in humans",
+        "volume": "11",
+        "author": "Ozanick",
+        "year": "2005",
+        "journal-title": "RNA"
+      },
+      {
+        "key": "bib47",
+        "doi-asserted-by": "publisher",
+        "first-page": "369",
+        "DOI": "10.1038/nature19342",
+        "article-title": "M(6)A RNA methylation promotes XIST-mediated transcriptional repression",
+        "volume": "537",
+        "author": "Patil",
+        "year": "2016",
+        "journal-title": "Nature"
+      },
+      {
+        "key": "bib48",
+        "doi-asserted-by": "publisher",
+        "first-page": "336",
+        "DOI": "10.1111/jnc.14819",
+        "article-title": "Altered glucose catabolism in the presynaptic and perisynaptic compartments of SOD1g93a mouse spinal cord and motor cortex indicates that mitochondria are the site of bioenergetic imbalance in ALS",
+        "volume": "151",
+        "author": "Ravera",
+        "year": "2019",
+        "journal-title": "Journal of Neurochemistry"
+      },
+      {
+        "key": "bib49",
+        "doi-asserted-by": "publisher",
+        "first-page": "1187",
+        "DOI": "10.1016/j.cell.2017.05.045",
+        "article-title": "Dynamic RNA modifications in gene expression regulation",
+        "volume": "169",
+        "author": "Roundtree",
+        "year": "2017",
+        "journal-title": "Cell"
+      },
+      {
+        "key": "bib50",
+        "doi-asserted-by": "publisher",
+        "first-page": "229",
+        "DOI": "10.1007/978-1-4939-7526-6_18",
+        "article-title": "An in vitro oxygen-glucose deprivation model for studying ischemia-reperfusion injury of neuronal cells",
+        "volume": "1717",
+        "author": "Ryou",
+        "year": "2018",
+        "journal-title": "Methods in Molecular Biology"
+      },
+      {
+        "key": "bib51",
+        "doi-asserted-by": "publisher",
+        "first-page": "251",
+        "DOI": "10.1038/nature24456",
+        "article-title": "The m1a landscape on cytosolic and mitochondrial mrna at single-base resolution",
+        "volume": "551",
+        "author": "Safra",
+        "year": "2017",
+        "journal-title": "Nature"
+      },
+      {
+        "key": "bib52",
+        "doi-asserted-by": "publisher",
+        "first-page": "337",
+        "DOI": "10.1016/j.celrep.2018.03.044",
+        "article-title": "Meg3 non-coding RNA expression controls imprinting by preventing transcriptional upregulation in cis",
+        "volume": "23",
+        "author": "Sanli",
+        "year": "2018",
+        "journal-title": "Cell Reports"
+      },
+      {
+        "key": "bib53",
+        "doi-asserted-by": "publisher",
+        "first-page": "106",
+        "DOI": "10.1016/j.neuron.2010.12.004",
+        "article-title": "SIK2 is a key regulator for neuronal survival after ischemia via TORC1-CREB",
+        "volume": "69",
+        "author": "Sasaki",
+        "year": "2011",
+        "journal-title": "Neuron"
+      },
+      {
+        "key": "bib54",
+        "doi-asserted-by": "publisher",
+        "first-page": "132",
+        "DOI": "10.1021/acschembio.9b00655",
+        "article-title": "YTHDF2 recognition of N(1)-methyladenosine (m(1)A)-modified RNA is associated with transcript destabilization",
+        "volume": "15",
+        "author": "Seo",
+        "year": "2020",
+        "journal-title": "ACS Chemical Biology"
+      },
+      {
+        "key": "bib55",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s13059-020-02249-z",
+        "article-title": "N6-methyladenosine dynamics in neurodevelopment and aging, and its potential role in alzheimer’s disease",
+        "volume": "22",
+        "author": "Shafik",
+        "year": "2021",
+        "journal-title": "Genome Biology"
+      },
+      {
+        "key": "bib56",
+        "doi-asserted-by": "publisher",
+        "first-page": "2081",
+        "DOI": "10.1136/gutjnl-2021-325109",
+        "article-title": "CCT3-LINC00326 axis regulates hepatocarcinogenic lipid metabolism",
+        "volume": "71",
+        "author": "Søndergaard",
+        "year": "2022",
+        "journal-title": "Gut"
+      },
+      {
+        "key": "bib57",
+        "doi-asserted-by": "publisher",
+        "first-page": "2910",
+        "DOI": "10.7150/thno.30879",
+        "article-title": "M2 microglia-derived exosomes protect the mouse brain from ischemia-reperfusion injury via exosomal miR-124",
+        "volume": "9",
+        "author": "Song",
+        "year": "2019",
+        "journal-title": "Theranostics"
+      },
+      {
+        "key": "bib58",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-020-01244-z",
+        "article-title": "Β-Catenin represses mir455-3p to stimulate M6a modification of HSF1 mRNA and promote its translation in colorectal cancer",
+        "volume": "19",
+        "author": "Song",
+        "year": "2020",
+        "journal-title": "Molecular Cancer"
+      },
+      {
+        "key": "bib59",
+        "doi-asserted-by": "publisher",
+        "first-page": "477",
+        "DOI": "10.1146/annurev-cellbio-100818-125242",
+        "article-title": "Autophagy in neurons",
+        "volume": "35",
+        "author": "Stavoe",
+        "year": "2019",
+        "journal-title": "Annual Review of Cell and Developmental Biology"
+      },
+      {
+        "key": "bib60",
+        "doi-asserted-by": "publisher",
+        "first-page": "E325",
+        "DOI": "10.1073/pnas.1717794115",
+        "article-title": "ALKBH5-dependent m6a demethylation controls splicing and stability of long 3’-UTR mrnas in male germ cells",
+        "volume": "115",
+        "author": "Tang",
+        "year": "2018",
+        "journal-title": "PNAS"
+      },
+      {
+        "key": "bib61",
+        "doi-asserted-by": "publisher",
+        "first-page": "211",
+        "DOI": "10.1038/s41422-020-0279-8",
+        "article-title": "M6A-dependent biogenesis of circular RNAs in male germ cells",
+        "volume": "30",
+        "author": "Tang",
+        "year": "2020",
+        "journal-title": "Cell Research"
+      },
+      {
+        "key": "bib62",
+        "doi-asserted-by": "publisher",
+        "first-page": "197",
+        "DOI": "10.1007/978-1-4939-2152-2_15",
+        "article-title": "In vitro oxygen-glucose deprivation to study ischemic cell death",
+        "volume": "1254",
+        "author": "Tasca",
+        "year": "2015",
+        "journal-title": "Methods in Molecular Biology"
+      },
+      {
+        "key": "bib63",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1038/srep42271",
+        "article-title": "AlkB homolog 3-mediated trna demethylation promotes protein synthesis in cancer cells",
+        "volume": "7",
+        "author": "Ueda",
+        "year": "2017",
+        "journal-title": "Scientific Reports"
+      },
+      {
+        "key": "bib64",
+        "doi-asserted-by": "publisher",
+        "first-page": "1535",
+        "DOI": "10.4161/auto.29203",
+        "article-title": "ARRB1/β-arrestin-1 mediates neuroprotection through coordination of BECN1-dependent autophagy in cerebral ischemia",
+        "volume": "10",
+        "author": "Wang",
+        "year": "2014",
+        "journal-title": "Autophagy"
+      },
+      {
+        "key": "bib65",
+        "doi-asserted-by": "publisher",
+        "first-page": "2211",
+        "DOI": "10.1161/STROKEAHA.117.017387",
+        "article-title": "Long noncoding RNA H19 promotes neuroinflammation in ischemic stroke by driving histone deacetylase 1-dependent M1 microglial polarization",
+        "volume": "48",
+        "author": "Wang",
+        "year": "2017",
+        "journal-title": "Stroke"
+      },
+      {
+        "key": "bib66",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-020-01293-4",
+        "article-title": "Long non-coding RNA NEAT1 promotes bone metastasis of prostate cancer through N6-methyladenosine",
+        "volume": "19",
+        "author": "Wen",
+        "year": "2020",
+        "journal-title": "Molecular Cancer"
+      },
+      {
+        "key": "bib67",
+        "doi-asserted-by": "publisher",
+        "first-page": "508",
+        "DOI": "10.1016/j.molcel.2019.02.015",
+        "article-title": "Rna circularization diminishes immunogenicity and can extend translation duration in vivo",
+        "volume": "74",
+        "author": "Wesselhoeft",
+        "year": "2019",
+        "journal-title": "Molecular Cell"
+      },
+      {
+        "key": "bib68",
+        "doi-asserted-by": "publisher",
+        "first-page": "2115",
+        "DOI": "10.1161/CIRCULATIONAHA.116.024088",
+        "article-title": "Neuroprotective effects of the glucagon-like peptide-1 analog exenatide after out-of-hospital cardiac arrest: a randomized controlled trial",
+        "volume": "134",
+        "author": "Wiberg",
+        "year": "2016",
+        "journal-title": "Circulation"
+      },
+      {
+        "key": "bib69",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.xinn.2021.100141",
+        "article-title": "ClusterProfiler 4.0: a universal enrichment tool for interpreting omics data",
+        "volume": "2",
+        "author": "Wu",
+        "year": "2021",
+        "journal-title": "Innovation"
+      },
+      {
+        "key": "bib70",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1073/pnas.2119038119",
+        "article-title": "Rna m1a methylation regulates glycolysis of cancer cells through modulating ATP5D",
+        "volume": "119",
+        "author": "Wu",
+        "year": "2022",
+        "journal-title": "PNAS"
+      },
+      {
+        "key": "bib71",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3389/fcvm.2022.883155",
+        "article-title": "N1-methyladenosine (m1a) regulation associated with the pathogenesis of abdominal aortic aneurysm through YTHDF3 modulating macrophage polarization",
+        "volume": "9",
+        "author": "Wu",
+        "year": "2022",
+        "journal-title": "Front Cardiovasc Med"
+      },
+      {
+        "key": "bib72",
+        "doi-asserted-by": "publisher",
+        "first-page": "3009",
+        "DOI": "10.1093/brain/awz232",
+        "article-title": "Heterogeneous clinical and functional features of GRIN2D-related developmental and epileptic encephalopathy",
+        "volume": "142",
+        "author": "XiangWei",
+        "year": "2019",
+        "journal-title": "Brain"
+      },
+      {
+        "key": "bib73",
+        "doi-asserted-by": "publisher",
+        "first-page": "19592",
+        "DOI": "10.1002/anie.202105253",
+        "article-title": "Programmable RNA N1 -methyladenosine demethylation by a cas13d-directed demethylase",
+        "volume": "60",
+        "author": "Xie",
+        "year": "2021",
+        "journal-title": "Angewandte Chemie"
+      },
+      {
+        "key": "bib74",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-020-01281-8",
+        "article-title": "N6-methyladenosine-modified circrna-SORE sustains sorafenib resistance in hepatocellular carcinoma by regulating β-catenin signaling",
+        "volume": "19",
+        "author": "Xu",
+        "year": "2020",
+        "journal-title": "Molecular Cancer"
+      },
+      {
+        "key": "bib75",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.ejmech.2022.114118",
+        "article-title": "Roles and drug development of METTL3 (methyltransferase-like 3) in anti-tumor therapy",
+        "volume": "230",
+        "author": "Xu",
+        "year": "2022",
+        "journal-title": "European Journal of Medicinal Chemistry"
+      },
+      {
+        "key": "bib76",
+        "doi-asserted-by": "publisher",
+        "first-page": "7",
+        "DOI": "10.1038/nmeth.3213",
+        "article-title": "The I-TASSER suite: protein structure and function prediction",
+        "volume": "12",
+        "author": "Yang",
+        "year": "2015",
+        "journal-title": "Nature Methods"
+      },
+      {
+        "key": "bib77",
+        "doi-asserted-by": "publisher",
+        "first-page": "3906",
+        "DOI": "10.1093/nar/gky130",
+        "article-title": "N6-methyladenosine modification of lincrna 1281 is critically required for mesc differentiation potential",
+        "volume": "46",
+        "author": "Yang",
+        "year": "2018",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib78",
+        "doi-asserted-by": "publisher",
+        "first-page": "12943",
+        "DOI": "10.1093/nar/gkaa1151",
+        "article-title": "Interaction of OIP5-AS1 with MEF2C mrna promotes myogenic gene expression",
+        "volume": "48",
+        "author": "Yang",
+        "year": "2020",
+        "journal-title": "Nucleic Acids Research"
+      },
+      {
+        "key": "bib79",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-020-1146-4",
+        "article-title": "METTL14 suppresses proliferation and metastasis of colorectal cancer by down-regulating oncogenic long non-coding RNA XIST",
+        "volume": "19",
+        "author": "Yang",
+        "year": "2020",
+        "journal-title": "Molecular Cancer"
+      },
+      {
+        "key": "bib80",
+        "doi-asserted-by": "publisher",
+        "first-page": "1275",
+        "DOI": "10.1016/j.ymthe.2021.11.004",
+        "article-title": "Circular RNA circ-foxo3 attenuates blood-brain barrier damage by inducing autophagy during ischemia/reperfusion",
+        "volume": "30",
+        "author": "Yang",
+        "year": "2022",
+        "journal-title": "Molecular Therapy"
+      },
+      {
+        "key": "bib81",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1186/s12943-020-01233-2",
+        "article-title": "Novel insights into the interplay between m(6)A modification and noncoding rnas in cancer",
+        "volume": "19",
+        "author": "Yi",
+        "year": "2020",
+        "journal-title": "Mol Cancer"
+      },
+      {
+        "key": "bib82",
+        "doi-asserted-by": "publisher",
+        "first-page": "877",
+        "DOI": "10.1016/j.cell.2017.09.003",
+        "article-title": "Temporal control of mammalian cortical neurogenesis by m6a methylation",
+        "volume": "171",
+        "author": "Yoon",
+        "year": "2017",
+        "journal-title": "Cell"
+      },
+      {
+        "key": "bib83",
+        "doi-asserted-by": "publisher",
+        "first-page": "155",
+        "DOI": "10.1016/j.gpb.2018.03.003",
+        "article-title": "Reversible RNA Modification N 1 -methyladenosine (m 1 A) in mRNA and tRNA",
+        "volume": "16",
+        "author": "Zhang",
+        "year": "2018",
+        "journal-title": "Genomics, Proteomics & Bioinformatics"
+      },
+      {
+        "key": "bib84",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1111/jpi.12521",
+        "article-title": "The protective effect of melatonin on brain ischemia and reperfusion in rats and humans: in vivo assessment and a randomized controlled trial",
+        "volume": "65",
+        "author": "Zhao",
+        "year": "2018",
+        "journal-title": "Journal of Pineal Research"
+      },
+      {
+        "key": "bib85",
+        "doi-asserted-by": "publisher",
+        "first-page": "1323",
+        "DOI": "10.1016/j.tranon.2019.06.007",
+        "article-title": "M1A regulated genes modulate PI3K/AKT/mtor and erbb pathways in gastrointestinal cancer",
+        "volume": "12",
+        "author": "Zhao",
+        "year": "2019",
+        "journal-title": "Translational Oncology"
+      },
+      {
+        "key": "bib86",
+        "doi-asserted-by": "publisher",
+        "first-page": "4612",
+        "DOI": "10.1158/0008-5472.CAN-19-0799",
+        "article-title": "Long noncoding RNA FAM225A promotes nasopharyngeal carcinoma tumorigenesis and metastasis by acting as cerna to sponge mir-590-3p/mir-1275 and upregulate ITGB3",
+        "volume": "79",
+        "author": "Zheng",
+        "year": "2019",
+        "journal-title": "Cancer Research"
+      },
+      {
+        "key": "bib87",
+        "doi-asserted-by": "publisher",
+        "first-page": "183",
+        "DOI": "10.1016/j.bbi.2017.05.001",
+        "article-title": "The long non-coding RNA NEAT1 is an important mediator of the therapeutic effect of bexarotene on traumatic brain injury in mice",
+        "volume": "65",
+        "author": "Zhong",
+        "year": "2017",
+        "journal-title": "Brain, Behavior, and Immunity"
+      }
+    ],
+    "updated-by": [
+      {
+        "DOI": "10.7554/elife.91312",
+        "type": "correction",
+        "label": "Correction",
+        "source": "publisher",
+        "updated": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              25
+            ]
+          ],
+          "date-time": "2023-07-25T00:00:00Z",
+          "timestamp": 1690243200000
+        }
+      }
+    ],
+    "container-title": [
+      "eLife"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://cdn.elifesciences.org/articles/85324/elife-85324-v2.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://cdn.elifesciences.org/articles/85324/elife-85324-v2.xml",
+        "content-type": "application/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://elifesciences.org/articles/85324",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2023,
+          10,
+          11
+        ]
+      ],
+      "date-time": "2023-10-11T21:13:37Z",
+      "timestamp": 1697058817000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://elifesciences.org/articles/85324"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2023,
+          3,
+          7
+        ]
+      ]
+    },
+    "references-count": 87,
+    "alternative-id": [
+      "10.7554/eLife.85324"
+    ],
+    "URL": "https://doi.org/10.7554/elife.85324",
+    "archive": [
+      "CLOCKSS"
+    ],
+    "relation": {
+      "has-preprint": [
+        {
+          "id-type": "doi",
+          "id": "10.1101/2023.01.25.525483",
+          "asserted-by": "subject"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.1101/2023.01.25.525483",
+          "asserted-by": "object"
+        }
+      ],
+      "is-supplemented-by": [
+        {
+          "id-type": "accession",
+          "id": "PRJCA010978",
+          "asserted-by": "subject"
+        }
+      ],
+      "has-review": [
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa1",
+          "asserted-by": "object"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa0",
+          "asserted-by": "object"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa2",
+          "asserted-by": "object"
+        }
+      ]
+    },
+    "ISSN": [
+      "2050-084X"
+    ],
+    "issn-type": [
+      {
+        "value": "2050-084X",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          3,
+          7
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "single anonymised",
+        "name": "peer_review_transparency",
+        "label": "Peer review transparency",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "other reviewer(s), editor",
+        "name": "peer_review_interaction",
+        "label": "Peer review interaction",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "review summaries, review reports, author/editor communication, reviewer identities reviewer opt in, editor identities",
+        "name": "peer_review_published",
+        "label": "Peer review published",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "open (sign in with ORCID iD required)",
+        "name": "post_publication_commenting",
+        "label": "Post publication commenting",
+        "group": {
+          "name": "post_publication_commenting"
+        }
+      }
+    ],
+    "article-number": "e85324"
+  }
+}

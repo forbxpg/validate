@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "message-type": "work-agency",
+  "message-version": "1.0.0",
+  "message": {
+    "DOI": "10.1103/physrevlett.1.1",
+    "agency": {
+      "id": "crossref",
+      "label": "Crossref"
+    }
+  }
+}

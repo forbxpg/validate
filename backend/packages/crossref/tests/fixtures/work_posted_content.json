@@ -1,0 +1,200 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          24
+        ]
+      ],
+      "date-time": "2026-02-24T03:17:07Z",
+      "timestamp": 1771903027815,
+      "version": "3.50.1"
+    },
+    "posted": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          15
+        ]
+      ]
+    },
+    "group-title": "Social Sciences",
+    "reference-count": 0,
+    "publisher": "MDPI AG",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2024,
+              7,
+              15
+            ]
+          ],
+          "date-time": "2024-07-15T00:00:00Z",
+          "timestamp": 1721001600000
+        },
+        "content-version": "unspecified",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "accepted": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          12
+        ]
+      ]
+    },
+    "abstract": "<jats:p>Community engagement in climate action and adaptation planning is an essential prerequisite for overcoming existing and projected environmental injustices associated with the negative impacts of climate change. Diversity and inclusion of stakeholders are crucial for addressing equity both in the development and implementation of local climate plans. Our study attempts to evaluate and compare consideration of equity in climate action and climate adaptation plans of Michigan cities and its association with a diversity of stakeholders involved in the planning process. Data analysis is based on the content of eight municipal climate action and/or climate adaptation plans, related documents, and interviews with city planners along with community activists. Data derived from climate action and adaptation plans were also compared to the strategies outlined in the Tribal Climate Adaptation Menu, which integrates climate science and indigenous knowledge. The study concludes that municipalities that engage more diverse groups of stakeholders appear to be more attentive to social equity and more likely to offer specific climate action and adaptation measures focusing on vulnerable groups. Integration of indigenous knowledge could provide valuable insights for municipalities through collaboration with tribal communities and climate adaptation experts.</jats:p>",
+    "DOI": "10.20944/preprints202407.1143.v1",
+    "type": "posted-content",
+    "created": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          16
+        ]
+      ],
+      "date-time": "2024-07-16T12:06:49Z",
+      "timestamp": 1721131609000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 3,
+    "title": [
+      "Equity and Inclusion in Climate Action and Adaptation Plans of Michigan Cities"
+    ],
+    "prefix": "10.20944",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-4388-3854",
+        "authenticated-orcid": false,
+        "given": "Elena",
+        "family": "Lioubimtseva",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Hannah",
+        "family": "Zylman",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Katherine",
+        "family": "Carron",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Kaytlin",
+        "family": "Poynter",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Bushra Mohamed-Elmabruk",
+        "family": "Rashrash",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "member": "1968",
+    "container-title": [],
+    "original-title": [],
+    "deposited": {
+      "date-parts": [
+        [
+          2024,
+          9,
+          11
+        ]
+      ],
+      "date-time": "2024-09-11T01:07:12Z",
+      "timestamp": 1726016832000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://www.preprints.org/manuscript/202407.1143/v1"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          15
+        ]
+      ]
+    },
+    "references-count": 0,
+    "URL": "https://doi.org/10.20944/preprints202407.1143.v1",
+    "relation": {
+      "is-preprint-of": [
+        {
+          "id-type": "doi",
+          "id": "10.3390/su16177745",
+          "asserted-by": "subject"
+        }
+      ]
+    },
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          7,
+          15
+        ]
+      ]
+    },
+    "subtype": "preprint"
+  }
+}

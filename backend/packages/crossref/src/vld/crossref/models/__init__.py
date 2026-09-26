@@ -4,6 +4,18 @@ from __future__ import annotations
 
 from ._base import CrossrefModel
 from ._dates import CrossrefDate, CrossrefTimestamp, PartialDate, from_date_parts
+from ._fields import (
+    Doi,
+    IssnList,
+    OptBool,
+    OptDecimal,
+    OptDoi,
+    OptFloat,
+    OptInt,
+    OptIssn,
+    OptOrcid,
+    OptStr,
+)
 from ._lenient import (
     CleanStrList,
     StrList,
@@ -20,6 +32,16 @@ __all__ = (
     "CrossrefDate",
     "CrossrefModel",
     "CrossrefTimestamp",
+    "Doi",
+    "IssnList",
+    "OptBool",
+    "OptDecimal",
+    "OptDoi",
+    "OptFloat",
+    "OptInt",
+    "OptIssn",
+    "OptOrcid",
+    "OptStr",
     "PartialDate",
     "QueryModel",
     "QueryPart",

@@ -1,0 +1,1125 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "next-cursor": "MTAyNzcxMzY1ODAwMCwxMC4xMTAzJTJGcGh5c3JldmEuNjQuMDUzNjEy",
+    "total-results": 816810,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              4
+            ]
+          ],
+          "date-time": "2026-08-04T00:20:54Z",
+          "timestamp": 1785802854143,
+          "version": "3.56.0"
+        },
+        "reference-count": 9,
+        "publisher": "American Physical Society (APS)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2001,
+                  10,
+                  18
+                ]
+              ],
+              "date-time": "2001-10-18T00:00:00Z",
+              "timestamp": 1003363200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://link.aps.org/licenses/aps-default-license"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Phys. Rev. A"
+        ],
+        "DOI": "10.1103/physreva.64.050302",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2002,
+              7,
+              26
+            ]
+          ],
+          "date-time": "2002-07-26T20:00:58Z",
+          "timestamp": 1027713658000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 77,
+        "title": [
+          "Optimal estimation of quantum dynamics"
+        ],
+        "prefix": "10.1103",
+        "volume": "64",
+        "author": [
+          {
+            "given": "A.",
+            "family": "Acín",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "E.",
+            "family": "Jané",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "G.",
+            "family": "Vidal",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "16",
+        "published-online": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              18
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "PhysRevA.64.050302Cc1R1",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1007/BF01007479",
+            "volume-title": "Quantum Detection and Estimation Theory",
+            "author": "C.W. Helstrom",
+            "year": "1976"
+          },
+          {
+            "key": "PhysRevA.64.050302Cc2R1",
+            "volume-title": "Probabilistic and Statistical Aspects of Quantum Theory",
+            "author": "A.S. Holevo",
+            "year": "1982"
+          },
+          {
+            "key": "PhysRevA.64.050302Cc3R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1259",
+            "DOI": "10.1103/PhysRevLett.74.1259",
+            "volume": "74",
+            "author": "S. Massar",
+            "year": "1995",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.050302Cc3R2",
+            "doi-asserted-by": "crossref",
+            "first-page": "1571",
+            "DOI": "10.1103/PhysRevLett.80.1571",
+            "author": "R. Derka",
+            "year": "1998",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.050302Cc3R3",
+            "doi-asserted-by": "crossref",
+            "first-page": "1351",
+            "DOI": "10.1103/PhysRevLett.81.1351",
+            "author": "J.I. Latorre",
+            "year": "1998",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.050302Cc4R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "155",
+            "DOI": "10.1080/09500340008244034",
+            "volume": "47",
+            "author": "A.M. Childs",
+            "year": "2000",
+            "journal-title": "J. Mod. Opt."
+          },
+          {
+            "key": "PhysRevA.64.050302Cc5R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "321",
+            "DOI": "10.1103/PhysRevLett.79.321",
+            "volume": "79",
+            "author": "M.A. Nielsen",
+            "year": "1997",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.050302Cc7R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "R3339",
+            "DOI": "10.1103/PhysRevA.60.R3339",
+            "volume": "60",
+            "author": "R. Tarrach and",
+            "year": "1999",
+            "journal-title": "Phys. Rev. A"
+          },
+          {
+            "key": "PhysRevA.64.050302Cc8R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "2881",
+            "DOI": "10.1103/PhysRevLett.69.2881",
+            "volume": "69",
+            "author": "C.H. Bennett",
+            "year": "1992",
+            "journal-title": "Phys. Rev. Lett."
+          }
+        ],
+        "container-title": [
+          "Physical Review A"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://link.aps.org/article/10.1103/PhysRevA.64.050302",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.64.050302/fulltext",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2017,
+              12,
+              9
+            ]
+          ],
+          "date-time": "2017-12-09T17:01:29Z",
+          "timestamp": 1512838889000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.aps.org/doi/10.1103/PhysRevA.64.050302"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              18
+            ]
+          ]
+        },
+        "references-count": 9,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2001,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1103/physreva.64.050302",
+        "ISSN": [
+          "1050-2947",
+          "1094-1622"
+        ],
+        "issn-type": [
+          {
+            "value": "1050-2947",
+            "type": "print"
+          },
+          {
+            "value": "1094-1622",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              18
+            ]
+          ]
+        },
+        "article-number": "050302"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2025-05-09T15:38:33Z",
+          "timestamp": 1746805113357,
+          "version": "3.40.5"
+        },
+        "reference-count": 23,
+        "publisher": "American Physical Society (APS)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2001,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2001-10-12T00:00:00Z",
+              "timestamp": 1002844800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://link.aps.org/licenses/aps-default-license"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Phys. Rev. A"
+        ],
+        "DOI": "10.1103/physreva.64.053203",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2002,
+              7,
+              26
+            ]
+          ],
+          "date-time": "2002-07-26T20:00:58Z",
+          "timestamp": 1027713658000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 10,
+        "title": [
+          "Structure and interaction mechanism in the magic<mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\"><mml:mrow><mml:msubsup><mml:mrow><mml:mi mathvariant=\"normal\">Al</mml:mi></mml:mrow><mml:mrow><mml:mn>13</mml:mn></mml:mrow><mml:mrow><mml:mo>+</mml:mo></mml:mrow></mml:msubsup></mml:mrow><mml:mrow><mml:msub><mml:mrow><mml:mi mathvariant=\"normal\">H</mml:mi></mml:mrow><mml:mrow><mml:mn>2</mml:mn></mml:mrow></mml:msub></mml:mrow><mml:mi mathvariant=\"normal\">O</mml:mi></mml:math>cluster"
+        ],
+        "prefix": "10.1103",
+        "volume": "64",
+        "author": [
+          {
+            "given": "Q.",
+            "family": "Sun",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Q.",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "J. Z.",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "T. M.",
+            "family": "Briere",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Y.",
+            "family": "Kawazoe",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "16",
+        "published-online": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "PhysRevA.64.053203Cc1R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "2141",
+            "DOI": "10.1103/PhysRevLett.52.2141",
+            "volume": "52",
+            "author": "W. D. Knight",
+            "year": "1984",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc2R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1664",
+            "DOI": "10.1103/PhysRevLett.69.1664",
+            "volume": "69",
+            "author": "S. N. Khanna",
+            "year": "1992",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc3R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "193408",
+            "DOI": "10.1103/PhysRevB.63.193408",
+            "volume": "63",
+            "author": "Q. Sun",
+            "year": "2001",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc4R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "31",
+            "DOI": "10.1016/S0009-2614(99)01295-6",
+            "volume": "316",
+            "author": "B. D. Leskiw",
+            "year": "2000",
+            "journal-title": "Chem. Phys. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc5R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "16",
+            "DOI": "10.1103/PhysRevB.62.16956",
+            "volume": "62",
+            "author": "C. Ashman",
+            "year": "2000",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc7R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "75",
+            "DOI": "10.1016/S0009-2614(99)00330-9",
+            "volume": "305",
+            "author": "T. P. Lippa",
+            "year": "1999",
+            "journal-title": "Chem. Phys. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc8R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "42",
+            "DOI": "10.1038/366042a0",
+            "volume": "366",
+            "author": "E. C. Honea",
+            "year": "1993",
+            "journal-title": "Nature (London)"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc9R1",
+            "first-page": "8245",
+            "volume": "6",
+            "author": "G. Kresse",
+            "year": "1994",
+            "journal-title": "J. Phys.: Condens. Matter"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc10R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "558",
+            "DOI": "10.1103/PhysRevB.47.558",
+            "volume": "47",
+            "author": "G. Kresse",
+            "year": "1993",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc10R2",
+            "doi-asserted-by": "crossref",
+            "first-page": "14",
+            "DOI": "10.1103/PhysRevB.49.14251",
+            "volume": "49",
+            "author": "G. Kresse",
+            "year": "1994",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc11R1",
+            "first-page": "11",
+            "volume": "55",
+            "author": "G. Kresse",
+            "year": "1996",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc12R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1141",
+            "DOI": "10.1103/PhysRev.137.A1441",
+            "volume": "137",
+            "author": "N. D. Mermin",
+            "year": "1965",
+            "journal-title": "Phys. Rev."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc13R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1045",
+            "DOI": "10.1103/RevModPhys.64.1045",
+            "volume": "64",
+            "author": "M. C. Payne",
+            "year": "1992",
+            "journal-title": "Rev. Mod. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc14R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "566",
+            "DOI": "10.1103/PhysRevLett.45.566",
+            "volume": "45",
+            "author": "D. M. Ceperley",
+            "year": "1980",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "volume-title": "Electronic Structure of Solids",
+            "year": "1991",
+            "author": "J. P. Perdew",
+            "key": "PhysRevA.64.053203Cc15R1"
+          },
+          {
+            "volume-title": "GAUSSIAN 98",
+            "year": "1998",
+            "author": "M. J. Frisch",
+            "key": "PhysRevA.64.053203Cc16R1"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc18R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "224",
+            "DOI": "10.1103/PhysRevLett.67.224",
+            "volume": "67",
+            "author": "R. O. Jones",
+            "year": "1991",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc19R1",
+            "first-page": "113",
+            "volume": "5",
+            "author": "C. A. Stearns",
+            "year": "1973",
+            "journal-title": "High. Temp. Sci."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc21R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1890",
+            "DOI": "10.1063/1.479458",
+            "volume": "111",
+            "author": "B. K. Rao",
+            "year": "1999",
+            "journal-title": "J. Chem. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc22R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "12",
+            "DOI": "10.1103/PhysRevB.59.12",
+            "volume": "59",
+            "author": "Q. Wang",
+            "year": "1999",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc23R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "8500",
+            "DOI": "10.1103/PhysRevB.62.8500",
+            "volume": "62",
+            "author": "Q. Sun",
+            "year": "2000",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053203Cc24R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "2493",
+            "DOI": "10.1103/PhysRevLett.53.2493",
+            "volume": "53",
+            "author": "J. E. Müller",
+            "year": "1984",
+            "journal-title": "Phys. Rev. Lett."
+          },
+          {
+            "key": "PhysRevA.64.053203Cc25R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "204",
+            "DOI": "10.1016/0039-6028(94)90355-7",
+            "volume": "318",
+            "author": "S. Q. Jin",
+            "year": "1994",
+            "journal-title": "Surf. Sci."
+          }
+        ],
+        "container-title": [
+          "Physical Review A"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://link.aps.org/article/10.1103/PhysRevA.64.053203",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.64.053203/fulltext",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2017,
+              12,
+              9
+            ]
+          ],
+          "date-time": "2017-12-09T16:59:58Z",
+          "timestamp": 1512838798000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.aps.org/doi/10.1103/PhysRevA.64.053203"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "references-count": 23,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2001,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1103/physreva.64.053203",
+        "ISSN": [
+          "1050-2947",
+          "1094-1622"
+        ],
+        "issn-type": [
+          {
+            "type": "print",
+            "value": "1050-2947"
+          },
+          {
+            "type": "electronic",
+            "value": "1094-1622"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "article-number": "053203"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              30
+            ]
+          ],
+          "date-time": "2022-03-30T02:49:15Z",
+          "timestamp": 1648608555293
+        },
+        "reference-count": 20,
+        "publisher": "American Physical Society (APS)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2001,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2001-10-12T00:00:00Z",
+              "timestamp": 1002844800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://link.aps.org/licenses/aps-default-license"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Phys. Rev. A"
+        ],
+        "DOI": "10.1103/physreva.64.053612",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2002,
+              7,
+              26
+            ]
+          ],
+          "date-time": "2002-07-26T20:00:58Z",
+          "timestamp": 1027713658000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 25,
+        "title": [
+          "Equivalence of kinetic theories of Bose-Einstein condensation"
+        ],
+        "prefix": "10.1103",
+        "volume": "64",
+        "author": [
+          {
+            "given": "J.",
+            "family": "Wachter",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "R.",
+            "family": "Walser",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "J.",
+            "family": "Cooper",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "M.",
+            "family": "Holland",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "16",
+        "published-online": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "PhysRevA.64.053612Cc3R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "013607",
+            "DOI": "10.1103/PhysRevA.63.013607",
+            "volume": "63",
+            "author": "R. Walser",
+            "year": "2001",
+            "journal-title": "Phys. Rev. A"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc4R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "127",
+            "DOI": "10.1006/aphy.1999.5970",
+            "volume": "278",
+            "author": "V. G. Morozov",
+            "year": "1999",
+            "journal-title": "Ann. Phys. (N.Y.)"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc7R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1902",
+            "DOI": "10.1063/1.1704738",
+            "volume": "6",
+            "author": "J. W. Kane",
+            "year": "1965",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc8R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "291",
+            "DOI": "10.1016/0003-4916(65)90280-0",
+            "volume": "34",
+            "author": "P. C. Hohenberg",
+            "year": "1965",
+            "journal-title": "Ann. Phys. (N.Y.)"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc8R2",
+            "doi-asserted-by": "crossref",
+            "first-page": "636",
+            "DOI": "10.1006/aphy.2000.6019",
+            "volume": "281",
+            "author": "P. C. Hohenberg",
+            "year": "2000",
+            "journal-title": "Ann. Phys. (N.Y.)"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc10R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "648",
+            "DOI": "10.1103/PhysRev.117.648",
+            "volume": "117",
+            "author": "Y. Nambu",
+            "year": "1960",
+            "journal-title": "Phys. Rev."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc11R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "14",
+            "DOI": "10.1063/1.1704062",
+            "volume": "5",
+            "author": "C. de Dominicis",
+            "year": "1964",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc12R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "31",
+            "DOI": "10.1063/1.1704064",
+            "volume": "5",
+            "author": "C. de Dominicis",
+            "year": "1964",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc13R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "452",
+            "DOI": "10.1073/pnas.37.7.452",
+            "volume": "37",
+            "author": "J. Schwinger",
+            "year": "1951",
+            "journal-title": "Proc. Natl. Acad. Sci. U.S.A."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc14R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "232",
+            "DOI": "10.1063/1.1703704",
+            "volume": "2",
+            "author": "G. Baym",
+            "year": "1961",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc15R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "605",
+            "DOI": "10.1063/1.1664616",
+            "volume": "9",
+            "author": "R. A. Craig",
+            "year": "1968",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc16R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "208",
+            "DOI": "10.1063/1.1703945",
+            "volume": "4",
+            "author": "P. C. Martin",
+            "year": "1961",
+            "journal-title": "J. Math. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc17R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "617",
+            "DOI": "10.1023/A:1004860602930",
+            "volume": "122",
+            "author": "M. Imamović-Tomasović",
+            "year": "2001",
+            "journal-title": "J. Low Temp. Phys."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc18R1",
+            "first-page": "289",
+            "volume": "34",
+            "author": "S. T. Beliaev",
+            "year": "1958",
+            "journal-title": "Sov. Phys. JETP"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc19R1",
+            "first-page": "299",
+            "volume": "34",
+            "author": "S. T. Beliaev",
+            "year": "1958",
+            "journal-title": "Sov. Phys. JETP"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc20R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "287",
+            "DOI": "10.1103/PhysRev.124.287",
+            "volume": "124",
+            "author": "G. Baym",
+            "year": "1961",
+            "journal-title": "Phys. Rev."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc21R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/S0370-1573(98)00015-5",
+            "volume": "304",
+            "author": "H. Shi",
+            "year": "1998",
+            "journal-title": "Phys. Rep."
+          },
+          {
+            "key": "PhysRevA.64.053612Cc22R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "3878",
+            "DOI": "10.1103/PhysRevA.59.3878",
+            "volume": "59",
+            "author": "R. Walser",
+            "year": "1999",
+            "journal-title": "Phys. Rev. A"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc24R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "9341",
+            "DOI": "10.1103/PhysRevB.53.9341",
+            "volume": "53",
+            "author": "A. Griffin",
+            "year": "1996",
+            "journal-title": "Phys. Rev. B"
+          },
+          {
+            "key": "PhysRevA.64.053612Cc25R1",
+            "doi-asserted-by": "crossref",
+            "first-page": "494",
+            "DOI": "10.1103/PhysRevA.60.494",
+            "volume": "60",
+            "author": "M. Imamović-Tomosović",
+            "year": "1999",
+            "journal-title": "Phys. Rev. A"
+          }
+        ],
+        "container-title": [
+          "Physical Review A"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://link.aps.org/article/10.1103/PhysRevA.64.053612",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevA.64.053612/fulltext",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2017,
+              6,
+              15
+            ]
+          ],
+          "date-time": "2017-06-15T03:34:00Z",
+          "timestamp": 1497497640000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.aps.org/doi/10.1103/PhysRevA.64.053612"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "references-count": 20,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2001,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1103/physreva.64.053612",
+        "ISSN": [
+          "1050-2947",
+          "1094-1622"
+        ],
+        "issn-type": [
+          {
+            "value": "1050-2947",
+            "type": "print"
+          },
+          {
+            "value": "1094-1622",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2001,
+              10,
+              12
+            ]
+          ]
+        },
+        "article-number": "053612"
+      }
+    ],
+    "items-per-page": 3,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}
