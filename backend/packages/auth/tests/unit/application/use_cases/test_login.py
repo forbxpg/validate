@@ -34,12 +34,12 @@ from vld.auth.application import (
 from vld.auth.application.use_cases.session._login import _EMAIL_LIMIT
 from vld.auth.domain import (
     AccountDeactivatedError,
+    AuthAuditAction,
     EmailNotVerifiedError,
     InvalidCredentialsError,
     Role,
     User,
 )
-from vld.core.audit import AuditAction
 from vld.core.ratelimit import RateLimitExceededError
 
 if TYPE_CHECKING:
@@ -569,7 +569,7 @@ async def test_successful_login_is_written_to_the_audit() -> None:
     _ = await deps.use_case()(_command())
 
     assert [entry.action for entry in deps.audit.entries] == [
-        AuditAction.LOGIN_SUCCEEDED,
+        AuthAuditAction.LOGIN_SUCCEEDED,
     ]
     assert deps.audit.entries[0].actor_id == user.id
     assert deps.uow.committed, "the audit entry was not committed"
@@ -583,7 +583,9 @@ async def test_failed_login_is_written_to_the_audit() -> None:
     with pytest.raises(InvalidCredentialsError):
         _ = await deps.use_case()(_command(password=_WRONG_PASSWORD))
 
-    assert [entry.action for entry in deps.audit.entries] == [AuditAction.LOGIN_FAILED]
+    assert [entry.action for entry in deps.audit.entries] == [
+        AuthAuditAction.LOGIN_FAILED,
+    ]
     assert deps.audit.entries[0].payload == {"email_sha256": _sha256(_EMAIL)}
 
 
@@ -594,7 +596,9 @@ async def test_login_by_an_unknown_address_is_recorded_without_an_actor() -> Non
     with pytest.raises(InvalidCredentialsError):
         _ = await deps.use_case()(_command(email="nobody@b.co"))
 
-    assert [entry.action for entry in deps.audit.entries] == [AuditAction.LOGIN_FAILED]
+    assert [entry.action for entry in deps.audit.entries] == [
+        AuthAuditAction.LOGIN_FAILED,
+    ]
     assert deps.audit.entries[0].actor_id is None
     assert deps.audit.entries[0].payload == {"email_sha256": _sha256("nobody@b.co")}
 
@@ -607,7 +611,9 @@ async def test_a_deactivated_account_is_recorded_as_a_failed_login() -> None:
     with pytest.raises(AccountDeactivatedError):
         _ = await deps.use_case()(_command())
 
-    assert [entry.action for entry in deps.audit.entries] == [AuditAction.LOGIN_FAILED]
+    assert [entry.action for entry in deps.audit.entries] == [
+        AuthAuditAction.LOGIN_FAILED,
+    ]
 
 
 async def test_login_does_not_happen_when_the_audit_write_fails() -> None:

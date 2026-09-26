@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.auth.domain import EntityNotFoundError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, EntityNotFoundError
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     import uuid
@@ -50,7 +50,7 @@ class InvalidateSessions:
             await self._users.update(user)
             await self._audit.record(
                 AuditEntry(
-                    action=AuditAction.SESSIONS_INVALIDATED,
+                    action=AuthAuditAction.SESSIONS_INVALIDATED,
                     actor_id=actor_id,
                     target_id=user_id,
                 ),

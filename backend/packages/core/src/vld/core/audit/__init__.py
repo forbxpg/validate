@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from ._action import AuditAction
 from ._entry import AuditEntry
 from ._port import AuditLog
 from ._query import AuditPage, AuditQuery, AuditRecord
@@ -27,7 +26,6 @@ __all__ = (
     "AUDIT_METADATA",
     "AUDIT_SCHEMA_NAME",
     "QUALIFIED_AUDIT_LOG_TABLE_NAME",
-    "AuditAction",
     "AuditEntry",
     "AuditLog",
     "AuditPage",

@@ -11,8 +11,7 @@ import pytest
 from auth_app import Deps, bearer, build, client_for, seed
 from fastapi.routing import iter_route_contexts
 
-from vld.auth.domain import Role
-from vld.core.audit import AuditAction
+from vld.auth.domain import AuthAuditAction, Role
 
 if TYPE_CHECKING:
     from collections.abc import AsyncIterator
@@ -154,7 +153,7 @@ async def test_deactivation_cuts_the_account_off_and_is_audited(
     actions = [
         entry.action for entry in deps.audit.entries if entry.target_id == member.id
     ]
-    assert actions == [AuditAction.USER_DEACTIVATED, AuditAction.USER_ACTIVATED]
+    assert actions == [AuthAuditAction.USER_DEACTIVATED, AuthAuditAction.USER_ACTIVATED]
 
 
 async def test_an_admin_cannot_turn_off_another_admin_or_self(
@@ -194,7 +193,7 @@ async def test_an_admin_changes_a_role_and_it_lands_in_the_audit(
     assert response.status_code == HTTPStatus.OK
     assert response.json()["role"] == "teacher"
     [entry] = [
-        e for e in deps.audit.entries if e.action is AuditAction.USER_ROLE_CHANGED
+        e for e in deps.audit.entries if e.action is AuthAuditAction.USER_ROLE_CHANGED
     ]
     assert entry.payload == {"from": "student", "to": "teacher"}
 

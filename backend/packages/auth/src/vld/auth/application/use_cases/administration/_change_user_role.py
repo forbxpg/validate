@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.auth.domain import UserNotFoundError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, UserNotFoundError
+from vld.core.audit import AuditEntry
 
 from ._target_guard import guard_target
 
@@ -59,7 +59,7 @@ class ChangeUserRole:
             await self._users.update(user)
             await self._audit.record(
                 AuditEntry(
-                    action=AuditAction.USER_ROLE_CHANGED,
+                    action=AuthAuditAction.USER_ROLE_CHANGED,
                     actor_id=actor_id,
                     target_id=target_id,
                     payload={"from": str(previous), "to": str(role)},

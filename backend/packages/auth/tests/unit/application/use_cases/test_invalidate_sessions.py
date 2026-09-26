@@ -9,8 +9,7 @@ import pytest
 from auth_fakes import FakeAuditLog, FakeUnitOfWork, FakeUserRepository, FrozenClock
 
 from vld.auth.application import InvalidateSessions
-from vld.auth.domain import EntityNotFoundError, Role, User
-from vld.core.audit import AuditAction
+from vld.auth.domain import AuthAuditAction, EntityNotFoundError, Role, User
 
 NOW = datetime(2026, 9, 1, tzinfo=UTC)
 _HASH = "hashed:pw"
@@ -54,7 +53,7 @@ async def test_an_admin_reset_is_told_apart_by_the_actor() -> None:
     )(user.id, actor_id=admin_id)
 
     entry = next(
-        e for e in audit.entries if e.action is AuditAction.SESSIONS_INVALIDATED
+        e for e in audit.entries if e.action is AuthAuditAction.SESSIONS_INVALIDATED
     )
     assert entry.actor_id == admin_id
     assert entry.target_id == user.id

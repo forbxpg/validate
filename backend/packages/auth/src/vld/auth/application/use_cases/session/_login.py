@@ -13,8 +13,13 @@ from vld.auth.application.use_cases.shared import (
     email_bucket_key,
     email_sha256,
 )
-from vld.auth.domain import AuthDomainError, InvalidCredentialsError, normalize_email
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import (
+    AuthAuditAction,
+    AuthDomainError,
+    InvalidCredentialsError,
+    normalize_email,
+)
+from vld.core.audit import AuditEntry
 
 from ._dummy_hash import DummyHash
 
@@ -150,7 +155,7 @@ class LoginWithPassword:
         # Audit before the tokens: a failed write leaves the login undone.
         async with self._uow:
             await self._audit.record(
-                AuditEntry(action=AuditAction.LOGIN_SUCCEEDED, actor_id=user.id),
+                AuditEntry(action=AuthAuditAction.LOGIN_SUCCEEDED, actor_id=user.id),
             )
             await self._uow.commit()
 
@@ -183,7 +188,7 @@ class LoginWithPassword:
         async with self._uow:
             await self._audit.record(
                 AuditEntry(
-                    action=AuditAction.LOGIN_FAILED,
+                    action=AuthAuditAction.LOGIN_FAILED,
                     actor_id=None if user is None else user.id,
                     payload={"email_sha256": email_sha256(email)},
                 ),

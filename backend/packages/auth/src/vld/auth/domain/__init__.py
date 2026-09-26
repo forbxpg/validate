@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._audit import AuthAuditAction
 from ._email import normalize_email
 from ._enums import Role, TokenPurpose
 from ._errors import (
@@ -33,6 +34,7 @@ __all__ = (
     "USER_REGISTERED_EVENT",
     "AccountDeactivatedError",
     "AccountGoneError",
+    "AuthAuditAction",
     "AuthDomainError",
     "DomainEvent",
     "EmailAlreadyTakenError",

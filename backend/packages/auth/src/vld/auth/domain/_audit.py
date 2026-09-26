@@ -1,12 +1,12 @@
-"""List of auditable actions."""
+"""Actions of the auth domain it writes to the audit log."""
 
 from __future__ import annotations
 
 from enum import StrEnum
 
 
-class AuditAction(StrEnum):
-    """What event happened.
+class AuthAuditAction(StrEnum):
+    """What happened to an account; stored as its value in the audit log.
 
     Attributes:
         LOGIN_SUCCEEDED: A user logged in.

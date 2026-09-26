@@ -70,15 +70,16 @@ accounts — through the `AuditLog` port, in their own transaction:
 ```python
 await audit.record(
     AuditEntry(
-        action=AuditAction.PASSWORD_CHANGED,
+        action=AuthAuditAction.PASSWORD_CHANGED,
         actor_id=user.id,
         target_id=user.id,
     ),
 )
 ```
 
-- `AuditAction` lists the actions; an entry carries the actor, the target and a
-  payload of strings, and knows nothing about the domain that wrote it.
+- The action is a label: each domain defines its own `StrEnum` of actions
+  (auth: `AuthAuditAction`), so the audit log knows no domain. An entry carries
+  the action, the actor, the target and a payload of strings.
 - `AuditQuery.search(...)` reads pages filtered by actor, target and time;
   `AuditRecord` and `AuditPage` are what it returns.
 - The table lives in its own `audit` schema and is append-only: the migration

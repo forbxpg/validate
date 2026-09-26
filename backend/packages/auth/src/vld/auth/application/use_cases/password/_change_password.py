@@ -6,8 +6,12 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from vld.auth.application.use_cases.shared import TokenPair, check_password
-from vld.auth.domain import EntityNotFoundError, InvalidCredentialsError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import (
+    AuthAuditAction,
+    EntityNotFoundError,
+    InvalidCredentialsError,
+)
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     import uuid
@@ -92,7 +96,7 @@ class ChangePassword:
             user.set_password(password_hash, now=self._clock.now())
             await self._users.update(user)
             await self._audit.record(
-                AuditEntry(action=AuditAction.PASSWORD_CHANGED, actor_id=user.id),
+                AuditEntry(action=AuthAuditAction.PASSWORD_CHANGED, actor_id=user.id),
             )
             await self._uow.commit()
         access, refresh = self._issuer.issue_pair(

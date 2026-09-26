@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.auth.domain import UserNotFoundError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, UserNotFoundError
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     from vld.auth.application.ports import UserRepository
@@ -45,7 +45,7 @@ class GrantAdmin:
             user.grant_admin()
             await self._users.update(user)
             await self._audit.record(
-                AuditEntry(action=AuditAction.ADMIN_GRANTED, target_id=user.id),
+                AuditEntry(action=AuthAuditAction.ADMIN_GRANTED, target_id=user.id),
             )
             await self._uow.commit()
         return user

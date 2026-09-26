@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     import uuid
@@ -53,7 +54,7 @@ class Logout:
         """
         async with self._uow:
             await self._audit.record(
-                AuditEntry(action=AuditAction.LOGGED_OUT, actor_id=actor),
+                AuditEntry(action=AuthAuditAction.LOGGED_OUT, actor_id=actor),
             )
             await self._uow.commit()
 

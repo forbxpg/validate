@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.auth.domain import UserNotFoundError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, UserNotFoundError
+from vld.core.audit import AuditEntry
 
 from ._target_guard import guard_target
 
@@ -70,9 +70,9 @@ class SetUserActive:
             await self._audit.record(
                 AuditEntry(
                     action=(
-                        AuditAction.USER_ACTIVATED
+                        AuthAuditAction.USER_ACTIVATED
                         if active
-                        else AuditAction.USER_DEACTIVATED
+                        else AuthAuditAction.USER_DEACTIVATED
                     ),
                     actor_id=actor_id,
                     target_id=target_id,

@@ -25,8 +25,7 @@ from vld.auth.application import (
     SetUserActive,
     TargetForbiddenError,
 )
-from vld.auth.domain import Role, User, UserNotFoundError
-from vld.core.audit import AuditAction
+from vld.auth.domain import AuthAuditAction, Role, User, UserNotFoundError
 
 
 def _user(
@@ -110,7 +109,7 @@ async def test_deactivation_ends_the_sessions_and_is_audited() -> None:
     assert not stored.is_active
     assert stored.tokens_invalidated_after is not None
     [entry] = deps.audit.entries
-    assert entry.action is AuditAction.USER_DEACTIVATED
+    assert entry.action is AuthAuditAction.USER_DEACTIVATED
     assert (entry.actor_id, entry.target_id) == (deps.admin.id, target.id)
     assert deps.uow.committed
 
@@ -124,7 +123,7 @@ async def test_activation_restores_access_and_is_audited() -> None:
 
     assert user.is_active
     assert [entry.action for entry in deps.audit.entries] == [
-        AuditAction.USER_ACTIVATED,
+        AuthAuditAction.USER_ACTIVATED,
     ]
 
 
@@ -170,7 +169,7 @@ async def test_role_change_is_audited_with_both_roles() -> None:
 
     assert user.role is Role.TEACHER
     [entry] = deps.audit.entries
-    assert entry.action is AuditAction.USER_ROLE_CHANGED
+    assert entry.action is AuthAuditAction.USER_ROLE_CHANGED
     assert entry.payload == {"from": "student", "to": "teacher"}
 
 
@@ -194,7 +193,9 @@ async def test_grant_admin_sets_the_flag_once() -> None:
     user = await grant("s@b.co")
 
     assert user.is_admin
-    assert [entry.action for entry in deps.audit.entries] == [AuditAction.ADMIN_GRANTED]
+    assert [entry.action for entry in deps.audit.entries] == [
+        AuthAuditAction.ADMIN_GRANTED,
+    ]
     assert deps.audit.entries[0].target_id == target.id
     assert deps.audit.entries[0].actor_id is None
 
@@ -216,7 +217,7 @@ async def test_delete_user_removes_the_row_and_keeps_only_the_id() -> None:
 
     assert await deps.users.get_by_id(target.id) is None
     [entry] = deps.audit.entries
-    assert entry.action is AuditAction.USER_DELETED
+    assert entry.action is AuthAuditAction.USER_DELETED
     assert entry.target_id == target.id
     assert entry.payload == {}
     assert deps.uow.committed

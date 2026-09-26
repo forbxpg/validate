@@ -9,8 +9,8 @@ from vld.auth.application.use_cases.shared import (
     check_password,
     hash_token,
 )
-from vld.auth.domain import TokenPurpose
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, TokenPurpose
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     from vld.auth.application.ports import (
@@ -79,6 +79,6 @@ class ResetPassword:
             user.reset_password(password_hash, now=now)
             await self._users.update(user)
             await self._audit.record(
-                AuditEntry(action=AuditAction.PASSWORD_RESET, actor_id=user.id),
+                AuditEntry(action=AuthAuditAction.PASSWORD_RESET, actor_id=user.id),
             )
             await self._uow.commit()

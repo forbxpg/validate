@@ -33,11 +33,11 @@ from vld.auth.application import (
 from vld.auth.domain import (
     AccountDeactivatedError,
     AccountGoneError,
+    AuthAuditAction,
     EmailNotVerifiedError,
     Role,
     User,
 )
-from vld.core.audit import AuditAction
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, Sequence
@@ -537,7 +537,9 @@ async def test_logout_is_written_to_the_audit() -> None:
 
     await deps.logout()(refresh, None)
 
-    assert [entry.action for entry in deps.audit.entries] == [AuditAction.LOGGED_OUT]
+    assert [entry.action for entry in deps.audit.entries] == [
+        AuthAuditAction.LOGGED_OUT,
+    ]
     assert deps.audit.entries[0].actor_id == user.id
     assert deps.uow.committed, "the audit entry was not committed"
 

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from vld.auth.domain import UserNotFoundError
-from vld.core.audit import AuditAction, AuditEntry
+from vld.auth.domain import AuthAuditAction, UserNotFoundError
+from vld.core.audit import AuditEntry
 
 if TYPE_CHECKING:
     from vld.auth.application.ports import UserRepository
@@ -40,6 +40,6 @@ class DeleteUser:
                 raise UserNotFoundError(msg)
             _ = await self._users.delete(user.id)
             await self._audit.record(
-                AuditEntry(action=AuditAction.USER_DELETED, target_id=user.id),
+                AuditEntry(action=AuthAuditAction.USER_DELETED, target_id=user.id),
             )
             await self._uow.commit()

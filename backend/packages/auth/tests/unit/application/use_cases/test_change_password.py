@@ -24,8 +24,7 @@ from vld.auth.application import (
     ChangePasswordCommand,
     WeakPasswordError,
 )
-from vld.auth.domain import InvalidCredentialsError, Role, User
-from vld.core.audit import AuditAction
+from vld.auth.domain import AuthAuditAction, InvalidCredentialsError, Role, User
 
 _NEW_PASSWORD = "Brand New Passphrase"
 
@@ -92,7 +91,7 @@ async def test_the_change_ends_other_sessions_and_keeps_this_one() -> None:
     assert deps.issuer.parse_access(pair.access).issued_at >= mark
     assert deps.issuer.parse_refresh(pair.refresh).issued_at >= mark
     assert [entry.action for entry in deps.audit.entries] == [
-        AuditAction.PASSWORD_CHANGED,
+        AuthAuditAction.PASSWORD_CHANGED,
     ]
 
 

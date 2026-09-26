@@ -38,6 +38,7 @@ from vld.auth.application.use_cases.shared._token_hashing import hash_token
 from vld.auth.config import JwtSettings
 from vld.auth.domain import (
     PASSWORD_RESET_REQUESTED_EVENT,
+    AuthAuditAction,
     DomainEvent,
     Role,
     TokenAlreadyUsedError,
@@ -45,7 +46,6 @@ from vld.auth.domain import (
     TokenPurpose,
     User,
 )
-from vld.core.audit import AuditAction
 from vld.core.ratelimit import RateLimitExceededError
 
 _SETTINGS = JwtSettings(secret_key=SecretStr("s" * 32))
@@ -352,7 +352,7 @@ async def test_a_reset_confirms_the_address_and_is_audited() -> None:
     assert stored is not None
     assert stored.email_verified
     assert [entry.action for entry in deps.audit.entries] == [
-        AuditAction.PASSWORD_RESET,
+        AuthAuditAction.PASSWORD_RESET,
     ]
     assert deps.audit.entries[0].actor_id == user.id
 
