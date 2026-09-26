@@ -25,8 +25,7 @@ members = ["packages/*", "apps/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
-# importlib: test modules are named by their path, so two packages may both have
-# tests/unit/test_models.py.
+pythonpath = ["packages/auth/tests/support"]
 addopts = [
     "--strict-markers",
     "--strict-config",
