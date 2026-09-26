@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ._error import AuthErrorCode, AuthErrorResponse
+from ._password import ChangePasswordRequest, NewPasswordRequest, PasswordResetRequest
 from ._profile import ProfileBody
 from ._registration import (
     RegisterRequest,
@@ -14,6 +15,9 @@ from ._registration import (
 __all__ = (
     "AuthErrorCode",
     "AuthErrorResponse",
+    "ChangePasswordRequest",
+    "NewPasswordRequest",
+    "PasswordResetRequest",
     "ProfileBody",
     "RegisterRequest",
     "RegisterResponse",
