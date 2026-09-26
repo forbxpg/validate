@@ -15,7 +15,15 @@ from .email import (
     EmailMisconfiguredError,
     build_smtp_sender,
 )
-from .models import METADATA, OUTBOX, QUALIFIED_OUTBOX, SCHEMA, AuthBase, UserModel
+from .models import (
+    METADATA,
+    OUTBOX,
+    QUALIFIED_OUTBOX,
+    SCHEMA,
+    AuthBase,
+    UserModel,
+    VerificationTokenModel,
+)
 
 __all__ = (
     "METADATA",
@@ -34,5 +42,6 @@ __all__ = (
     "RedisRevocationStore",
     "SystemClock",
     "UserModel",
+    "VerificationTokenModel",
     "build_smtp_sender",
 )

@@ -17,6 +17,7 @@ from ._tables import (
     USERS,
     VERIFICATION_TOKENS,
 )
+from ._token import VerificationTokenModel
 from ._user import UserModel
 
 __all__ = (
@@ -35,4 +36,5 @@ __all__ = (
     "VERIFICATION_TOKENS",
     "AuthBase",
     "UserModel",
+    "VerificationTokenModel",
 )
