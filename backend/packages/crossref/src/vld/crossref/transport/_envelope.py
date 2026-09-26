@@ -1,3 +1,5 @@
+"""The envelope of a Crossref answer and the complaints of a refused request."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
