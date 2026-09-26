@@ -22,6 +22,8 @@ from .ports import (
     UsersPage,
 )
 from .use_cases import (
+    ChangePassword,
+    ChangePasswordCommand,
     InvalidateSessions,
     InvalidRefreshTokenError,
     InvalidTokenError,
@@ -49,6 +51,8 @@ from .use_cases import (
 
 __all__ = (
     "AccessClaims",
+    "ChangePassword",
+    "ChangePasswordCommand",
     "Clock",
     "DeviceClaims",
     "EmailPermanentlyUndeliverableError",

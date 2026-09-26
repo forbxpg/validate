@@ -16,6 +16,7 @@ from .onboarding._send_verification_email import (
     UnknownRegisteredUserError,
 )
 from .onboarding._verify_email import VerifyEmail
+from .password._change_password import ChangePassword, ChangePasswordCommand
 from .password._request_password_reset import RequestPasswordReset
 from .password._reset_password import ResetPassword
 from .session._dummy_hash import warm_password_verification
@@ -26,6 +27,8 @@ from .session._refresh import InvalidRefreshTokenError, RefreshTokens, TokenRevo
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (
+    "ChangePassword",
+    "ChangePasswordCommand",
     "InvalidRefreshTokenError",
     "InvalidTokenError",
     "InvalidateSessions",
