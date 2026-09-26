@@ -2292,6 +2292,7 @@ dependencies = [
     { name = "psycopg", extra = ["binary"] },
     { name = "vld-auth" },
     { name = "vld-core" },
+    { name = "vld-journals" },
 ]
 
 [package.metadata]
@@ -2300,6 +2301,7 @@ requires-dist = [
     { name = "psycopg", extras = ["binary"], specifier = ">=3.3.6,<4.0.0" },
     { name = "vld-auth", editable = "packages/auth" },
     { name = "vld-core", editable = "packages/core" },
+    { name = "vld-journals", editable = "packages/journals" },
 ]
 
 [[package]]
