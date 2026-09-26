@@ -33,7 +33,11 @@ from .session._dummy_hash import warm_password_verification
 from .session._invalidate import InvalidateSessions
 from .session._login import LoginCommand, LoginWithPassword
 from .session._logout import Logout
-from .session._refresh import InvalidRefreshTokenError, RefreshTokens, TokenRevokedError
+from .session._refresh import (
+    InvalidRefreshTokenError,
+    RefreshTokens,
+    TokenRevokedError,
+)
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (

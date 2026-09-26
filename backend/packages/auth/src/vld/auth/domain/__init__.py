@@ -14,7 +14,11 @@ from ._errors import (
     InvalidCredentialsError,
     UserNotFoundError,
 )
-from ._events import PASSWORD_RESET_REQUESTED_EVENT, USER_REGISTERED_EVENT, DomainEvent
+from ._events import (
+    PASSWORD_RESET_REQUESTED_EVENT,
+    USER_REGISTERED_EVENT,
+    DomainEvent,
+)
 from ._profile import Profile
 from ._token import (
     TokenAlreadyUsedError,
