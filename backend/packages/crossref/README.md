@@ -107,33 +107,141 @@ Errors and logs carry the URL without `mailto`; headers are never logged.
 
 ## Command line
 
-Installed with `vld-crossref[cli]` (or `vld-crossref[all]`); in this workspace
-`uv sync --all-packages` already brings it.
+`vld-crossref` asks Crossref from a terminal. It comes with the `cli` extra:
 
 ```bash
-vld-crossref works get 10.1103/PhysRevLett.1.1
-vld-crossref works search graphene --author geim --type journal-article --from 2010
-vld-crossref works search --filter until-online-pub-date=2024 --facet type-name:10
-vld-crossref works iterate --prefix 10.1103 --max 500 --save-json
-vld-crossref works sample --size 5 --journal 0031-9007
-vld-crossref works filters                      # every filter --filter takes
-vld-crossref journals get 0031-9007
-vld-crossref journals iterate --all --save-json
+pip install 'vld-crossref[cli]'      # or [all]; typer and python-dotenv
+uv sync --all-packages               # in this workspace it is already installed
+uv run vld-crossref --help
 ```
 
-- In a terminal the output is a card or a table with a summary line; piped or
-  with `--json` it is JSON (`get`, `search`) or JSON Lines (`iterate`,
-  `sample`). Logs go to stderr, so `| jq` always gets data.
-- `--save-json` also writes the result: `.json`, or `.jsonl` for `iterate`,
-  appended as records arrive, so Ctrl-C keeps what was received. The folder is
-  `--out-dir`, else `CROSSREF_OUTPUT_DIR`, else `./crossref-output/`; `--out
-  FILE` names the file.
-- `CROSSREF_MAILTO` (or `--mailto`) asks for the polite pool; without it the
-  public pool is used and the command says so. `CROSSREF_PLUS_TOKEN` selects
-  Plus. Both are read from the environment or `.env` of the current folder.
-- `iterate` takes 100 records unless `--max N` or `--all`.
-- Exit codes: 0 done, 1 not found (or `exists` says no), 2 a bad query,
-  3 Crossref refused or failed, 130 interrupted.
+Without the extra the command exists but only says how to install it (exit 2).
+
+### Who is asking
+
+| Variable | Flag | Meaning |
+|---|---|---|
+| `CROSSREF_MAILTO` | `--mailto` | Address for the polite pool (10 requests a second, 3 at a time). Without it: the public pool (5 a second, 1 at a time), and a warning on stderr |
+| `CROSSREF_PLUS_TOKEN` | — | Crossref Plus token: the Plus pool |
+| `CROSSREF_OUTPUT_DIR` | `--out-dir` | Folder of `--save-json`; default `./crossref-output/` |
+
+A flag wins over the environment, the environment over `.env`. Only `.env` of the
+folder you run the command in is read, never of its parents.
+
+### Commands
+
+| Command | Does |
+|---|---|
+| `works get DOI` | one work as a card; the DOI in any form (`10.…`, `doi:10.…`, `https://doi.org/10.…`) |
+| `works exists DOI` | `yes` / `no`, exit 0 / 1 |
+| `works agency DOI` | the registration agency of the DOI |
+| `works search [TEXT] …` | one page: `--rows` (20; 1..1000), `--offset` (offset + rows ≤ 10,000) |
+| `works iterate [TEXT] …` | the cursor walk: 100 records unless `--max N` or `--all`; `--page-size` (1000) |
+| `works sample [TEXT] …` | random works: `--size` (10; 1..100) |
+| `works filters` | every filter `--filter` takes: name, kind of value, whether it repeats |
+| `journals get ISSN` | one journal as a card; `0031-9007`, `0031 9007` or `00319007` |
+| `journals exists ISSN` | `yes` / `no`, exit 0 / 1 |
+| `journals search [TEXT]` | one page: `--rows`, `--offset` |
+| `journals iterate [TEXT]` | the cursor walk over journals: 100 unless `--max N` or `--all` |
+
+`search`, `iterate` and `sample` of works take the same query options:
+
+- **Free text** — the first argument: `works search "graphene oxide"`.
+- **Field queries** — search in one field: `--affiliation`, `--author`,
+  `--bibliographic`, `--chair`, `--container-title`, `--contributor`, `--degree`,
+  `--description`, `--editor`, `--event-acronym`, `--event-location`,
+  `--event-name`, `--event-sponsor`, `--event-theme`, `--funder-name`,
+  `--publisher-location`, `--publisher-name`, `--standards-body-acronym`,
+  `--standards-body-name`, `--title`, `--translator`.
+- **Common filters** — `--type` (repeat to OR; `works filters` lists the types),
+  `--from` / `--until` (publication date: `2024`, `2024-05` or `2024-05-17`),
+  `--issn`, `--orcid`, `--prefix`, `--member` (each repeatable),
+  `--has-orcid` / `--no-orcid`, `--has-abstract` / `--no-abstract`.
+- **Any other filter** — `--filter name=value` with the Crossref name, repeatable:
+  `--filter from-online-pub-date=2024-05 --filter has-funder=true`. Dates as
+  above; deposit-side times need a zone: `--filter from-index-date=2024-05-17T10:00:00Z`;
+  yes/no filters take `true`/`false`. A repeated many-valued filter ORs; a
+  single-valued one refuses a second value.
+- **One journal** — `--journal ISSN` sends the query to `/journals/{issn}/works`.
+- **Order and facets** (`search`, `iterate`) — `--sort` (`created`, `deposited`,
+  `indexed`, `is-referenced-by-count`, `issued`, `published`, `published-online`,
+  `published-print`, `references-count`, `relevance`, `score`, `updated`),
+  `--order asc|desc` (needs `--sort`), `--facet name[:count]` (repeatable:
+  `affiliation`, `archive`, `assertion`, `assertion-group`, `category-name`,
+  `container-title`, `funder-doi`, `funder-name`, `issn`, `journal-issue`,
+  `journal-volume`, `license`, `link-application`, `orcid`, `published`,
+  `publisher-name`, `relation-type`, `ror-id`, `source`, `type-name`,
+  `update-type`).
+
+Every option is checked before any request: a typo in a filter, a bad date or
+`--order` without `--sort` exits 2 with a message.
+
+### Examples
+
+```bash
+vld-crossref works get https://doi.org/10.1103/PhysRevLett.1.1
+vld-crossref works search graphene --author geim --type journal-article --from 2010
+vld-crossref works search --title "random walk" --sort published --order desc --rows 50
+vld-crossref works search --filter until-online-pub-date=2024 --facet type-name:10 --rows 1
+vld-crossref works search --journal 0031-9007 --from 2024 --has-abstract
+vld-crossref works iterate --prefix 10.1103 --max 500 --save-json
+vld-crossref works sample --size 5 --type book-chapter
+vld-crossref journals search "physical review"
+vld-crossref journals iterate --all --save-json        # every journal, about 171,000
+```
+
+### Output
+
+In a terminal: a card for `get`, a table for lists with a summary line such as
+`20 of 1 234 567 · pool: polite`, and one table per facet.
+
+Piped, redirected or with `--json`: data only, with Crossref's field names
+(`DOI`, `container-title`, …):
+
+| Command | Format |
+|---|---|
+| `get`, `agency`, `exists` | one JSON object |
+| `search` | one JSON object: `total_results`, `offset`, `rows`, `facets`, `items` |
+| `iterate`, `sample` | JSON Lines, one record per line, printed as they arrive |
+
+Messages, warnings and logs go to stderr, so a pipe always gets clean data:
+
+```bash
+vld-crossref works search graphene --rows 5 | jq '.items[].DOI'
+vld-crossref works iterate --issn 0031-9007 --max 1000 | jq -r '.DOI'
+vld-crossref works exists 10.1103/PhysRevLett.1.1 && echo registered
+```
+
+`-v` adds debug logs (every request) and tracebacks on stderr.
+
+### Saving
+
+`--save-json` writes the same data into a file and keeps the terminal output:
+
+- `.json` for `get`, `exists`, `agency`, `search`, `sample`; `.jsonl` for
+  `iterate`, written and flushed record by record, so Ctrl-C keeps everything
+  received so far.
+- Folder: `--out-dir`, else `CROSSREF_OUTPUT_DIR`, else `./crossref-output/`
+  (created when missing; `crossref-output/` is ignored by git).
+- Name: `<resource>-<command>-<what>-<time>.json`, for example
+  `works-get-10.1103_physrevlett.1.1-20260926T141500.json`; for queries `<what>`
+  is the first 8 characters of the query fingerprint.
+- `--out FILE` gives the file itself and implies saving; an existing file is
+  replaced.
+- The path is printed to stderr.
+
+JSON Lines read directly: `pandas.read_json(path, lines=True)`,
+`duckdb.read_json_auto(path)`, `jq`.
+
+### Exit codes
+
+| Code | Meaning |
+|---|---|
+| 0 | done |
+| 1 | not found, or `exists` says no |
+| 2 | the query is wrong, refused before any request or by Crossref (400) |
+| 3 | Crossref rate limit after the retries, a block (403) or an outage |
+| 130 | interrupted (Ctrl-C); for a saved walk, how many records were written |
 
 ## Layout
 
