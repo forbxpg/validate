@@ -2,6 +2,7 @@
 name = "vld-api"
 version = "0.0.0"
 description = "HTTP API process: the FastAPI application and its composition root."
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "dishka>=1.10.1,<2.0.0",
