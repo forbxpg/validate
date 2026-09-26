@@ -17,6 +17,7 @@ from .onboarding._send_verification_email import (
 )
 from .onboarding._verify_email import VerifyEmail
 from .password._request_password_reset import RequestPasswordReset
+from .password._reset_password import ResetPassword
 from .session._dummy_hash import warm_password_verification
 from .session._invalidate import InvalidateSessions
 from .session._login import LoginCommand, LoginWithPassword
@@ -38,6 +39,7 @@ __all__ = (
     "RequestPasswordReset",
     "ResendVerification",
     "ResendVerificationCommand",
+    "ResetPassword",
     "SendPasswordResetEmail",
     "SendVerificationEmail",
     "TokenPair",
