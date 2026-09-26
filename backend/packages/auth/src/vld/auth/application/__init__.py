@@ -21,7 +21,7 @@ from .ports import (
     UserRepository,
     UsersPage,
 )
-from .use_cases import InvalidTokenError, LoginResult, TokenPair
+from .use_cases import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (
     "AccessClaims",
@@ -44,4 +44,5 @@ __all__ = (
     "TokenRepository",
     "UserRepository",
     "UsersPage",
+    "WeakPasswordError",
 )
