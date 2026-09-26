@@ -13,6 +13,22 @@
   "reportUnknownVariableType": "none",
   "executionEnvironments": [
     {
+      "root": "packages/auth/tests",
+      "extraPaths": ["packages/auth/tests/support"],
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
+    {
+      "root": "apps/worker/tests",
+      "extraPaths": ["packages/auth/tests/support"],
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
+    {
       "root": "packages/core/tests",
       "reportAny": false,
       "reportPrivateUsage": false,
