@@ -10,6 +10,7 @@ from ._outbox import Outbox
 from ._password_hasher import PasswordHasher
 from ._rate_limiter import RateLimiter
 from ._refresh_claims import RefreshClaims
+from ._refreshed_cache import RefreshedPairCache
 from ._revocation_store import RevocationCheckUnavailableError, RevocationStore
 from ._token_issuer import InvalidAccessTokenError, TokenIssuer
 
@@ -24,6 +25,7 @@ __all__ = (
     "PasswordHasher",
     "RateLimiter",
     "RefreshClaims",
+    "RefreshedPairCache",
     "RevocationCheckUnavailableError",
     "RevocationStore",
     "TokenIssuer",
