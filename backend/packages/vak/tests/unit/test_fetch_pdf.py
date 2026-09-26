@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import hashlib
+from typing import TYPE_CHECKING
 
 import httpx
 import pytest
 
 from vld.vak.download import _pdf, fetch_pdf
 from vld.vak.errors import VakDownloadError
+
+if TYPE_CHECKING:
+    from collections.abc import AsyncIterator
 
 CURRENT = "https://vak.test/s3-files/list.pdf"
 PDF = b"%PDF-1.5\n" + b"x" * 1000
@@ -68,3 +72,25 @@ async def test_a_timeout_is_an_error() -> None:
     async with _client(httpx.MockTransport(stall)) as client:
         with pytest.raises(VakDownloadError, match="ReadTimeout"):
             _ = await fetch_pdf(client, CURRENT)
+
+
+async def test_the_cap_stops_the_stream_before_its_end(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A file far over the cap is not read to its end first."""
+    monkeypatch.setattr(_pdf, "MAX_PDF_BYTES", 5000)
+    pulled = 0
+
+    async def endless() -> AsyncIterator[bytes]:
+        nonlocal pulled
+        yield b"%PDF-1.5\n"
+        for _ in range(10_000):
+            pulled += 1
+            yield b"x" * 1000
+
+    transport = httpx.MockTransport(lambda _: httpx.Response(200, content=endless()))
+    async with _client(transport) as client:
+        with pytest.raises(VakDownloadError, match="larger than 5000 bytes"):
+            _ = await fetch_pdf(client, CURRENT)
+
+    assert pulled < 10
