@@ -7,6 +7,10 @@ from .onboarding._resend_verification import (
     ResendVerification,
     ResendVerificationCommand,
 )
+from .onboarding._send_password_reset_email import (
+    SendPasswordResetEmail,
+    UnknownResetTargetError,
+)
 from .onboarding._send_verification_email import (
     SendVerificationEmail,
     UnknownRegisteredUserError,
@@ -21,9 +25,11 @@ __all__ = (
     "RegisterUser",
     "ResendVerification",
     "ResendVerificationCommand",
+    "SendPasswordResetEmail",
     "SendVerificationEmail",
     "TokenPair",
     "UnknownRegisteredUserError",
+    "UnknownResetTargetError",
     "VerifyEmail",
     "WeakPasswordError",
 )
