@@ -88,3 +88,16 @@ async def test_the_browser_may_read_the_request_id(client: AsyncClient) -> None:
 
     assert response.headers["x-request-id"]
     assert "x-request-id" in response.headers["access-control-expose-headers"].lower()
+
+
+async def test_metrics_count_requests_by_route_and_status(client: AsyncClient) -> None:
+    """Prometheus sees API traffic; the probes stay out of it."""
+    _ = await client.get("/health")
+    _ = await client.get("/api/v1/no-such-route")
+
+    metrics = (await client.get("/metrics")).text
+
+    assert (
+        'http_requests_total{handler="none",method="GET",status="4xx"} 1.0' in metrics
+    )
+    assert 'handler="/health"' not in metrics

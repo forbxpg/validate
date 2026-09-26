@@ -7,6 +7,7 @@ import signal
 from typing import TYPE_CHECKING
 
 from dishka import make_async_container
+from prometheus_client import start_http_server
 from taskiq.acks import AcknowledgeType
 from taskiq.api import run_receiver_task
 
@@ -17,7 +18,7 @@ from vld.core.obs import configure_logging, configure_sentry
 
 from ._broker import create_broker
 from ._relay import run
-from ._settings import BrokerSettings
+from ._settings import BrokerSettings, MetricsSettings
 from ._tasks import register
 
 if TYPE_CHECKING:
@@ -44,6 +45,8 @@ async def _serve() -> None:
     configure_logging(observability)
     configure_sentry(observability)
     broker = create_broker(BrokerSettings())  # pyright: ignore[reportCallIssue] -- required, read from the environment
+    metrics = MetricsSettings()
+    metrics_server, _ = start_http_server(metrics.port, addr=metrics.host)
     container = build_container()
     publish_task = register(broker, container)
     stop = asyncio.Event()
@@ -61,6 +64,7 @@ async def _serve() -> None:
     finally:
         await broker.shutdown()
         await container.close()
+        metrics_server.shutdown()
 
 
 def main() -> None:

@@ -26,24 +26,29 @@ cd frontend && npm ci
 ## Local stand
 
 ```bash
-make up        # PostgreSQL and Redis
-make migrate   # apply migrations
-make dev       # API on :8000 with reload
-make worker    # TaskIQ worker for reference lists
+cp backend/.env.example backend/.env   # once
+make dev                               # the whole stand in Docker, code synced
+make dev WITH=obs                      # plus Prometheus, Loki, Grafana, GlitchTip
+make help                              # every target
 ```
 
-Copy `.env.example` to `.env` first; it lists every variable with a value that works
-for the stand. Registry imports (VAK PDF, White List) are CLI commands; their heavy
-dependencies (PDF parsing, a headless browser) live in the CLI app only, so the API image
-stays small.
+`make dev` builds the images, runs the migrator once, starts the API on
+http://localhost:8010 and the worker, and syncs code changes into them. With
+`APP_ENV=local` letters land in Mailpit (http://localhost:8035). Ports, the
+optional services and how to connect GlitchTip: [infrastructure/README.md](infrastructure/README.md).
+`make api-host` runs the API on the host instead, for a debugger.
+
+Registry imports (VAK PDF, White List) will be CLI commands; their heavy
+dependencies (PDF parsing, a headless browser) live in the CLI app only, so the
+API image stays small.
 
 ## Checks
 
 All of these must pass; CI runs the same.
 
 ```bash
-cd backend && uv run ruff check . && uv run ruff format --check . && uv run basedpyright \
-  && uv run lint-imports && uv run pytest
+make check              # ruff, basedpyright, import contracts, unit tests
+make test-integration   # against the running stand
 cd frontend && npm run lint && npx tsc -b && npm test && npm run build
 ```
 

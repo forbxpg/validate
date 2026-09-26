@@ -24,12 +24,15 @@ and a `.bib` file for LaTeX.
 | [`backend/apps/api`](backend/apps/api/README.md) | the HTTP API |
 | [`backend/apps/worker`](backend/apps/worker/README.md) | relays the outbox to RabbitMQ and sends the letters |
 | [`backend/apps/migrator`](backend/apps/migrator/README.md) | `vld-migrate`: database migrations with a lock, checks and a backup |
+| [`infrastructure`](infrastructure/README.md) | the local stand in Docker (`make dev`), with optional Prometheus, Loki, Grafana and GlitchTip |
 
-Set up once:
+Set up once, then run the whole stand in Docker (details in
+[CONTRIBUTING.md](CONTRIBUTING.md) and [infrastructure/README.md](infrastructure/README.md)):
 
 ```bash
-cd backend
-uv sync --all-packages
+cd backend && uv sync --all-packages && cd ..
+cp backend/.env.example backend/.env
+make dev
 ```
 
 Licensed under [AGPL-3.0](LICENSE). If you run a modified copy as a public service,

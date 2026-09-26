@@ -1,0 +1,42 @@
+# Loki as a single binary with local storage: one stand, development volumes (WITH=loki).
+
+# By default Loki reports usage to stats.grafana.org; nothing leaves the machine.
+analytics:
+  reporting_enabled: false
+
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  log_level: warn
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /loki
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks
+      rules_directory: /loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2024-04-01
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+limits_config:
+  # Container logs arrive in a batch at start and may be older than the moment
+  # Alloy reads them; by default Loki would drop them.
+  reject_old_samples: false
+  volume_enabled: true
+
+ruler:
+  alertmanager_url: ""

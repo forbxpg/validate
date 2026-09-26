@@ -6,15 +6,20 @@ infrastructure, and adds the probes an orchestrator needs.
 
 ## Run
 
+On the stand the API runs in its container (`make dev`, see
+[infrastructure/README.md](../../../infrastructure/README.md)). On the host:
+
 ```bash
 cd backend
-cp .env.example .env          # once; fill in what the stand needs
-uv run uvicorn vld.api.main:create_app --factory --reload
+uv run --env-file .env vld-api run --reload       # http://127.0.0.1:8000
+uv run vld-api run --help
 ```
 
-`create_app` is a factory: settings are read when the process starts, not when
-the module is imported. Behind a reverse proxy, run uvicorn with
-`--proxy-headers` so that `vld.web.throttling` sees the client address.
+`vld-api run` takes `--host`, `--port`, `--reload`, `--workers` and
+`--forwarded-allow-ips`, and serves the `create_app` factory: settings are read
+when the process starts, from the environment only. Behind a reverse proxy,
+list the proxy in `--forwarded-allow-ips` so that `vld.web.throttling` sees the
+client address. The image runs `vld-api run --host 0.0.0.0 --port 8000`.
 
 Required variables (the process refuses to start without them):
 `DATABASE_URL`, `REDIS_HOST`, `MIDDLEWARE_CORS_ALLOWED_ORIGINS` and those of the
@@ -23,7 +28,8 @@ domains, such as `JWT_SECRET_KEY` of auth. `.env.example` lists all of them.
 ## What's inside
 
 ```
-main.py        create_app(): logs and Sentry, the container, domains, middleware
+cli.py         vld-api run: uvicorn over the create_app factory
+main.py        create_app(): logs, Sentry, metrics, the container, domains, middleware
 _health.py     GET /health and GET /ready
 ```
 
@@ -53,6 +59,14 @@ DOMAINS: tuple[DomainDescriptor, ...] = (AUTH_DOMAIN,)
 
 A new domain is one more `DomainDescriptor` here and a dependency in
 `pyproject.toml`; its routes, errors and providers come with the descriptor.
+
+## Metrics
+
+`GET /metrics` is for Prometheus: requests by route template, method and status
+class, and latency histograms, from `prometheus-fastapi-instrumentator`. The
+probes and `/metrics` itself are not counted. The reverse proxy must not
+publish this route. Each application has its own registry, so run one process
+per container (`--workers 1`) and scale with containers.
 
 ## Probes
 
