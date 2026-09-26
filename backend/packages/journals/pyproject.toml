@@ -1,0 +1,24 @@
+[project]
+name = "vld-journals"
+version = "0.1.0"
+description = "Journals and the registries that list them: the VAK list, its editions and their facts."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "sqlalchemy[asyncio]>=2.1.0,<3.0.0",
+    "vld-core",
+    "vld-vak",
+]
+# Internal to the workspace: PyPI refuses an upload with this classifier.
+classifiers = ["Private :: Do Not Upload"]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vld.journals"
+
+[tool.uv.sources]
+vld-core = { workspace = true }
+vld-vak = { workspace = true }

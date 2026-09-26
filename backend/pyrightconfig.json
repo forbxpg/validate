@@ -37,6 +37,14 @@
       "reportUnusedCallResult": false
     },
     {
+      "root": "packages/journals/tests",
+      "extraPaths": ["packages/journals/tests/support"],
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
+    {
       "root": "packages/vak/tests",
       "reportAny": false,
       "reportPrivateUsage": false,
