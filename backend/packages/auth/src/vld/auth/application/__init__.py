@@ -21,7 +21,14 @@ from .ports import (
     UserRepository,
     UsersPage,
 )
-from .use_cases import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
+from .use_cases import (
+    InvalidTokenError,
+    LoginResult,
+    RegisterCommand,
+    RegisterUser,
+    TokenPair,
+    WeakPasswordError,
+)
 
 __all__ = (
     "AccessClaims",
@@ -37,6 +44,8 @@ __all__ = (
     "RateLimiter",
     "RefreshClaims",
     "RefreshedPairCache",
+    "RegisterCommand",
+    "RegisterUser",
     "RevocationCheckUnavailableError",
     "RevocationStore",
     "TokenIssuer",
