@@ -1,4 +1,4 @@
-"""Settings of the task broker."""
+"""Settings of the worker: the task broker and the metrics port."""
 
 from __future__ import annotations
 
@@ -21,3 +21,18 @@ class BrokerSettings(BaseSettings):
     model_config: ClassVar[SettingsConfigDict] = settings_config("BROKER_")
 
     url: AmqpDsn
+
+
+class MetricsSettings(BaseSettings):
+    """Where the worker serves its metrics.
+
+    Attributes:
+        host: str - Address to bind; a container binds every interface.
+        port: int - Port Prometheus scrapes.
+
+    """
+
+    model_config: ClassVar[SettingsConfigDict] = settings_config("WORKER_METRICS_")
+
+    host: str = "127.0.0.1"
+    port: int = 9100

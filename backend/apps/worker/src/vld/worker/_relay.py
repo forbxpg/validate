@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING
 import structlog
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ._metrics import OUTBOX_CLAIMED, OUTBOX_SWEPT, RELAY_TURN_FAILURES
 from ._publish import publish
 from ._rows import POLL_LIMIT, claim, sweep
 from ._sources import SOURCES
@@ -46,7 +47,9 @@ async def _claim_batch(
 
     """
     async with container() as scope:
-        return await claim(await scope.get(AsyncSession), source, limit)
+        rows = await claim(await scope.get(AsyncSession), source, limit)
+    OUTBOX_CLAIMED.labels(table=source.name).inc(len(rows))
+    return rows
 
 
 async def _sweep_stuck(container: AsyncContainer, source: OutboxSource) -> int:
@@ -61,7 +64,9 @@ async def _sweep_stuck(container: AsyncContainer, source: OutboxSource) -> int:
 
     """
     async with container() as scope:
-        return await sweep(await scope.get(AsyncSession), source)
+        released = await sweep(await scope.get(AsyncSession), source)
+    OUTBOX_SWEPT.labels(table=source.name).inc(released)
+    return released
 
 
 async def _publish_batches(
@@ -127,6 +132,7 @@ async def run(  # ruff: ignore[too-many-arguments] -- two dependencies, a flag a
             await _publish_batches(container, publish_task, stop, limit)
         except Exception as exc:
             failures += 1
+            RELAY_TURN_FAILURES.inc()
             if failures >= _MAX_CONSECUTIVE_FAILURES:
                 _log.exception("outbox_relay_gave_up", failures=failures)
                 raise

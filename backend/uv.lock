@@ -1932,6 +1932,7 @@ version = "0.1.0"
 source = { editable = "apps/worker" }
 dependencies = [
     { name = "dishka" },
+    { name = "prometheus-client" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "sqlalchemy" },
@@ -1945,6 +1946,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "dishka", specifier = ">=1.10.1,<2.0.0" },
+    { name = "prometheus-client", specifier = ">=0.26.0,<0.27.0" },
     { name = "pydantic", specifier = ">=2.13.5,<3.0.0" },
     { name = "pydantic-settings", specifier = ">=2.15.0,<3.0.0" },
     { name = "sqlalchemy", specifier = ">=2.1.0,<3.0.0" },

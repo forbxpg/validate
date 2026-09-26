@@ -15,6 +15,7 @@ from vld.auth.domain import DomainEvent
 from vld.core.database import UnitOfWork
 
 from ._handlers import handler_type
+from ._metrics import LETTER_SECONDS, LETTERS
 
 if TYPE_CHECKING:
     from dishka import AsyncContainer
@@ -73,22 +74,30 @@ async def send_email(
             event_name=event_name,
             delivery_id=delivery_id,
         )
+        LETTERS.labels(event=event_name, outcome="dropped").inc()
         return
     async with container() as scope:
         # The unit of work and the stores of the handler share the scope session.
         uow = await scope.get(UnitOfWork)
         handler = await scope.get(handler_cls)
         try:
-            await send_letter(
-                handler,
-                DomainEvent(event_name, payload),
-                delivery_id,
-                uow,
-            )
+            with LETTER_SECONDS.labels(event=event_name).time():
+                await send_letter(
+                    handler,
+                    DomainEvent(event_name, payload),
+                    delivery_id,
+                    uow,
+                )
         except _PERMANENT as exc:
+            LETTERS.labels(event=event_name, outcome="dropped").inc()
             _log.warning(
                 "email_task_dropped",
                 event_name=event_name,
                 delivery_id=delivery_id,
                 reason=type(exc).__name__,
             )
+        except Exception:
+            LETTERS.labels(event=event_name, outcome="failed").inc()
+            raise
+        else:
+            LETTERS.labels(event=event_name, outcome="sent").inc()

@@ -9,6 +9,7 @@ from types import SimpleNamespace
 from typing import TYPE_CHECKING, cast
 
 import pytest
+from prometheus_client import REGISTRY
 
 from vld.worker import _relay
 from vld.worker._publish import publish
@@ -388,3 +389,50 @@ async def test_cancellation_passes_straight_through(
 
     assert claim.turns == 1, "a cancellation must leave on the very first turn"
     assert not stop.is_set()
+
+
+async def test_claimed_and_swept_rows_are_counted_per_table(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Prometheus sees how many rows each table hands to the relay."""
+    rows = [
+        PendingRow(
+            source=AUTH_OUTBOX,
+            id=n,
+            event_name="auth.user_registered",
+            payload={},
+            attempt_count=1,
+        )
+        for n in (1, 2)
+    ]
+
+    async def _claim_two(
+        session: object,
+        source: object,
+        limit: int,
+    ) -> list[PendingRow]:
+        del session, source, limit
+        return rows
+
+    async def _sweep_three(session: object, source: object) -> int:
+        del session, source
+        return 3
+
+    monkeypatch.setattr(_relay, "claim", _claim_two)
+    monkeypatch.setattr(_relay, "sweep", _sweep_three)
+    labels = {"table": AUTH_OUTBOX.name}
+    claimed = (
+        REGISTRY.get_sample_value("vld_worker_outbox_claimed_total", labels) or 0.0
+    )
+    swept = REGISTRY.get_sample_value("vld_worker_outbox_swept_total", labels) or 0.0
+
+    _ = await _relay._claim_batch(_container(), AUTH_OUTBOX, 10)
+    _ = await _relay._sweep_stuck(_container(), AUTH_OUTBOX)
+
+    assert (
+        REGISTRY.get_sample_value("vld_worker_outbox_claimed_total", labels)
+        == claimed + 2
+    )
+    assert (
+        REGISTRY.get_sample_value("vld_worker_outbox_swept_total", labels) == swept + 3
+    )

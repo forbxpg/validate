@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING, cast, final
 import pytest
 from auth_fakes import FakeUnitOfWork
 from dishka import Provider, Scope, make_async_container, provide
+from prometheus_client import REGISTRY
 
 from vld.auth.application import (
     EmailPermanentlyUndeliverableError,
@@ -83,3 +84,35 @@ async def test_a_transient_failure_is_raised_for_a_retry() -> None:
     """Anything else goes back to the broker for a retry."""
     with pytest.raises(OSError, match="timeout"):
         _ = await _send(OSError("timeout"))
+
+
+def _letters(outcome: str) -> float:
+    labels = {"event": USER_REGISTERED_EVENT, "outcome": outcome}
+    return REGISTRY.get_sample_value("vld_worker_letters_total", labels) or 0.0
+
+
+def _timed() -> float:
+    labels = {"event": USER_REGISTERED_EVENT}
+    return REGISTRY.get_sample_value("vld_worker_letter_seconds_count", labels) or 0.0
+
+
+async def test_a_sent_letter_is_counted_and_timed() -> None:
+    """One letter, one count, one observation of its time."""
+    sent, timed = _letters("sent"), _timed()
+
+    _ = await _send(None)
+
+    assert (_letters("sent") - sent, _timed() - timed) == (1, 1)
+
+
+async def test_a_dropped_and_a_failed_letter_are_told_apart() -> None:
+    """A hard bounce is dropped; anything else is a failure the broker retries."""
+    sent, dropped, failed = _letters("sent"), _letters("dropped"), _letters("failed")
+
+    _ = await _send(EmailPermanentlyUndeliverableError("550"))
+    with pytest.raises(OSError, match="timeout"):
+        _ = await _send(OSError("timeout"))
+
+    assert _letters("dropped") - dropped == 1
+    assert _letters("failed") - failed == 1
+    assert _letters("sent") == sent

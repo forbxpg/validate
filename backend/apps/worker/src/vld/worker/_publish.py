@@ -10,6 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from vld.core.database import UnitOfWork
 
 from ._handlers import handler_type
+from ._metrics import OUTBOX_DEFERRED, OUTBOX_FAILED, OUTBOX_PUBLISHED
 from ._rows import defer, mark
 
 if TYPE_CHECKING:
@@ -50,12 +51,14 @@ async def publish_row(
         async with uow:
             await mark(session, row.source, row.id, row.source.failed)
             await uow.commit()
+        OUTBOX_FAILED.labels(table=row.source.name).inc()
         return
 
     _ = await publish_task(row.event_name, row.id, row.payload)
     async with uow:
         await mark(session, row.source, row.id, row.source.sent)
         await uow.commit()
+    OUTBOX_PUBLISHED.labels(table=row.source.name).inc()
 
 
 async def publish(
@@ -90,6 +93,7 @@ async def publish(
                 async with uow:
                     await defer(session, row.source, row.id, row.attempt_count)
                     await uow.commit()
+                OUTBOX_DEFERRED.labels(table=row.source.name).inc()
             except Exception:  # ruff: ignore[blind-except] -- the sweep releases it later
                 _log.exception(
                     "outbox_row_left_claimed",
