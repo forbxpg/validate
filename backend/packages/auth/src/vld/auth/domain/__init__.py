@@ -16,6 +16,12 @@ from ._errors import (
 )
 from ._events import PASSWORD_RESET_REQUESTED_EVENT, USER_REGISTERED_EVENT, DomainEvent
 from ._profile import Profile
+from ._token import (
+    TokenAlreadyUsedError,
+    TokenExpiredError,
+    TokenIdAlreadyAssignedError,
+    VerificationToken,
+)
 
 __all__ = (
     "PASSWORD_RESET_REQUESTED_EVENT",
@@ -30,7 +36,11 @@ __all__ = (
     "InvalidCredentialsError",
     "Profile",
     "Role",
+    "TokenAlreadyUsedError",
+    "TokenExpiredError",
+    "TokenIdAlreadyAssignedError",
     "TokenPurpose",
     "UserNotFoundError",
+    "VerificationToken",
     "normalize_email",
 )
