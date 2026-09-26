@@ -10,6 +10,7 @@ from ._outbox import Outbox
 from ._password_hasher import PasswordHasher
 from ._rate_limiter import RateLimiter
 from ._refresh_claims import RefreshClaims
+from ._token_issuer import InvalidAccessTokenError, TokenIssuer
 
 __all__ = (
     "AccessClaims",
@@ -17,8 +18,10 @@ __all__ = (
     "DeviceClaims",
     "EmailPermanentlyUndeliverableError",
     "EmailSender",
+    "InvalidAccessTokenError",
     "Outbox",
     "PasswordHasher",
     "RateLimiter",
     "RefreshClaims",
+    "TokenIssuer",
 )

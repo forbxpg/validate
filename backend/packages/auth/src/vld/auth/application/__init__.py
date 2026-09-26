@@ -8,10 +8,12 @@ from .ports import (
     DeviceClaims,
     EmailPermanentlyUndeliverableError,
     EmailSender,
+    InvalidAccessTokenError,
     Outbox,
     PasswordHasher,
     RateLimiter,
     RefreshClaims,
+    TokenIssuer,
 )
 
 __all__ = (
@@ -20,8 +22,10 @@ __all__ = (
     "DeviceClaims",
     "EmailPermanentlyUndeliverableError",
     "EmailSender",
+    "InvalidAccessTokenError",
     "Outbox",
     "PasswordHasher",
     "RateLimiter",
     "RefreshClaims",
+    "TokenIssuer",
 )
