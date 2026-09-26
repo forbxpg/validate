@@ -23,7 +23,9 @@ from .ports import (
 )
 from .use_cases import (
     InvalidTokenError,
+    LoginCommand,
     LoginResult,
+    LoginWithPassword,
     RegisterCommand,
     RegisterUser,
     ResendVerification,
@@ -46,7 +48,9 @@ __all__ = (
     "EmailSender",
     "InvalidAccessTokenError",
     "InvalidTokenError",
+    "LoginCommand",
     "LoginResult",
+    "LoginWithPassword",
     "Outbox",
     "PasswordHasher",
     "RateLimiter",

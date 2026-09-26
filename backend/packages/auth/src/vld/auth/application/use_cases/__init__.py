@@ -17,11 +17,14 @@ from .onboarding._send_verification_email import (
 )
 from .onboarding._verify_email import VerifyEmail
 from .session._dummy_hash import warm_password_verification
+from .session._login import LoginCommand, LoginWithPassword
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (
     "InvalidTokenError",
+    "LoginCommand",
     "LoginResult",
+    "LoginWithPassword",
     "RegisterCommand",
     "RegisterUser",
     "ResendVerification",
