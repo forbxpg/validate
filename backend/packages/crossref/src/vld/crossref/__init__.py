@@ -14,6 +14,7 @@ from .errors import (
     ValidationProblem,
 )
 from .ids import normalize_doi, normalize_issn
+from .models import PartialDate
 
 __all__ = (
     "CrossrefBadRequestError",
@@ -24,6 +25,7 @@ __all__ = (
     "CrossrefRateLimitedError",
     "CrossrefSchemaError",
     "CrossrefUnavailableError",
+    "PartialDate",
     "ValidationProblem",
     "normalize_doi",
     "normalize_issn",
