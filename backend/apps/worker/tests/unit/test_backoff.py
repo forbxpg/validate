@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import timedelta
 
-from vld.worker._backoff import MAX_ATTEMPTS, next_attempt
+from vld.worker.outbox._backoff import MAX_ATTEMPTS, next_attempt
 
 
 def test_the_delay_doubles_from_ten_seconds() -> None:

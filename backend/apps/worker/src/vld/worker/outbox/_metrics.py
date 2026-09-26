@@ -1,8 +1,8 @@
-"""Metrics of the worker, scraped by Prometheus from its own port."""
+"""Metrics of the outbox relay, scraped by Prometheus from the worker port."""
 
 from __future__ import annotations
 
-from prometheus_client import Counter, Histogram
+from prometheus_client import Counter
 
 OUTBOX_CLAIMED = Counter(
     "vld_worker_outbox_claimed",
@@ -32,14 +32,4 @@ OUTBOX_SWEPT = Counter(
 RELAY_TURN_FAILURES = Counter(
     "vld_worker_relay_turn_failures",
     "Relay turns that failed as a whole.",
-)
-LETTERS = Counter(
-    "vld_worker_letters",
-    "Letters by outcome: sent, dropped (never retried), failed (retried).",
-    ["event", "outcome"],
-)
-LETTER_SECONDS = Histogram(
-    "vld_worker_letter_seconds",
-    "Time to prepare and send one letter.",
-    ["event"],
 )

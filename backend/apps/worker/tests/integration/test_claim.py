@@ -14,8 +14,8 @@ from vld.auth.infrastructure.models import (
     OutboxModel,
     OutboxStatus,
 )
-from vld.worker._rows import POLL_LIMIT, claim
-from vld.worker._sources import AUTH_OUTBOX
+from vld.worker.outbox._rows import POLL_LIMIT, claim
+from vld.worker.outbox._sources import AUTH_OUTBOX
 
 if TYPE_CHECKING:
     from sqlalchemy.ext.asyncio import AsyncEngine

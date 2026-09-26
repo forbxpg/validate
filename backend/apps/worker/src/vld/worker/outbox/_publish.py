@@ -8,22 +8,19 @@ import structlog
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from vld.core.database import UnitOfWork
+from vld.worker.tasks import handler_type
 
-from ._handlers import handler_type
 from ._metrics import OUTBOX_DEFERRED, OUTBOX_FAILED, OUTBOX_PUBLISHED
 from ._rows import defer, mark
 
 if TYPE_CHECKING:
-    from collections.abc import Awaitable, Callable
-
     from dishka import AsyncContainer
+
+    from vld.worker.tasks import EmailPublisher
 
     from ._rows import PendingRow
 
 _log: structlog.stdlib.BoundLogger = structlog.stdlib.get_logger(__name__)
-
-type EmailPublisher = Callable[[str, int, dict[str, str]], Awaitable[object]]
-"""Publishes the send task: event name, row id, payload."""
 
 
 async def publish_row(

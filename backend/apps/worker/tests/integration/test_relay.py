@@ -12,10 +12,10 @@ from structlog.testing import capture_logs
 
 from vld.auth.domain import USER_REGISTERED_EVENT
 from vld.core.database import SqlAlchemyUnitOfWork
-from vld.worker._backoff import MAX_ATTEMPTS
-from vld.worker._publish import publish_row
-from vld.worker._rows import PendingRow, defer
-from vld.worker._sources import (
+from vld.worker.outbox._backoff import MAX_ATTEMPTS
+from vld.worker.outbox._publish import publish_row
+from vld.worker.outbox._rows import PendingRow, defer
+from vld.worker.outbox._sources import (
     AUTH_OUTBOX,
     SOURCES,
     OutboxSource,

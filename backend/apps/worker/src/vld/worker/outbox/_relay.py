@@ -18,7 +18,8 @@ from ._sources import SOURCES
 if TYPE_CHECKING:
     from dishka import AsyncContainer
 
-    from ._publish import EmailPublisher
+    from vld.worker.tasks import EmailPublisher
+
     from ._rows import PendingRow
     from ._sources import OutboxSource
 

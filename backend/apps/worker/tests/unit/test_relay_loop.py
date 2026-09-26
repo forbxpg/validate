@@ -11,15 +11,15 @@ from typing import TYPE_CHECKING, cast
 import pytest
 from prometheus_client import REGISTRY
 
-from vld.worker import _relay
-from vld.worker._publish import publish
-from vld.worker._relay import (
+from vld.worker.outbox import _relay
+from vld.worker.outbox._publish import publish
+from vld.worker.outbox._relay import (
     # The ceiling is imported, not copied as a number.
     _MAX_CONSECUTIVE_FAILURES,
     run,
 )
-from vld.worker._rows import PendingRow
-from vld.worker._sources import AUTH_OUTBOX, SOURCES
+from vld.worker.outbox._rows import PendingRow
+from vld.worker.outbox._sources import AUTH_OUTBOX, SOURCES
 
 if TYPE_CHECKING:
     from collections.abc import AsyncGenerator

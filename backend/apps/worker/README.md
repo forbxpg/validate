@@ -9,6 +9,16 @@ uv run vld-worker
 Needs `BROKER_URL` (`amqp://user:password@host:5672/vhost`) besides the settings
 of the API (`DATABASE_URL`, `REDIS_*`, `JWT_SECRET_KEY`, `EMAIL_*`, `APP_ENV`).
 
+## What's inside
+
+```
+_main.py       vld-worker: the container, the broker, the relay and the metrics server
+_broker.py     the RabbitMQ broker and its queues
+_settings.py   BROKER_*, WORKER_METRICS_*
+outbox/        the relay: claims rows, publishes one task per row, sweeps stuck rows
+tasks/         the tasks the broker runs: the event handlers and sending the letter
+```
+
 ## How a letter travels
 
 1. A use case writes an event to `auth.outbox` in its own transaction.

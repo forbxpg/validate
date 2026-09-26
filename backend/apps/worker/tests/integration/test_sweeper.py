@@ -10,9 +10,9 @@ from sqlalchemy import delete, func, text, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from vld.auth.infrastructure.models import OutboxModel, OutboxStatus
-from vld.worker._backoff import MAX_ATTEMPTS
-from vld.worker._rows import STUCK_AFTER, sweep
-from vld.worker._sources import AUTH_OUTBOX
+from vld.worker.outbox._backoff import MAX_ATTEMPTS
+from vld.worker.outbox._rows import STUCK_AFTER, sweep
+from vld.worker.outbox._sources import AUTH_OUTBOX
 
 if TYPE_CHECKING:
     from sqlalchemy.ext.asyncio import AsyncEngine

@@ -17,9 +17,9 @@ from vld.core.di import CONTAINER_VALIDATION, CoreProvider
 from vld.core.obs import configure_logging, configure_sentry
 
 from ._broker import create_broker
-from ._relay import run
 from ._settings import BrokerSettings, MetricsSettings
-from ._tasks import register
+from .outbox import run
+from .tasks import register
 
 if TYPE_CHECKING:
     from dishka import AsyncContainer

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from vld.auth.application import SendPasswordResetEmail, SendVerificationEmail
 from vld.auth.domain import PASSWORD_RESET_REQUESTED_EVENT, USER_REGISTERED_EVENT
-from vld.worker._handlers import handler_type
+from vld.worker.tasks import handler_type
 
 
 def test_each_event_maps_to_its_own_handler() -> None:

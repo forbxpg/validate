@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Awaitable, Callable
 from typing import TYPE_CHECKING
 
 from ._delivery import send_email
@@ -10,9 +11,11 @@ if TYPE_CHECKING:
     from dishka import AsyncContainer
     from taskiq import AsyncBroker
 
-    from ._publish import EmailPublisher
 
 SEND_EMAIL_TASK = "outbox.send_email"
+
+type EmailPublisher = Callable[[str, int, dict[str, str]], Awaitable[object]]
+"""Publishes the send task: event name, row id, payload."""
 
 
 def register(broker: AsyncBroker, container: AsyncContainer) -> EmailPublisher:

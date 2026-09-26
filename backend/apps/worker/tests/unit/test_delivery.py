@@ -15,7 +15,7 @@ from vld.auth.application import (
 )
 from vld.auth.domain import USER_REGISTERED_EVENT
 from vld.core.database import UnitOfWork
-from vld.worker._delivery import send_email
+from vld.worker.tasks._delivery import send_email
 
 if TYPE_CHECKING:
     from vld.auth.domain import DomainEvent
