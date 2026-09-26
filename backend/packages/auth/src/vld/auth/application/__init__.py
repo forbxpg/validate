@@ -17,6 +17,7 @@ from .ports import (
     RevocationCheckUnavailableError,
     RevocationStore,
     TokenIssuer,
+    TokenRepository,
 )
 
 __all__ = (
@@ -34,4 +35,5 @@ __all__ = (
     "RevocationCheckUnavailableError",
     "RevocationStore",
     "TokenIssuer",
+    "TokenRepository",
 )

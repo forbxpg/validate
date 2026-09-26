@@ -13,6 +13,7 @@ from ._refresh_claims import RefreshClaims
 from ._refreshed_cache import RefreshedPairCache
 from ._revocation_store import RevocationCheckUnavailableError, RevocationStore
 from ._token_issuer import InvalidAccessTokenError, TokenIssuer
+from ._token_repository import TokenRepository
 
 __all__ = (
     "AccessClaims",
@@ -29,4 +30,5 @@ __all__ = (
     "RevocationCheckUnavailableError",
     "RevocationStore",
     "TokenIssuer",
+    "TokenRepository",
 )
