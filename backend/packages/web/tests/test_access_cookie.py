@@ -101,5 +101,5 @@ def test_logout_removes_the_cookies_with_the_same_attributes() -> None:
     assert cookies.keys() == {ACCESS_COOKIE, REFRESH_COOKIE}
     for attributes in cookies.values():
         assert {"Max-Age=0", "HttpOnly", "Secure", "SameSite=lax", "Path=/api"} <= set(
-            attributes
+            attributes,
         )

@@ -65,10 +65,10 @@ def migration_connection(
     with engine.connect() as connection:
         _ = connection.exec_driver_sql(f"SET lock_timeout = {settings.lock_timeout_ms}")
         _ = connection.exec_driver_sql(
-            f"SET statement_timeout = {settings.statement_timeout_ms}"
+            f"SET statement_timeout = {settings.statement_timeout_ms}",
         )
         _ = connection.exec_driver_sql(
-            "SET idle_in_transaction_session_timeout = 60000"
+            "SET idle_in_transaction_session_timeout = 60000",
         )
         _ = connection.exec_driver_sql("SET application_name = 'vld-migrate'")
         connection.commit()

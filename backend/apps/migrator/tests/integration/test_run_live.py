@@ -46,7 +46,11 @@ def test_a_backup_is_required_unless_refused_explicitly(
 
     with pytest.raises(BackupError, match="MIGRATOR_BACKUP_DIR"):
         run_upgrade(
-            connection, config, no_directory, connection.engine.url, backup=True
+            connection,
+            config,
+            no_directory,
+            connection.engine.url,
+            backup=True,
         )
 
 
@@ -59,7 +63,8 @@ def test_an_old_pg_dump_is_refused_before_anything_changes(
     """A dump by an older client would fail halfway; refuse before starting."""
     fake = tmp_path / "pg_dump"
     _ = fake.write_text(
-        "#!/bin/sh\necho 'pg_dump (PostgreSQL) 9.6'\n", encoding="utf-8"
+        "#!/bin/sh\necho 'pg_dump (PostgreSQL) 9.6'\n",
+        encoding="utf-8",
     )
     fake.chmod(0o755)
     old = settings.model_copy(update={"pg_dump": str(fake)})
@@ -82,5 +87,5 @@ def test_the_dump_is_taken_at_the_old_revision(
     run_upgrade(connection, config, settings, connection.engine.url, backup=True)
 
     assert [dump.name[-10:] for dump in settings.backup_dir.glob("*.dump")] == [
-        "-base.dump"
+        "-base.dump",
     ]

@@ -26,7 +26,8 @@ async def test_readiness_is_200_when_dependencies_answer(
     monkeypatch.setenv("REDIS_HOST", redis.hostname or "localhost")
     monkeypatch.setenv("REDIS_PORT", str(redis.port or 6379))
     monkeypatch.setenv(
-        "MIDDLEWARE_CORS_ALLOWED_ORIGINS", '["https://validate.example"]'
+        "MIDDLEWARE_CORS_ALLOWED_ORIGINS",
+        '["https://validate.example"]',
     )
     app = create_app()
 

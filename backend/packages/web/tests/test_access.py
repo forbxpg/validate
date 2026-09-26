@@ -192,7 +192,7 @@ async def test_a_role_outside_the_list_is_403() -> None:
     guest = Identity(user_id=USER_ID, role=GUEST, is_admin=False)
 
     status, body = await _get_thing(
-        _build(roles(STUDENT, TEACHER), _StubProvider(guest))
+        _build(roles(STUDENT, TEACHER), _StubProvider(guest)),
     )
 
     assert status == 403

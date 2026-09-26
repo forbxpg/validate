@@ -60,7 +60,11 @@ async def test_a_dead_store_lets_the_request_through_and_says_so() -> None:
 
     with capture_logs() as logs:
         await throttle_by_ip_fail_open(
-            limiter, _request(("1.2.3.4", 555)), "journals", 60, 60_000
+            limiter,
+            _request(("1.2.3.4", 555)),
+            "journals",
+            60,
+            60_000,
         )
 
     warnings = [log for log in logs if log["event"] == "throttle_unavailable"]
@@ -75,5 +79,9 @@ async def test_fail_open_still_refuses_an_exhausted_limit() -> None:
 
     with pytest.raises(RateLimitExceededError):
         await throttle_by_ip_fail_open(
-            limiter, _request(("1.2.3.4", 555)), "journals", 0, 60_000
+            limiter,
+            _request(("1.2.3.4", 555)),
+            "journals",
+            0,
+            60_000,
         )

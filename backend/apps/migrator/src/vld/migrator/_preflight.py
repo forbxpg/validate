@@ -23,7 +23,7 @@ _INVALID_INDEXES = text(
     JOIN pg_namespace n ON n.oid = c.relnamespace
     WHERE NOT i.indisvalid AND n.nspname IN :schemas
     ORDER BY 1
-    """
+    """,
 ).bindparams(bindparam("schemas", expanding=True))
 
 
