@@ -2,6 +2,16 @@
 
 from __future__ import annotations
 
-from .ports import Clock, PasswordHasher
+from .ports import (
+    Clock,
+    EmailPermanentlyUndeliverableError,
+    EmailSender,
+    PasswordHasher,
+)
 
-__all__ = ("Clock", "PasswordHasher")
+__all__ = (
+    "Clock",
+    "EmailPermanentlyUndeliverableError",
+    "EmailSender",
+    "PasswordHasher",
+)
