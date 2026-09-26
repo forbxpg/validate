@@ -18,6 +18,8 @@ from .ports import (
     RevocationStore,
     TokenIssuer,
     TokenRepository,
+    UserRepository,
+    UsersPage,
 )
 
 __all__ = (
@@ -36,4 +38,6 @@ __all__ = (
     "RevocationStore",
     "TokenIssuer",
     "TokenRepository",
+    "UserRepository",
+    "UsersPage",
 )
