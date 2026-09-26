@@ -93,10 +93,10 @@ forbidden_modules = [
 ]
 
 [[tool.importlinter.contracts]]
-name = "The vak result knows neither the parser nor pdfplumber"
+name = "The vak result knows neither the parser nor the downloader"
 type = "forbidden"
 source_modules = ["vld.vak.models", "vld.vak.errors"]
-forbidden_modules = ["vld.vak.parser", "pdfplumber", "pdfminer"]
+forbidden_modules = ["vld.vak.parser", "vld.vak.download", "pdfplumber", "pdfminer", "httpx"]
 
 [[tool.importlinter.contracts]]
 name = "Core stays free of the HTTP layer"

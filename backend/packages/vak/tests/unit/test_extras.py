@@ -1,17 +1,19 @@
-"""Without the parser extra the result still imports and the parser names the extra."""
+"""Without an extra the result still imports and the missing part names its extra."""
 
 from __future__ import annotations
 
 import subprocess  # ruff: ignore[suspicious-subprocess-import] -- our own interpreter
 import sys
 
-# A fresh interpreter where pdfplumber cannot be imported, as without the extra.
-_WITHOUT_PDFPLUMBER = "import sys; sys.modules['pdfplumber'] = None; "
+# A fresh interpreter where neither extra can be imported.
+_WITHOUT_EXTRAS = (
+    "import sys; sys.modules['pdfplumber'] = sys.modules['httpx'] = None; "
+)
 
 
 def _run(code: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true] -- our own code
-        [sys.executable, "-c", _WITHOUT_PDFPLUMBER + code],
+        [sys.executable, "-c", _WITHOUT_EXTRAS + code],
         capture_output=True,
         text=True,
         check=False,
@@ -31,3 +33,11 @@ def test_the_parser_names_its_extra() -> None:
 
     assert run.returncode != 0
     assert "pip install 'vld-vak[parser]'" in run.stderr
+
+
+def test_the_downloader_names_its_extra() -> None:
+    """Importing the downloader without httpx says what to install."""
+    run = _run("import vld.vak.download")
+
+    assert run.returncode != 0
+    assert "pip install 'vld-vak[download]'" in run.stderr
