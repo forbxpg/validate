@@ -1,7 +1,7 @@
 # vld-crossref
 
 Asynchronous, typed client of the [Crossref REST API](https://api.crossref.org):
-works, with every parameter of their routes.
+works and journals, with every parameter of their routes.
 
 A standalone library: it imports `httpx`, `pydantic`, `tenacity`, `structlog`
 and the standard library, never another `vld` package. The import-linter
@@ -38,6 +38,13 @@ async with CrossrefClient(
         max_items=5000,  # None walks everything, on purpose
     ):
         ...
+    journal = await client.journals.get("0031 9007")
+    async for journal in client.journals.iterate(max_items=None):
+        ...
+    recent = await client.journals.works("0031-9007").search(
+        WorksQuery(filter=WorksFilter(from_pub_date=PartialDate(2024))),
+        rows=50,
+    )
 ```
 
 `mailto`, `throttle` and `app` have no defaults: the call site shows which pool
@@ -90,7 +97,7 @@ Errors and logs carry the URL without `mailto`; headers are never logged.
   random records.
 - A malformed field of a record becomes empty and logs
   `crossref_field_degraded` with the record id; the record stays. A record
-  without a valid identity (DOI) is left out of a page with
+  without a valid identity (DOI or ISSN) is left out of a page with
   `crossref_item_dropped`.
 - `PartialDate(year, month, day)` keeps the precision Crossref has and never
   invents a month or a day; `earliest()` and `latest()` give the bounds.
@@ -109,7 +116,8 @@ src/vld/crossref/
 ├── pagination/     Page, facets, the cursor walk
 ├── ids/            identifier normalizers
 ├── models/         tolerant model machinery, dates, shared field types, query base
-└── works/          WorksResource, WorkList, query/ (WorksQuery, WorksFilter), model/ (Work)
+├── works/          WorksResource, WorkList, query/ (WorksQuery, WorksFilter), model/ (Work)
+└── journals/       JournalsResource, JournalsQuery, Journal
 ```
 
 ## Tests

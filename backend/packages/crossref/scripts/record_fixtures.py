@@ -49,10 +49,41 @@ WORKS: dict[str, tuple[str, dict[str, str]]] = {
 }
 """Fixtures of part 2: works."""
 
+JOURNALS: dict[str, tuple[str, dict[str, str]]] = {
+    "journal_prl": ("/journals/0031-9007", {}),
+    "journals_page": ("/journals", {"query": "physical review", "rows": "5"}),
+    "journal_works_page": (
+        "/journals/0031-9007/works",
+        {"rows": "3", "sort": "published", "order": "desc"},
+    ),
+    "journals_filter_refused": ("/journals", {"filter": "zzz:1"}),
+}
+"""Fixtures of part 3: journals."""
+
 CURSOR_PAGES: dict[str, tuple[str, dict[str, str]]] = {
     "works_cursor": ("/works", {"filter": "prefix:10.1103", "rows": "3"}),
+    "journals_cursor": ("/journals", {"rows": "3"}),
 }
 """Two consecutive cursor pages each: ``<name>_first`` and ``<name>_second``."""
+
+
+def _malformed_journal(prl: dict[str, object]) -> dict[str, object]:
+    """A copy of ``journal_prl`` with an invalid ISSN and odd shapes.
+
+    Args:
+        prl: dict[str, object] - The recorded ``journal_prl`` answer.
+
+    Returns:
+        dict[str, object] - The broken copy.
+
+    """
+    broken = copy.deepcopy(prl)
+    message = cast("dict[str, object]", broken["message"])
+    message["ISSN"] = ["0031-9008", "1079-7114"]
+    message["issn-type"] = {"type": "electronic", "value": "1079-7114"}
+    message["counts"] = "many"
+    message["subjects"] = [{"name": "Physics", "ASJC": 3100}, "General Physics", None]
+    return broken
 
 
 def _malformed_work(rich: dict[str, object]) -> dict[str, object]:
@@ -122,7 +153,7 @@ async def record(mailto: str | None) -> None:
         "" if mailto is None else f" (mailto:{mailto})"
     )
     async with httpx.AsyncClient(headers={"User-Agent": agent}, timeout=30) as client:
-        for name, (path, params) in WORKS.items():
+        for name, (path, params) in (WORKS | JOURNALS).items():
             _write(name, await _get(client, path, {**params, **base}))
         for name, (path, params) in CURSOR_PAGES.items():
             first = await _get(client, path, {**params, **base, "cursor": "*"})
@@ -135,6 +166,11 @@ async def record(mailto: str | None) -> None:
         json.loads((FIXTURES / "work_rich.json").read_text()),
     )
     _write("work_malformed_handmade", _malformed_work(rich))
+    prl = cast(
+        "dict[str, object]",
+        json.loads((FIXTURES / "journal_prl.json").read_text()),
+    )
+    _write("journal_malformed_handmade", _malformed_journal(prl))
 
 
 def main() -> None:
