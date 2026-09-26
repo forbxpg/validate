@@ -3,5 +3,26 @@
 from __future__ import annotations
 
 from ._enums import Role, TokenPurpose
+from ._errors import (
+    AccountDeactivatedError,
+    AccountGoneError,
+    AuthDomainError,
+    EmailAlreadyTakenError,
+    EmailNotVerifiedError,
+    EntityNotFoundError,
+    InvalidCredentialsError,
+    UserNotFoundError,
+)
 
-__all__ = ("Role", "TokenPurpose")
+__all__ = (
+    "AccountDeactivatedError",
+    "AccountGoneError",
+    "AuthDomainError",
+    "EmailAlreadyTakenError",
+    "EmailNotVerifiedError",
+    "EntityNotFoundError",
+    "InvalidCredentialsError",
+    "Role",
+    "TokenPurpose",
+    "UserNotFoundError",
+)
