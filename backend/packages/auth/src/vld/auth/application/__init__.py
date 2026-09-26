@@ -13,6 +13,8 @@ from .ports import (
     PasswordHasher,
     RateLimiter,
     RefreshClaims,
+    RevocationCheckUnavailableError,
+    RevocationStore,
     TokenIssuer,
 )
 
@@ -27,5 +29,7 @@ __all__ = (
     "PasswordHasher",
     "RateLimiter",
     "RefreshClaims",
+    "RevocationCheckUnavailableError",
+    "RevocationStore",
     "TokenIssuer",
 )
