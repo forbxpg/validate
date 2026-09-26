@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from .account._describe_me import DescribeMe, MeView
 from .account._update_profile import UpdateProfile
+from .administration._change_user_role import ChangeUserRole
 from .administration._get_user import GetUser
 from .administration._list_users import ListUsers
 from .administration._set_user_active import SetUserActive
@@ -35,6 +36,7 @@ from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 __all__ = (
     "ChangePassword",
     "ChangePasswordCommand",
+    "ChangeUserRole",
     "DescribeMe",
     "GetUser",
     "InvalidRefreshTokenError",

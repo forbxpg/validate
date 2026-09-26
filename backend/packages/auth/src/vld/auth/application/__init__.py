@@ -24,6 +24,7 @@ from .ports import (
 from .use_cases import (
     ChangePassword,
     ChangePasswordCommand,
+    ChangeUserRole,
     DescribeMe,
     GetUser,
     InvalidateSessions,
@@ -60,6 +61,7 @@ __all__ = (
     "AccessClaims",
     "ChangePassword",
     "ChangePasswordCommand",
+    "ChangeUserRole",
     "Clock",
     "DescribeMe",
     "DeviceClaims",
