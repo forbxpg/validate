@@ -1,8 +1,8 @@
-"""Asynchronous typed client of the Crossref REST API."""
+"""Errors of the Crossref client."""
 
 from __future__ import annotations
 
-from .errors import (
+from ._base import (
     CrossrefBadRequestError,
     CrossrefBlockedError,
     CrossrefCursorExpiredError,
@@ -13,7 +13,6 @@ from .errors import (
     CrossrefUnavailableError,
     ValidationProblem,
 )
-from .ids import normalize_doi, normalize_issn
 
 __all__ = (
     "CrossrefBadRequestError",
@@ -25,6 +24,4 @@ __all__ = (
     "CrossrefSchemaError",
     "CrossrefUnavailableError",
     "ValidationProblem",
-    "normalize_doi",
-    "normalize_issn",
 )
