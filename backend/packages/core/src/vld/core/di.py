@@ -8,7 +8,7 @@ from dishka import Provider, Scope, ValidationSettings, provide
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
-from vld.core.config import DatabaseSettings, RedisSettings
+from vld.core.config import AppSettings, DatabaseSettings, RedisSettings
 from vld.core.database import (
     SqlAlchemyUnitOfWork,
     UnitOfWork,
@@ -24,6 +24,16 @@ class CoreProvider(Provider):
 
     # Settings have required fields that pydantic reads from the environment;
     # basedpyright only sees a constructor call with missing arguments.
+
+    @provide(scope=Scope.APP)
+    def app_settings(self) -> AppSettings:
+        """Read where the process runs.
+
+        Returns:
+            AppSettings - Settings from `APP_*`.
+
+        """
+        return AppSettings()
 
     @provide(scope=Scope.APP)
     def database_settings(self) -> DatabaseSettings:
