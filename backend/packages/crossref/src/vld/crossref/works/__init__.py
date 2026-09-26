@@ -3,5 +3,6 @@
 from __future__ import annotations
 
 from ._list import WorkList
+from ._resource import WorksResource
 
-__all__ = ("WorkList",)
+__all__ = ("WorkList", "WorksResource")
