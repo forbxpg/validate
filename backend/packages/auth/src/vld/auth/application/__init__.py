@@ -6,6 +6,7 @@ from .ports import (
     Clock,
     EmailPermanentlyUndeliverableError,
     EmailSender,
+    Outbox,
     PasswordHasher,
 )
 
@@ -13,5 +14,6 @@ __all__ = (
     "Clock",
     "EmailPermanentlyUndeliverableError",
     "EmailSender",
+    "Outbox",
     "PasswordHasher",
 )
