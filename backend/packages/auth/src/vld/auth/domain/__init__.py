@@ -22,6 +22,7 @@ from ._token import (
     TokenIdAlreadyAssignedError,
     VerificationToken,
 )
+from ._user import User
 
 __all__ = (
     "PASSWORD_RESET_REQUESTED_EVENT",
@@ -40,6 +41,7 @@ __all__ = (
     "TokenExpiredError",
     "TokenIdAlreadyAssignedError",
     "TokenPurpose",
+    "User",
     "UserNotFoundError",
     "VerificationToken",
     "normalize_email",
