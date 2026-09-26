@@ -16,6 +16,7 @@ from .onboarding._send_verification_email import (
     UnknownRegisteredUserError,
 )
 from .onboarding._verify_email import VerifyEmail
+from .password._request_password_reset import RequestPasswordReset
 from .session._dummy_hash import warm_password_verification
 from .session._invalidate import InvalidateSessions
 from .session._login import LoginCommand, LoginWithPassword
@@ -34,6 +35,7 @@ __all__ = (
     "RefreshTokens",
     "RegisterCommand",
     "RegisterUser",
+    "RequestPasswordReset",
     "ResendVerification",
     "ResendVerificationCommand",
     "SendPasswordResetEmail",
