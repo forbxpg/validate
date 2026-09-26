@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, cast
 
+from vld.auth.infrastructure import METADATA as AUTH_METADATA
+from vld.core.audit import AUDIT_METADATA
+
 if TYPE_CHECKING:
     from alembic.config import Config
     from sqlalchemy import MetaData
@@ -12,7 +15,7 @@ if TYPE_CHECKING:
 VERSION_SCHEMA = "vld_meta"
 """Schema of `alembic_version`: global state of the chain, owned by no domain."""
 
-DOMAIN_METADATA: tuple[MetaData, ...] = ()
+DOMAIN_METADATA: tuple[MetaData, ...] = (AUDIT_METADATA, AUTH_METADATA)
 """Metadata of every domain with tables; a new domain adds its own here."""
 
 

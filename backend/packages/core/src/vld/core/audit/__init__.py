@@ -7,7 +7,8 @@ from ._entry import AuditEntry
 from ._port import AuditLog
 from ._query import AuditPage, AuditQuery, AuditRecord
 from ._sqlalchemy import SqlAlchemyAuditLog, SqlAlchemyAuditQuery
-from ._table import AUDIT_LOG_TABLE, METADATA
+from ._table import AUDIT_LOG_TABLE
+from ._table import METADATA as AUDIT_METADATA
 from ._tables import (
     APPEND_ONLY_FUNCTION,
     APPEND_ONLY_TRIGGER,
@@ -23,8 +24,8 @@ __all__ = (
     "APPEND_ONLY_TRUNCATE_TRIGGER",
     "AUDIT_LOG_TABLE",
     "AUDIT_LOG_TABLE_NAME",
+    "AUDIT_METADATA",
     "AUDIT_SCHEMA_NAME",
-    "METADATA",
     "QUALIFIED_AUDIT_LOG_TABLE_NAME",
     "AuditAction",
     "AuditEntry",
