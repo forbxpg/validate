@@ -3,6 +3,10 @@
 from __future__ import annotations
 
 from .onboarding._register import RegisterCommand, RegisterUser
+from .onboarding._resend_verification import (
+    ResendVerification,
+    ResendVerificationCommand,
+)
 from .onboarding._verify_email import VerifyEmail
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
@@ -11,6 +15,8 @@ __all__ = (
     "LoginResult",
     "RegisterCommand",
     "RegisterUser",
+    "ResendVerification",
+    "ResendVerificationCommand",
     "TokenPair",
     "VerifyEmail",
     "WeakPasswordError",
