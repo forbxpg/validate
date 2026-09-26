@@ -7,7 +7,7 @@ from typing import cast
 from crossref_support import fixture
 from structlog.testing import capture_logs
 
-from vld.crossref import PartialDate, Work, WorkType
+from vld.crossref import PartialDate, Project, Work, WorkType
 from vld.crossref.works._list import parse_work
 
 
@@ -91,3 +91,16 @@ def test_an_unknown_type_is_kept_as_a_string() -> None:
     work = Work.model_validate({"DOI": "10.1000/a", "type": "hologram"})
 
     assert work.type == "hologram"
+
+
+def test_award_dates_come_as_one_object_or_a_list() -> None:
+    """Crossref sends `award-start` as one date object; swagger says a list."""
+    project = Project.model_validate(
+        {
+            "award-start": {"date-parts": [[2000, 11, 1]]},
+            "award-end": [{"date-parts": [[2003, 10]]}],
+        },
+    )
+
+    assert project.award_start == (PartialDate(2000, 11, 1),)
+    assert project.award_end == (PartialDate(2003, 10),)

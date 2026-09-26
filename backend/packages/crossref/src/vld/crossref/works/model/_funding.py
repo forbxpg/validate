@@ -19,10 +19,17 @@ from vld.crossref.models import (
 
 from ._contributors import Investigator
 
+
+def _one_or_many(value: object) -> object:
+    return [value] if isinstance(value, dict) else value
+
+
 DateList = Annotated[
     tuple[Annotated[PartialDate, BeforeValidator(from_date_parts)], ...],
+    BeforeValidator(_one_or_many),
     lenient(()),
 ]
+"""Dates of an award: Crossref sends one date object, swagger declares a list."""
 
 
 class FunderId(CrossrefModel):
