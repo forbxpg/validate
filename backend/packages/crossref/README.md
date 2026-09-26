@@ -105,6 +105,36 @@ Errors and logs carry the URL without `mailto`; headers are never logged.
   spaces, a missing hyphen) and are public, so the application uses the same
   rules for its own input.
 
+## Command line
+
+Installed with `vld-crossref[cli]` (or `vld-crossref[all]`); in this workspace
+`uv sync --all-packages` already brings it.
+
+```bash
+vld-crossref works get 10.1103/PhysRevLett.1.1
+vld-crossref works search graphene --author geim --type journal-article --from 2010
+vld-crossref works search --filter until-online-pub-date=2024 --facet type-name:10
+vld-crossref works iterate --prefix 10.1103 --max 500 --save-json
+vld-crossref works sample --size 5 --journal 0031-9007
+vld-crossref works filters                      # every filter --filter takes
+vld-crossref journals get 0031-9007
+vld-crossref journals iterate --all --save-json
+```
+
+- In a terminal the output is a card or a table with a summary line; piped or
+  with `--json` it is JSON (`get`, `search`) or JSON Lines (`iterate`,
+  `sample`). Logs go to stderr, so `| jq` always gets data.
+- `--save-json` also writes the result: `.json`, or `.jsonl` for `iterate`,
+  appended as records arrive, so Ctrl-C keeps what was received. The folder is
+  `--out-dir`, else `CROSSREF_OUTPUT_DIR`, else `./crossref-output/`; `--out
+  FILE` names the file.
+- `CROSSREF_MAILTO` (or `--mailto`) asks for the polite pool; without it the
+  public pool is used and the command says so. `CROSSREF_PLUS_TOKEN` selects
+  Plus. Both are read from the environment or `.env` of the current folder.
+- `iterate` takes 100 records unless `--max N` or `--all`.
+- Exit codes: 0 done, 1 not found (or `exists` says no), 2 a bad query,
+  3 Crossref refused or failed, 130 interrupted.
+
 ## Layout
 
 ```
@@ -117,7 +147,8 @@ src/vld/crossref/
 ├── ids/            identifier normalizers
 ├── models/         tolerant model machinery, dates, shared field types, query base
 ├── works/          WorksResource, WorkList, query/ (WorksQuery, WorksFilter), model/ (Work)
-└── journals/       JournalsResource, JournalsQuery, Journal
+├── journals/       JournalsResource, JournalsQuery, Journal
+└── cli/            the vld-crossref command, with the cli extra
 ```
 
 ## Tests

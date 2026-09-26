@@ -25,3 +25,12 @@ async def live() -> AsyncIterator[CrossrefClient]:
         app="vld-crossref-live-tests/1.0",
     ) as client:
         yield client
+
+
+@pytest.fixture
+def live_mailto() -> str | None:
+    """Give the address of live runs; None for the public pool."""
+    mailto = os.environ.get("CROSSREF_LIVE_MAILTO")
+    if not mailto:
+        pytest.skip("CROSSREF_LIVE_MAILTO is not set (an address, or 'public')")
+    return None if mailto == "public" else mailto
