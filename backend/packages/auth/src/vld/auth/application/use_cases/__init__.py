@@ -5,6 +5,7 @@ from __future__ import annotations
 from .account._describe_me import DescribeMe, MeView
 from .account._update_profile import UpdateProfile
 from .administration._change_user_role import ChangeUserRole
+from .administration._delete_user import DeleteUser
 from .administration._get_user import GetUser
 from .administration._grant_admin import GrantAdmin
 from .administration._list_users import ListUsers
@@ -38,6 +39,7 @@ __all__ = (
     "ChangePassword",
     "ChangePasswordCommand",
     "ChangeUserRole",
+    "DeleteUser",
     "DescribeMe",
     "GetUser",
     "GrantAdmin",
