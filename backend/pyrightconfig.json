@@ -29,6 +29,14 @@
       "reportUnusedCallResult": false
     },
     {
+      "root": "packages/crossref/tests",
+      "extraPaths": ["packages/crossref/tests/support"],
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    },
+    {
       "root": "packages/core/tests",
       "reportAny": false,
       "reportPrivateUsage": false,
@@ -57,14 +65,6 @@
       "reportUnusedCallResult": false
     },
     { "root": "packages" },
-    { "root": "apps" },
-    {
-      "root": "packages/crossref/tests",
-      "extraPaths": ["packages/crossref/tests/support"],
-      "reportAny": false,
-      "reportPrivateUsage": false,
-      "reportUnknownMemberType": false,
-      "reportUnusedCallResult": false
-    }
+    { "root": "apps" }
   ]
 }
