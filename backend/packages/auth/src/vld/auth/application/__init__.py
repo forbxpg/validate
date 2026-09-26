@@ -8,6 +8,7 @@ from .ports import (
     EmailSender,
     Outbox,
     PasswordHasher,
+    RateLimiter,
 )
 
 __all__ = (
@@ -16,4 +17,5 @@ __all__ = (
     "EmailSender",
     "Outbox",
     "PasswordHasher",
+    "RateLimiter",
 )

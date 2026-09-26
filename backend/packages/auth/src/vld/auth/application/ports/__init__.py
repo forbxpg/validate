@@ -6,6 +6,7 @@ from ._clock import Clock
 from ._email_sender import EmailPermanentlyUndeliverableError, EmailSender
 from ._outbox import Outbox
 from ._password_hasher import PasswordHasher
+from ._rate_limiter import RateLimiter
 
 __all__ = (
     "Clock",
@@ -13,4 +14,5 @@ __all__ = (
     "EmailSender",
     "Outbox",
     "PasswordHasher",
+    "RateLimiter",
 )
