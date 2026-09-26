@@ -22,6 +22,7 @@ and a `.bib` file for LaTeX.
 | [`backend/packages/auth`](backend/packages/auth/README.md) | accounts, email and password login, sessions, roles, administration |
 | [`backend/packages/crossref`](backend/packages/crossref/README.md) | `vld-crossref`: an async typed client of the Crossref REST API and its command line |
 | [`backend/packages/vak`](backend/packages/vak/README.md) | `vld-vak`: the VAK list PDF as typed data, every doubt reported, and a downloader of the current edition |
+| [`backend/packages/journals`](backend/packages/journals/README.md) | journals and the registries that list them: the VAK list by edition |
 | [`backend/apps/api`](backend/apps/api/README.md) | the HTTP API |
 | [`backend/apps/worker`](backend/apps/worker/README.md) | relays the outbox to RabbitMQ and sends the letters |
 | [`backend/apps/migrator`](backend/apps/migrator/README.md) | `vld-migrate`: database migrations with a lock, checks and a backup |
