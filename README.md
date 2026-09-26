@@ -17,13 +17,13 @@ and a `.bib` file for LaTeX.
 
 | Part | What it does |
 |---|---|
-| `backend/packages/core` | settings, database, Redis, rate limits, logs, the audit log |
-| `backend/packages/web` | shared HTTP layer: errors, access markers, session cookies |
-| `backend/packages/auth` | accounts, email and password login, sessions, roles, administration |
-| `backend/packages/crossref` | `vld-crossref`: an async typed client of the Crossref REST API and its command line ([README](backend/packages/crossref/README.md)) |
-| `backend/apps/api` | the HTTP API |
-| `backend/apps/worker` | relays the outbox to RabbitMQ and sends the letters |
-| `backend/apps/migrator` | `vld-migrate`: database migrations with a lock, checks and a backup |
+| [`backend/packages/core`](backend/packages/core) | settings, database, Redis, rate limits, logs, the audit log |
+| [`backend/packages/web`](backend/packages/web/README.md) | shared HTTP layer: errors, access markers, session cookies |
+| [`backend/packages/auth`](backend/packages/auth/README.md) | accounts, email and password login, sessions, roles, administration |
+| [`backend/packages/crossref`](backend/packages/crossref/README.md) | `vld-crossref`: an async typed client of the Crossref REST API and its command line |
+| [`backend/apps/api`](backend/apps/api) | the HTTP API |
+| [`backend/apps/worker`](backend/apps/worker/README.md) | relays the outbox to RabbitMQ and sends the letters |
+| [`backend/apps/migrator`](backend/apps/migrator/README.md) | `vld-migrate`: database migrations with a lock, checks and a backup |
 
 Set up once:
 
