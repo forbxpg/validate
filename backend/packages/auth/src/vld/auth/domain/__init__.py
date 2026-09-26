@@ -15,6 +15,7 @@ from ._errors import (
     UserNotFoundError,
 )
 from ._events import PASSWORD_RESET_REQUESTED_EVENT, USER_REGISTERED_EVENT, DomainEvent
+from ._profile import Profile
 
 __all__ = (
     "PASSWORD_RESET_REQUESTED_EVENT",
@@ -27,6 +28,7 @@ __all__ = (
     "EmailNotVerifiedError",
     "EntityNotFoundError",
     "InvalidCredentialsError",
+    "Profile",
     "Role",
     "TokenPurpose",
     "UserNotFoundError",
