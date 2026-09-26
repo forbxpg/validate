@@ -20,7 +20,9 @@ def main() -> None:
 
     """
     try:
-        from ._app import app  # ruff: ignore[import-outside-top-level] -- typer is optional; imported only when the command runs
+        from ._app import (  # ruff: ignore[import-outside-top-level]
+            app,
+        )
     except ModuleNotFoundError as error:
         if (error.name or "").partition(".")[0] not in _CLI_PACKAGES:
             raise
