@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from .contracts import AuthApi
 from .ports import (
     AccessClaims,
     Clock,
@@ -62,6 +63,7 @@ from .use_cases import (
 
 __all__ = (
     "AccessClaims",
+    "AuthApi",
     "ChangePassword",
     "ChangePasswordCommand",
     "ChangeUserRole",
