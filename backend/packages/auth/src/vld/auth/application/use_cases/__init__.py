@@ -2,6 +2,6 @@
 
 from __future__ import annotations
 
-from .shared import LoginResult, TokenPair
+from .shared import InvalidTokenError, LoginResult, TokenPair
 
-__all__ = ("LoginResult", "TokenPair")
+__all__ = ("InvalidTokenError", "LoginResult", "TokenPair")

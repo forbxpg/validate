@@ -21,7 +21,7 @@ from .ports import (
     UserRepository,
     UsersPage,
 )
-from .use_cases import LoginResult, TokenPair
+from .use_cases import InvalidTokenError, LoginResult, TokenPair
 
 __all__ = (
     "AccessClaims",
@@ -30,6 +30,7 @@ __all__ = (
     "EmailPermanentlyUndeliverableError",
     "EmailSender",
     "InvalidAccessTokenError",
+    "InvalidTokenError",
     "LoginResult",
     "Outbox",
     "PasswordHasher",
