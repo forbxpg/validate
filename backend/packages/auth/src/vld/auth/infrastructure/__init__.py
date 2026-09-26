@@ -4,5 +4,6 @@ from __future__ import annotations
 
 from ._clock import SystemClock
 from ._hasher import BcryptPasswordHasher
+from ._jwt import JwtTokenIssuer
 
-__all__ = ("BcryptPasswordHasher", "SystemClock")
+__all__ = ("BcryptPasswordHasher", "JwtTokenIssuer", "SystemClock")
