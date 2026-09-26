@@ -33,6 +33,16 @@ def irreversible(revision: str) -> NoReturn:
     raise IrreversibleMigrationError(msg)
 
 
+def app_role() -> str:
+    """Name the role of the API, the one domain schemas grant their rows to.
+
+    Returns:
+        str - The role, from `MIGRATOR_APP_ROLE`.
+
+    """
+    return MigratorSettings().app_role  # pyright: ignore[reportCallIssue] -- required, read from the environment
+
+
 def create_domain_schema(schema: str) -> None:
     """Create a domain schema and let the app role read and write its rows.
 
@@ -43,12 +53,12 @@ def create_domain_schema(schema: str) -> None:
         schema: str - Schema name, lower-case letters, digits and `_`.
 
     """
-    app_role = MigratorSettings().app_role  # pyright: ignore[reportCallIssue] -- required, read from the environment
+    role = app_role()
     _identifier(schema)
     op.execute(f"CREATE SCHEMA {schema}")
-    op.execute(f"GRANT USAGE ON SCHEMA {schema} TO {app_role}")
-    tables = f"GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO {app_role}"
-    sequences = f"GRANT USAGE, SELECT ON SEQUENCES TO {app_role}"
+    op.execute(f"GRANT USAGE ON SCHEMA {schema} TO {role}")
+    tables = f"GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO {role}"
+    sequences = f"GRANT USAGE, SELECT ON SEQUENCES TO {role}"
     op.execute(f"ALTER DEFAULT PRIVILEGES IN SCHEMA {schema} {tables}")
     op.execute(f"ALTER DEFAULT PRIVILEGES IN SCHEMA {schema} {sequences}")
 
@@ -60,10 +70,10 @@ def drop_domain_schema(schema: str) -> None:
         schema: str - Schema name.
 
     """
-    app_role = MigratorSettings().app_role  # pyright: ignore[reportCallIssue] -- required, read from the environment
+    role = app_role()
     _identifier(schema)
-    tables = f"REVOKE SELECT, INSERT, UPDATE, DELETE ON TABLES FROM {app_role}"
-    sequences = f"REVOKE USAGE, SELECT ON SEQUENCES FROM {app_role}"
+    tables = f"REVOKE SELECT, INSERT, UPDATE, DELETE ON TABLES FROM {role}"
+    sequences = f"REVOKE USAGE, SELECT ON SEQUENCES FROM {role}"
     op.execute(f"ALTER DEFAULT PRIVILEGES IN SCHEMA {schema} {sequences}")
     op.execute(f"ALTER DEFAULT PRIVILEGES IN SCHEMA {schema} {tables}")
     op.execute(f"DROP SCHEMA {schema}")
