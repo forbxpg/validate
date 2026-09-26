@@ -216,7 +216,8 @@ async def test_validation_error_does_not_echo_the_submitted_password(
 async def test_request_id_is_echoed_and_returned(client: AsyncClient) -> None:
     """A good incoming request id is kept for the whole request."""
     response = await client.get(
-        "/mapped", headers={REQUEST_ID_HEADER_NAME: "trace-123"}
+        "/mapped",
+        headers={REQUEST_ID_HEADER_NAME: "trace-123"},
     )
 
     assert response.json()["request_id"] == "trace-123"
@@ -242,7 +243,8 @@ async def test_every_error_response_is_logged_with_its_request_id(
     """Support finds the request in the logs by the id the user saw."""
     with capture_logs(processors=[merge_contextvars]) as logs:
         response = await client.get(
-            "/mapped", headers={REQUEST_ID_HEADER_NAME: "trace-abc"}
+            "/mapped",
+            headers={REQUEST_ID_HEADER_NAME: "trace-abc"},
         )
 
     assert response.json()["request_id"] == "trace-abc"
@@ -277,7 +279,8 @@ async def test_request_id_header_survives_an_unhandled_exception() -> None:
     transport = ASGITransport(app=_app(), raise_app_exceptions=False)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.get(
-            "/rogue", headers={REQUEST_ID_HEADER_NAME: "trace-rogue"}
+            "/rogue",
+            headers={REQUEST_ID_HEADER_NAME: "trace-rogue"},
         )
 
     assert response.headers[REQUEST_ID_HEADER_NAME] == "trace-rogue"

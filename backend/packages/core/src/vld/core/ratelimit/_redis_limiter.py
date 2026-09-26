@@ -79,7 +79,7 @@ class RateLimiter:
             count, ttl_ms = await self._script(keys=[key], args=[window_ms])
         except RedisError as exc:
             raise RateLimiterUnavailableError(
-                max(1, window_ms // self._SECOND_MS)
+                max(1, window_ms // self._SECOND_MS),
             ) from exc
         if count > limit:
             raise RateLimitExceededError(max(1, ttl_ms // self._SECOND_MS))

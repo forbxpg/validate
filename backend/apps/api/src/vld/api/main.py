@@ -10,6 +10,7 @@ from dishka.integrations.fastapi import setup_dishka
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from vld.auth.api import AUTH_DOMAIN
 from vld.core.config import CorsSettings, ObservabilitySettings
 from vld.core.di import CONTAINER_VALIDATION, CoreProvider
 from vld.core.obs import configure_logging, configure_sentry
@@ -26,7 +27,7 @@ if TYPE_CHECKING:
 
 API_PREFIX = "/api/v1"
 
-DOMAINS: tuple[DomainDescriptor, ...] = ()
+DOMAINS: tuple[DomainDescriptor, ...] = (AUTH_DOMAIN,)
 """Every domain the API serves: a new domain is one more descriptor here."""
 
 

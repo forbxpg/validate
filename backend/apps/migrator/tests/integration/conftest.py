@@ -60,7 +60,8 @@ def database_url(monkeypatch: pytest.MonkeyPatch) -> Iterator[URL]:
     with admin.connect() as connection:
         _ = connection.execute(text(f"CREATE DATABASE {name}"))
         exists = connection.scalar(
-            text("SELECT 1 FROM pg_roles WHERE rolname = :role"), {"role": APP_ROLE}
+            text("SELECT 1 FROM pg_roles WHERE rolname = :role"),
+            {"role": APP_ROLE},
         )
         if not exists:
             _ = connection.execute(text(f"CREATE ROLE {APP_ROLE} NOLOGIN"))

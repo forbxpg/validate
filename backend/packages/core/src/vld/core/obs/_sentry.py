@@ -25,6 +25,5 @@ def configure_sentry(settings: ObservabilitySettings) -> None:
         dsn=settings.sentry_dsn.get_secret_value(),
         send_default_pii=False,
         include_local_variables=False,
-        # Errors only: performance tracing is not worth its cost at this load.
         traces_sample_rate=0,
     )

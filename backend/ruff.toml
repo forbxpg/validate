@@ -10,7 +10,6 @@ preview = true
 future-annotations = true
 ignore = [
     "single-line-implicit-string-concatenation",
-    "missing-trailing-comma",
     "incorrect-blank-line-before-class",
     "multi-line-summary-second-line",
     "undocumented-public-init",
@@ -43,6 +42,8 @@ runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.i
 "**/di.py" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
 "**/di/**" = ["no-self-use", "yield-in-context-manager-in-async-generator"]
 "apps/migrator/src/vld/migrator/ops.py" = ["hardcoded-sql-expression"]
+# Alembic loads revisions by path: their folders are not packages.
+"**/migrations/versions/*" = ["implicit-namespace-package"]
 "apps/migrator/src/vld/migrator/_backup.py" = [
     "subprocess-without-shell-equals-true",
     "suspicious-subprocess-import",
@@ -66,6 +67,9 @@ runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.i
     "implicit-namespace-package",
     "DOC",
     "assert",
+    "hardcoded-password-default",
+    "hardcoded-password-func-arg",
+    "hardcoded-password-string",
     "import-private-name",
     "line-too-long",
     "magic-value-comparison",

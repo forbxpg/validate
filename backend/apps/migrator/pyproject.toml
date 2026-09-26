@@ -6,6 +6,7 @@ requires-python = ">=3.13"
 dependencies = [
     "alembic>=1.20.0,<2.0.0",
     "psycopg[binary]>=3.3.6,<4.0.0",
+    "vld-auth",
     "vld-core",
 ]
 # Internal to the workspace: PyPI refuses an upload with this classifier.
@@ -23,3 +24,4 @@ module-name = "vld.migrator"
 
 [tool.uv.sources]
 vld-core = { workspace = true }
+vld-auth = { workspace = true }

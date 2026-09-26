@@ -8,7 +8,13 @@ from dishka import Provider, Scope, ValidationSettings, provide
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker
 
-from vld.core.config import DatabaseSettings, RedisSettings
+from vld.core.audit import (
+    AuditLog,
+    AuditQuery,
+    SqlAlchemyAuditLog,
+    SqlAlchemyAuditQuery,
+)
+from vld.core.config import AppSettings, DatabaseSettings, RedisSettings
 from vld.core.database import (
     SqlAlchemyUnitOfWork,
     UnitOfWork,
@@ -20,10 +26,20 @@ CONTAINER_VALIDATION = ValidationSettings(implicit_override=True)
 
 
 class CoreProvider(Provider):
-    """Settings, database and Redis for every domain."""
+    """Settings, database, audit log and Redis for every domain."""
 
     # Settings have required fields that pydantic reads from the environment;
     # basedpyright only sees a constructor call with missing arguments.
+
+    @provide(scope=Scope.APP)
+    def app_settings(self) -> AppSettings:
+        """Read where the process runs.
+
+        Returns:
+            AppSettings - Settings from `APP_*`.
+
+        """
+        return AppSettings()
 
     @provide(scope=Scope.APP)
     def database_settings(self) -> DatabaseSettings:
@@ -102,6 +118,32 @@ class CoreProvider(Provider):
 
         """
         return SqlAlchemyUnitOfWork(session)
+
+    @provide(scope=Scope.REQUEST)
+    def audit(self, session: AsyncSession) -> AuditLog:
+        """Write audit entries in the request transaction.
+
+        Args:
+            session: AsyncSession - Request session.
+
+        Returns:
+            AuditLog - Audit log over the session.
+
+        """
+        return SqlAlchemyAuditLog(session)
+
+    @provide(scope=Scope.REQUEST)
+    def audit_query(self, session: AsyncSession) -> AuditQuery:
+        """Read the audit log.
+
+        Args:
+            session: AsyncSession - Request session.
+
+        Returns:
+            AuditQuery - Audit reader over the session.
+
+        """
+        return SqlAlchemyAuditQuery(session)
 
     @provide(scope=Scope.APP)
     async def redis(self, settings: RedisSettings) -> AsyncIterator[Redis]:

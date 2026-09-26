@@ -1,0 +1,33 @@
+[project]
+name = "vld-worker"
+version = "0.1.0"
+description = "Worker: relays the transactional outbox to RabbitMQ and sends the letters."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dishka>=1.10.1,<2.0.0",
+    "pydantic>=2.13.5,<3.0.0",
+    "pydantic-settings>=2.15.0,<3.0.0",
+    "sqlalchemy>=2.1.0,<3.0.0",
+    "structlog>=26.1.0,<27.0.0",
+    "taskiq>=0.12.6,<0.13.0",
+    "taskiq-aio-pika>=0.6.1,<0.7.0",
+    "vld-auth",
+    "vld-core",
+]
+# Internal to the workspace: PyPI refuses an upload with this classifier.
+classifiers = ["Private :: Do Not Upload"]
+
+[project.scripts]
+vld-worker = "vld.worker:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "vld.worker"
+
+[tool.uv.sources]
+vld-auth = { workspace = true }
+vld-core = { workspace = true }

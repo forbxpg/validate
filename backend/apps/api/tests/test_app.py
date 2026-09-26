@@ -24,6 +24,8 @@ def dead_dependencies(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("REDIS_HOST", "127.0.0.1")
     monkeypatch.setenv("REDIS_PORT", "1")
     monkeypatch.setenv("MIDDLEWARE_CORS_ALLOWED_ORIGINS", f'["{SITE}"]')
+    monkeypatch.setenv("JWT_SECRET_KEY", "k" * 32)
+    monkeypatch.setenv("APP_ENV", "test")
 
 
 @pytest.fixture

@@ -44,7 +44,7 @@ async def client() -> AsyncIterator[AsyncClient]:
     """Serve one public route for every method, trusting the site and the dev site."""
     router = APIRouter()
     _ = router.api_route("/thing", methods=[*MUTATING, "GET"], dependencies=[public()])(
-        _thing
+        _thing,
     )
     app = FastAPI()
     errors = ErrorRegistry(_StubError, {}, CoreErrorCode.INTERNAL_ERROR)

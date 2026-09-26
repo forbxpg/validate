@@ -110,7 +110,7 @@ async def test_a_broken_provider_is_an_error_line_with_its_name() -> None:
 
 async def test_the_presented_token_never_reaches_the_log() -> None:
     """The log is read by more people than the token was meant for."""
-    secret = "eyJhbGciOiJIUzI1NiJ9.payload.signature"  # ruff: ignore[hardcoded-password-string]
+    secret = "eyJhbGciOiJIUzI1NiJ9.payload.signature"
 
     with structlog.testing.capture_logs() as logs:
         _ = await optional_identity(_request(secret), _Refusing(_DomainError()))

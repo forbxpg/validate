@@ -32,13 +32,14 @@ def test_a_database_ahead_of_the_code_is_refused(
     config.attributes["connection"] = connection
     command.upgrade(config, "head")
     _ = connection.execute(
-        text("UPDATE vld_meta.alembic_version SET version_num = 'r9'")
+        text("UPDATE vld_meta.alembic_version SET version_num = 'r9'"),
     )
     connection.commit()
 
     with pytest.raises(PreflightError, match="newer release"):
         check_not_ahead(
-            ScriptDirectory.from_config(config), current_revision(connection)
+            ScriptDirectory.from_config(config),
+            current_revision(connection),
         )
 
 
@@ -55,8 +56,8 @@ def test_an_invalid_index_is_refused(
         with pytest.raises(DBAPIError):
             _ = other.execute(
                 text(
-                    "CREATE UNIQUE INDEX CONCURRENTLY ix_items_name ON probe.items (name)"
-                )
+                    "CREATE UNIQUE INDEX CONCURRENTLY ix_items_name ON probe.items (name)",
+                ),
             )
 
     with pytest.raises(PreflightError, match=r"probe\.ix_items_name"):

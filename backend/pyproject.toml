@@ -25,17 +25,19 @@ members = ["packages/*", "apps/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
-# importlib: test modules are named by their path, so two packages may both have
-# tests/unit/test_models.py.
+pythonpath = ["packages/auth/tests/support", "packages/crossref/tests/support"]
 addopts = [
     "--strict-markers",
     "--strict-config",
     "--import-mode=importlib",
     "-ra",
     "-m",
-    "not integration",
+    "not integration and not crossref_live",
 ]
-markers = ["integration: needs PostgreSQL and Redis from the local stand (make up)"]
+markers = [
+    "integration: needs PostgreSQL and Redis from the local stand (make up)",
+    "crossref_live: calls the real Crossref API; run by hand with CROSSREF_LIVE_MAILTO set",
+]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 xfail_strict = true
@@ -47,6 +49,12 @@ root_package = "vld"
 include_external_packages = true
 
 [[tool.importlinter.contracts]]
+name = "crossref is a standalone library: it imports no other vld package"
+type = "forbidden"
+source_modules = ["vld.crossref"]
+forbidden_modules = ["vld.core", "vld.web", "vld.auth", "vld.api", "vld.migrator", "vld.worker"]
+
+[[tool.importlinter.contracts]]
 name = "Core stays free of the HTTP layer"
 type = "forbidden"
 source_modules = ["vld.core"]
@@ -55,5 +63,52 @@ forbidden_modules = ["vld.web", "fastapi", "starlette", "fastapi_pagination"]
 [[tool.importlinter.contracts]]
 name = "Packages never import apps"
 type = "forbidden"
-source_modules = ["vld.core", "vld.web", "vld.crossref"]
+source_modules = ["vld.core", "vld.web", "vld.crossref", "vld.auth"]
 forbidden_modules = ["vld.api", "vld.migrator"]
+
+[[tool.importlinter.contracts]]
+name = "Core and web know no domain"
+type = "forbidden"
+source_modules = ["vld.core", "vld.web"]
+forbidden_modules = ["vld.auth", "vld.crossref"]
+
+[[tool.importlinter.contracts]]
+name = "auth.domain knows nothing outside itself"
+type = "forbidden"
+source_modules = ["vld.auth.domain"]
+forbidden_modules = [
+    "vld.auth.application",
+    "vld.auth.infrastructure",
+    "vld.auth.api",
+    "vld.auth.di",
+    "sqlalchemy",
+    "fastapi",
+    "pydantic",
+]
+
+[[tool.importlinter.contracts]]
+name = "auth.application does not know infrastructure"
+type = "forbidden"
+source_modules = ["vld.auth.application"]
+forbidden_modules = [
+    "vld.auth.infrastructure",
+    "vld.auth.api",
+    "vld.auth.di",
+    "sqlalchemy",
+    "fastapi",
+    "redis",
+    "jwt",
+    "bcrypt",
+    "aiosmtplib",
+]
+# Direct imports only: the ports of core (`UnitOfWork`, `AuditLog`) live in packages
+# that also hold their SQLAlchemy adapters.
+allow_indirect_imports = true
+
+[[tool.importlinter.contracts]]
+name = "auth.api does not import infrastructure"
+type = "forbidden"
+source_modules = ["vld.auth.api"]
+forbidden_modules = ["vld.auth.infrastructure"]
+# The descriptor hands the providers to the root; routes never reach adapters.
+allow_indirect_imports = true

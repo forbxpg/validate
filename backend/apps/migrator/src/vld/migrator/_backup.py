@@ -89,7 +89,7 @@ def take_backup(url: URL, pg_dump: str, directory: Path, revision: str | None) -
     # URL.set() ignores None, so the password is dropped with the NamedTuple API;
     # render_as_string() would otherwise put a literal "***" in its place.
     dsn = url._replace(drivername="postgresql", password=None).render_as_string(
-        hide_password=False
+        hide_password=False,
     )
     pg_restore = str(Path(pg_dump).with_name("pg_restore"))
     try:
