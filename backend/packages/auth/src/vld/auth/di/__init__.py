@@ -5,12 +5,14 @@ from __future__ import annotations
 from ._adapters import AuthAdapterProvider
 from ._settings import AuthSettingsProvider
 from ._use_cases import (
+    AuthAccountUseCaseProvider,
     AuthOnboardingUseCaseProvider,
     AuthPasswordUseCaseProvider,
     AuthSessionUseCaseProvider,
 )
 
 __all__ = (
+    "AuthAccountUseCaseProvider",
     "AuthAdapterProvider",
     "AuthOnboardingUseCaseProvider",
     "AuthPasswordUseCaseProvider",
