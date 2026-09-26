@@ -6,6 +6,7 @@ from ._action import AuditAction
 from ._entry import AuditEntry
 from ._port import AuditLog
 from ._query import AuditPage, AuditQuery, AuditRecord
+from ._sqlalchemy import SqlAlchemyAuditLog, SqlAlchemyAuditQuery
 from ._table import AUDIT_LOG_TABLE, METADATA
 from ._tables import (
     APPEND_ONLY_FUNCTION,
@@ -31,4 +32,6 @@ __all__ = (
     "AuditPage",
     "AuditQuery",
     "AuditRecord",
+    "SqlAlchemyAuditLog",
+    "SqlAlchemyAuditQuery",
 )
