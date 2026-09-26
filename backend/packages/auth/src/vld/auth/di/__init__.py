@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._adapters import AuthAdapterProvider
 from ._settings import AuthSettingsProvider
 
-__all__ = ("AuthSettingsProvider",)
+__all__ = ("AuthAdapterProvider", "AuthSettingsProvider")
