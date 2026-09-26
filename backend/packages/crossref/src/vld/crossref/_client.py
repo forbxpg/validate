@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING, Self, final
 
 from httpx import AsyncClient
 
+from .journals import JournalsResource
 from .transport import DEFAULT_RETRY, Identity, Transport
 from .works import WorksResource
 
@@ -34,6 +35,7 @@ class CrossrefClient:
     _given_http: AsyncClient | None
     _own_http: AsyncClient | None
     works: WorksResource
+    journals: JournalsResource
 
     def __init__(  # ruff: ignore[too-many-arguments] -- every setting named at the call site
         self,
@@ -61,6 +63,7 @@ class CrossrefClient:
         self._given_http = http
         self._own_http = None
         self.works = WorksResource(self._transport)
+        self.journals = JournalsResource(self._transport)
 
     @property
     def pool(self) -> str | None:

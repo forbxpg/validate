@@ -15,6 +15,12 @@ from .errors import (
     ValidationProblem,
 )
 from .ids import normalize_doi, normalize_issn
+from .journals import (
+    Journal,
+    JournalCounts,
+    JournalIssn,
+    JournalsQuery,
+)
 from .models import PartialDate
 from .pagination import (
     CURSOR_LIFETIME,
@@ -109,7 +115,11 @@ __all__ = (
     "Funding",
     "Investigator",
     "IssnType",
+    "Journal",
+    "JournalCounts",
+    "JournalIssn",
     "JournalIssue",
+    "JournalsQuery",
     "License",
     "LicenseVersion",
     "Link",
