@@ -220,3 +220,6 @@ frontend/*
 private/
 # Files saved by `vld-crossref ... --save-json`.
 crossref-output/
+
+# macOS folder metadata
+.DS_Store
