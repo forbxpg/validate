@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._auth_api import AuthApiAdapter
 from ._clock import SystemClock
 from ._hasher import BcryptPasswordHasher
 from ._identity import AuthIdentityProvider
@@ -10,6 +11,7 @@ from ._refreshed import RedisRefreshedPairCache
 from ._revocation import RedisRevocationStore
 
 __all__ = (
+    "AuthApiAdapter",
     "AuthIdentityProvider",
     "BcryptPasswordHasher",
     "JwtTokenIssuer",
