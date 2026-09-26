@@ -1743,6 +1743,7 @@ source = { editable = "apps/api" }
 dependencies = [
     { name = "dishka" },
     { name = "fastapi" },
+    { name = "typer" },
     { name = "uvicorn", extra = ["standard"] },
     { name = "vld-auth" },
     { name = "vld-core" },
@@ -1753,6 +1754,7 @@ dependencies = [
 requires-dist = [
     { name = "dishka", specifier = ">=1.10.1,<2.0.0" },
     { name = "fastapi", specifier = ">=0.141.1,<0.142.0" },
+    { name = "typer", specifier = ">=0.27.2,<0.28.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.54.0,<0.55.0" },
     { name = "vld-auth", editable = "packages/auth" },
     { name = "vld-core", editable = "packages/core" },
