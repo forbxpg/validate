@@ -29,6 +29,8 @@ async def test_readiness_is_200_when_dependencies_answer(
         "MIDDLEWARE_CORS_ALLOWED_ORIGINS",
         '["https://validate.example"]',
     )
+    monkeypatch.setenv("JWT_SECRET_KEY", "k" * 32)
+    monkeypatch.setenv("APP_ENV", "test")
     app = create_app()
 
     async with (
