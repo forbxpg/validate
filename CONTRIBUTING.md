@@ -4,9 +4,9 @@
 
 - `backend/` — a [uv](https://docs.astral.sh/uv/) workspace. `packages/*` are
   libraries: `core` (settings, database, Redis, logs, audit), `web` (the shared HTTP
-  layer), the domains (`auth` so far) and `crossref`, a standalone client of the
-  Crossref API. `apps/*` are the processes: `api`, `worker` (outbox relay and
-  letters), `migrator` (`vld-migrate`).
+  layer), the domains (`auth` so far), `crossref`, a standalone client of the
+  Crossref API, and `vak`, a standalone parser of the VAK list. `apps/*` are the
+  processes: `api`, `worker` (outbox relay and letters), `migrator` (`vld-migrate`).
 - `frontend/` — React and TypeScript, built with Vite.
 - `infrastructure/` — the local stand in Docker, run through the root `Makefile`.
 
