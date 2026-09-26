@@ -2,6 +2,7 @@
 name = "vld-core"
 version = "0.1.0"
 description = "Shared kernel for every domain: settings, database, Redis, rate limits, logging, DI."
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "asyncpg>=0.31.0,<0.32.0",
