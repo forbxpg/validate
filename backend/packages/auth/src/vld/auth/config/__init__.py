@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+from ._email import EmailSecurity, EmailSettings
 from ._jwt import MIN_JWT_SECRET_BYTES, JwtSettings
 from ._password import PasswordSettings
 from ._verification import VerificationSettings
 
 __all__ = (
     "MIN_JWT_SECRET_BYTES",
+    "EmailSecurity",
+    "EmailSettings",
     "JwtSettings",
     "PasswordSettings",
     "VerificationSettings",
