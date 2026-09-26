@@ -2,26 +2,30 @@
 
 The VAK list (Перечень рецензируемых научных изданий) as typed data: a parser of its
 PDF that reads every journal, ISSN and speciality with its dates, and says where it
-had doubts instead of dropping anything.
+had doubts instead of dropping anything; and a downloader that finds the current
+edition on vak.gisnauka.ru.
 
-The library is standalone: it imports `pydantic`, `pdfplumber` (the `parser` extra)
-and the standard library, never another `vld` package. Import-linter contracts in the
-root `pyproject.toml` hold that and keep pdfplumber out of the result models.
+The library is standalone: it imports `pydantic`, `pdfplumber` (the `parser` extra),
+`httpx` (the `download` extra) and the standard library, never another `vld`
+package. Import-linter contracts in the root `pyproject.toml` hold that and keep the
+extras out of the result models.
 
 - [Install](#install) · [Use](#use) · [The result](#the-result)
 - [Warnings](#warnings) · [How the PDF is read](#how-the-pdf-is-read)
-- [Layout](#layout) · [Tests](#tests)
+- [Download](#download) · [Layout](#layout) · [Tests](#tests)
 
 ## Install
 
 ```bash
 pip install vld-vak               # the result models: read a stored parse (pydantic)
 pip install 'vld-vak[parser]'     # plus the parser (pdfplumber)
+pip install 'vld-vak[download]'   # plus the downloader (httpx)
 pip install 'vld-vak[all]'        # everything
 ```
 
 In this workspace `uv sync --all-packages` installs everything. Importing
-`vld.vak.parser` without the extra fails with the command that installs it.
+`vld.vak.parser` or `vld.vak.download` without its extra fails with the command that
+installs it.
 
 ## Use
 
@@ -110,17 +114,50 @@ of 3 200 with a warning that is not a repair.
 A new misprint of a branch goes into `SYNONYMS` of `parser/_branches.py` with a test;
 until then it is `branch_unknown`.
 
+## Download
+
+```python
+import httpx
+
+from vld.vak.download import fetch_listing, fetch_pdf
+from vld.vak.parser import parse
+
+async with httpx.AsyncClient(timeout=120, follow_redirects=True) as client:
+    listing = await fetch_listing(client)
+    pdf = await fetch_pdf(client, listing.current_url)
+edition = parse(pdf.data)
+```
+
+- The list is one news item on the site (mark 46, «Перечень рецензируемых научных
+  изданий, в которых должны быть опубликованы…») whose files keep every past edition
+  (`listing.files`, about 80). Items of 2018 and 2019 carry the same mark and title but
+  link no file in their text; the item that links a PDF is the list. None or several
+  is `VakSourceError`.
+- The current edition is the first PDF linked in the text of the item. Its date is
+  read from page 1 by the parser, not from the news, whose date is not the edition's.
+- `GET /api/news/news-list` without a trailing slash: with one the site answers 404.
+  Pages are counted here: the site's «next» link points inside its own network.
+- `fetch_pdf` streams with a 50 MB cap, checks the `%PDF-` signature and returns the
+  bytes with their size and SHA-256. Failures are `VakDownloadError` with the URL.
+- The client is the caller's: timeouts, proxies, redirects. Requests carry
+  `User-Agent: vld-vak/<version> (+https://github.com/forbxpg/validate)`. No retries: a
+  person runs it again.
+
 ## Layout
 
 ```
 models/        the result, format v1 (pydantic only)
-errors/        VakError, NotVakListError
+errors/        VakError, NotVakListError, VakSourceError, VakDownloadError
 parser/
   _parse.py         parse(): bytes to VakList
   _extract.py       pdfplumber: rows of five cells, edition date, column bounds
   _assemble.py      rows to journals
   _title.py _issn.py _specialities.py _branches.py _dates.py   one cell each
   _finding.py       a finding of a cell reader
+download/
+  _listing.py       fetch_listing(): the news item, its current file and archive
+  _pdf.py           fetch_pdf(): one file, capped and checked
+  _http.py          the base URL and the User-Agent
 ```
 
 ## Tests
