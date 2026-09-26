@@ -18,13 +18,16 @@ from .onboarding._send_verification_email import (
 from .onboarding._verify_email import VerifyEmail
 from .session._dummy_hash import warm_password_verification
 from .session._login import LoginCommand, LoginWithPassword
+from .session._refresh import InvalidRefreshTokenError, RefreshTokens, TokenRevokedError
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (
+    "InvalidRefreshTokenError",
     "InvalidTokenError",
     "LoginCommand",
     "LoginResult",
     "LoginWithPassword",
+    "RefreshTokens",
     "RegisterCommand",
     "RegisterUser",
     "ResendVerification",
@@ -32,6 +35,7 @@ __all__ = (
     "SendPasswordResetEmail",
     "SendVerificationEmail",
     "TokenPair",
+    "TokenRevokedError",
     "UnknownRegisteredUserError",
     "UnknownResetTargetError",
     "VerifyEmail",
