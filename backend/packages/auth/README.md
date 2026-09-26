@@ -12,7 +12,7 @@ application/     use cases by process, ports, the AuthApi contract for neighbour
 infrastructure/  ORM models, repositories, bcrypt, JWT, Redis stores, letters
 api/             routers and schemas, one module per process; the descriptor
 di/              dishka providers; AUTH_PROVIDERS is the whole set
-console/         vld-auth: what only an operator with shell access may do
+cli/             vld-auth: what only an operator with shell access may do
 migrations/      the revisions of the auth schema
 ```
 
