@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._email import normalize_email
 from ._enums import Role, TokenPurpose
 from ._errors import (
     AccountDeactivatedError,
@@ -25,4 +26,5 @@ __all__ = (
     "Role",
     "TokenPurpose",
     "UserNotFoundError",
+    "normalize_email",
 )
