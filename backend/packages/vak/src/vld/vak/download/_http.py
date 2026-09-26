@@ -19,4 +19,6 @@ DEFAULT_BASE_URL = "https://vak.gisnauka.ru"
 # Who asks, so that VAK can see it and write to us.
 HEADERS = {
     "User-Agent": f"vld-vak/{version('vld-vak')} (+https://github.com/forbxpg/validate)",
+    # A compressed body is decoded before the cap sees it: ask for none.
+    "Accept-Encoding": "identity",
 }

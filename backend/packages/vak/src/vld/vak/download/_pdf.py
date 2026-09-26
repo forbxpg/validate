@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass
+from typing import cast
 
 from vld.vak.errors import VakDownloadError
 
@@ -67,9 +68,13 @@ async def _read(client: httpx.AsyncClient, url: str) -> bytes:
         if not response.is_success:
             msg = f"answered {response.status_code}"
             raise VakDownloadError(msg, url=url)
+        encoding = cast("str", response.headers.get("Content-Encoding", "identity"))
+        if encoding.lower() != "identity":
+            msg = f"compressed ({encoding}) though asked for identity"
+            raise VakDownloadError(msg, url=url)
         async for chunk in response.aiter_bytes():
-            data.extend(chunk)
-            if len(data) > MAX_PDF_BYTES:
+            if len(data) + len(chunk) > MAX_PDF_BYTES:
                 msg = f"larger than {MAX_PDF_BYTES} bytes"
                 raise VakDownloadError(msg, url=url)
+            data.extend(chunk)
     return bytes(data)

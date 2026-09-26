@@ -191,3 +191,16 @@ async def test_no_answer_is_an_error() -> None:
     async with _client(httpx.MockTransport(refuse)) as client:
         with pytest.raises(VakSourceError, match="ConnectError"):
             _ = await fetch_listing(client, base_url=BASE)
+
+
+async def test_a_pdf_link_with_a_query_is_a_pdf_link() -> None:
+    """«list.pdf?download=1» is a PDF; the link is kept as printed."""
+    item = deepcopy(ANSWER["results"][0])
+    link = "https://vak.test/s3-files/list.pdf?download=1"
+    anchor = {"type": "a", "attributes": {"href": link}, "children": []}
+    item["info"] = json.dumps([{"type": "p", "attributes": {}, "children": [anchor]}])
+
+    async with _client(_site(_answer(item))) as client:
+        listing = await fetch_listing(client, base_url=BASE)
+
+    assert listing.current_url == link

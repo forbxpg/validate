@@ -35,10 +35,20 @@ def parse(data: bytes) -> VakList:
         )
         for page in extracted.shifted_pages
     )
+    unaligned = tuple(
+        ParseWarning(
+            code=WarningCode.ROW_UNRECOGNIZED,
+            page=page,
+            number=None,
+            printed=printed,
+            message="a row not five cells wide",
+        )
+        for page, printed in extracted.unaligned
+    )
     return VakList(
         parser_version=version("vld-vak"),
         edition_date=extracted.edition_date,
         page_count=extracted.page_count,
         journals=assembled.journals,
-        warnings=shifts + assembled.warnings,
+        warnings=shifts + unaligned + assembled.warnings,
     )

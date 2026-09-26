@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from typing import TYPE_CHECKING, ClassVar, cast
+from urllib.parse import urlsplit
 
 from pydantic import BaseModel, ConfigDict, ValidationError
 
@@ -177,6 +178,6 @@ def _hrefs(node: object) -> Iterator[str]:
         attributes = element.get("attributes")
         if element.get("type") == "a" and isinstance(attributes, dict):
             href = cast("dict[str, object]", attributes).get("href")
-            if isinstance(href, str) and href.lower().endswith(".pdf"):
+            if isinstance(href, str) and urlsplit(href).path.lower().endswith(".pdf"):
                 yield href
         yield from _hrefs(element.get("children"))

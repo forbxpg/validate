@@ -71,6 +71,8 @@ class Extracted:
         page_count: int - Pages in the document.
         rows: tuple[Row, ...] - Table rows in page order, header rows left out.
         shifted_pages: tuple[int, ...] - Pages whose rulings differ from the bounds.
+        unaligned: tuple[tuple[int, str], ...] - Page and text of each row that is
+            not five cells wide, reported instead of dropped.
 
     """
 
@@ -78,6 +80,7 @@ class Extracted:
     page_count: int
     rows: tuple[Row, ...]
     shifted_pages: tuple[int, ...]
+    unaligned: tuple[tuple[int, str], ...]
 
 
 def extract(data: bytes) -> Extracted:
@@ -114,15 +117,19 @@ def _read(pages: list[Page]) -> Extracted:
     bounds = _document_bounds(pages)
     rows: list[Row] = []
     shifted: list[int] = []
+    unaligned: list[tuple[int, str]] = []
     for index, page in enumerate(pages, start=1):
         if not _same_bounds(_long_rulings(page), bounds):
             shifted.append(index)
-        rows.extend(_page_rows(page, index, bounds))
+        page_rows, page_unaligned = _page_rows(page, index, bounds)
+        rows.extend(page_rows)
+        unaligned.extend(page_unaligned)
     return Extracted(
         edition_date=edition_date,
         page_count=len(pages),
         rows=tuple(rows),
         shifted_pages=tuple(shifted),
+        unaligned=tuple(unaligned),
     )
 
 
@@ -188,20 +195,28 @@ def _same_bounds(found: tuple[float, ...], bounds: tuple[float, ...]) -> bool:
     )
 
 
-def _page_rows(page: Page, index: int, bounds: tuple[float, ...]) -> list[Row]:
+def _page_rows(
+    page: Page,
+    index: int,
+    bounds: tuple[float, ...],
+) -> tuple[list[Row], list[tuple[int, str]]]:
     settings = {
         "vertical_strategy": "explicit",
         "explicit_vertical_lines": list(bounds),
         "horizontal_strategy": "lines",
     }
     rows: list[Row] = []
+    unaligned: list[tuple[int, str]] = []
     for table in page.extract_tables(settings):
         for cells in table:
             texts = [cell or "" for cell in cells]
-            if len(texts) != _COLUMNS or _is_header(texts):
-                continue
-            rows.append(Row(index, *texts))
-    return rows
+            if len(texts) != _COLUMNS:
+                # Not placed in a column by guess: a wrong column is a wrong fact.
+                printed = " | ".join(" ".join(text.split()) for text in texts)
+                unaligned.append((index, printed))
+            elif not _is_header(texts):
+                rows.append(Row(index, *texts))
+    return rows, unaligned
 
 
 def _is_header(cells: list[str]) -> bool:

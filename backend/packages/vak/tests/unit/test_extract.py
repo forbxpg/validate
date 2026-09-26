@@ -74,3 +74,23 @@ def test_a_pdf_that_breaks_after_opening_is_refused(
 
     with pytest.raises(NotVakListError, match="not a readable PDF"):
         parse(_blank_pdf())
+
+
+class _TablePage:
+    def __init__(self, table: list[list[str | None]]) -> None:
+        self._table: list[list[str | None]] = table
+
+    def extract_tables(self, _settings: object) -> list[list[list[str | None]]]:
+        return [self._table]
+
+
+def test_a_row_of_another_width_is_kept_as_unrecognized() -> None:
+    """A row pdfplumber reads narrower than five cells is reported, not skipped."""
+    page = _TablePage([["5.9.1. Русская литература", "с 01.02.2022"]])
+
+    bounds = (35.0, 72.0, 235.0, 301.0, 504.0, 585.0)
+
+    rows, unaligned = _extract._page_rows(page, 7, bounds)  # pyright: ignore[reportArgumentType]
+
+    assert rows == []
+    assert unaligned == [(7, "5.9.1. Русская литература | с 01.02.2022")]

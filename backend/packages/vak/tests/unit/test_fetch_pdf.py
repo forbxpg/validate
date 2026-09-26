@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gzip
 import hashlib
 from typing import TYPE_CHECKING
 
@@ -94,3 +95,30 @@ async def test_the_cap_stops_the_stream_before_its_end(
             _ = await fetch_pdf(client, CURRENT)
 
     assert pulled < 10
+
+
+async def test_the_file_is_asked_for_uncompressed() -> None:
+    """A compressed body would pass the cap before it is decoded."""
+    seen: list[httpx.Request] = []
+
+    def answer(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        return httpx.Response(200, content=PDF)
+
+    async with _client(httpx.MockTransport(answer)) as client:
+        _ = await fetch_pdf(client, CURRENT)
+
+    assert seen[0].headers["Accept-Encoding"] == "identity"
+
+
+async def test_a_compressed_answer_is_an_error() -> None:
+    """A site that compresses anyway is refused before the body is read."""
+    compressed = httpx.Response(
+        200,
+        content=gzip.compress(PDF),
+        headers={"Content-Encoding": "gzip"},
+    )
+
+    async with _client(httpx.MockTransport(lambda _: compressed)) as client:
+        with pytest.raises(VakDownloadError, match="compressed"):
+            _ = await fetch_pdf(client, CURRENT)
