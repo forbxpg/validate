@@ -14,11 +14,15 @@ from ._errors import (
     InvalidCredentialsError,
     UserNotFoundError,
 )
+from ._events import PASSWORD_RESET_REQUESTED_EVENT, USER_REGISTERED_EVENT, DomainEvent
 
 __all__ = (
+    "PASSWORD_RESET_REQUESTED_EVENT",
+    "USER_REGISTERED_EVENT",
     "AccountDeactivatedError",
     "AccountGoneError",
     "AuthDomainError",
+    "DomainEvent",
     "EmailAlreadyTakenError",
     "EmailNotVerifiedError",
     "EntityNotFoundError",
