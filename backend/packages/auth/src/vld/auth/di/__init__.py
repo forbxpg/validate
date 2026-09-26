@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ._adapters import AuthAdapterProvider
+from ._providers import AUTH_PROVIDERS
 from ._settings import AuthSettingsProvider
 from ._use_cases import (
     AuthAccountUseCaseProvider,
@@ -13,6 +14,7 @@ from ._use_cases import (
 )
 
 __all__ = (
+    "AUTH_PROVIDERS",
     "AuthAccountUseCaseProvider",
     "AuthAdapterProvider",
     "AuthAdministrationUseCaseProvider",
