@@ -6,6 +6,7 @@ from .account._describe_me import DescribeMe, MeView
 from .account._update_profile import UpdateProfile
 from .administration._change_user_role import ChangeUserRole
 from .administration._get_user import GetUser
+from .administration._grant_admin import GrantAdmin
 from .administration._list_users import ListUsers
 from .administration._set_user_active import SetUserActive
 from .administration._target_guard import TargetForbiddenError
@@ -39,6 +40,7 @@ __all__ = (
     "ChangeUserRole",
     "DescribeMe",
     "GetUser",
+    "GrantAdmin",
     "InvalidRefreshTokenError",
     "InvalidTokenError",
     "InvalidateSessions",
