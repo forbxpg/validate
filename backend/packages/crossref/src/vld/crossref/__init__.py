@@ -23,18 +23,9 @@ from .journals import (
 )
 from .models import PartialDate
 from .pagination import (
-    CURSOR_LIFETIME,
-    MAX_OFFSET_WINDOW,
-    MAX_ROWS,
     Facet,
     FacetValue,
     Page,
-    check_page,
-    check_walk,
-    page_from_message,
-    parse_facets,
-    read_items,
-    walk,
 )
 from .throttle import LocalThrottle, RateLimits, Throttle
 from .transport import RetryPolicy
@@ -83,9 +74,6 @@ from .works.query import (
 )
 
 __all__ = (
-    "CURSOR_LIFETIME",
-    "MAX_OFFSET_WINDOW",
-    "MAX_ROWS",
     "Affiliation",
     "AffiliationId",
     "Agency",
@@ -147,12 +135,6 @@ __all__ = (
     "WorksFilter",
     "WorksQuery",
     "WorksSort",
-    "check_page",
-    "check_walk",
     "normalize_doi",
     "normalize_issn",
-    "page_from_message",
-    "parse_facets",
-    "read_items",
-    "walk",
 )
