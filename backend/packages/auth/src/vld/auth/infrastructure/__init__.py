@@ -5,5 +5,11 @@ from __future__ import annotations
 from ._clock import SystemClock
 from ._hasher import BcryptPasswordHasher
 from ._jwt import JwtTokenIssuer
+from ._revocation import RedisRevocationStore
 
-__all__ = ("BcryptPasswordHasher", "JwtTokenIssuer", "SystemClock")
+__all__ = (
+    "BcryptPasswordHasher",
+    "JwtTokenIssuer",
+    "RedisRevocationStore",
+    "SystemClock",
+)
