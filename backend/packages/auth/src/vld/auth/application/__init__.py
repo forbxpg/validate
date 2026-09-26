@@ -22,6 +22,7 @@ from .ports import (
     UsersPage,
 )
 from .use_cases import (
+    InvalidateSessions,
     InvalidRefreshTokenError,
     InvalidTokenError,
     LoginCommand,
@@ -53,6 +54,7 @@ __all__ = (
     "InvalidAccessTokenError",
     "InvalidRefreshTokenError",
     "InvalidTokenError",
+    "InvalidateSessions",
     "LoginCommand",
     "LoginResult",
     "LoginWithPassword",
