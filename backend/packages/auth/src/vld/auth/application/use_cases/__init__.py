@@ -7,6 +7,10 @@ from .onboarding._resend_verification import (
     ResendVerification,
     ResendVerificationCommand,
 )
+from .onboarding._send_verification_email import (
+    SendVerificationEmail,
+    UnknownRegisteredUserError,
+)
 from .onboarding._verify_email import VerifyEmail
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
@@ -17,7 +21,9 @@ __all__ = (
     "RegisterUser",
     "ResendVerification",
     "ResendVerificationCommand",
+    "SendVerificationEmail",
     "TokenPair",
+    "UnknownRegisteredUserError",
     "VerifyEmail",
     "WeakPasswordError",
 )
