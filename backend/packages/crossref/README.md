@@ -1,7 +1,7 @@
 # vld-crossref
 
 Asynchronous, typed client of the [Crossref REST API](https://api.crossref.org):
-the client, limits, retries, errors, pages and cursors, identifiers and dates.
+works, with every parameter of their routes.
 
 A standalone library: it imports `httpx`, `pydantic`, `tenacity`, `structlog`
 and the standard library, never another `vld` package. The import-linter
@@ -14,7 +14,10 @@ that.
 from vld.crossref import (
     CrossrefClient,
     LocalThrottle,
+    PartialDate,
     RateLimits,
+    WorksFilter,
+    WorksQuery,
 )
 
 async with CrossrefClient(
@@ -22,7 +25,19 @@ async with CrossrefClient(
     throttle=LocalThrottle(RateLimits.POLITE),
     app="validate/1.0",  # product/version, sent in User-Agent
 ) as client:
-    print(client.pool)  # the pool of the last answer: public, polite or plus
+    work = await client.works.get("https://doi.org/10.1103/PhysRevLett.1.1")
+    known = await client.works.exists("10.1103/physrevlett.1.1")
+    page = await client.works.search(
+        WorksQuery(
+            text="graphene", filter=WorksFilter(from_pub_date=PartialDate(2024))
+        ),
+        rows=20,
+    )
+    async for work in client.works.iterate(
+        WorksQuery(filter=WorksFilter(prefix="10.1103")),
+        max_items=5000,  # None walks everything, on purpose
+    ):
+        ...
 ```
 
 `mailto`, `throttle` and `app` have no defaults: the call site shows which pool
@@ -66,12 +81,22 @@ slot.
 
 Errors and logs carry the URL without `mailto`; headers are never logged.
 
-## Identifiers and dates
+## Reading
 
-- `normalize_doi` and `normalize_issn` accept the common forms (links, `doi:`,
-  spaces, a missing hyphen) and refuse the rest with `CrossrefQueryError`.
+- Not found is not an error: `get` returns `None` and `exists` returns `False`.
+- `search(rows=, offset=)` is one page for numbered screens; `offset + rows`
+  stays within 10,000, as Crossref allows. `iterate(max_items=)` walks with
+  the cursor through any number of records. `sample(size=)` gives up to 100
+  random records.
+- A malformed field of a record becomes empty and logs
+  `crossref_field_degraded` with the record id; the record stays. A record
+  without a valid identity (DOI) is left out of a page with
+  `crossref_item_dropped`.
 - `PartialDate(year, month, day)` keeps the precision Crossref has and never
   invents a month or a day; `earliest()` and `latest()` give the bounds.
+- `normalize_doi`, `normalize_issn` accept the common forms (links, `doi:`,
+  spaces, a missing hyphen) and are public, so the application uses the same
+  rules for its own input.
 
 ## Layout
 
@@ -83,7 +108,8 @@ src/vld/crossref/
 ├── errors/
 ├── pagination/     Page, facets, the cursor walk
 ├── ids/            identifier normalizers
-└── models/         tolerant model machinery, dates
+├── models/         tolerant model machinery, dates, shared field types, query base
+└── works/          WorksResource, WorkList, query/ (WorksQuery, WorksFilter), model/ (Work)
 ```
 
 ## Tests
@@ -97,3 +123,10 @@ The unit tests answer through `httpx.MockTransport` in virtual time
 (`tests/support/crossref_support.py`). The live tests call the real Crossref;
 they are left out of the default run and of CI (`CROSSREF_LIVE_MAILTO=public`
 uses no address).
+
+`tests/fixtures/` holds recorded Crossref answers; the `*_handmade` ones are
+broken copies the recorder makes on purpose. To record them again:
+
+```bash
+uv run python packages/crossref/scripts/record_fixtures.py --mailto you@example.org
+```
