@@ -27,7 +27,7 @@ from .models import (
     UserModel,
     VerificationTokenModel,
 )
-from .repositories import SqlAlchemyUserRepository
+from .repositories import SqlAlchemyTokenRepository, SqlAlchemyUserRepository
 
 __all__ = (
     "CLAIMABLE_PREDICATE",
@@ -47,6 +47,7 @@ __all__ = (
     "OutboxStatus",
     "RedisRefreshedPairCache",
     "RedisRevocationStore",
+    "SqlAlchemyTokenRepository",
     "SqlAlchemyUserRepository",
     "SystemClock",
     "UserModel",

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._token import SqlAlchemyTokenRepository
 from ._user import SqlAlchemyUserRepository
 
-__all__ = ("SqlAlchemyUserRepository",)
+__all__ = ("SqlAlchemyTokenRepository", "SqlAlchemyUserRepository")
