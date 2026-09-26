@@ -3,5 +3,6 @@
 from __future__ import annotations
 
 from ._jwt import MIN_JWT_SECRET_BYTES, JwtSettings
+from ._password import PasswordSettings
 
-__all__ = ("MIN_JWT_SECRET_BYTES", "JwtSettings")
+__all__ = ("MIN_JWT_SECRET_BYTES", "JwtSettings", "PasswordSettings")
