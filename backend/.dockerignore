@@ -1,0 +1,13 @@
+# The build context of every image is backend/; only what an image runs goes in.
+**/.venv
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.ruff_cache
+**/.import_linter_cache
+**/.DS_Store
+**/tests
+**/scripts
+.vscode
+.env
+.env.*
