@@ -15,8 +15,12 @@ from .email import (
     EmailMisconfiguredError,
     build_smtp_sender,
 )
+from .models import OUTBOX, QUALIFIED_OUTBOX, SCHEMA
 
 __all__ = (
+    "OUTBOX",
+    "QUALIFIED_OUTBOX",
+    "SCHEMA",
     "AuthApiAdapter",
     "AuthIdentityProvider",
     "BcryptPasswordHasher",
