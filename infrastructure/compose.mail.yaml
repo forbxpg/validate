@@ -1,0 +1,24 @@
+# Mailpit and the worker pointed at it. The Makefile adds this file when
+# APP_ENV=local in backend/.env: letters of the local stand never leave it.
+services:
+  mailpit:
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    image: axllent/mailpit:v1.27.7
+    ports:
+      - "127.0.0.1:1035:1025"
+      - "127.0.0.1:8035:8025"
+    restart: unless-stopped
+
+  worker:
+    environment:
+      EMAIL_HOST: mailpit
+      EMAIL_PORT: "1025"
+      EMAIL_FROM_ADDR: Validate <no-reply@validate.local>
+      EMAIL_PUBLIC_BASE_URL: http://localhost:5173
+    depends_on:
+      mailpit:
+        condition: service_started

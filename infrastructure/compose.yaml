@@ -1,0 +1,310 @@
+# The local stand of validate. Run it through the Makefile at the repository
+# root (`make help`); by hand:
+#   docker compose -f infrastructure/compose.yaml --env-file backend/.env up --build
+#
+# Ports are published on 127.0.0.1 only and moved off the defaults, so the stand
+# runs next to the other projects of the machine. Inside the network services
+# reach each other by name on their usual ports.
+name: validate
+
+# The default json-file driver never rotates: a process in a tight loop fills the
+# disk. Every service takes this ceiling (30 MB per container).
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+# The API, the worker and the migrator read backend/.env, then take the
+# in-network addresses below: .env itself points at the published ports.
+x-app: &app
+  logging: *logging
+  env_file:
+    # The Makefile passes the path; backend/.env by default.
+    - path: ${VLD_ENV_FILE:-../backend/.env}
+      required: true
+  restart: unless-stopped
+
+x-app-env: &app-env
+  DATABASE_URL: postgresql+asyncpg://validate_app:validate_app@postgres:5432/validate
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  BROKER_URL: amqp://validate:validate@rabbitmq:5672/
+
+services:
+  postgres:
+    logging: *logging
+    image: postgres:18-alpine
+    environment:
+      # The superuser of the stand; the applications use their own roles
+      # (initdb/01-roles.sql), the tests create their databases through it.
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      # Postgres 18 keeps its data under /var/lib/postgresql/18/docker.
+      - postgres_data:/var/lib/postgresql
+      # Runs only on an empty volume: after editing, `make reset`.
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    ports: ["127.0.0.1:5452:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d validate"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  redis:
+    logging: *logging
+    image: redis:8-alpine
+    volumes:
+      - redis_data:/data
+    ports: ["127.0.0.1:6399:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  rabbitmq:
+    logging: *logging
+    image: rabbitmq:4.3.5-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: validate
+      RABBITMQ_DEFAULT_PASS: validate
+    volumes:
+      # Management UI and the Prometheus endpoint (15692 inside the network).
+      - ./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+      - rabbitmq_data:/var/lib/rabbitmq
+    ports: ["127.0.0.1:5692:5672", "127.0.0.1:15692:15672"]
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  migrator:
+    <<: *app
+    build:
+      context: ../backend
+      dockerfile: apps/migrator/Dockerfile
+    environment:
+      <<: *app-env
+      # The owner of the schemas, not the role the API uses.
+      DATABASE_URL: postgresql+asyncpg://validate_migrator:validate_migrator@postgres:5432/validate
+      MIGRATOR_APP_ROLE: validate_app
+    # No dump on the stand: the backup belongs to deploys.
+    command: ["vld-migrate", "upgrade", "--no-backup"]
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    <<: *app
+    build:
+      context: ../backend
+      dockerfile: apps/api/Dockerfile
+    environment:
+      <<: *app-env
+    command: ["vld-api", "run", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    ports: ["127.0.0.1:8010:8000"]
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    develop:
+      watch:
+        # uvicorn --reload picks the synced code up inside the container.
+        - action: sync
+          path: ../backend/packages
+          target: /app/packages
+          ignore: ["**/tests/", "**/__pycache__/"]
+        - action: sync
+          path: ../backend/apps/api/src
+          target: /app/apps/api/src
+          ignore: ["**/__pycache__/"]
+        - action: rebuild
+          path: ../backend/uv.lock
+
+  worker:
+    <<: *app
+    build:
+      context: ../backend
+      dockerfile: apps/worker/Dockerfile
+    environment:
+      <<: *app-env
+      WORKER_METRICS_HOST: 0.0.0.0
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync+restart
+          path: ../backend/packages
+          target: /app/packages
+          ignore: ["**/tests/", "**/__pycache__/"]
+        - action: sync+restart
+          path: ../backend/apps/worker/src
+          target: /app/apps/worker/src
+          ignore: ["**/__pycache__/"]
+        - action: rebuild
+          path: ../backend/uv.lock
+
+  # ── WITH=prometheus ────────────────────────────────────────────────
+  prometheus:
+    logging: *logging
+    profiles: ["prometheus"]
+    image: prom/prometheus:v3.14.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=15d
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports: ["127.0.0.1:9092:9090"]
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O-", "http://127.0.0.1:9090/-/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  postgres-exporter:
+    logging: *logging
+    profiles: ["prometheus"]
+    image: prometheuscommunity/postgres-exporter:v0.17.1
+    environment:
+      DATA_SOURCE_NAME: postgresql://postgres:postgres@postgres:5432/validate?sslmode=disable
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  redis-exporter:
+    logging: *logging
+    profiles: ["prometheus"]
+    image: oliver006/redis_exporter:v1.74.0
+    environment:
+      REDIS_ADDR: redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── WITH=loki ──────────────────────────────────────────────────────
+  loki:
+    logging: *logging
+    profiles: ["loki"]
+    image: grafana/loki:3.5.1
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./loki/loki.yaml:/etc/loki/local-config.yaml:ro
+      - loki_data:/loki
+    ports: ["127.0.0.1:3102:3100"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://localhost:3100/ready | grep -q ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  alloy:
+    logging: *logging
+    profiles: ["loki"]
+    image: grafana/alloy:v1.10.0
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --storage.path=/var/lib/alloy/data
+      - --disable-reporting
+      - /etc/alloy/config.alloy
+    volumes:
+      - ./alloy/config.alloy:/etc/alloy/config.alloy:ro
+      # Read only: the collector lists containers and reads their logs.
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - alloy_data:/var/lib/alloy/data
+    depends_on:
+      loki:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── WITH=grafana ───────────────────────────────────────────────────
+  grafana:
+    logging: *logging
+    profiles: ["grafana"]
+    image: grafana/grafana:12.1.0
+    environment:
+      # Grafana calls home by default; none of it leaves the machine.
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_ANALYTICS_CHECK_FOR_PLUGIN_UPDATES: "false"
+      GF_NEWS_NEWS_FEED_ENABLED: "false"
+      # A local stand on 127.0.0.1: open without a login, read only.
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    ports: ["127.0.0.1:3002:3000"]
+    restart: unless-stopped
+
+  # ── WITH=glitchtip ─────────────────────────────────────────────────
+  # Pinned to 5.2.1: GlitchTip 6 moved to its own database driver, which fails
+  # on Postgres 18 reading the system catalog; 5.2.1 (psycopg) migrates cleanly.
+  glitchtip-web:
+    logging: *logging
+    profiles: ["glitchtip"]
+    image: glitchtip/glitchtip:v5.2.1
+    # The default start script also runs a worker; the worker has its own service.
+    command: sh -c "./bin/run-migrate.sh && ./bin/run-web.sh"
+    environment: &glitchtip-env
+      # No default on purpose: Django refuses an empty key.
+      SECRET_KEY: ${GLITCHTIP_SECRET_KEY:-}
+      PORT: "8000"
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/glitchtip
+      # Redis index 4: 0 is the application, 15 the tests.
+      VALKEY_URL: redis://redis:6379/4
+      CELERY_BROKER_URL: redis://redis:6379/4
+      GLITCHTIP_DOMAIN: http://localhost:8036
+      ENABLE_USER_REGISTRATION: "true"
+      ENABLE_ORGANIZATION_CREATION: "true"
+      SENTRY_DSN: ""
+      ENABLE_OBSERVABILITY_API: "false"
+      CSP_CONNECT_SRC: "'self'"
+      CSP_SCRIPT_SRC: "'self','sha256-iRcDQ27XiXX4k+jbJ8nGeQFBnBOjmII7FdMlixb6QE4='"
+    ports: ["127.0.0.1:8036:8000"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  glitchtip-worker:
+    logging: *logging
+    profiles: ["glitchtip"]
+    image: glitchtip/glitchtip:v5.2.1
+    command: ./bin/run-celery-with-beat.sh
+    environment: *glitchtip-env
+    depends_on:
+      glitchtip-web:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+  prometheus_data:
+  loki_data:
+  alloy_data:
+  grafana_data:

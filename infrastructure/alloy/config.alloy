@@ -1,0 +1,46 @@
+// Collects the logs of the containers of this stand into Loki (WITH=loki).
+// The applications already write structured JSON to stdout; Alloy reads it
+// through the docker socket, no change in the applications.
+
+discovery.docker "containers" {
+	host = "unix:///var/run/docker.sock"
+}
+
+discovery.relabel "containers" {
+	targets = discovery.docker.containers.targets
+
+	// The socket shows every container of the machine; keep this project only.
+	rule {
+		source_labels = ["__meta_docker_container_label_com_docker_compose_project"]
+		regex         = "validate"
+		action        = "keep"
+	}
+
+	// The name arrives with a leading slash: "/validate-api-1".
+	rule {
+		source_labels = ["__meta_docker_container_name"]
+		regex         = "/(.*)"
+		target_label  = "container"
+	}
+
+	// The compose service name, stable across replicas: {service="api"}.
+	rule {
+		source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+		target_label  = "service"
+	}
+}
+
+loki.source.docker "containers" {
+	host       = "unix:///var/run/docker.sock"
+	targets    = discovery.relabel.containers.output
+	forward_to = [loki.write.local.receiver]
+}
+
+// JSON is parsed in queries, not here: `{service="api"} | json | event="..."`.
+// A field turned into a label becomes part of the stream key; request ids as
+// labels would make a stream per request. Labels stay low-cardinality.
+loki.write "local" {
+	endpoint {
+		url = "http://loki:3100/loki/api/v1/push"
+	}
+}
