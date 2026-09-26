@@ -54,5 +54,52 @@ forbidden_modules = ["vld.web", "fastapi", "starlette", "fastapi_pagination"]
 [[tool.importlinter.contracts]]
 name = "Packages never import apps"
 type = "forbidden"
-source_modules = ["vld.core", "vld.web", "vld.crossref"]
+source_modules = ["vld.core", "vld.web", "vld.crossref", "vld.auth"]
 forbidden_modules = ["vld.api", "vld.migrator"]
+
+[[tool.importlinter.contracts]]
+name = "Core and web know no domain"
+type = "forbidden"
+source_modules = ["vld.core", "vld.web"]
+forbidden_modules = ["vld.auth", "vld.crossref"]
+
+[[tool.importlinter.contracts]]
+name = "auth.domain knows nothing outside itself"
+type = "forbidden"
+source_modules = ["vld.auth.domain"]
+forbidden_modules = [
+    "vld.auth.application",
+    "vld.auth.infrastructure",
+    "vld.auth.api",
+    "vld.auth.di",
+    "sqlalchemy",
+    "fastapi",
+    "pydantic",
+]
+
+[[tool.importlinter.contracts]]
+name = "auth.application does not know infrastructure"
+type = "forbidden"
+source_modules = ["vld.auth.application"]
+forbidden_modules = [
+    "vld.auth.infrastructure",
+    "vld.auth.api",
+    "vld.auth.di",
+    "sqlalchemy",
+    "fastapi",
+    "redis",
+    "jwt",
+    "bcrypt",
+    "aiosmtplib",
+]
+# Direct imports only: the ports of core (`UnitOfWork`, `AuditLog`) live in packages
+# that also hold their SQLAlchemy adapters.
+allow_indirect_imports = true
+
+[[tool.importlinter.contracts]]
+name = "auth.api does not import infrastructure"
+type = "forbidden"
+source_modules = ["vld.auth.api"]
+forbidden_modules = ["vld.auth.infrastructure"]
+# The descriptor hands the providers to the root; routes never reach adapters.
+allow_indirect_imports = true
