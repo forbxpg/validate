@@ -6,6 +6,7 @@ from ._adapters import AuthAdapterProvider
 from ._settings import AuthSettingsProvider
 from ._use_cases import (
     AuthAccountUseCaseProvider,
+    AuthAdministrationUseCaseProvider,
     AuthOnboardingUseCaseProvider,
     AuthPasswordUseCaseProvider,
     AuthSessionUseCaseProvider,
@@ -14,6 +15,7 @@ from ._use_cases import (
 __all__ = (
     "AuthAccountUseCaseProvider",
     "AuthAdapterProvider",
+    "AuthAdministrationUseCaseProvider",
     "AuthOnboardingUseCaseProvider",
     "AuthPasswordUseCaseProvider",
     "AuthSessionUseCaseProvider",

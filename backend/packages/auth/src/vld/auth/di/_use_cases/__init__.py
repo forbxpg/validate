@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from ._account import AuthAccountUseCaseProvider
+from ._administration import AuthAdministrationUseCaseProvider
 from ._onboarding import AuthOnboardingUseCaseProvider
 from ._password import AuthPasswordUseCaseProvider
 from ._session import AuthSessionUseCaseProvider
 
 __all__ = (
     "AuthAccountUseCaseProvider",
+    "AuthAdministrationUseCaseProvider",
     "AuthOnboardingUseCaseProvider",
     "AuthPasswordUseCaseProvider",
     "AuthSessionUseCaseProvider",
