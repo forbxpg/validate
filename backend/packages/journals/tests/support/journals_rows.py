@@ -131,7 +131,10 @@ async def listing(  # ruff: ignore[too-many-arguments] -- one entry, every part 
     number: int,
     title: str,
     issns: tuple[str, ...],
-    groups: tuple[tuple[date | None, date | None, tuple[uuid.UUID, ...]], ...],
+    groups: tuple[
+        tuple[date | None, date | None, tuple[tuple[uuid.UUID, str], ...]],
+        ...,
+    ],
 ) -> int:
     """Add an entry of an edition with its ISSNs and speciality groups.
 
@@ -142,7 +145,8 @@ async def listing(  # ruff: ignore[too-many-arguments] -- one entry, every part 
         number: int - «№ п/п».
         title: str - The title.
         issns: tuple[str, ...] - ISSNs as printed.
-        groups: tuple[...] - Per group: «с», «по» and the specialities.
+        groups: tuple[...] - Per group: «с», «по» and the specialities with the
+            name this row prints for each.
 
     Returns:
         int - The entry.
@@ -183,14 +187,14 @@ async def listing(  # ruff: ignore[too-many-arguments] -- one entry, every part 
             )
             .returning(VakGroupModel.id),
         )
-        for place, speciality_id in enumerate(specialities, start=1):
+        for place, (speciality_id, name) in enumerate(specialities, start=1):
             _ = await connection.execute(
                 insert(VakGroupSpecialityModel).values(
                     group_id=group_id,
                     position=place,
                     speciality_id=speciality_id,
-                    name_printed=f"name {place}",
-                    printed=f"printed {place}",
+                    name_printed=name,
+                    printed=f"printed {name}",
                 ),
             )
     return listing_id

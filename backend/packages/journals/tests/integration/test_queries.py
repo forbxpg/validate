@@ -31,25 +31,36 @@ _CURRENT = select(VakCurrentModel.snapshot_id).scalar_subquery()
 
 
 class _Registry:
-    """Two editions: journal A in both, journal B only in the old one."""
+    """Two editions of three journals.
+
+    A is in both. B, a series of «Вестник МГУ», only in the old one. C, another
+    series, only in the current one; it prints the shared ISSN `0201-7385`, which the
+    moderator gave to A. The old edition prints «5.9.5» under an old name twice, the
+    current one under the new name once, and prints «5.9.5» once with no branch.
+    """
 
     def __init__(self) -> None:
         self.philology: uuid.UUID
+        self.philology_unread: uuid.UUID
         self.history: uuid.UUID
         self.a: uuid.UUID
         self.b: uuid.UUID
+        self.c: uuid.UUID
 
 
 async def _registry(connection: AsyncConnection) -> _Registry:
     registry = _Registry()
     registry.philology = await speciality(connection, "5.9.5", ScienceBranch.PHILOLOGY)
+    registry.philology_unread = await speciality(connection, "5.9.5", None)
     registry.history = await speciality(connection, "5.6.1", ScienceBranch.HISTORY)
-    # B prints the shared ISSN of A: the moderator gave it to A.
     registry.a = await journal(connection, "2587-7534", "0201-7385")
     registry.b = await journal(connection, "0130-0113")
+    registry.c = await journal(connection, "0320-8095")
     old = await snapshot(connection, date(2026, 3, 30), "old")
     new = await snapshot(connection, date(2026, 9, 15), "new")
-    both = ((date(2022, 2, 1), None, (registry.philology, registry.history)),)
+    old_name = (registry.philology, "Русский язык и литература")
+    new_name = (registry.philology, "Русский язык. Языки народов России")
+    history = (registry.history, "Отечественная история")
     _ = await listing(
         connection,
         snapshot_id=old,
@@ -57,7 +68,7 @@ async def _registry(connection: AsyncConnection) -> _Registry:
         number=1,
         title="Abyss",
         issns=("2587-7534",),
-        groups=both,
+        groups=((date(2022, 2, 1), None, (old_name, history)),),
     )
     _ = await listing(
         connection,
@@ -66,7 +77,7 @@ async def _registry(connection: AsyncConnection) -> _Registry:
         number=2,
         title="Вестник МГУ. Серия 11. Право",
         issns=("0201-7385", "0130-0113"),
-        groups=((date(2019, 3, 26), None, (registry.history,)),),
+        groups=((date(2019, 3, 26), None, (old_name, history)),),
     )
     _ = await listing(
         connection,
@@ -76,8 +87,19 @@ async def _registry(connection: AsyncConnection) -> _Registry:
         title="Abyss",
         issns=("2587-7534", "0201-7385"),
         groups=(
-            (date(2018, 12, 28), date(2022, 10, 16), (registry.history,)),
-            (date(2022, 2, 1), None, (registry.philology,)),
+            (date(2018, 12, 28), date(2022, 10, 16), (history,)),
+            (date(2022, 2, 1), None, (new_name,)),
+        ),
+    )
+    _ = await listing(
+        connection,
+        snapshot_id=new,
+        journal_id=registry.c,
+        number=2,
+        title="Вестник МГУ. Серия 13. Востоковедение",
+        issns=("0201-7385", "0320-8095"),
+        groups=(
+            (date(2022, 2, 1), None, ((registry.philology_unread, "Языки"), history)),
         ),
     )
     await publish(connection, old)
@@ -109,14 +131,19 @@ def _listings(
 async def test_the_list_is_the_current_edition(owner: AsyncConnection) -> None:
     """Question 1: journals of the current snapshot by number; B left the list."""
     _ = await _registry(owner)
+    series = (2, "Вестник МГУ. Серия 13. Востоковедение")
 
-    assert (await owner.execute(_listings())).all() == [(1, "Abyss")]
+    assert (await owner.execute(_listings())).all() == [(1, "Abyss"), series]
     assert (await owner.execute(_listings(title="aby"))).all() == [(1, "Abyss")]
+    assert (await owner.execute(_listings(issn="0201-7385"))).all() == [
+        (1, "Abyss"),
+        series,
+    ]
     assert (await owner.execute(_listings(issn="0130-0113"))).all() == []
 
 
 async def test_a_journal_by_issn_with_its_specialities(owner: AsyncConnection) -> None:
-    """Question 2: the owner of a shared ISSN, its groups and their dates."""
+    """Question 2: the journal a moderator gave a shared ISSN to, not every printer."""
     registry = await _registry(owner)
     query = (
         select(
@@ -154,11 +181,12 @@ async def test_a_journal_by_issn_with_its_specialities(owner: AsyncConnection) -
 async def test_specialities_take_their_name_from_the_current_edition(
     owner: AsyncConnection,
 ) -> None:
-    """Question 3: the name printed most often in the current snapshot."""
+    """Question 3: per speciality, the name printed most often in the current snapshot."""
     _ = await _registry(owner)
     names = (
         select(
             SpecialityModel.code,
+            SpecialityModel.branch,
             func.mode().within_group(VakGroupSpecialityModel.name_printed),
         )
         .join(
@@ -168,13 +196,14 @@ async def test_specialities_take_their_name_from_the_current_edition(
         .join(VakGroupModel, VakGroupModel.id == VakGroupSpecialityModel.group_id)
         .join(VakListingModel, VakListingModel.id == VakGroupModel.listing_id)
         .where(VakListingModel.snapshot_id == _CURRENT)
-        .group_by(SpecialityModel.code)
-        .order_by(SpecialityModel.code)
+        .group_by(SpecialityModel.id)
+        .order_by(SpecialityModel.code, SpecialityModel.branch)
     )
 
     assert (await owner.execute(names)).all() == [
-        ("5.6.1", "name 1"),
-        ("5.9.5", "name 1"),
+        ("5.6.1", ScienceBranch.HISTORY, "Отечественная история"),
+        ("5.9.5", ScienceBranch.PHILOLOGY, "Русский язык. Языки народов России"),
+        ("5.9.5", None, "Языки"),
     ]
 
 
