@@ -9,6 +9,7 @@ from .administration._delete_user import DeleteUser
 from .administration._get_user import GetUser
 from .administration._grant_admin import GrantAdmin
 from .administration._list_users import ListUsers
+from .administration._read_audit import ReadAudit
 from .administration._set_user_active import SetUserActive
 from .administration._target_guard import TargetForbiddenError
 from .onboarding._register import RegisterCommand, RegisterUser
@@ -52,6 +53,7 @@ __all__ = (
     "LoginWithPassword",
     "Logout",
     "MeView",
+    "ReadAudit",
     "RefreshTokens",
     "RegisterCommand",
     "RegisterUser",
