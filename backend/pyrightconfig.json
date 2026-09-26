@@ -57,6 +57,14 @@
       "reportUnusedCallResult": false
     },
     { "root": "packages" },
-    { "root": "apps" }
+    { "root": "apps" },
+    {
+      "root": "packages/crossref/tests",
+      "extraPaths": ["packages/crossref/tests/support"],
+      "reportAny": false,
+      "reportPrivateUsage": false,
+      "reportUnknownMemberType": false,
+      "reportUnusedCallResult": false
+    }
   ]
 }

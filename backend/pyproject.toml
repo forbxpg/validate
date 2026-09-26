@@ -25,16 +25,19 @@ members = ["packages/*", "apps/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
-pythonpath = ["packages/auth/tests/support"]
+pythonpath = ["packages/auth/tests/support", "packages/crossref/tests/support"]
 addopts = [
     "--strict-markers",
     "--strict-config",
     "--import-mode=importlib",
     "-ra",
     "-m",
-    "not integration",
+    "not integration and not crossref_live",
 ]
-markers = ["integration: needs PostgreSQL and Redis from the local stand (make up)"]
+markers = [
+    "integration: needs PostgreSQL and Redis from the local stand (make up)",
+    "crossref_live: calls the real Crossref API; run by hand with CROSSREF_LIVE_MAILTO set",
+]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 xfail_strict = true
@@ -44,6 +47,12 @@ filterwarnings = ["error"]
 root_package = "vld"
 # Lets contracts name third-party packages (fastapi, starlette) as forbidden.
 include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "crossref is a standalone library: it imports no other vld package"
+type = "forbidden"
+source_modules = ["vld.crossref"]
+forbidden_modules = ["vld.core", "vld.web", "vld.auth", "vld.api", "vld.migrator", "vld.worker"]
 
 [[tool.importlinter.contracts]]
 name = "Core stays free of the HTTP layer"
