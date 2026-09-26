@@ -13,6 +13,13 @@ dependencies = [
 # Internal to the workspace: PyPI refuses an upload with this classifier.
 classifiers = ["Private :: Do Not Upload"]
 
+[project.optional-dependencies]
+cli = [
+    "python-dotenv>=1.2.3,<2.0.0",
+    "typer>=0.27.2,<0.28.0",
+]
+all = ["vld-crossref[cli]"]
+
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
 build-backend = "uv_build"
