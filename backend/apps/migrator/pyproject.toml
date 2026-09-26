@@ -8,6 +8,7 @@ dependencies = [
     "psycopg[binary]>=3.3.6,<4.0.0",
     "vld-auth",
     "vld-core",
+    "vld-journals",
 ]
 # Internal to the workspace: PyPI refuses an upload with this classifier.
 classifiers = ["Private :: Do Not Upload"]
@@ -25,3 +26,4 @@ module-name = "vld.migrator"
 [tool.uv.sources]
 vld-core = { workspace = true }
 vld-auth = { workspace = true }
+vld-journals = { workspace = true }

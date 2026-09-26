@@ -29,10 +29,15 @@ members = ["packages/*", "apps/*"]
 [tool.uv.sources]
 vld-crossref = { workspace = true }
 vld-vak = { workspace = true }
+vld-journals = { workspace = true }
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
-pythonpath = ["packages/auth/tests/support", "packages/crossref/tests/support"]
+pythonpath = [
+    "packages/auth/tests/support",
+    "packages/crossref/tests/support",
+    "packages/journals/tests/support",
+]
 addopts = [
     "--strict-markers",
     "--strict-config",
@@ -107,14 +112,27 @@ forbidden_modules = ["vld.web", "fastapi", "starlette", "fastapi_pagination"]
 [[tool.importlinter.contracts]]
 name = "Packages never import apps"
 type = "forbidden"
-source_modules = ["vld.core", "vld.web", "vld.crossref", "vld.vak", "vld.auth"]
+source_modules = [
+    "vld.core",
+    "vld.web",
+    "vld.crossref",
+    "vld.vak",
+    "vld.auth",
+    "vld.journals",
+]
 forbidden_modules = ["vld.api", "vld.migrator"]
 
 [[tool.importlinter.contracts]]
 name = "Core and web know no domain"
 type = "forbidden"
 source_modules = ["vld.core", "vld.web"]
-forbidden_modules = ["vld.auth", "vld.crossref", "vld.vak"]
+forbidden_modules = ["vld.auth", "vld.crossref", "vld.vak", "vld.journals"]
+
+[[tool.importlinter.contracts]]
+name = "journals.domain knows nothing outside itself"
+type = "forbidden"
+source_modules = ["vld.journals.domain"]
+forbidden_modules = ["vld.journals.infrastructure", "sqlalchemy", "pydantic"]
 
 [[tool.importlinter.contracts]]
 name = "auth.domain knows nothing outside itself"

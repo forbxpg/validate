@@ -13,6 +13,7 @@ members = [
     "vld-auth",
     "vld-core",
     "vld-crossref",
+    "vld-journals",
     "vld-migrator",
     "vld-vak",
     "vld-web",
@@ -2266,6 +2267,23 @@ requires-dist = [
 provides-extras = ["cli", "all"]
 
 [[package]]
+name = "vld-journals"
+version = "0.1.0"
+source = { editable = "packages/journals" }
+dependencies = [
+    { name = "sqlalchemy", extra = ["asyncio"] },
+    { name = "vld-core" },
+    { name = "vld-vak" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "sqlalchemy", extras = ["asyncio"], specifier = ">=2.1.0,<3.0.0" },
+    { name = "vld-core", editable = "packages/core" },
+    { name = "vld-vak", editable = "packages/vak" },
+]
+
+[[package]]
 name = "vld-migrator"
 version = "0.1.0"
 source = { editable = "apps/migrator" }
@@ -2274,6 +2292,7 @@ dependencies = [
     { name = "psycopg", extra = ["binary"] },
     { name = "vld-auth" },
     { name = "vld-core" },
+    { name = "vld-journals" },
 ]
 
 [package.metadata]
@@ -2282,6 +2301,7 @@ requires-dist = [
     { name = "psycopg", extras = ["binary"], specifier = ">=3.3.6,<4.0.0" },
     { name = "vld-auth", editable = "packages/auth" },
     { name = "vld-core", editable = "packages/core" },
+    { name = "vld-journals", editable = "packages/journals" },
 ]
 
 [[package]]
