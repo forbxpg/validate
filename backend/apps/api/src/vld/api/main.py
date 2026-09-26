@@ -9,6 +9,8 @@ from dishka import Provider, Scope, from_context, make_async_container
 from dishka.integrations.fastapi import setup_dishka
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_client import CollectorRegistry
+from prometheus_fastapi_instrumentator import Instrumentator
 
 from vld.auth.api import AUTH_DOMAIN
 from vld.core.config import CorsSettings, ObservabilitySettings
@@ -26,6 +28,8 @@ if TYPE_CHECKING:
     from dishka import AsyncContainer
 
 API_PREFIX = "/api/v1"
+METRICS_PATH = "/metrics"
+"""Scraped by Prometheus inside the network; the reverse proxy does not publish it."""
 
 DOMAINS: tuple[DomainDescriptor, ...] = (AUTH_DOMAIN,)
 """Every domain the API serves: a new domain is one more descriptor here."""
@@ -82,6 +86,16 @@ def create_app() -> FastAPI:
     app = FastAPI(title="validate", lifespan=_lifespan)
     app.include_router(health_router)
     mount(app, *DOMAINS, prefix=API_PREFIX)
+    # A registry per application: tests build many, and the global one refuses
+    # the same metric twice.
+    _ = (
+        Instrumentator(
+            excluded_handlers=["/health", "/ready", METRICS_PATH],
+            registry=CollectorRegistry(),
+        )
+        .instrument(app)
+        .expose(app, endpoint=METRICS_PATH, include_in_schema=False)
+    )
     app.add_middleware(RequestIdMiddleware)
     app.add_middleware(
         CORSMiddleware,
