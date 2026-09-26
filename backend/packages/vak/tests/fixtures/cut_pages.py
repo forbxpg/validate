@@ -24,7 +24,31 @@ from vld.vak.parser import parse
 
 # Page 1 carries the header and the edition date, so it comes first. Each other page
 # shows one quirk of the list; neighbours are kept where a journal crosses a page.
-PAGES = (1, 2, 3, 4, 5, 15, 16, 25, 26, 56, 58, 77, 87, 100, 155, 659, 832, 842, 975)
+PAGES = (
+    1,
+    2,
+    3,
+    4,
+    5,
+    15,
+    16,
+    25,
+    26,
+    56,
+    58,
+    77,
+    87,
+    97,
+    100,
+    155,
+    659,
+    729,
+    832,
+    842,
+    975,
+    1001,
+    1139,
+)
 HERE = Path(__file__).parent
 
 

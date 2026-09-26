@@ -88,14 +88,14 @@ printed.
 | `issn_checksum` | an ISSN whose check digit is wrong; kept |
 | `issn_repaired` | a Cyrillic «Х», another dash or spaces inside an ISSN |
 | `journal_without_specialities` | a journal with no speciality read |
-| `speciality_unrecognized` | text in the speciality cell before any code |
+| `speciality_unrecognized` | text before any code, a code left inside a name, or two branch brackets after one speciality |
 | `branch_missing` | a speciality without a branch bracket |
 | `branch_unknown` | a bracket that is not a branch of the list or its synonyms |
 | `branch_repaired` | a branch read through a synonym, a repair, or a bracket not opened or closed |
 | `date_unrecognized` | a date cell with more than one reading, or a group without a date |
 | `date_repaired` | a date misprint with one reading (`01.022022`, `п о`, `до`, a capital «С») |
 
-The editions of 30.03.2026 and 15.09.2026 give about 220 warnings each, 35 journals
+The editions of 30.03.2026 and 15.09.2026 give about 220 warnings each, 37 journals
 of 3 200 with a warning that is not a repair.
 
 ## How the PDF is read
@@ -167,7 +167,7 @@ uv run pytest packages/vak                                    # unit tests and t
 VAK_PDF_PATH=/path/to/list.pdf uv run pytest packages/vak -m vak_full   # a whole edition
 ```
 
-`tests/fixtures/sample.pdf` holds 19 pages of the edition of 15.09.2026, one or two
+`tests/fixtures/sample.pdf` holds 23 pages of the edition of 15.09.2026, one or two
 per quirk; `sample.json` is what the parser reads there. A change in how the parser
 reads the list changes `sample.json`; `test_the_version_guard` then fails until the
 version of vld-vak is raised and it and the new hash are put into

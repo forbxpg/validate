@@ -8,10 +8,11 @@ from __future__ import annotations
 import io
 import re
 from dataclasses import dataclass
-from datetime import date, datetime
 from typing import TYPE_CHECKING
 
 from vld.vak.errors import NotVakListError
+
+from ._dates import parse_day
 
 try:
     import pdfplumber
@@ -24,6 +25,8 @@ except ModuleNotFoundError as error:
     raise ModuleNotFoundError(_MISSING, name=error.name) from error
 
 if TYPE_CHECKING:
+    from datetime import date
+
     from pdfplumber.page import Page
 
 _EDITION_DATE = re.compile(r"по\s+состоянию\s+на\s+(\d{2}\.\d{2}\.\d{4})")
@@ -94,13 +97,13 @@ def extract(data: bytes) -> Extracted:
     if not data.startswith(b"%PDF-"):
         msg = "not a PDF: the data does not start with %PDF-"
         raise NotVakListError(msg)
+    # pdfplumber reads lazily: a broken page fails on reading, not on opening.
     try:
-        pdf = pdfplumber.open(io.BytesIO(data))
+        with pdfplumber.open(io.BytesIO(data)) as pdf:
+            return _read(list(pdf.pages))
     except (PdfminerException, PSException) as error:
         msg = f"not a readable PDF: {error}"
         raise NotVakListError(msg) from error
-    with pdf:
-        return _read(list(pdf.pages))
 
 
 def _read(pages: list[Page]) -> Extracted:
@@ -132,7 +135,11 @@ def _edition_date(page: Page) -> date:
     if found is None:
         msg = "no «по состоянию на» date on page 1"
         raise NotVakListError(msg)
-    return datetime.strptime(found.group(1), "%d.%m.%Y").date()  # ruff: ignore[call-datetime-strptime-without-zone] - a calendar date, no time
+    edition = parse_day(found.group(1))
+    if edition is None:
+        msg = f"the edition date {found.group(1)} is no date"
+        raise NotVakListError(msg)
+    return edition
 
 
 def _document_bounds(pages: list[Page]) -> tuple[float, ...]:

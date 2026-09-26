@@ -186,3 +186,38 @@ def test_a_former_title_without_an_issn_does_not_reach_into_the_next() -> None:
         ("Первый", ()),
         ("Второй", ("2587-7534",)),
     ]
+
+
+def test_a_stray_quote_after_the_issn_of_an_open_bracket() -> None:
+    """Journal 245 ends its former title with «ISSN 1995-1477»» and no bracket."""
+    printed = (
+        "Амбулаторная хирургия (До 22.03.2022 г. наименование в Перечне "
+        "«Стационарозамещающие технологии: Амбулаторная хирургия» ISSN 1995-1477»"
+    )
+
+    read = read_title(printed)
+
+    assert read.title.main == "Амбулаторная хирургия"
+    assert [(former.title, former.issns) for former in read.title.former] == [
+        ("Стационарозамещающие технологии: Амбулаторная хирургия", ("1995-1477",)),
+    ]
+    assert [finding.code for finding in read.findings] == [WarningCode.TITLE_REPAIRED]
+
+
+def test_an_issn_left_in_a_former_title_is_reported() -> None:
+    """An ISSN the bracket could not read never passes as part of the title."""
+    printed = "Вестник (до 01.01.2020 наименование в Перечне «Старый» ISSN 1234)"
+
+    assert [finding.code for finding in read_title(printed).findings] == [
+        WarningCode.TITLE_UNPARSED,
+    ]
+
+
+def test_a_former_title_date_the_calendar_does_not_have_is_reported() -> None:
+    """«до 31.02.2020» is kept as no date and said so."""
+    printed = "Вестник (до 31.02.2020 наименование в Перечне «Старый» ISSN 2587-7534)"
+
+    read = read_title(printed)
+
+    assert read.title.former[0].until is None
+    assert [finding.code for finding in read.findings] == [WarningCode.TITLE_UNPARSED]

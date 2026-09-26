@@ -125,3 +125,35 @@ def test_the_printed_form_is_kept() -> None:
         speciality.printed
         == "5.2.3. Региональная и отраслевая экономика (экономические науки)"
     )
+
+
+def test_a_code_with_a_space_before_its_dot_still_starts_a_speciality() -> None:
+    """Journals 2484 and 2852 print «5.9.8 .» and «4.1.6 .Лесоведение»."""
+    text = (
+        "5.5.3. Государственное управление и отраслевые политики (политические науки), "
+        "5.9.8 . Теоретическая, прикладная и сравнительно-сопоставительная лингвистика "
+        "(филологические науки), 4.1.6 .Лесоведение, лесоводство (биологические науки)"
+    )
+
+    assert [(code, branch) for code, _, branch in _pairs(text)] == [
+        ("5.5.3", ScienceBranch.POLITICAL_SCIENCE),
+        ("5.9.8", ScienceBranch.PHILOLOGY),
+        ("4.1.6", ScienceBranch.BIOLOGY),
+    ]
+    assert _codes(text) == []
+
+
+def test_a_code_left_inside_a_name_is_reported() -> None:
+    """A speciality the split missed is counted, not merged silently."""
+    text = (
+        "5.5.3. Управление (политические науки) 5.9.8Лингвистика (филологические науки)"
+    )
+
+    assert _codes(text) == [WarningCode.SPECIALITY_UNRECOGNIZED]
+
+
+def test_two_branch_brackets_are_reported() -> None:
+    """Journal 1746 prints «(физико-математические науки) (технические науки)»."""
+    text = "2.2.13. Радиотехника (физико-математические науки) (технические науки)"
+
+    assert _codes(text) == [WarningCode.SPECIALITY_UNRECOGNIZED]

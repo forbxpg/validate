@@ -1,4 +1,4 @@
-"""Nineteen real pages of the list of 15.09.2026, one per quirk the parser must survive.
+"""Twenty-three real pages of the list of 15.09.2026, one per quirk the parser must survive.
 
 `fixtures/sample.pdf` is cut by `fixtures/cut_pages.py`; its pages are not contiguous,
 so the first rows of a page may continue a journal from a page left out and land in
@@ -62,7 +62,7 @@ def test_the_version_guard() -> None:
 
 def test_the_edition_and_the_pages() -> None:
     """The edition date comes from page 1, the page count from the file."""
-    assert (_sample().edition_date, _sample().page_count) == (date(2026, 9, 15), 19)
+    assert (_sample().edition_date, _sample().page_count) == (date(2026, 9, 15), 23)
 
 
 def test_translation_and_former_title_across_pages_1_and_2() -> None:
@@ -134,7 +134,7 @@ def test_a_page_with_other_long_rulings_is_reported_and_still_read() -> None:
         if warning.code is WarningCode.COLUMN_SHIFT
     ]
 
-    assert shifts == [17]
+    assert shifts == [19]
     assert _journal(2015).issns == ("2070-0970",)
 
 
@@ -200,3 +200,32 @@ def test_numbers_left_out_by_the_cut_are_reported() -> None:
     ]
 
     assert gap.page is None
+
+
+def test_codes_with_a_space_before_their_dot() -> None:
+    """Journals 2484 and 2852 print «5.9.8 .» and «4.1.6 .»: no speciality is lost."""
+    pairs = [
+        (speciality.code, speciality.branch)
+        for number in (2484, 2852)
+        for group in _journal(number).groups
+        for speciality in group.specialities
+        if speciality.code in {"5.5.3", "5.9.8", "4.1.6"}
+    ]
+
+    assert pairs == [
+        ("5.5.3", ScienceBranch.POLITICAL_SCIENCE),
+        ("5.9.8", ScienceBranch.PHILOLOGY),
+        ("4.1.6", ScienceBranch.AGRICULTURE),
+        ("4.1.6", ScienceBranch.BIOLOGY),
+    ]
+
+
+def test_two_branch_brackets_are_counted() -> None:
+    """Journal 1746 prints «(физико-математические науки) (технические науки)»."""
+    assert _codes(1746) == [WarningCode.SPECIALITY_UNRECOGNIZED]
+
+
+def test_a_former_issn_behind_a_stray_quote() -> None:
+    """Journal 245 ends its unclosed former title with «ISSN 1995-1477»»."""
+    assert [former.issns for former in _journal(245).title.former] == [("1995-1477",)]
+    assert _codes(245) == [WarningCode.TITLE_REPAIRED]

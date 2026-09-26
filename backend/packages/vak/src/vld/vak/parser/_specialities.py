@@ -10,11 +10,14 @@ from vld.vak.models import Speciality, WarningCode
 from ._branches import CANONICAL, branch_of_name, read_branches
 from ._finding import Finding
 
-# A code «5.9.5.» or «10.02.01 –», or a code missing its dot before the name.
+# A code «5.9.5.», «5.9.8 .» or «10.02.01 –», or a code missing its dot before the name.
 _CODE = re.compile(
-    r"(?<![\d.])(\d{1,2}\.\d{1,2}\.\d{1,2})(?:\.\s*|\s*[–—-]\s*|\s+(?=[А-ЯЁа-яёA-Za-z]))",
+    r"(?<![\d.])(\d{1,2}\.\d{1,2}\.\d{1,2})(?:\s*\.\s*|\s*[–—-]\s*|\s+(?=[А-ЯЁа-яёA-Za-z]))",
 )
 _TRAILING = " ,;."
+# A code the split missed: its speciality is merged into the one before.
+_CODE_INSIDE = re.compile(r"\d{1,2}\.\d{1,2}\.\d{1,2}")
+_LAST_BRACKET = re.compile(r"\(([^()]*)\)\s*$")
 
 
 @dataclass(frozen=True, slots=True)
@@ -60,6 +63,7 @@ def read_specialities(text: str) -> SpecialityCell:
         read, found = _speciality(code.group(1), body, printed)
         specialities.extend(read)
         findings.extend(found)
+        findings.extend(_merged(read[0].name, printed))
     return SpecialityCell(tuple(specialities), tuple(findings))
 
 
@@ -107,3 +111,24 @@ def _speciality(
         Speciality(code=code, name=name, branch=branch, printed=printed)
         for branch in reading.branches
     ], findings
+
+
+def _merged(name: str, printed: str) -> list[Finding]:
+    if _CODE_INSIDE.search(name):
+        return [
+            Finding(
+                WarningCode.SPECIALITY_UNRECOGNIZED,
+                printed,
+                "a code inside the name",
+            ),
+        ]
+    bracket = _LAST_BRACKET.search(name)
+    if bracket is not None and read_branches(bracket.group(1)).branches:
+        return [
+            Finding(
+                WarningCode.SPECIALITY_UNRECOGNIZED,
+                printed,
+                "two branch brackets",
+            ),
+        ]
+    return []

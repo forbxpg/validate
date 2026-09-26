@@ -21,7 +21,7 @@ _FORMER = re.compile(
         # With an ISSN the title runs to it, brackets inside the title included;
         # the next «(до …» is never crossed.
         (?P<title>(?:(?!\(\s*до\s+\d).)*?)[,;]?\s*ISSN\s*
-        (?P<issns>(?:\d{4}\s*[-‐‑–—]?\s*\d{3}[\dXxХх][,;\s]*)+)
+        (?P<issns>(?:\d{4}\s*[-‐‑–—]?\s*\d{3}[\dXxХх][,;\s]*)+)[»"”\s]*
         # Without one it runs to the first closing bracket.
         | (?P<bare>[^)]*?)
     )
@@ -86,6 +86,7 @@ def read_title(printed: str) -> TitleCell:
         )
         main = main.replace(found.group(0), " ")
         findings.extend(_unclosed(found))
+        findings.extend(_unread(found))
     found = _TRANSLATION.search(main)
     if found is not None:
         translation = found.group("title").strip(_QUOTES)
@@ -116,3 +117,13 @@ def _unclosed(found: re.Match[str]) -> list[Finding]:
             "bracket closed at the end",
         ),
     ]
+
+
+def _unread(found: re.Match[str]) -> list[Finding]:
+    if parse_day(found.group("until")) is None:
+        return [
+            Finding(WarningCode.TITLE_UNPARSED, found.group(0), "the date is no date"),
+        ]
+    if "ISSN" in (found.group("bare") or "").upper():
+        return [Finding(WarningCode.TITLE_UNPARSED, found.group(0), "an ISSN not read")]
+    return []

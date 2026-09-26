@@ -1,6 +1,6 @@
 [project]
 name = "vld-vak"
-version = "0.1.0"
+version = "0.1.1"
 description = "The VAK list of peer-reviewed journals: a typed parser of its PDF and a downloader."
 readme = "README.md"
 requires-python = ">=3.13"
