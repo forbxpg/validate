@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._account import MeResponse
 from ._error import AuthErrorCode, AuthErrorResponse
 from ._password import ChangePasswordRequest, NewPasswordRequest, PasswordResetRequest
 from ._profile import ProfileBody
@@ -23,6 +24,7 @@ __all__ = (
     "AuthErrorResponse",
     "ChangePasswordRequest",
     "LoginRequest",
+    "MeResponse",
     "NewPasswordRequest",
     "PasswordResetRequest",
     "ProfileBody",
