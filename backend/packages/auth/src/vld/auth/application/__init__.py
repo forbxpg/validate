@@ -27,6 +27,7 @@ from .use_cases import (
     RegisterCommand,
     RegisterUser,
     TokenPair,
+    VerifyEmail,
     WeakPasswordError,
 )
 
@@ -53,5 +54,6 @@ __all__ = (
     "TokenRepository",
     "UserRepository",
     "UsersPage",
+    "VerifyEmail",
     "WeakPasswordError",
 )
