@@ -91,7 +91,7 @@ class WorksFilter(QueryPart):
     )
     until_online_pub_date: DateBound = Field(
         default=None,
-        alias="until-online-pub-date",
+        serialization_alias="until-online-pub-date",
     )
     from_accepted_date: DateBound = Field(
         default=None,
@@ -135,11 +135,11 @@ class WorksFilter(QueryPart):
     )
     from_event_start_date: DateBound = Field(
         default=None,
-        alias="from-event-start-date",
+        serialization_alias="from-event-start-date",
     )
     until_event_start_date: DateBound = Field(
         default=None,
-        alias="until-event-start-date",
+        serialization_alias="until-event-start-date",
     )
     from_event_end_date: DateBound = Field(
         default=None,
@@ -157,7 +157,7 @@ class WorksFilter(QueryPart):
     )
     has_affiliation_ror_id: bool | None = Field(
         default=None,
-        alias="has-affiliation-ror-id",
+        serialization_alias="has-affiliation-ror-id",
     )
     has_alias: bool | None = Field(default=None, serialization_alias="has-alias")
     has_archive: bool | None = Field(default=None, serialization_alias="has-archive")
@@ -167,12 +167,12 @@ class WorksFilter(QueryPart):
     )
     has_authenticated_orcid: bool | None = Field(
         default=None,
-        alias="has-authenticated-orcid",
+        serialization_alias="has-authenticated-orcid",
     )
     has_award: bool | None = Field(default=None, serialization_alias="has-award")
     has_clinical_trial_number: bool | None = Field(
         default=None,
-        alias="has-clinical-trial-number",
+        serialization_alias="has-clinical-trial-number",
     )
     has_content_domain: bool | None = Field(
         default=None,
@@ -180,7 +180,7 @@ class WorksFilter(QueryPart):
     )
     has_domain_restriction: bool | None = Field(
         default=None,
-        alias="has-domain-restriction",
+        serialization_alias="has-domain-restriction",
     )
     has_event: bool | None = Field(default=None, serialization_alias="has-event")
     has_full_text: bool | None = Field(
@@ -251,7 +251,7 @@ class WorksFilter(QueryPart):
     full_text_type: ManyStr = Field(default=None, serialization_alias="full-text.type")
     full_text_application: ManyFullTextApplication = Field(
         default=None,
-        alias="full-text.application",
+        serialization_alias="full-text.application",
     )
     full_text_version: ManyStr = Field(
         default=None,
@@ -261,7 +261,7 @@ class WorksFilter(QueryPart):
     funder: ManyStr = None
     funder_doi_asserted_by: FunderDoiAssertedBy | None = Field(
         default=None,
-        alias="funder-doi-asserted-by",
+        serialization_alias="funder-doi-asserted-by",
     )
     award_funder: ManyStr = Field(default=None, serialization_alias="award.funder")
     award_number: ManyStr = Field(default=None, serialization_alias="award.number")

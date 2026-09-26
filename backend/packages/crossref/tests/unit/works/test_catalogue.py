@@ -40,3 +40,9 @@ def test_the_enums_hold_exactly_the_values_of_crossref() -> None:
     assert {facet.value for facet in WorkFacet} == set(LIVE_FACETS)
     assert {sort.value for sort in WorksSort} == set(LIVE_SORT)
     assert {kind.value for kind in WorkType} == set(LIVE_TYPES)
+
+
+def test_every_filter_can_be_set_by_its_field_name() -> None:
+    """An `alias` instead of `serialization_alias` would refuse the Python name."""
+    for name in WorksFilter.model_fields:
+        assert WorksFilter.model_validate({name: None}).render() is None, name
