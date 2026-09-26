@@ -16,6 +16,7 @@ from .onboarding._send_verification_email import (
     UnknownRegisteredUserError,
 )
 from .onboarding._verify_email import VerifyEmail
+from .session._dummy_hash import warm_password_verification
 from .shared import InvalidTokenError, LoginResult, TokenPair, WeakPasswordError
 
 __all__ = (
@@ -32,4 +33,5 @@ __all__ = (
     "UnknownResetTargetError",
     "VerifyEmail",
     "WeakPasswordError",
+    "warm_password_verification",
 )

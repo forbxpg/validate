@@ -35,6 +35,7 @@ from .use_cases import (
     UnknownResetTargetError,
     VerifyEmail,
     WeakPasswordError,
+    warm_password_verification,
 )
 
 __all__ = (
@@ -68,4 +69,5 @@ __all__ = (
     "UsersPage",
     "VerifyEmail",
     "WeakPasswordError",
+    "warm_password_verification",
 )
