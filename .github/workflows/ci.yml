@@ -97,3 +97,25 @@ jobs:
           uv run vld-migrate check
           uv run vld-migrate export-sql migration-sql
           uv run squawk --no-error-on-unmatched-pattern 'migration-sql/*.sql'
+
+  stand:
+    name: Stand (compose config, images)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ENV_FILE: backend/.env.example
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Every profile and the Mailpit override: a broken optional service
+      # otherwise surfaces only on the machine of whoever turns it on.
+      - name: Compose config
+        run: |
+          VLD_ENV_FILE="$PWD/$ENV_FILE" docker compose \
+            -f infrastructure/compose.yaml -f infrastructure/compose.mail.yaml \
+            --env-file "$ENV_FILE" --profile '*' config --quiet
+
+      - name: Images
+        run: make build ENV_FILE="$ENV_FILE"
