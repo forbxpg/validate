@@ -1,0 +1,109 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "2094e02c-d851-48cd-9d57-fe7ebd34a039",
+      "name": "Перечень рецензируемых научных изданий, в которых должны быть опубликованы основные научные результаты диссертаций на соискание ученой степени кандидата наук, на соискание ученой степени доктора наук (по состоянию на 15.09.2026 г.)",
+      "type": [
+        19
+      ],
+      "date_published": "2026-09-17T16:15:00+03:00",
+      "date_create": "2020-03-02T15:23:49+03:00",
+      "date_delete": null,
+      "is_important": null,
+      "date_release": "2026-09-15T14:10:00+03:00",
+      "keywords": [
+        {
+          "id": 2176,
+          "name": "Перечень рецензируемых научных изданий"
+        },
+        {
+          "id": 5005,
+          "name": "Рецензируемые научные издания"
+        }
+      ],
+      "marks": [
+        {
+          "id": 46,
+          "name": "Перечень рецензируемых научных изданий"
+        }
+      ],
+      "files": [
+        {
+          "url": "https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/2094e02c-d851-48cd-9d57-fe7ebd34a039/b3e00d1e-6ef9-4c4b-8113-2ad739f_9XJ7SjZ.pdf",
+          "name": "b3e00d1e-6ef9-4c4b-8113-2ad739f_9XJ7SjZ.pdf",
+          "id": "b3e00d1e-6ef9-4c4b-8113-2ad739f0cf4a",
+          "file_type": "Файл",
+          "size": null
+        },
+        {
+          "url": "https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/2094e02c-d851-48cd-9d57-fe7ebd34a039/c0a3c2bb-12b5-4cf1-9aa7-dbe7114922c2.pdf",
+          "name": "c0a3c2bb-12b5-4cf1-9aa7-dbe7114922c2.pdf",
+          "id": "c0a3c2bb-12b5-4cf1-9aa7-dbe7114922c2",
+          "file_type": "Файл",
+          "size": 10607798
+        },
+        {
+          "url": "https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/2094e02c-d851-48cd-9d57-fe7ebd34a039/8c367515-d268-47f1-8b21-ffe280d0f1d8.pdf",
+          "name": "8c367515-d268-47f1-8b21-ffe280d0f1d8.pdf",
+          "id": "8c367515-d268-47f1-8b21-ffe280d0f1d8",
+          "file_type": "Файл",
+          "size": 10597679
+        }
+      ],
+      "info": "[{\"type\":\"p\",\"attributes\":{},\"children\":[{\"type\":\"a\",\"attributes\":{\"href\":\"https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/2094e02c-d851-48cd-9d57-fe7ebd34a039/c0a3c2bb-12b5-4cf1-9aa7-dbe7114922c2.pdf\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\"},\"children\":[\"Перечень рецензируемых научных изданий, в которых должны быть опубликованы основные научные результаты диссертаций на соискание ученой степени кандидата наук, на соискание ученой степени доктора наук (по состоянию на 15.09.2026)\"]}]}]"
+    },
+    {
+      "id": "95b18614-ac93-490c-9650-0b545506660c",
+      "name": "Итоговое распределение журналов Перечня ВАК по категориям К1, К2, К3 в 2023 году",
+      "type": [
+        19
+      ],
+      "date_published": "2023-12-26T15:15:00+03:00",
+      "date_create": "2023-12-26T15:12:31+03:00",
+      "date_delete": null,
+      "is_important": null,
+      "date_release": "2024-03-01T10:00:00+03:00",
+      "keywords": [],
+      "marks": [
+        {
+          "id": 46,
+          "name": "Перечень рецензируемых научных изданий"
+        }
+      ],
+      "files": [
+        {
+          "url": "https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/95b18614-ac93-490c-9650-0b545506660c/c3f6aeaa-19a5-4830-86cb-9923326_JZ0YGxm.pdf",
+          "name": "c3f6aeaa-19a5-4830-86cb-9923326_JZ0YGxm.pdf",
+          "id": "c3f6aeaa-19a5-4830-86cb-9923326840d3",
+          "file_type": "Файл",
+          "size": null
+        }
+      ],
+      "info": "[{\"type\":\"p\",\"attributes\":{},\"children\":[{\"type\":\"a\",\"attributes\":{\"href\":\"https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/95b18614-ac93-490c-9650-0b545506660c/96bf7b3c-0d26-486f-b5f9-5ddf9be20a77.pdf\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\"},\"children\":[\"Распределение журналов Перечня рецензируемых научных изданий по категориям К1, К2, К3\"]}]},{\"type\":\"p\",\"attributes\":{},\"children\":[{\"type\":\"a\",\"attributes\":{\"href\":\"https://vak.gisnauka.ru/s3-files/01cc80c69fae4988a0246a8f5e2774e7:fisgna/public/media/uploaded/news_files/95b18614-ac93-490c-9650-0b545506660c/31e23623-a6c8-41d7-8399-448ad24_qgmZMPL.pdf\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\"},\"children\":[\"Приравнивание научных журналов, входящих в наукометрические базы данных, к журналам Перечня ВАК с распределением по категориям\"]},{\"type\":\"br\",\"attributes\":{},\"children\":[]}]}]"
+    },
+    {
+      "id": "8577b621-7579-499f-a397-c966910a1250",
+      "name": "Письмо Минобрнауки России от 15.04.2025 № МН-3/548-ДП о дополнительном наборе в состав специального экспертного совета ВАК",
+      "type": [
+        19
+      ],
+      "date_published": "2025-04-16T16:52:00+03:00",
+      "date_create": "2025-04-16T16:50:54+03:00",
+      "date_delete": null,
+      "is_important": true,
+      "date_release": "2025-04-15T10:00:00+03:00",
+      "keywords": [
+        {
+          "id": 4312,
+          "name": "Специальные экспертные советы"
+        }
+      ],
+      "marks": [],
+      "files": [],
+      "info": "<p><a href=\"[[65b8b00e-089c-496d-b298-8e7f6d1e500c]]\" target=\"_blank\">Письмо о дополнительном наборе в состав специального экспертного совета ВАК</a><br></p>"
+    }
+  ]
+}

@@ -220,10 +220,9 @@ class JwtTokenIssuer:
 
         """
         try:
-            # Key types of PyJWT come from `cryptography`, which HS256 does not need.
             return cast(
                 "Mapping[str, object]",
-                jwt.decode(  # pyright: ignore[reportUnknownMemberType]
+                jwt.decode(
                     token,
                     self._secret,
                     algorithms=_ALGORITHMS,
@@ -256,7 +255,7 @@ class JwtTokenIssuer:
             str - Signed JWT.
 
         """
-        return jwt.encode(  # pyright: ignore[reportUnknownMemberType] -- see _decode
+        return jwt.encode(
             {
                 "sub": str(user_id),
                 "typ": token_type,

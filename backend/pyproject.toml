@@ -14,11 +14,13 @@ dev = [
     "httpx>=0.28.1,<0.29.0",
     "import-linter>=2.15,<3.0",
     "pre-commit>=4.6.2,<5.0.0",
+    "pypdf>=6.19.0,<7.0.0",
     "pytest>=9.1.1,<10.0.0",
     "pytest-asyncio>=1.4.0,<2.0.0",
     "ruff>=0.16.9,<0.17.0",
     "squawk-cli>=2.66.0,<3.0.0",
     "vld-crossref[cli]",
+    "vld-vak[all]",
 ]
 
 [tool.uv.workspace]
@@ -26,6 +28,7 @@ members = ["packages/*", "apps/*"]
 
 [tool.uv.sources]
 vld-crossref = { workspace = true }
+vld-vak = { workspace = true }
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
@@ -36,11 +39,12 @@ addopts = [
     "--import-mode=importlib",
     "-ra",
     "-m",
-    "not integration and not crossref_live",
+    "not integration and not crossref_live and not vak_full",
 ]
 markers = [
     "integration: needs PostgreSQL and Redis from the local stand (make up)",
     "crossref_live: calls the real Crossref API; run by hand with CROSSREF_LIVE_MAILTO set",
+    "vak_full: parses a whole VAK list; run by hand with VAK_PDF_PATH set",
 ]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
@@ -75,6 +79,26 @@ source_modules = [
 forbidden_modules = ["vld.crossref.cli", "typer", "rich", "dotenv"]
 
 [[tool.importlinter.contracts]]
+name = "vak is a standalone library: it imports no other vld package"
+type = "forbidden"
+source_modules = ["vld.vak"]
+forbidden_modules = [
+    "vld.core",
+    "vld.web",
+    "vld.auth",
+    "vld.crossref",
+    "vld.api",
+    "vld.migrator",
+    "vld.worker",
+]
+
+[[tool.importlinter.contracts]]
+name = "The vak result knows neither the parser nor the downloader"
+type = "forbidden"
+source_modules = ["vld.vak.models", "vld.vak.errors"]
+forbidden_modules = ["vld.vak.parser", "vld.vak.download", "pdfplumber", "pdfminer", "httpx"]
+
+[[tool.importlinter.contracts]]
 name = "Core stays free of the HTTP layer"
 type = "forbidden"
 source_modules = ["vld.core"]
@@ -83,14 +107,14 @@ forbidden_modules = ["vld.web", "fastapi", "starlette", "fastapi_pagination"]
 [[tool.importlinter.contracts]]
 name = "Packages never import apps"
 type = "forbidden"
-source_modules = ["vld.core", "vld.web", "vld.crossref", "vld.auth"]
+source_modules = ["vld.core", "vld.web", "vld.crossref", "vld.vak", "vld.auth"]
 forbidden_modules = ["vld.api", "vld.migrator"]
 
 [[tool.importlinter.contracts]]
 name = "Core and web know no domain"
 type = "forbidden"
 source_modules = ["vld.core", "vld.web"]
-forbidden_modules = ["vld.auth", "vld.crossref"]
+forbidden_modules = ["vld.auth", "vld.crossref", "vld.vak"]
 
 [[tool.importlinter.contracts]]
 name = "auth.domain knows nothing outside itself"
