@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from .account._describe_me import DescribeMe, MeView
 from .account._update_profile import UpdateProfile
+from .administration._target_guard import TargetForbiddenError
 from .onboarding._register import RegisterCommand, RegisterUser
 from .onboarding._resend_verification import (
     ResendVerification,
@@ -49,6 +50,7 @@ __all__ = (
     "ResetPassword",
     "SendPasswordResetEmail",
     "SendVerificationEmail",
+    "TargetForbiddenError",
     "TokenPair",
     "TokenRevokedError",
     "UnknownRegisteredUserError",
