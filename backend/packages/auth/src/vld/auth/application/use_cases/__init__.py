@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from .account._describe_me import DescribeMe, MeView
+from .account._update_profile import UpdateProfile
 from .onboarding._register import RegisterCommand, RegisterUser
 from .onboarding._resend_verification import (
     ResendVerification,
@@ -52,6 +53,7 @@ __all__ = (
     "TokenRevokedError",
     "UnknownRegisteredUserError",
     "UnknownResetTargetError",
+    "UpdateProfile",
     "VerifyEmail",
     "WeakPasswordError",
     "warm_password_verification",
