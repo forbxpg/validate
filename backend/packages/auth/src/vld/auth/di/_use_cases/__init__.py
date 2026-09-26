@@ -3,5 +3,6 @@
 from __future__ import annotations
 
 from ._onboarding import AuthOnboardingUseCaseProvider
+from ._session import AuthSessionUseCaseProvider
 
-__all__ = ("AuthOnboardingUseCaseProvider",)
+__all__ = ("AuthOnboardingUseCaseProvider", "AuthSessionUseCaseProvider")
