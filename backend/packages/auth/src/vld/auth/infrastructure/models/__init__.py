@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from ._base import METADATA, AuthBase
 from ._tables import (
     EMAIL_LOWER_CASE_CONSTRAINT,
     EMAIL_UNIQUE_CONSTRAINT,
@@ -20,6 +21,7 @@ from ._tables import (
 __all__ = (
     "EMAIL_LOWER_CASE_CONSTRAINT",
     "EMAIL_UNIQUE_CONSTRAINT",
+    "METADATA",
     "OUTBOX",
     "OUTBOX_STATUS",
     "QUALIFIED_OUTBOX",
@@ -30,4 +32,5 @@ __all__ = (
     "TOKEN_PURPOSE",
     "USERS",
     "VERIFICATION_TOKENS",
+    "AuthBase",
 )

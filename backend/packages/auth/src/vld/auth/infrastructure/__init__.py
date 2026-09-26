@@ -15,13 +15,15 @@ from .email import (
     EmailMisconfiguredError,
     build_smtp_sender,
 )
-from .models import OUTBOX, QUALIFIED_OUTBOX, SCHEMA
+from .models import METADATA, OUTBOX, QUALIFIED_OUTBOX, SCHEMA, AuthBase
 
 __all__ = (
+    "METADATA",
     "OUTBOX",
     "QUALIFIED_OUTBOX",
     "SCHEMA",
     "AuthApiAdapter",
+    "AuthBase",
     "AuthIdentityProvider",
     "BcryptPasswordHasher",
     "ConsoleEmailSender",
