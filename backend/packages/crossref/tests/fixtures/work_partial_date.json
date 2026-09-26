@@ -1,0 +1,129 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2022,
+          4,
+          4
+        ]
+      ],
+      "date-time": "2022-04-04T20:05:30Z",
+      "timestamp": 1649102730742
+    },
+    "reference-count": 0,
+    "publisher": "Elsevier BV",
+    "issue": "13",
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "The American journal of the Medical Sciences"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          1830,
+          11
+        ]
+      ]
+    },
+    "DOI": "10.1097/00000441-183007130-00046",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2009,
+          1,
+          6
+        ]
+      ],
+      "date-time": "2009-01-06T08:59:48Z",
+      "timestamp": 1231232388000
+    },
+    "page": "229-231",
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": [
+      "20. Chronic Arteritis—Consecutive Aneurisms—Rupture of an Aneurism in the Trachea—Passage of a large quantity of Air into the Circulatory System—General Emphysema—Sudden Death."
+    ],
+    "prefix": "10.1016",
+    "volume": "7",
+    "author": [
+      {
+        "family": "&NA;",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "member": "78",
+    "container-title": [
+      "The American journal of the Medical Sciences"
+    ],
+    "original-title": [],
+    "language": "en",
+    "deposited": {
+      "date-parts": [
+        [
+          2016,
+          1,
+          10
+        ]
+      ],
+      "date-time": "2016-01-10T19:59:11Z",
+      "timestamp": 1452455951000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "http://content.wkhealth.com/linkback/openurl?sid=WKPTLP:landingpage&an=00000441-183007130-00046"
+      }
+    },
+    "subtitle": [
+      ""
+    ],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          1830,
+          11
+        ]
+      ]
+    },
+    "references-count": 0,
+    "journal-issue": {
+      "issue": "13"
+    },
+    "URL": "https://doi.org/10.1097/00000441-183007130-00046",
+    "relation": {},
+    "ISSN": [
+      "0002-9629"
+    ],
+    "issn-type": [
+      {
+        "value": "0002-9629",
+        "type": "print"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          1830,
+          11
+        ]
+      ]
+    }
+  }
+}

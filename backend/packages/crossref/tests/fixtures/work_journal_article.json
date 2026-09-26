@@ -1,0 +1,184 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2025,
+          4,
+          17
+        ]
+      ],
+      "date-time": "2025-04-17T15:48:10Z",
+      "timestamp": 1744904890698,
+      "version": "3.32.0"
+    },
+    "reference-count": 0,
+    "publisher": "American Physical Society (APS)",
+    "issue": "1",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              1958,
+              7,
+              1
+            ]
+          ],
+          "date-time": "1958-07-01T00:00:00Z",
+          "timestamp": -363052800000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "http://link.aps.org/licenses/aps-default-license"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "Phys. Rev. Lett."
+    ],
+    "DOI": "10.1103/physrevlett.1.1",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2002,
+          7,
+          27
+        ]
+      ],
+      "date-time": "2002-07-27T03:47:22Z",
+      "timestamp": 1027741642000
+    },
+    "page": "1-2",
+    "source": "Crossref",
+    "is-referenced-by-count": 14,
+    "title": [
+      "Editorial"
+    ],
+    "prefix": "10.1103",
+    "volume": "1",
+    "author": [
+      {
+        "given": "S. A.",
+        "family": "Goudsmit",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "George L.",
+        "family": "Trigg",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "member": "16",
+    "published-online": {
+      "date-parts": [
+        [
+          1958,
+          7,
+          1
+        ]
+      ]
+    },
+    "container-title": [
+      "Physical Review Letters"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "http://link.aps.org/article/10.1103/PhysRevLett.1.1",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.1.1/fulltext",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2025,
+          1,
+          3
+        ]
+      ],
+      "date-time": "2025-01-03T00:40:56Z",
+      "timestamp": 1735864856000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://link.aps.org/doi/10.1103/PhysRevLett.1.1"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          1958,
+          7,
+          1
+        ]
+      ]
+    },
+    "references-count": 0,
+    "journal-issue": {
+      "issue": "1",
+      "published-print": {
+        "date-parts": [
+          [
+            1958,
+            7
+          ]
+        ]
+      }
+    },
+    "URL": "https://doi.org/10.1103/physrevlett.1.1",
+    "relation": {},
+    "ISSN": [
+      "0031-9007"
+    ],
+    "issn-type": [
+      {
+        "type": "print",
+        "value": "0031-9007"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          1958,
+          7,
+          1
+        ]
+      ]
+    }
+  }
+}

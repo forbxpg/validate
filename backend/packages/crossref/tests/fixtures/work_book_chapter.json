@@ -1,0 +1,312 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2025,
+          3,
+          27
+        ]
+      ],
+      "date-time": "2025-03-27T06:05:40Z",
+      "timestamp": 1743055540765,
+      "version": "3.40.3"
+    },
+    "publisher-location": "Cham",
+    "reference-count": 25,
+    "publisher": "Springer International Publishing",
+    "isbn-type": [
+      {
+        "type": "print",
+        "value": "9783031308963"
+      },
+      {
+        "type": "electronic",
+        "value": "9783031308970"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2023-01-01T00:00:00Z",
+          "timestamp": 1672531200000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2023-01-01T00:00:00Z",
+          "timestamp": 1672531200000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "link.springer.com"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "published-print": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "DOI": "10.1007/978-3-031-30897-0_14",
+    "type": "book-chapter",
+    "created": {
+      "date-parts": [
+        [
+          2023,
+          8,
+          17
+        ]
+      ],
+      "date-time": "2023-08-17T07:03:21Z",
+      "timestamp": 1692255801000
+    },
+    "page": "247-260",
+    "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": [
+      "Contemporary Left-Wing Extremism and Violence in Spain"
+    ],
+    "prefix": "10.1007",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-0489-6612",
+        "authenticated-orcid": false,
+        "given": "Carles",
+        "family": "Viñas",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "member": "297",
+    "published-online": {
+      "date-parts": [
+        [
+          2023,
+          8,
+          18
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "14_CR1",
+        "unstructured": "Adell Argilés, Ramón, and Martínez López, Miguel (coords). 2004. ¿Dónde están las llaves? El movimiento okupa: Prácticas y contextos sociales. Madrid: Catarata."
+      },
+      {
+        "key": "14_CR2",
+        "unstructured": "Baby, Sophie. 2018. El mito de la Transición pacífica. Violencia y política en España (1975–1982). Madrid: Akal."
+      },
+      {
+        "key": "14_CR3",
+        "unstructured": "Belligni, S. «Extremismo», in Bobbio, N., Mateucci, N. and Pasquino, G. 1993. Diccionario de política. Mexico: Siglo XXI editores: 608."
+      },
+      {
+        "key": "14_CR5",
+        "unstructured": "Cañadas Gascón, Xavier. 2008. El Caso Scala. Terrorismo de Estado y algo más. Barcelona: Virus."
+      },
+      {
+        "key": "14_CR4",
+        "unstructured": "Canela, Joan. 2019. Insubmissió. Quan joves desarmats van derrotar un exèrcit. València: Sembra llibres."
+      },
+      {
+        "key": "14_CR6",
+        "unstructured": "Casado Gil, Reyes. 2018. La Transición en Rojo y Negro. CNT (1973–1980). Barcelona: Fundación Salvador Seguí."
+      },
+      {
+        "key": "14_CR7",
+        "unstructured": "Cronin, Audrey Kurth, and Ludes, James M. (coords). 2004. Attacking terrorism: elements of a grand strategy. Washington: Georgetown University."
+      },
+      {
+        "key": "14_CR8",
+        "unstructured": "Cucó i Giner, Josepa. 2007. La izquierda de la izquierda. Un estudio de antropología política en España y Portugal. Papeles del CEIC 29: 1–34."
+      },
+      {
+        "key": "14_CR9",
+        "unstructured": "Del Águila Tejerina, Rafael. 1982. La Transición a la democracia en España: Reforma, ruptura y consenso. Revista de Estudios Políticos 25: 101–127."
+      },
+      {
+        "key": "14_CR10",
+        "unstructured": "Díaz Macías. Ernesto M. 2022. El Movimiento Comunista (MC). Historia de un partido (1964–1991). Madrid: Catarata."
+      },
+      {
+        "key": "14_CR11",
+        "unstructured": "Erice, Francisco (dir.). 2021. Un siglo de comunismo en España I. Historia de una lucha. Madrid: Akal."
+      },
+      {
+        "key": "14_CR12",
+        "unstructured": "Feixa, Carles, Sánchez García, José, and Nofre, Jordi. 2014. Del altermundismo a la indignación. Cronotopos del activismo político juvenil en Barcelona. Nueva Sociedad 251: 87–99."
+      },
+      {
+        "key": "14_CR13",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Fernández Soldevilla, Gaizka, and Jiménez Ramos, María (coords). 2020. 1980. El terrorismo contra la Transición. Madrid: Tecnos.",
+        "DOI": "10.5944/hdp.37.2021.40516"
+      },
+      {
+        "key": "14_CR14",
+        "first-page": "57",
+        "volume": "64",
+        "author": "Héctor Fouce",
+        "year": "2004",
+        "unstructured": "Fouce, Héctor. 2004. El punk en el ojo del huracán. De la nueva ola a la movida. De Juventud 64: 57–65.",
+        "journal-title": "De Juventud"
+      },
+      {
+        "key": "14_CR15",
+        "first-page": "63",
+        "volume": "13",
+        "author": "Diego Latorre",
+        "year": "2019",
+        "unstructured": "Latorre, Diego. 2019. Tigres de papel: la experiencia maoísta en España en el camino de la dictadura a la democracia (1960–1980). Ab Initio 13: 63–85.",
+        "journal-title": "Ab Initio"
+      },
+      {
+        "key": "14_CR16",
+        "unstructured": "Maravall, José María. 1981. La política de la transición. 1975–1980. Madrid: Taurus."
+      },
+      {
+        "key": "14_CR17",
+        "unstructured": "Martínez-López, Miguel. 2002. Okupaciones de viviendas y de centros sociales. Autogestión, contracultura y conflictos urbanos. Barcelona: Virus."
+      },
+      {
+        "key": "14_CR18",
+        "unstructured": "Pascual, Jakue. 2015. Movimiento de resistencia. Años 80 en Euskal Herria. Contexto, crisis y punk. Tafalla: Txalaparta."
+      },
+      {
+        "key": "14_CR19",
+        "unstructured": "Rios Bergantinhos, Noa. 2002. A esquerda independentista galega (1977–1995). Compostela: Abrente Editora."
+      },
+      {
+        "key": "14_CR20",
+        "unstructured": "Sacristán, Manuel, and Fernández Buey, Francisco. 2019. Barbarie y resistencias. Sobre movimientos sociales críticos y alternativos. Vilassar de Dalt: El Viejo Topo."
+      },
+      {
+        "key": "14_CR21",
+        "unstructured": "Salvans, Aleix. 2018. Gestió del caos. Escenes de la contracultura a Catalunya 1973–1992. Barcelona: Angle editorial."
+      },
+      {
+        "key": "14_CR22",
+        "first-page": "13",
+        "volume": "92",
+        "author": "Emanuele Treglia",
+        "year": "2013",
+        "unstructured": "Treglia, Emanuele. 2013. Las izquierdas radicales más allá de 1968. Ayer 92: 13–20.",
+        "journal-title": "Ayer"
+      },
+      {
+        "key": "14_CR23",
+        "unstructured": "Viñas, Carles (coord). 2021. Història de l’Esquerra Independentista. Manresa: Tigre de paper."
+      },
+      {
+        "key": "14_CR24",
+        "unstructured": "Wilhelmi, Guillermo. 2016. Romper el consenso. La izquierda radical en la Transición española (1975–1982). Madrid: Siglo XXI."
+      },
+      {
+        "key": "14_CR25",
+        "unstructured": "———. 2013. La otra izquierda radical: el movimiento libertario en la Transición. Madrid, 1975–1982. Ayer 92: 73–97."
+      }
+    ],
+    "container-title": [
+      "The Palgrave Handbook of Left-Wing Extremism, Volume 1"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://link.springer.com/content/pdf/10.1007/978-3-031-30897-0_14",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          26
+        ]
+      ],
+      "date-time": "2024-10-26T07:57:00Z",
+      "timestamp": 1729929420000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://link.springer.com/10.1007/978-3-031-30897-0_14"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "ISBN": [
+      "9783031308963",
+      "9783031308970"
+    ],
+    "references-count": 25,
+    "URL": "https://doi.org/10.1007/978-3-031-30897-0_14",
+    "relation": {},
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "18 August 2023",
+        "order": 1,
+        "name": "first_online",
+        "label": "First Online",
+        "group": {
+          "name": "ChapterHistory",
+          "label": "Chapter History"
+        }
+      }
+    ]
+  }
+}

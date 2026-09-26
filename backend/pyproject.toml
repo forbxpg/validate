@@ -18,10 +18,14 @@ dev = [
     "pytest-asyncio>=1.4.0,<2.0.0",
     "ruff>=0.16.9,<0.17.0",
     "squawk-cli>=2.66.0,<3.0.0",
+    "vld-crossref[cli]",
 ]
 
 [tool.uv.workspace]
 members = ["packages/*", "apps/*"]
+
+[tool.uv.sources]
+vld-crossref = { workspace = true }
 
 [tool.pytest.ini_options]
 testpaths = ["packages", "apps"]
@@ -53,6 +57,22 @@ name = "crossref is a standalone library: it imports no other vld package"
 type = "forbidden"
 source_modules = ["vld.crossref"]
 forbidden_modules = ["vld.core", "vld.web", "vld.auth", "vld.api", "vld.migrator", "vld.worker"]
+
+[[tool.importlinter.contracts]]
+name = "The crossref core does not know its command line"
+type = "forbidden"
+source_modules = [
+    "vld.crossref.errors",
+    "vld.crossref.ids",
+    "vld.crossref.journals",
+    "vld.crossref.models",
+    "vld.crossref.pagination",
+    "vld.crossref.throttle",
+    "vld.crossref.transport",
+    "vld.crossref.works",
+    "vld.crossref._client",
+]
+forbidden_modules = ["vld.crossref.cli", "typer", "rich", "dotenv"]
 
 [[tool.importlinter.contracts]]
 name = "Core stays free of the HTTP layer"

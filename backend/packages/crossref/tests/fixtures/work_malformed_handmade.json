@@ -1,0 +1,347 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message-version": "1.0.0",
+  "message": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          7
+        ]
+      ],
+      "date-time": "2026-09-07T17:21:36Z",
+      "timestamp": 1788801696649,
+      "version": "build-2803163510"
+    },
+    "reference-count": 87,
+    "publisher": "eLife Sciences Publications, Ltd",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "am",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              7
+            ]
+          ],
+          "date-time": "2023-03-07T00:00:00Z",
+          "timestamp": 1678147200000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "funder": [
+      {
+        "DOI": "10.13039/501100001809",
+        "name": "National Natural Science Foundation of China",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "81972073"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "81972073"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100001809",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      },
+      {
+        "name": "Taishan Scholars Program of Shandong Province-Young Taishan Scholars",
+        "award": [
+          "tsqn201909197"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "tsqn201909197"
+            ]
+          }
+        ]
+      },
+      {
+        "DOI": "10.13039/501100013290",
+        "name": "National Key Research and Development Program of China Stem Cell and Translational Research",
+        "doi-asserted-by": "publisher",
+        "award": [
+          "2019YFA0112100"
+        ],
+        "award-info": [
+          {
+            "award-number": [
+              "2019YFA0112100"
+            ]
+          }
+        ],
+        "id": [
+          {
+            "id": "10.13039/501100013290",
+            "id-type": "DOI",
+            "asserted-by": "publisher"
+          }
+        ]
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "elifesciences.org"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "accepted": {
+      "date-parts": [
+        [
+          2023,
+          2,
+          16
+        ]
+      ]
+    },
+    "abstract": "<jats:p>\n                    Cerebral ischaemia‒reperfusion injury (IRI), during which neurons undergo oxygen-glucose deprivation/reoxygenation (OGD/R), is a notable pathological process in many neurological diseases. N1-methyladenosine (m\n                    <jats:sup>1</jats:sup>\n                    A) is an RNA modification that can affect gene expression and RNA stability. The m\n                    <jats:sup>1</jats:sup>\n                    A landscape and potential functions of m\n                    <jats:sup>1</jats:sup>\n                    A modification in neurons remain poorly understood. We explored RNA (mRNA, lncRNA, and circRNA) m\n                    <jats:sup>1</jats:sup>\n                    A modification in normal and OGD/R-treated mouse neurons and the effect of m\n                    <jats:sup>1</jats:sup>\n                    A on diverse RNAs. We investigated the m\n                    <jats:sup>1</jats:sup>\n                    A landscape in primary neurons, identified m\n                    <jats:sup>1</jats:sup>\n                    A-modified RNAs, and found that OGD/R increased the number of m\n                    <jats:sup>1</jats:sup>\n                    A RNAs. m\n                    <jats:sup>1</jats:sup>\n                    A modification might also affect the regulatory mechanisms of noncoding RNAs, e.g., lncRNA–RNA binding proteins (RBPs) interactions and circRNA translation. We showed that m\n                    <jats:sup>1</jats:sup>\n                    A modification mediates the circRNA/lncRNA‒miRNA–mRNA competing endogenous RNA (ceRNA) mechanism and that 3' untranslated region (3’UTR) modification of mRNAs can hinder miRNA–mRNA binding. Three modification patterns were identified, and genes with different patterns had intrinsic mechanisms with potential m\n                    <jats:sup>1</jats:sup>\n                    A-regulatory specificity. Systematic analysis of the m\n                    <jats:sup>1</jats:sup>\n                    A landscape in normal and OGD/R neurons lays a critical foundation for understanding RNA modification and provides new perspectives and a theoretical basis for treating and developing drugs for OGD/R pathology-related diseases.\n                  </jats:p>",
+    "DOI": "10.7554/elife.85324",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2023,
+          2,
+          16
+        ]
+      ],
+      "date-time": "2023-02-16T09:15:12Z",
+      "timestamp": 1676538912000
+    },
+    "update-policy": "https://doi.org/10.7554/elife.85324",
+    "source": "Crossref",
+    "is-referenced-by-count": 22,
+    "title": [
+      "A title",
+      null,
+      ""
+    ],
+    "prefix": "10.7554",
+    "volume": 12,
+    "author": "not a list",
+    "member": "4374",
+    "published-online": {
+      "date-parts": [
+        [
+          2023,
+          3,
+          7
+        ]
+      ]
+    },
+    "reference": null,
+    "updated-by": [
+      {
+        "DOI": "10.7554/elife.91312",
+        "type": "correction",
+        "label": "Correction",
+        "source": "publisher",
+        "updated": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              25
+            ]
+          ],
+          "date-time": "2023-07-25T00:00:00Z",
+          "timestamp": 1690243200000
+        }
+      }
+    ],
+    "container-title": [
+      "eLife"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://cdn.elifesciences.org/articles/85324/elife-85324-v2.pdf",
+        "content-type": "application/pdf",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://cdn.elifesciences.org/articles/85324/elife-85324-v2.xml",
+        "content-type": "application/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://elifesciences.org/articles/85324",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2023,
+          10,
+          11
+        ]
+      ],
+      "date-time": "2023-10-11T21:13:37Z",
+      "timestamp": 1697058817000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://elifesciences.org/articles/85324"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2023,
+          3,
+          7
+        ]
+      ]
+    },
+    "references-count": 87,
+    "alternative-id": [
+      "10.7554/eLife.85324"
+    ],
+    "URL": "https://doi.org/10.7554/elife.85324",
+    "archive": [
+      "CLOCKSS"
+    ],
+    "relation": {
+      "has-preprint": [
+        {
+          "id-type": "doi",
+          "id": "10.1101/2023.01.25.525483",
+          "asserted-by": "subject"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.1101/2023.01.25.525483",
+          "asserted-by": "object"
+        }
+      ],
+      "is-supplemented-by": [
+        {
+          "id-type": "accession",
+          "id": "PRJCA010978",
+          "asserted-by": "subject"
+        }
+      ],
+      "has-review": [
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa1",
+          "asserted-by": "object"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa0",
+          "asserted-by": "object"
+        },
+        {
+          "id-type": "doi",
+          "id": "10.7554/eLife.85324.sa2",
+          "asserted-by": "object"
+        }
+      ]
+    },
+    "ISSN": [
+      "not-an-issn",
+      "2050-084X"
+    ],
+    "issn-type": [
+      {
+        "value": "2050-084X",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": "yesterday",
+    "assertion": [
+      {
+        "value": "single anonymised",
+        "name": "peer_review_transparency",
+        "label": "Peer review transparency",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "other reviewer(s), editor",
+        "name": "peer_review_interaction",
+        "label": "Peer review interaction",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "review summaries, review reports, author/editor communication, reviewer identities reviewer opt in, editor identities",
+        "name": "peer_review_published",
+        "label": "Peer review published",
+        "group": {
+          "name": "peer_review_taxonomy"
+        }
+      },
+      {
+        "value": "open (sign in with ORCID iD required)",
+        "name": "post_publication_commenting",
+        "label": "Post publication commenting",
+        "group": {
+          "name": "post_publication_commenting"
+        }
+      }
+    ],
+    "article-number": "e85324"
+  }
+}

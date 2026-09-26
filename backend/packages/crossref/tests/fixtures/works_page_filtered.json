@@ -1,0 +1,1427 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 7467132,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              11
+            ]
+          ],
+          "date-time": "2026-01-11T15:44:44Z",
+          "timestamp": 1768146284860,
+          "version": "3.49.0"
+        },
+        "reference-count": 0,
+        "publisher": "Public Policy and Social Sciences Research Institute",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PUA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2029,
+              12,
+              29
+            ]
+          ]
+        },
+        "DOI": "10.71404/law.ua.2025.4.36",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              11
+            ]
+          ],
+          "date-time": "2026-01-11T08:03:55Z",
+          "timestamp": 1768118635000
+        },
+        "page": "250-257",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "«Критерії Енгеля» щодо статті 210-1 КУпАП"
+        ],
+        "prefix": "10.71404",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0003-4660-3536",
+            "authenticated-orcid": false,
+            "given": "М.Ю.",
+            "family": "Самуляк",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "52348",
+        "container-title": [
+          "Право.UA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              11
+            ]
+          ],
+          "date-time": "2026-01-11T08:03:55Z",
+          "timestamp": 1768118635000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://pravo.unesco-socio.in.ua/wp-content/uploads/archive/Pravo-ua-2025-4/Pravo_ua_2025_4_250.pdf"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2029,
+              12,
+              29
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2029,
+                12,
+                29
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.71404/law.ua.2025.4.36",
+        "ISSN": [
+          "2519-8327"
+        ],
+        "issn-type": [
+          {
+            "value": "2519-8327",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2029,
+              12,
+              29
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              17
+            ]
+          ],
+          "date-time": "2026-09-17T20:23:00Z",
+          "timestamp": 1789676580211,
+          "version": "4.0.1"
+        },
+        "reference-count": 0,
+        "publisher": "Foundation of Advanced Education",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2029,
+                  11,
+                  29
+                ]
+              ],
+              "date-time": "2029-11-29T00:00:00Z",
+              "timestamp": 1890604800000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-sa/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "JCSS"
+        ],
+        "abstract": "<jats:p>Background: The integration of biomechanics with digital motion-analysis technologies has introduced new approaches for examining movement efficiency, kinematic characteristics, and technical patterns in walking and running activities. Kinovea, as an accessible motion-analysis software, provides both visual and quantitative feedback. However, its application in supporting technique development among beginner athletes remains insufficiently explored.\nAim: This study aims to describe the use of Kinovea in biomechanics training and examine its contribution to the awareness of kinematic characteristics and movement techniques among beginner athletes.\nMethods: A descriptive qualitative design involved 72 beginner athletes aged 18–25 years selected through purposive sampling. Data were collected over 16 weeks through interviews, field observations, and motion video recordings analyzed using Kinovea. Kinematic data focused on joint angles, stride behavior, and movement phases during walking, running, and the flight phase. Qualitative data were analyzed using content analysis with NVivo 12, while kinematic results were interpreted descriptively to identify performance patterns and areas for technical refinement.\nResult: Kinematic analysis showed coordinated joint-angle patterns across all phases. Walking analysis identified arm swing angles of 50.9°–58.8° and leg separation angles of 64.3°–67.2°, indicating a stable gait rhythm. The running analysis revealed knee angles of 68.8°–69.8° and elbow angles of 87.6°–89.1°, indicating efficient propulsive mechanics. The flight phase demonstrated knee angles of 81.2°–87.8° and elbow angles of 80.4°–88.3°, suggesting effective momentum use and postural stability. These measurements supported stride-efficiency assessment and technique evaluation. Qualitative findings revealed that Kinovea enabled athletes to interpret movement phases and identify technical inefficiencies through slow-motion and frame-by-frame visualization.\nConclusion: Kinovea supports basic motion analysis by providing clear kinematic information and helping beginner athletes observe and refine their movement techniques. The findings also offer practical value for coaches by enabling more precise identification of inefficient patterns and guiding targeted corrections during early-stage training.</jats:p>",
+        "DOI": "10.58524/jcss.v4i2.890",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              29
+            ]
+          ],
+          "date-time": "2025-11-29T15:58:32Z",
+          "timestamp": 1764431912000
+        },
+        "page": "118-130",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Integration of Biomechanics and Digital Technology: Using Kinovea for Motion Analysis and Learning for Beginner Athletes"
+        ],
+        "prefix": "10.58524",
+        "volume": "4",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-6527-8298",
+            "authenticated-orcid": false,
+            "given": "Muhammad Nur",
+            "family": "Hudha",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6837-6106",
+            "authenticated-orcid": false,
+            "given": "Riezky Maya",
+            "family": "Probosari",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0006-0355-5716",
+            "authenticated-orcid": false,
+            "given": "Annisa Nur",
+            "family": "Khasanah",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0002-9660-4927",
+            "authenticated-orcid": false,
+            "family": "Supurwoko",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Salsabila Kholifahtun",
+            "family": "Nisa’",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0003-6062-494X",
+            "authenticated-orcid": false,
+            "given": "Gifran Rihla Gifarka",
+            "family": "Latief",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "37434",
+        "published-online": {
+          "date-parts": [
+            [
+              2029,
+              11,
+              29
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of Coaching and Sports Science"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              29
+            ]
+          ],
+          "date-time": "2025-11-29T15:58:32Z",
+          "timestamp": 1764431912000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://journal.foundae.com/index.php/jcss/article/view/890"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2029,
+              11,
+              29
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2025,
+                2,
+                19
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.58524/jcss.v4i2.890",
+        "ISSN": [
+          "2963-1483",
+          "2963-1459"
+        ],
+        "issn-type": [
+          {
+            "value": "2963-1483",
+            "type": "electronic"
+          },
+          {
+            "value": "2963-1459",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2029,
+              11,
+              29
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              7,
+              30
+            ]
+          ],
+          "date-time": "2026-07-30T11:11:25Z",
+          "timestamp": 1785409885830,
+          "version": "3.56.0"
+        },
+        "reference-count": 45,
+        "publisher": "Asia-Pacific Network for Global Change Research",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2029,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2029-10-01T00:00:00Z",
+              "timestamp": 1885507200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc/4.0/deed.en"
+          }
+        ],
+        "funder": [
+          {
+            "award": [
+              "CBA2020-03MY-Dey"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "CBA2020-03MY-Dey"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/02r8tn769",
+                "id-type": "ROR",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>Ecosystem services are natural benefits that support the lives and livelihoods of humans and are classified as use and non-use types, for provisioning, regulatory, supportive and cultural features. For the valuation and pricing of intangible non-use ecosystem services, several methods have been proposed, including accounting for loss and damage, or compensating opportunity costs. This study attempts to value and price three distinct wetland ecosystem services, using perception-based contingency valuation methods, in the Asia-Pacific, namely Monkey’s Cheek in Thailand, an urban wetland, East Kolkata peri-urban wetland in India and the Tangaur Haor in rural Bangladesh, with contrasting socio-ecologies and economies. The perception of marginalised wetland inhabitants was collected by randomised sampling using Likert’s attitude-scaling tool. Results show that respondents mostly recognise ecosystem services as a direct influencer of cash flow. Sociometry and vulnerability indexing in 350 households showed that 73.67% of inhabitants of Tangaur Haor lye below the poverty mark, East Kolkata wetland inhabitants (index mark 64.86), are environmentally vulnerable, whereas urban inhabitants of Monkey’s Cheek are most resilient and recognise provisioning services strongly. In the other two wetlands, the regulatory services and supportive services are better recognised, owing to their dependence on the same. The present study also reveals that both in the urban and rural settings of Thailand and Bangladesh, respectively, the ‘willingness to pay’ (WTP) for recognisable ecosystem services depends on the income of the respondent, whereas household size or acquired non-fiscal resources (such as livestock, land or pond) do not determine the mindsets of users regarding their willingness to pay. However, the perceptions and vulnerabilities of the respondents change across socio-ecologies, and the pricing of ecosystem services mostly aligns with their household incomes. This study recommends strong awareness and capacity building among stakeholders in recognising ecosystem services, in the context of broader perspectives related to the given climate milieu.</jats:p>",
+        "DOI": "10.30852/sb.2025.2889",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              17
+            ]
+          ],
+          "date-time": "2025-10-17T01:27:36Z",
+          "timestamp": 1760664456000
+        },
+        "page": "68",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Socio-ecological approaches in the science of pricing ecosystem services: A perception-based study in some wetlands of Asia and the Pacific"
+        ],
+        "prefix": "10.30852",
+        "volume": "15",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0004-3502-0850",
+            "authenticated-orcid": false,
+            "given": "Dipayan",
+            "family": "Dey",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9270-8860",
+            "authenticated-orcid": false,
+            "given": "Joyashree",
+            "family": "Roy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Rafiqul",
+            "family": "Islam",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0002-6985-5253",
+            "authenticated-orcid": false,
+            "given": "Malancha",
+            "family": "Dey",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "12303",
+        "published-online": {
+          "date-parts": [
+            [
+              2029,
+              10,
+              1
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "ref0",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bagchi, R., Miah, M. A., Hazra, P., Hasan, R., Mondal, H. S., & Paul S. K. (2020). Exploring the effect of rainfall variability and water extent in Tanguar Haor, Sunamganj, Aust. J. Eng. Innov. Technol., 2(4), 66-76. https://doi.org/10.34104/ajeit.020.066076",
+            "DOI": "10.34104/ajeit.020.066076"
+          },
+          {
+            "key": "ref1",
+            "unstructured": "Barton, D. N., Ring, I., Rusch, G., Brouwer, R., Grieg-Gran, M., Primmer, E.,. . . & Sivertsen, K. (2014). Guidelines for multi-scale policy mix assessments. POLICYMIX Technical Brief 12."
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bateman, J., Mace, G.M., Fezzi, C., Atkinson, G., & Turner, K. (2011). Economic analysis for ecosystem service assessments. Environmental and Resource Economics, 48(2), 177–218.",
+            "DOI": "10.1007/s10640-010-9418-x"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bhatt, H., Pant, J. H., Pandey, R., (2024), Cultural ecosystem services nexus with Socio-Cultural attributes and traditional ecological knowledge for managing community forests of Indian western Himalaya, Ecological Indicators, Vo. 166, 112379, ISSN 1470-160X, https://doi.org/10.1016/j.ecolind.2024.112379.",
+            "DOI": "10.1016/j.ecolind.2024.112379"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Chapagain, P.S., Banskota, T.R., Shrestha, S. et al. Studies on adaptive capacity to climate change: a synthesis of changing concepts, dimensions, and indicators. Humanit Soc Sci Commun 12, 331 (2025). https://doi.org/10.1057/s41599-025-04453-3.",
+            "DOI": "10.1057/s41599-025-04453-3"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Clarke, B., Thet, A. K., Sandhu, H., & Dittmann, S. (2021). Integrating cultural ecosystem services valuation into coastal wetlands restoration: A case study from South Australia. Environmental Science & Policy, 116, 220-229.",
+            "DOI": "10.1016/j.envsci.2020.11.014"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dasgupta, S., Badola, R. Zeeshan, A. S. K., Jiju, J. S., Tariyal, P. (2022), Adaptive capacity and vulnerability of the socio-ecological system of Indian Himalayan villages under present and predicted future scenarios, Journal of Environmental Management, (302), Part A, 113946, ISSN 0301-4797, https://doi.org/10.1016/j.jenvman.2021.113946.",
+            "DOI": "10.1016/j.jenvman.2021.113946"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dey, D., & Amerasinghe, P. H. (2022). Community “bio-rights” in augmenting health and climate resilience of a socio-ecological production landscape in peri-urban Ramsar wetlands. In M. Nishi, S.M. Subramanian, H. Gupta, H. (Eds.), Biodiversity-health-sustainability nexus in socio-ecological production landscapes and seascapes (SEPLS), Satoyama Initiative Thematic Review (pp……….) Singapore: Springer. https://doi.org/10.1007/978-981-16-9893-4_6",
+            "DOI": "10.1007/978-981-16-9893-4_6"
+          },
+          {
+            "key": "ref8",
+            "unstructured": "Diafas, I. (2014). Estimating the economic value of forest ecosystem services using stated preference methods: The case of Kakamega forest. G¨ottingen, Germany: Georg-August-University."
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dietz, S., & Hepburn, C. J. (2010). On non-marginal cost-benefit analysis. Grantham Research Institute on Climate Change and the Environment Working Paper, 18.",
+            "DOI": "10.2139/ssrn.957992"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "crossref",
+            "unstructured": "FAO. 2022. The future of food and agriculture – Drivers and triggers for transformation. The Future of Food and Agriculture, no. 3. Rome. https://doi.org/10.4060/cc0959en",
+            "DOI": "10.4060/cc0959en"
+          },
+          {
+            "key": "ref11",
+            "unstructured": "GIZ (2018) https://www.giz.de/en/downloads/giz2018-de-coseram-biodiversity-philippinen.pdf.pdf"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gómez-Baggethun, E., & Barton, D. N. (2013). Classifying and valuing ecosystem services for urban planning. Ecological economics, 86, 235-245.",
+            "DOI": "10.1016/j.ecolecon.2012.08.019"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gouwakinnou G. N., Biaou, S., Vodouhe, F. G, Tovihessi M. S., Awessou B. K., & Biaou H.S. S. (2019). Local perceptions and factors determining ecosystem services identification around two forest reserves in Northern Benin. J Ethnobiol Ethnomed. 15(1), 61. https://doi.org/ 10.1186/s13002-019-0343-y.",
+            "DOI": "10.1186/s13002-019-0343-y"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Helm, B., Visser, M. E., Schwartz, W., Kronfeld-Schor, N., Gerkema, M., Piersma, T., & Bloch, G. (2017). Two sides of a coin: Ecological and chronobiological perspectives of timing in the wild. Philosophical Transactions of the Royal Society B: Biological Sciences, 372(1734), 20160246.",
+            "DOI": "10.1098/rstb.2016.0246"
+          },
+          {
+            "key": "ref15",
+            "unstructured": "IPBES (2019), Global assessment report of the Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services, Brondízio, E. S., Settele, J., Díaz, S., Ngo, H. T. (eds). IPBES secretariat, Bonn, Germany, ISBN: 978-3-947851-20-1"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Justus, E. E., Paul, N., Rebecca, K., & Moses, G. (2021). Economic valuation for cultural and passive ecosystem services using a stated preference (CVM): Case of the Elgeyo watershed ecosystem, Kenya. Hindawi International Journal of Forestry Research,  5867745. https://doi.org/10.1155/2021/5867745",
+            "DOI": "10.1155/2021/5867745"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kallis, G., Erik, G. B., & Christos, Z. (2013). To value or not to value? That is not the question. Ecological Economics, 94, (97–105). https://doi.org/10.1016/j.ecolecon.2013.07.002.",
+            "DOI": "10.1016/j.ecolecon.2013.07.002"
+          },
+          {
+            "key": "ref18",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Kubiszewski, I., Anderson, S. J., Costanza, R., & Sutton, P. C. (2016). The Future of Ecosystem Services in Asia and the Pacific. Asia & the Pacific Policy Studies, 3, 389–404. https://doi.org/10.1002/app5.147.",
+            "DOI": "10.1002/app5.147"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Laurans, Y., & Mermet, L. (2013). Ecosystem services economic valuation, decision-support system or advocacy? Ecosystem Services. 7. https://doi.org/10.1016/j.ecoser.2013.10.002.",
+            "DOI": "10.1016/j.ecoser.2013.10.002"
+          },
+          {
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Liu, W., Zhan, J., Zhao, F., Yan, H., Zhang, F., & Wei, X. (2019). Impacts of urbanisation-induced land-use changes on ecosystem services: A case study of the Pearl River Delta Metropolitan Region, China. Ecological Indicators, 98, 228–238.",
+            "DOI": "10.1016/j.ecolind.2018.10.054"
+          },
+          {
+            "key": "ref21",
+            "unstructured": "Mugenda, P. Z. (2015). Ecosystem services analysis in response to biodiversity loss caused by the built environment. S.A.P.I.E.N.S., 7, 1–14."
+          },
+          {
+            "key": "ref22",
+            "unstructured": "Mugenda, O. M. & Mugenda, A. O. (1999). Research Methods: Quantitative and Qualitative Approaches. Rome: Act Press."
+          },
+          {
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Munns Jr., Helm, W. R., Adams, R. C., Clements, W. J., Cramer, W. H., Curry, M. A., & Young, D. (2009). Translating ecological risk to ecosystem service loss. Integrated Environmental Assessment and Management: An International Journal, 5(4), 500–514.",
+            "DOI": "10.1897/IEAM_2009-009.1"
+          },
+          {
+            "key": "ref24",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Nilgen, M., Rode, J., Vorlaufer, T., Vollan, B. (2024). Measuring non-use values to proxy   conservation preferences and policy impacts, Ecosystem Services, 67, 101621, ISSN 2212-0416, https://doi.org/10.1016/j.ecoser.2024.101621.",
+            "DOI": "10.1016/j.ecoser.2024.101621"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Olander, L., Warnell, K., Warziniack, T., Ghali, Z., Miller, C., & Neelan, C. (2021). Exploring the use of ecosystem services conceptual models to account for the benefits of public lands: an example from national forest planning in the United States. Forests, 12(3), 267.",
+            "DOI": "10.3390/f12030267"
+          },
+          {
+            "key": "ref26",
+            "unstructured": "Pascual, U., Muradian, R., Brander, L. Gómez-Baggethun, E., Martín-López, B., Verma, M., . . . Simpson, R. D. (2010). Economics of Valuing Ecosystem Services and Biodiversity, London: Earthscan."
+          },
+          {
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Pedersen Zari, M. (2019). Devising Urban Biodiversity Habitat Provision Goals: Ecosystem Services Analysis. Forests, 10(5), 391. https://doi.org/10.3390/f10050391",
+            "DOI": "10.3390/f10050391"
+          },
+          {
+            "key": "ref28",
+            "unstructured": "Pearce, D.W. 1993. Economic values and the Natural World. Earthscan, London"
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Perrings, C., Pearce, D. (1994) Threshold effects and incentives for the conservation of biodiversity. Environ Resource Econ 4, 13–28. https://doi.org/10.1007/BF00691930",
+            "DOI": "10.1007/BF00691930"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Peterson, G. D., Harmáčková, Z. V., Meacham, M., Queiroz, C., Jiménez-Aceituno, A., Kuiper, J. J., Malmborg, K., Sitas, N., & Bennett, E. M. (2018). Welcoming different perspectives in IPBES: “Nature’s contributions to people” and “Ecosystem services.” Ecology and Society, 23(1). https://www.jstor.org/stable/26799030",
+            "DOI": "10.5751/ES-10134-230139"
+          },
+          {
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Petrolia D. R., Interis M.G., & Hwang, J. (2014). America’s wetland? A national survey of willingness to pay for the restoration of Louisiana’s coastal wetlands. Marine Resource Economics, 29, pp. 17-37.",
+            "DOI": "10.1086/676289"
+          },
+          {
+            "key": "ref32",
+            "unstructured": "Saeed, G. (2018). Biodiversity and Ecosystem Services: Alternative approaches to Ecosystem Services Valuation. 10.13140/RG.2.2.13360.99843."
+          },
+          {
+            "key": "ref33",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Selivanov E., Hlaváčková P. (2021): Methods for monetary valuation of ecosystem services: A scoping review. J. For. Sci., 67: 499–511.",
+            "DOI": "10.17221/96/2021-JFS"
+          },
+          {
+            "key": "ref34",
+            "unstructured": "TEEB (2009) TEEB Climate Issues Update. September 2009. https://www.teebweb.org/media/2009/09/TEEB-Climate-Issues-Update.pdf"
+          },
+          {
+            "key": "ref35",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Thiemann, Miriam & Riebl, Rebekka & Haensel, Maria & Schmitt, Thomas & Steinbauer, Manuel & Landwehr, Theresa & Fricke, Ute & Redlich, Sarah & Koellner, Thomas. (2022). Perceptions of ecosystem services: Comparing socio-cultural and environmental influences. PLOS ONE. 17. e0276432. 10.1371/journal.pone.0276432.",
+            "DOI": "10.1371/journal.pone.0276432"
+          },
+          {
+            "key": "ref36",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Thomas, K., Hardy, R. D., Lazrus, H., Mendez M., Orlove B., Rivera-Collazo I.,. . . & Winthrop, R. (2019). Explaining differential vulnerability to climate change: A social science review. WIREs Clim Change,10, e565. https://doi.org/10.1002/wcc.565",
+            "DOI": "10.1002/wcc.565"
+          },
+          {
+            "key": "ref37",
+            "unstructured": "Trochim, W. M. K. (2006). The Qualitative Debate. Research Methods Knowledge Base. http://www.socialresearchmethods.net/kb/qualmeth.php"
+          },
+          {
+            "key": "ref38",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Veronika, F., Manuel, E., Uta, S., Markus, O., Hanna, P., Ulrike, T., Rainer, K., (2023). An integrative approach to evaluate ecosystem services of mountain lakes using multi-criteria decision analysis, Ecological Economics, (204), Part A, 107678, ISSN 0921-8009, https://doi.org/10.1016/j.ecolecon.2022.107678.",
+            "DOI": "10.1016/j.ecolecon.2022.107678"
+          },
+          {
+            "key": "ref39",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wang, B., Tang, H., Xu, Y., (2017), Integrating ecosystem services and human well-being into management practices: Insights from a mountain-basin area, China, Ecosystem Services, Vol 27 (A) pg 58-69, ISSN 2212-0416, https://doi.org/10.1016/j.ecoser.2017.07.018.",
+            "DOI": "10.1016/j.ecoser.2017.07.018"
+          },
+          {
+            "key": "ref40",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wangchuk, J., Choden, K., Sears, R. R.,  Baral, H., Yoezer, D., Tamang, K. T. D., . . .  Dhendup, T. (2021). Community perception of ecosystem services from commercially managed forests in Bhutan. Ecosystem Services, 50, 101335.",
+            "DOI": "10.1016/j.ecoser.2021.101335"
+          },
+          {
+            "key": "ref41",
+            "unstructured": "Wattanaprateep,. T. (2016). Flood Mitigation in Monkey’s Cheek Project Area, Proceeds. Proceedings from 2nd World Irrigation Forum, 6-8 November, 2016. Thailand: Chiang Mai. https://www.icid.org/wif2_full_papers/wif2_w.2.2.22.pdf"
+          },
+          {
+            "key": "ref42",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Willcock, S., Martínez-López, J., Hooftman, D. A., Bagstad, K. J., Balbi, S., Marzo, A., . . . Athanasiadis, I. N. (2018). Machine learning for ecosystem services. Ecosystem Services, 33, 165–174.",
+            "DOI": "10.1016/j.ecoser.2018.04.004"
+          },
+          {
+            "key": "ref43",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wong, C. P., Jiang, B., Kinzig, A. P., & Ouyang, Z. (2018). Quantifying multiple ecosystem services for adaptive management of green infrastructure. Ecosphere, 9(11), e02495.",
+            "DOI": "10.1002/ecs2.2495"
+          },
+          {
+            "key": "ref44",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Zhang, W. Edward, K., Bhandary, P., Nkonya, E., Hassan I., Mure U.A., & Hussain I. (2016). Awareness and perceptions of ecosystem services in relation to land use types: Evidence from rural communities in Nigeria, Ecosystem Services, 22(A),150–160. https://doi.org/10.1016/j.ecoser.2016.10.011.",
+            "DOI": "10.1016/j.ecoser.2016.10.011"
+          }
+        ],
+        "container-title": [
+          "APN Science Bulletin"
+        ],
+        "link": [
+          {
+            "URL": "https://www.apn-gcr.org/bulletin/?p=2889",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              17
+            ]
+          ],
+          "date-time": "2025-10-17T01:27:51Z",
+          "timestamp": 1760664471000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.apn-gcr.org/bulletin/?p=2889"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2029,
+              10,
+              1
+            ]
+          ]
+        },
+        "references-count": 45,
+        "URL": "https://doi.org/10.30852/sb.2025.2889",
+        "ISSN": [
+          "2185-761X",
+          "2522-7971"
+        ],
+        "issn-type": [
+          {
+            "value": "2185-761X",
+            "type": "print"
+          },
+          {
+            "value": "2522-7971",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2029,
+              10,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              26
+            ]
+          ],
+          "date-time": "2026-08-26T16:34:29Z",
+          "timestamp": 1787762069176,
+          "version": "build-2784847793"
+        },
+        "reference-count": 47,
+        "publisher": "Center and Development of Research Projects",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2029,
+                  8,
+                  25
+                ]
+              ],
+              "date-time": "2029-08-25T00:00:00Z",
+              "timestamp": 1882310400000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-sa/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Viacademi"
+        ],
+        "abstract": "<jats:p>La proliferación de perfiles potencialmente falsos en redes sociales dificulta la verificación de identidades digitales y requiere integrar diferentes fuentes de evidencia. El estudio tuvo como propósito desarrollar y aplicar una estrategia para identificar perfiles potencialmente falsos en TikTok mediante la combinación de indicadores cuantitativos, análisis OSINT y verificación visual.\nSe desarrolló un estudio de caso aplicado, con diseño no experimental y enfoque pragmático. Se analizaron intencionalmente 20 perfiles públicos de TikTok. La estrategia comprendió cuatro fases: caracterización inicial mediante Tikmatrix, análisis de coincidencias de identificadores mediante Sherlock, búsqueda inversa de imágenes mediante Google Lens y triangulación de evidencias. Se calcularon tres indicadores: relación entre seguidores y cuentas seguidas, me gusta por video y volumen de publicaciones respecto de seguidores. La clasificación se estableció mediante cuartiles.\nDe los 20 perfiles analizados, nueve fueron priorizados para una segunda valoración. Sherlock identificó 31 coincidencias externas, destacando @pk.cat.fun3 con 12, y @_thiennkimz, @wxdx1015 y @luysacr con cinco cada uno. La verificación mediante Google Lens permitió identificar coincidencias visuales en varios perfiles. La triangulación estableció tres perfiles con nivel de evidencia alto: @footcr7fc, @_thiennkimz, @wxdx1015 y @pk.cat.fun3; cuatro con nivel moderado y uno con nivel bajo.\nLa integración de evidencias cuantitativas, nominales y visuales permitió establecer niveles diferenciados de sospecha y priorizar perfiles potencialmente falsos. Los resultados muestran que la triangulación constituye una estrategia más consistente que el uso aislado de un indicador, aunque la clasificación obtenida representa una valoración de sospecha y no una confirmación definitiva de falsedad.</jats:p>",
+        "DOI": "10.70577/30phrd87",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              26
+            ]
+          ],
+          "date-time": "2026-08-26T16:14:03Z",
+          "timestamp": 1787760843000
+        },
+        "page": "869-894",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Estrategia para la Detección de Perfiles Potencialmente Falsos en Tiktok: Un Caso Práctico Basado en Técnicas de Análisis Digital y Herramientas Osint.",
+          "Strategy for Detecting Potentially Fake Profiles on Tiktok: A Case Study Based on Digital Analysis Techniques and Osint Tools."
+        ],
+        "prefix": "10.70577",
+        "volume": "4",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0002-6496-9382",
+            "authenticated-orcid": false,
+            "given": "Silvia Yajaira",
+            "family": "Sacon Macías",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0640-9953",
+            "authenticated-orcid": false,
+            "given": "Oscar Alexander",
+            "family": "López Gorozabel",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "51363",
+        "published-online": {
+          "date-parts": [
+            [
+              2029,
+              8,
+              25
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "4115",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Aguessy, A. & Fandy, R. (2025). Identity Construction in the Digital Age: The Impact of Social Media on American Cultural Dynamics. Advances in Social Sciences and Management, 3(6), 55–72. https://doi.org/10.63002/assm.306.1184",
+            "DOI": "10.63002/assm.306.1184"
+          },
+          {
+            "key": "4116",
+            "unstructured": "Arias, J. (2022). Guía para elaborar la operacionalización de variables. Espacio I+D, Innovación más Desarrollo, 10(28). https://www.espacioimasd.unach.mx/index.php/Inicio/article/view/274"
+          },
+          {
+            "key": "4117",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bokolo, B. & Liu, Q. (2024). Artificial Intelligence in Social Media Forensics: A Comprehensive Survey and Analysis. Electronics, 13(9), 1671. https://doi.org/10.3390/electronics13091671",
+            "DOI": "10.3390/electronics13091671"
+          },
+          {
+            "key": "4118",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Browne, T., Abedin, M. & Chowdhury, M. (2024). A systematic review on research utilising artificial intelligence for open source intelligence (OSINT) applications. International Journal of Information Security, 23(4), 2911–2938. https://doi.org/10.1007/s10207-024-00868-2",
+            "DOI": "10.1007/s10207-024-00868-2"
+          },
+          {
+            "key": "4119",
+            "unstructured": "Campos, M., Moreno, R. & Jiménez, B. (2025). Detección de fraudes y estafas basadas en ingeniería social en Ecuador. Revista InveCom, 5(3), e050337. https://doi.org/10.5281/zenodo.14263156"
+          },
+          {
+            "key": "4120",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Chelas, S., Routis, G. & Roussaki, I. (2024). Detection of fake Instagram accounts via machine learning techniques. Computers, 13(11), 296. https://doi.org/10.3390/computers13110296",
+            "DOI": "10.3390/computers13110296"
+          },
+          {
+            "key": "4121",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Cross, C. & Layt, R. (2022). I suspect that the pictures are stolen: Romance fraud, identity crime, and responding to suspicions of inauthentic identities. Social Science Computer Review, 40(4), 955–973. https://doi.org/10.1177/0894439321999311",
+            "DOI": "10.1177/0894439321999311"
+          },
+          {
+            "key": "4122",
+            "unstructured": "Constantinescu, V. (2025). Cómo detectar un perfil falso en redes sociales. Bitdefender. https://www.bitdefender.com/es-es/blog/hotforsecurity/como-detectar-un-perfil-falso-en-redes-sociales"
+          },
+          {
+            "key": "4123",
+            "unstructured": "Díaz, J., Asencio, V., Luzarraga, E. & Tapia, J. (2025). Redes sociales y desinformación en la era digital frente al reto de los algoritmos y la verificación de información. Dominio De Las Ciencias, 11(3), 117–134. https://doi.org/10.23857/dc.v11i3.4452"
+          },
+          {
+            "key": "4124",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dube, B., Nkomo, D. & Apadile, M. (2024). Pragmatism: An essential philosophy for mixed methods research in education. International Journal of Research and Innovation in Social Science (IJRISS), 8(3), 1001–1010. https://doi.org/10.47772/IJRISS.2024.803073",
+            "DOI": "10.47772/IJRISS.2024.803073"
+          },
+          {
+            "key": "4125",
+            "unstructured": "Giménez, S. (2023). Redes sociales: estado actual y tendencias 2023. OBS Business School. https://marketing.onlinebschool.es/Prensa/Informe%20OBS%20Tendencias%20Redes%20Sociales%202023.pdf"
+          },
+          {
+            "key": "4126",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Goyal, B., Gill, N. S., Gulia, P., Alduaiji, N., Shukla, P. K., Shukla, P. & J., S. (2025). Instagram fake profile detection using an ensemble learning method. Scientific Reports, 15, Article 26464. https://doi.org/10.1038/s41598-025-03973-x",
+            "DOI": "10.1038/s41598-025-03973-x"
+          },
+          {
+            "key": "4127",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hargreaves, C., Nelson, A. & Casey, E. (2024). An abstract model for digital forensic analysis tools: A foundation for systematic error mitigation analysis. Forensic Science International: Digital Investigation, 48, 301679. https://doi.org/10.1016/j.fsidi.2023.301679",
+            "DOI": "10.1016/j.fsidi.2023.301679"
+          },
+          {
+            "key": "4128",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hayawi, K., Saha, S., Masud, M., Mathew, S. & Kaosar, M. (2023). Social media bot detection with deep learning methods: a systematic review. Neural Comput & Applic, 35, 8903–8918. https://doi.org/10.1007/s00521-023-08352-z",
+            "DOI": "10.1007/s00521-023-08352-z"
+          },
+          {
+            "key": "4129",
+            "unstructured": "Hernández, N. & Klimenko, O. (2025). Metodología de la investigación, enfoque cualitativo, cuantitativo y mixto. Nexus: Multidisciplinary Research Journal (MIR), 2(3), 1–19. https://nexushouseeditorial.com/index.php/nexus/article/view/24"
+          },
+          {
+            "key": "4130",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hidalgo, I., Yasaca, S., Hidalgo, B., Oquendo, V. & Salazar, F. (2018). Estudio Comparativo De Las Metodologías De Análisis Forense Informático Para La Examinación De Datos En Medios Digitales. European Scientific Journal, 14(18), 40–48. https://doi.org/10.19044/esj.2018.v14n18p40",
+            "DOI": "10.19044/esj.2018.v14n18p40"
+          },
+          {
+            "key": "4131",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Jordán, D., Izaguirre, J. & López, A. (2024). La red social Tik Tok y su incidencia en el cambio de comportamiento: un estudio bibliométrico. Intersecciones En Comunicación, 2(18), 1–23. https://ojsintcom.unicen.edu.ar/ojs/article/view/219",
+            "DOI": "10.51385/jzxcbs79"
+          },
+          {
+            "key": "4132",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Karinshak, E. & Jin, Y. (2023). Desinformación impulsada por IA: un marco para la preparación y respuesta organizacional. Revista de Gestión de la Comunicación, 27(4), 539–562. https://doi.org/10.1108/JCOM-09-2022-0113",
+            "DOI": "10.1108/JCOM-09-2022-0113"
+          },
+          {
+            "key": "4133",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Laffier, J. & Westley, M. (2025). Digital Identity Congruence: Exploring the Importance of Congruent Online Identities for Adolescents. En The Evolving Landscape of Online Identity - Recent Studies and Insights. IntechOpen. https://doi.org/10.5772/intechopen.1012336",
+            "DOI": "10.5772/intechopen.1012336"
+          },
+          {
+            "key": "4134",
+            "unstructured": "Li, Y., Zhang, H., Liu, Y. & Wang, X. (2023). Deep learning-based intrusion detection for Internet of Things networks. IEEE Access, 11, 83645–83656. https://doi.org/10.1109/ACCESS.2023.3305568"
+          },
+          {
+            "key": "4135",
+            "doi-asserted-by": "crossref",
+            "unstructured": "López Navarrete, A., Cisternas Osorio, R., Díez Somavilla, R. & Cabrera Méndez, M. (2024). La interacción del usuario en TikTok: el engagement según la tipología de contenido. Tsafiqui - Revista Científica En Ciencias Sociales, 14(1). https://doi.org/10.29019/tsafiqui.v14i22.1200",
+            "DOI": "10.29019/tsafiqui.v14i22.1200"
+          },
+          {
+            "key": "4136",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Marinoni, C., Rizzo, M. & Zanetti, M. (2024). Fake profiles and time spent online during the COVID-19 pandemic: a real risk for cyberbullying? Current Psychology, 43, 26639–26647. https://doi.org/10.1007/s12144-024-05979-6",
+            "DOI": "10.1007/s12144-024-05979-6"
+          },
+          {
+            "key": "4137",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Martín, M., Price, R., Alqunaysi, R., Barrera, A., Macías, E., Ray, D. & Shannon, E. (2026). Características de la investigación cualitativa en comportamiento. Behavior Analysis in Practice, 1–18. https://doi.org/10.1007/s40617-025-01144-y",
+            "DOI": "10.1007/s40617-025-01144-y"
+          },
+          {
+            "key": "4138",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Meng, L., Kou, S., Duan, S. & Bie, Y. (2024). The impact of content characteristics of short-form video ads on consumer purchase behavior: Evidence from TikTok. Journal of Business Research, 183, 114874. https://doi.org/10.1016/j.jbusres.2024.114874",
+            "DOI": "10.1016/j.jbusres.2024.114874"
+          },
+          {
+            "key": "4139",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Moncada, J. & Miranda, A. (2025). La influencia de las redes sociales en los delitos cibernéticos y los desafíos para la Legislación en Ecuador. RICEd: Revista De Investigación En Ciencias De La Educación, 3(5), 15–28. https://doi.org/10.53877/riced3.5-2",
+            "DOI": "10.53877/riced3.5-2"
+          },
+          {
+            "key": "4140",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Munusamy, S., Syasyila, K., Shaari, A., Pitchan, M. A., Kamaluddin, M. & Jatnika, R. (2024). Psychological factors contributing to the creation and dissemination of fake news among social media users: A systematic review. BMC Psychology, 12(1), 673. https://doi.org/10.1186/s40359-024-02129-2",
+            "DOI": "10.1186/s40359-024-02129-2"
+          },
+          {
+            "key": "4141",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Orellana, G. & Cotera, G. (2025). Evaluación de privacidad y seguridad de datos de usuarios en redes sociales. Revista Científica Arbitrada Multidisciplinaria PENTACIENCIAS, 7(5), 87–110. https://doi.org/10.59169/pentaciencias.v7i5.1641",
+            "DOI": "10.59169/pentaciencias.v7i5.1641"
+          },
+          {
+            "key": "4142",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Prado, W. (2025). Tik Tok y el periodismo digital: Impacto en el consumo de noticias en Cuenca, Ecuador. Pacha: Revista De Estudios Contemporáneos Del Sur Global, 6(18), e250372. [https://doi.org/10.46652/pacha.v6i18.372",
+            "DOI": "10.46652/pacha.v6i18.372"
+          },
+          {
+            "key": "4143",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Qian, S., Shen, C. & Zhang, J. (2023). Fighting cheapfakes: Using a digital media literacy intervention to motivate reverse search of out-of-context visual misinformation. Journal of Computer-Mediated Communication, 28(1), zmac024. https://doi.org/10.1093/jcmc/zmac024",
+            "DOI": "10.1093/jcmc/zmac024"
+          },
+          {
+            "key": "4144",
+            "unstructured": "Reyes, A. (2025). Redes sociales: entre la información y la desinformación en la era digital. Universita Ciencia, 13(36), 84–94. https://dialnet.unirioja.es/servlet/articulo?codigo=10108565"
+          },
+          {
+            "key": "4145",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rodríguez, A. & Castillo, A. (2023). Perfiles laborales del Gestor de Redes Sociales y su importancia en el campo del Marketing digital: estudio de caso Ecuador. Comhumanitas, 14(2), 54–64. https://doi.org/10.31207/rch.v14i2.414",
+            "DOI": "10.31207/rch.v14i2.414"
+          },
+          {
+            "key": "4146",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rodríguez, D. & García, F. (2025). Protección al consumidor frente a las conductas de los influenciadores digitales en Colombia. Revista En-Contexto, 13(23), 385–405. https://doi.org/10.53995/23463279.1913",
+            "DOI": "10.53995/23463279.1913"
+          },
+          {
+            "key": "4147",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rubio, F., González, E. & Olivo, J. (2024). Adolescentes en la era digital. Desvelando las relaciones entre las redes sociales, el autocontrol, la autoestima y las habilidades sociales. Ciencia y Educación, 8(3), 39–58. https://doi.org/10.22206/cyed.2024.v8i3.3209",
+            "DOI": "10.22206/cyed.2024.v8i3.3209"
+          },
+          {
+            "key": "4148",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Sarkar, G. & Shukla, S. (2023). Behavioral analysis of cybercrime: Paving the way for effective policing strategies. Journal of Economic Criminology, 2, 100034. https://doi.org/10.1016/j.jeconc.2023.100034",
+            "DOI": "10.1016/j.jeconc.2023.100034"
+          },
+          {
+            "key": "4149",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Taj, S. & Khan, Z. (2024). Creation of fake identities on social media for pleasure seeking: An analysis of Facebook. International Journal of Data Science and Analysis, 10(6), 129–140. https://doi.org/10.11648/j.ijdsa.20241006.12",
+            "DOI": "10.11648/j.ijdsa.20241006.12"
+          },
+          {
+            "key": "4150",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Thomas, A. (2023). Analysis on cyber crimes and preventive measures. International Journal for Research in Applied Science and Engineering Technology (IJRASET), 11(5), 3738–3744. https://doi.org/10.22214/ijraset.2023.52481",
+            "DOI": "10.22214/ijraset.2023.52481"
+          },
+          {
+            "key": "4151",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Villavicencio, C., Rodríguez, A., Vélez, Á. & Zambrano, A. (2025). Riesgo en el uso de las redes sociales. Revista Científica De Informática ENCRIPTAR, 8(16), 109–130. https://doi.org/10.56124/encriptar.v8i16.006",
+            "DOI": "10.56124/encriptar.v8i16.006"
+          },
+          {
+            "key": "4152",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Vintimilla, R. & Erazo, C. (2025). Impact of TikTok interactive content strategies on university engagement. Runas: Journal of Education and Culture, 6(12), e250238. https://doi.org/10.46652/runas.v6i12.238",
+            "DOI": "10.46652/runas.v6i12.238"
+          },
+          {
+            "key": "4153",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wang, Z. (2025). Negotiation, transformation, and reinforcement: The role of social media in shaping collective identity. Proceedings of ICADSS 2025 Symposium, 15–21. https://doi.org/10.54254/2753-7064/2025.BJ26816",
+            "DOI": "10.54254/2753-7064/2025.BJ26816"
+          },
+          {
+            "key": "4154",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wekesa, E., DeCusatis, C. & Zhu, A. (2023). A Black Box Comparison of Machine Learning Reverse Image Search for Cybersecurity OSINT Applications. Electronics, 12(23), 4822. https://doi.org/10.3390/electronics12234822",
+            "DOI": "10.3390/electronics12234822"
+          },
+          {
+            "key": "4155",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Wu, J., Guo, J. & Hooi, B. (2023). Fake news in sheep’s clothing: Robust fake news detection against LLM-empowered style attacks. arXiv. https://doi.org/10.48550/arXiv.2310.10830",
+            "DOI": "10.1145/3637528.3671977"
+          },
+          {
+            "key": "4156",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Yadav, A., Kumar, A. & Singh, V. (2023). Open-source intelligence: a comprehensive review of the current state, applications and future perspectives in cyber security. Artificial Intelligence Review, 1–32. https://doi.org/10.1007/s10462-023-10454-y",
+            "DOI": "10.1007/s10462-023-10454-y"
+          },
+          {
+            "key": "4157",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Yang, K., Singh, D. & Menczer, F. (2024). Characteristics and Prevalence of Fake Social Media Profiles with AI-generated Faces. Journal of Online Trust and Safety, 2(4). https://doi.org/10.54501/jots.v2i4.197",
+            "DOI": "10.54501/jots.v2i4.197"
+          },
+          {
+            "key": "4158",
+            "unstructured": "Zalazar, A. (2024). El Uso de Técnicas de Ingeniería Social Integradas a Inteligencia Artificial para Atacar Objetivos. JAIIO, Jornadas Argentinas De Informática, 10(7), 44–52. https://revistas.unlp.edu.ar/JAIIO/article/view/17897"
+          },
+          {
+            "key": "4159",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Zhang, Z., Qiu, K. & Ye, Y. (2025). Influence of audiovisual features of short video advertising on consumer engagement behaviors: Evidence from TikTok. Journal of Business Research, 201, 115662. https://doi.org/10.1016/j.jbusres.2025.115662",
+            "DOI": "10.1016/j.jbusres.2025.115662"
+          },
+          {
+            "key": "4160",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Zhou, J., Zhang, D., Zhu, J., Wang, F. & Bi, C. (2025). Speaking like Humans, Spreading like Machines: A Study on Opinion Manipulation by Artificial-Intelligence-Generated Content Driving the Internet Water Army on Social Media. Information, 16(10), 850. https://doi.org/10.3390/info16100850",
+            "DOI": "10.3390/info16100850"
+          },
+          {
+            "key": "4161",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Zouzou, Y. & Varol, O. (2024). Unsupervised detection of coordinated fake-follower campaigns on social media. EPJ Data Science, 13(1), 62. [https://doi.org/10.1140/epjds/s13688-024-00499-6",
+            "DOI": "10.1140/epjds/s13688-024-00499-6"
+          }
+        ],
+        "container-title": [
+          "Visión Académica"
+        ],
+        "link": [
+          {
+            "URL": "https://visionacademica.com/index.php/files/article/download/164/231",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://visionacademica.com/index.php/files/article/download/164/231",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              26
+            ]
+          ],
+          "date-time": "2026-08-26T16:14:15Z",
+          "timestamp": 1787760855000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://visionacademica.com/index.php/files/article/view/164"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2029,
+              8,
+              25
+            ]
+          ]
+        },
+        "references-count": 47,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                7,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.70577/30phrd87",
+        "ISSN": [
+          "3103-1536"
+        ],
+        "issn-type": [
+          {
+            "value": "3103-1536",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2029,
+              8,
+              25
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T12:26:12Z",
+          "timestamp": 1747225572120,
+          "version": "3.40.5"
+        },
+        "reference-count": 0,
+        "publisher": "Instituto Andaluz de Administracion Publica",
+        "issue": "103",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "raap"
+        ],
+        "abstract": "<jats:p>Bibliografía sobre derecho autonómico. Enero– Abril 2019\r\n </jats:p>",
+        "DOI": "10.46735/raap.n103.1092",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              8,
+              11
+            ]
+          ],
+          "date-time": "2020-08-11T10:56:50Z",
+          "timestamp": 1597143410000
+        },
+        "page": "477-477",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Bibliografía sobre derecho autonómico"
+        ],
+        "prefix": "10.46735",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-4020-5153",
+            "authenticated-orcid": false,
+            "given": "Javier E.",
+            "family": "Quesada Lumbreras",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "26145",
+        "published-online": {
+          "date-parts": [
+            [
+              2029,
+              4,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Revista Andaluza de Administración Pública"
+        ],
+        "link": [
+          {
+            "URL": "https://ws086.juntadeandalucia.es/revistaselectronicas/raap/article/download/1092/1091",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://ws086.juntadeandalucia.es/revistaselectronicas/raap/article/download/1092/1091",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              1,
+              24
+            ]
+          ],
+          "date-time": "2023-01-24T11:34:58Z",
+          "timestamp": 1674560098000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://ws086.juntadeandalucia.es/revistaselectronicas/raap/article/view/1092"
+          }
+        },
+        "subtitle": [
+          "diciembre 2018 – marzo 2019"
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2029,
+              4,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "103",
+          "published-online": {
+            "date-parts": [
+              [
+                2019,
+                4,
+                30
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.46735/raap.n103.1092",
+        "ISSN": [
+          "2695-8309",
+          "1130-376X"
+        ],
+        "issn-type": [
+          {
+            "type": "electronic",
+            "value": "2695-8309"
+          },
+          {
+            "type": "print",
+            "value": "1130-376X"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2029,
+              4,
+              30
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 5,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

@@ -33,6 +33,9 @@ known-first-party = ["vld"]
 runtime-evaluated-base-classes = [
     "pydantic.BaseModel",
     "pydantic_settings.BaseSettings",
+    "vld.crossref.models.CrossrefModel",
+    "vld.crossref.models.QueryModel",
+    "vld.crossref.models.QueryPart",
 ]
 runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.inject"]
 
@@ -44,6 +47,8 @@ runtime-evaluated-decorators = ["dishka.provide", "dishka.integrations.fastapi.i
 "apps/migrator/src/vld/migrator/ops.py" = ["hardcoded-sql-expression"]
 # Alembic loads revisions by path: their folders are not packages.
 "**/migrations/versions/*" = ["implicit-namespace-package"]
+# Console tools of a package: printed output, run by path.
+"packages/*/scripts/**" = ["implicit-namespace-package", "print"]
 "apps/migrator/src/vld/migrator/_backup.py" = [
     "subprocess-without-shell-equals-true",
     "suspicious-subprocess-import",

@@ -218,3 +218,5 @@ __marimo__/
 .streamlit/secrets.toml
 frontend/*
 private/
+# Files saved by `vld-crossref ... --save-json`.
+crossref-output/
